@@ -3,7 +3,7 @@ import { ButtonStyled, Toggle } from '@modrinth/ui'
 import { invoke } from '@tauri-apps/api/core'
 import { ref } from 'vue'
 
-import { openPath, restartApp } from '@/helpers/utils.js'
+import { openPath, restartApp } from '@/helpers/utils'
 
 interface PluginData {
 	id: string

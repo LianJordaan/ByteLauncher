@@ -1,3 +1,32 @@
+# PatchedModrinth
+
+A personal fork of the [Modrinth App](https://modrinth.com/app) (`modrinth/code`) that bakes in a **Vencord-style plugin system** — toggle plugins in-app that hide ads, run the same Minecraft instance multiple times, or apply custom CSS/themes. Plugins load on every launch with **no debug port and no background process**.
+
+- **Drop-in replacement.** The installer keeps the exact same executable name (`Modrinth App.exe`) and app identifier as the official app, so it upgrades an existing Modrinth install in place and **never touches your data** — instances, accounts, settings and worlds live separately in `%AppData%\ModrinthApp\`.
+- **Stays current.** A scheduled workflow merges each new upstream Modrinth _release_ and publishes a fork build automatically.
+- **Built-in plugins.** Hide Ads, Multi-Launch, and Custom CSS — manage them in **Settings → Plugins**.
+
+Add your own plugin by dropping a folder into your plugins directory (open it from **Settings → Plugins → Open plugins folder**) containing a `manifest.json` plus its referenced `.js`/`.css`:
+
+```json
+{
+	"id": "my-plugin",
+	"name": "My Plugin",
+	"description": "What it does.",
+	"version": "1.0.0",
+	"author": "you",
+	"js": "index.js",
+	"css": "styles.css",
+	"enabledByDefault": false
+}
+```
+
+See **[MAINTAINING.md](MAINTAINING.md)** for how the fork is built, released, kept in sync with upstream, and how the plugin system works.
+
+> **Unofficial.** This is a personal build and is **not affiliated with or endorsed by Modrinth (Rinth, Inc.)**. All credit for the underlying app goes to the Modrinth team. Source is kept public per the upstream [COPYING.md](COPYING.md).
+
+---
+
 # ![Modrinth Monorepo Cover](/.github/assets/monorepo_cover.png)
 
 ![Issues](https://img.shields.io/github/issues-raw/Modrinth/code?color=c78aff&label=issues&style=for-the-badge)

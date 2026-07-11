@@ -1,0 +1,81 @@
+name: Sync with upstream Modrinth
+
+# Runs on a schedule and only acts when Modrinth publishes a NEW release.
+# When it finds one it merges that release tag into `main` and pushes a fork
+# tag (v<upstream>-fork), which triggers fork-release.yml to build & publish.
+#
+# For the tag push to trigger fork-release.yml, add a repo secret RELEASE_PAT
+# (a fine-grained PAT with Contents: read & write). Without it the merge still
+# happens but you must run fork-release.yml manually (the default GITHUB_TOKEN
+# cannot trigger another workflow).
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  sync:
+    name: Check upstream & merge
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out fork
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.RELEASE_PAT || secrets.GITHUB_TOKEN }}
+
+      - name: Configure git
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Merge upstream release if newer
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          git remote add upstream https://github.com/modrinth/code.git
+          git fetch upstream --tags --quiet
+
+          UPSTREAM_TAG=$(curl -s -H "Accept: application/vnd.github+json" \
+            https://api.github.com/repos/modrinth/code/releases/latest | jq -r '.tag_name')
+          echo "Upstream latest release: ${UPSTREAM_TAG}"
+          if [ -z "${UPSTREAM_TAG}" ] || [ "${UPSTREAM_TAG}" = "null" ]; then
+            echo "Could not determine upstream release; skipping."
+            exit 0
+          fi
+
+          MARKER=.github/last-upstream-release
+          LAST=""
+          [ -f "${MARKER}" ] && LAST=$(cat "${MARKER}")
+          if [ "${UPSTREAM_TAG}" = "${LAST}" ]; then
+            echo "Already synced to ${UPSTREAM_TAG}; nothing to do."
+            exit 0
+          fi
+
+          echo "Merging upstream ${UPSTREAM_TAG} into main..."
+          if ! git merge --no-edit "${UPSTREAM_TAG}"; then
+            git merge --abort || true
+            gh issue create \
+              --title "Upstream sync conflict: ${UPSTREAM_TAG}" \
+              --body "Automatic merge of upstream \`${UPSTREAM_TAG}\` into \`main\` hit conflicts and needs manual resolution." \
+              || true
+            exit 1
+          fi
+
+          mkdir -p .github
+          echo "${UPSTREAM_TAG}" > "${MARKER}"
+          git add "${MARKER}"
+          git commit -m "chore: sync with upstream ${UPSTREAM_TAG}" || true
+          git push origin HEAD:main
+
+          FORK_TAG="${UPSTREAM_TAG}-fork"
+          echo "Tagging fork release ${FORK_TAG}"
+          git tag "${FORK_TAG}"
+          git push origin "${FORK_TAG}"

@@ -1,0 +1,83 @@
+name: Fork release (Windows)
+
+# Builds the Windows installer with the BASE tauri.conf.json (unsigned, no
+# updater bundle — so no DigiCert/minisign secrets are required) and publishes
+# it as a GitHub Release. Enable the bundled auto-updater later by generating a
+# Tauri signing key and switching to tauri-release.conf.json (see MAINTAINING.md).
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Release version, e.g. v0.15.10-fork.1'
+        required: true
+        type: string
+
+concurrency:
+  group: fork-release-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build & publish Windows installer
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Determine version
+        id: version
+        shell: bash
+        run: |
+          if [ -n "${{ inputs.version }}" ]; then
+            TAG="${{ inputs.version }}"
+          else
+            TAG="${{ github.ref_name }}"
+          fi
+          echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
+          echo "number=${TAG#v}" >> "$GITHUB_OUTPUT"
+
+      - name: Setup Rust toolchain
+        uses: actions-rust-lang/setup-rust-toolchain@v1
+        with:
+          rustflags: ''
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - name: Prepare app-lib environment
+        shell: bash
+        run: cp packages/app-lib/.env.prod packages/app-lib/.env
+
+      - name: Set application version
+        shell: bash
+        run: |
+          node -e "const fs=require('fs');const f='apps/app-frontend/package.json';const p=JSON.parse(fs.readFileSync(f));p.version=process.argv[1];fs.writeFileSync(f,JSON.stringify(p,null,'\t')+'\n')" "${{ steps.version.outputs.number }}"
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build Windows app (unsigned NSIS, no updater)
+        run: pnpm --filter=@modrinth/app run tauri build --bundles nsis
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.tag }}
+          name: PatchedModrinth ${{ steps.version.outputs.tag }}
+          generate_release_notes: true
+          files: |
+            target/release/bundle/nsis/*-setup.exe
