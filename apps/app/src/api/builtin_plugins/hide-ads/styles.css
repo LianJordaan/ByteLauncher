@@ -1,0 +1,9 @@
+/* Collapse the in-app ad placeholder. */
+.ad-parent {
+	display: none !important;
+}
+
+/* Hide the "Upgrade to Modrinth+" upsell that sits directly above the ad. */
+a[href="https://modrinth.plus?app"] {
+	display: none !important;
+}

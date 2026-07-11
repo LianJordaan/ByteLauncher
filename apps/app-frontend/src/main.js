@@ -12,6 +12,7 @@ import App from '@/App.vue'
 import { overlayScrollbarsDirective } from '@/directives/overlayScrollbars'
 import i18nPlugin from '@/plugins/i18n'
 import i18nDebugPlugin from '@/plugins/i18n-debug'
+import { loadPlugins } from '@/plugins/plugin-loader'
 import router from '@/routes'
 
 const vueScan = new VueScanPlugin({
@@ -55,3 +56,6 @@ app.use(i18nDebugPlugin)
 app.directive('overlay-scrollbars', overlayScrollbarsDirective)
 
 app.mount('#app')
+
+// PatchedModrinth: load user/built-in plugins after the app is mounted.
+loadPlugins()

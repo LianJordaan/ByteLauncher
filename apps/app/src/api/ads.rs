@@ -430,6 +430,13 @@ pub async fn init_ads_window<R: Runtime>(
 ) -> crate::api::Result<()> {
     use tauri::WebviewUrl;
 
+    // PatchedModrinth: honor the built-in "hide-ads" plugin. When it is enabled
+    // we never create the "ads-window" webview; every other ads code path
+    // no-ops when that webview is absent, so this neutralizes ads cleanly.
+    if crate::api::addons::is_plugin_enabled("hide-ads").await {
+        return Ok(());
+    }
+
     let state = app.state::<RwLock<AdsState>>();
     let mut state = state.write().await;
 

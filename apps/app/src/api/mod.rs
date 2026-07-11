@@ -17,6 +17,7 @@ pub mod shortcuts;
 pub mod tags;
 pub mod utils;
 
+pub mod addons;
 pub mod ads;
 #[cfg(target_os = "macos")]
 mod ads_occlusion_macos;

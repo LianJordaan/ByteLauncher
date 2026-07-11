@@ -6,6 +6,7 @@ import {
 	LanguagesIcon,
 	ModrinthIcon,
 	PaintbrushIcon,
+	PlugIcon,
 	SettingsIcon,
 	ShieldIcon,
 	ToggleRightIcon,
@@ -28,6 +29,7 @@ import DefaultInstanceSettings from '@/components/ui/settings/DefaultInstanceSet
 import FeatureFlagSettings from '@/components/ui/settings/FeatureFlagSettings.vue'
 import JavaSettings from '@/components/ui/settings/JavaSettings.vue'
 import LanguageSettings from '@/components/ui/settings/LanguageSettings.vue'
+import PluginsSettings from '@/components/ui/settings/PluginsSettings.vue'
 import PrivacySettings from '@/components/ui/settings/PrivacySettings.vue'
 import ResourceManagementSettings from '@/components/ui/settings/ResourceManagementSettings.vue'
 import { get, set } from '@/helpers/settings.ts'
@@ -94,6 +96,14 @@ const tabs = [
 		}),
 		icon: GaugeIcon,
 		content: ResourceManagementSettings,
+	},
+	{
+		name: defineMessage({
+			id: 'app.settings.tabs.plugins',
+			defaultMessage: 'Plugins',
+		}),
+		icon: PlugIcon,
+		content: PluginsSettings,
 	},
 	{
 		name: commonSettingsMessages.featureFlags,
