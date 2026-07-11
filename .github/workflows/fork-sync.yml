@@ -73,9 +73,15 @@ jobs:
           echo "${UPSTREAM_TAG}" > "${MARKER}"
           git add "${MARKER}"
           git commit -m "chore: sync with upstream ${UPSTREAM_TAG}" || true
-          git push origin HEAD:main
 
+          # Push the fork tag FIRST so fork-release.yml fires even if the main
+          # push is interrupted; only then advance the sentinel on main, so an
+          # earlier failure leaves the marker unchanged and the next run retries.
           FORK_TAG="${UPSTREAM_TAG}-fork"
           echo "Tagging fork release ${FORK_TAG}"
-          git tag "${FORK_TAG}"
+          if ! git rev-parse -q --verify "refs/tags/${FORK_TAG}" >/dev/null; then
+            git tag "${FORK_TAG}"
+          fi
           git push origin "${FORK_TAG}"
+
+          git push origin HEAD:main

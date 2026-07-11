@@ -10,10 +10,10 @@
 
 use std::collections::HashMap;
 use std::path::PathBuf;
-use std::sync::atomic::{AtomicBool, Ordering};
 
 use serde::{Deserialize, Serialize};
 use tauri::plugin::TauriPlugin;
+use tokio::sync::OnceCell;
 
 pub fn init<R: tauri::Runtime>() -> TauriPlugin<R> {
     tauri::plugin::Builder::new("addons")
@@ -163,7 +163,9 @@ pub async fn get_plugins_dir() -> crate::api::Result<String> {
 }
 
 /// Whether a plugin is currently enabled. Used natively (e.g. by the ads
-/// module) to honor plugin toggles without a frontend round-trip.
+/// module) to honor plugin toggles without a frontend round-trip. Only the
+/// ads module calls this, and that module is not built on Linux.
+#[cfg(not(target_os = "linux"))]
 pub async fn is_plugin_enabled(id: &str) -> bool {
     ensure_seeded().await;
 
@@ -244,15 +246,17 @@ const BUILTINS: &[Builtin] = &[
     },
 ];
 
-static SEEDED: AtomicBool = AtomicBool::new(false);
+static SEEDED: OnceCell<()> = OnceCell::const_new();
 
 async fn ensure_seeded() {
-    if SEEDED.swap(true, Ordering::SeqCst) {
-        return;
-    }
-    if let Err(e) = seed_builtin_plugins().await {
+    // get_or_try_init makes every concurrent caller await the same seeding
+    // future, and only marks the cell initialized on success (so a failed seed
+    // is retried on the next call). This avoids reading a half-written dir.
+    let result = SEEDED
+        .get_or_try_init(|| async { seed_builtin_plugins().await })
+        .await;
+    if let Err(e) = result {
         tracing::warn!("Failed to seed built-in plugins: {e}");
-        SEEDED.store(false, Ordering::SeqCst);
     }
 }
 

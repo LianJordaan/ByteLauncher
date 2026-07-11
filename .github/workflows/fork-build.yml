@@ -20,6 +20,8 @@ on:
       - 'packages/assets/**'
       - 'packages/ui/**'
       - 'packages/utils/**'
+      - 'packages/api-client/**'
+      - 'packages/daedalus/**'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
