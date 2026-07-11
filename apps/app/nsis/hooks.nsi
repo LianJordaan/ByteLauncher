@@ -31,6 +31,14 @@
 Var /GLOBAL OldInstallDir
 
 !macro NSIS_HOOK_PREINSTALL
+    ; PatchedModrinth: reassure the user that replacing an existing install keeps
+    ; all their data. Instances, accounts, settings and worlds live in %AppData%,
+    ; which the installer never touches. Auto-continues on silent/updater runs.
+    ${If} ${FileExists} "$INSTDIR\${MAINBINARYNAME}.exe"
+        MessageBox MB_ICONINFORMATION|MB_OKCANCEL "PatchedModrinth will replace your existing installation in place.$\r$\n$\r$\nYour data - instances, accounts, settings and worlds - is stored separately and will NOT be touched.$\r$\n$\r$\nClick OK to continue, or Cancel to abort." /SD IDOK IDOK +2
+        Abort
+    ${EndIf}
+
     SetShellVarContext all
     ${If} ${FileExists} "$SMPROGRAMS\${PRODUCTNAME}.lnk"
         UserInfo::GetAccountType
