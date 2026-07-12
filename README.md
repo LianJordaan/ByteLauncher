@@ -1,8 +1,8 @@
-# PatchedModrinth
+# ByteLauncher
 
 A personal fork of the [Modrinth App](https://modrinth.com/app) (`modrinth/code`) that bakes in a **Vencord-style plugin system** — toggle plugins in-app that hide ads, run the same Minecraft instance multiple times, or apply custom CSS/themes. Plugins load on every launch with **no debug port and no background process**.
 
-- **Drop-in replacement.** Releases ship the standalone `Modrinth App.exe` (no installer). Close Modrinth, then replace the exe at `%LOCALAPPDATA%\Modrinth App\Modrinth App.exe` with the downloaded one — that's it. Your data (instances, accounts, settings, worlds) lives separately in `%AppData%\ModrinthApp\` and is **never touched**.
+- **Keeps your data.** Releases ship a standalone `ByteLauncher.exe` (no installer) — put it wherever you like (e.g. `%LOCALAPPDATA%\ByteLauncher\`). It reads the **same data directory** as the Modrinth App (`%AppData%\ModrinthApp\`), so your instances, accounts, settings and worlds are all there automatically and are **never touched**. ByteLauncher and the Modrinth App can even sit side by side.
 - **Stays current.** A scheduled workflow merges each new upstream Modrinth _release_ and publishes a fork build automatically.
 - **Built-in plugins.** Hide Ads, Multi-Launch, and Custom CSS — manage them in **Settings → Plugins**.
 
@@ -27,7 +27,7 @@ See **[MAINTAINING.md](MAINTAINING.md)** for how the fork is built, released, ke
 
 ---
 
-# ![Modrinth Monorepo Cover](/.github/assets/monorepo_cover.png)
+# Modrinth Monorepo
 
 ![Issues](https://img.shields.io/github/issues-raw/Modrinth/code?color=c78aff&label=issues&style=for-the-badge)
 ![Pull Requests](https://img.shields.io/github/issues-pr-raw/Modrinth/code?color=c78aff&label=PRs&style=for-the-badge)

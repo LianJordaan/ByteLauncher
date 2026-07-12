@@ -1,4 +1,4 @@
-//! Plugin ("addons") system for the PatchedModrinth fork.
+//! Plugin ("addons") system for the ByteLauncher fork.
 //!
 //! Plugins live in `<settings_dir>/plugins/<id>/` as a folder containing a
 //! `manifest.json` plus the referenced `.js`/`.css` files. Enabled state is
@@ -168,7 +168,7 @@ fn io_other<E: std::fmt::Display>(e: E) -> std::io::Error {
     std::io::Error::new(std::io::ErrorKind::Other, e.to_string())
 }
 
-/// Downloads a new `Modrinth App.exe` from `download_url` (which must be an
+/// Downloads a new `ByteLauncher.exe` from `download_url` (which must be an
 /// HTTPS GitHub URL), verifies it against `expected_sha256` when provided,
 /// swaps it in for the currently running executable (keeping the old one as
 /// `*.old.exe`), and restarts. The swap is guarded so the app is never left
@@ -201,12 +201,12 @@ pub async fn fork_apply_update<R: tauri::Runtime>(
         .parent()
         .ok_or_else(|| io_other("executable has no parent directory"))?
         .to_path_buf();
-    let staged = dir.join("Modrinth App.update.exe");
-    let backup = dir.join("Modrinth App.old.exe");
+    let staged = dir.join("ByteLauncher.update.exe");
+    let backup = dir.join("ByteLauncher.old.exe");
 
     let bytes = reqwest::Client::new()
         .get(url)
-        .header(reqwest::header::USER_AGENT, "PatchedModrinth-Updater")
+        .header(reqwest::header::USER_AGENT, "ByteLauncher-Updater")
         .send()
         .await
         .map_err(io_other)?
@@ -263,7 +263,7 @@ pub async fn fork_apply_update<R: tauri::Runtime>(
 async fn cleanup_stale_update_files() {
     if let Ok(exe) = std::env::current_exe() {
         if let Some(dir) = exe.parent() {
-            let _ = tokio::fs::remove_file(dir.join("Modrinth App.old.exe")).await;
+            let _ = tokio::fs::remove_file(dir.join("ByteLauncher.old.exe")).await;
         }
     }
 }

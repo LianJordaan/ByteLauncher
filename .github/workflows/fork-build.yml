@@ -1,6 +1,6 @@
 name: Fork build (Windows)
 
-# Minimal Windows-only build for the PatchedModrinth fork.
+# Minimal Windows-only build for the ByteLauncher fork.
 # Builds with the BASE tauri.conf.json (no --config), so there is NO code
 # signing and NO auto-updater bundle here — that keeps this pipeline free of
 # secrets (DigiCert / minisign) so we can prove the toolchain builds first.
@@ -64,10 +64,10 @@ jobs:
         shell: bash
         run: |
           mkdir -p dist
-          if [ -f "target/release/Modrinth App.exe" ]; then
-            cp "target/release/Modrinth App.exe" "dist/Modrinth App.exe"
+          if [ -f "target/release/ByteLauncher.exe" ]; then
+            cp "target/release/ByteLauncher.exe" "dist/ByteLauncher.exe"
           elif [ -f "target/release/theseus_gui.exe" ]; then
-            cp "target/release/theseus_gui.exe" "dist/Modrinth App.exe"
+            cp "target/release/theseus_gui.exe" "dist/ByteLauncher.exe"
           else
             echo "Could not find the built executable in target/release:" >&2
             ls -la target/release/*.exe >&2 || true
@@ -77,6 +77,6 @@ jobs:
       - name: Upload standalone exe
         uses: actions/upload-artifact@v4
         with:
-          name: modrinth-app-exe
-          path: dist/Modrinth App.exe
+          name: bytelauncher-exe
+          path: dist/ByteLauncher.exe
           if-no-files-found: error

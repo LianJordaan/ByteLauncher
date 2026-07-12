@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 200" fill="none">
+	<defs>
+		<linearGradient id="blLogoTile" x1="143" y1="143" x2="369" y2="369" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#7c5cff" />
+			<stop offset="1" stop-color="#4b2fb0" />
+		</linearGradient>
+	</defs>
+	<g transform="translate(4 6) scale(0.363)">
+		<path
+			d="M256 26 L455 141 L455 371 L256 486 L57 371 L57 141 Z"
+			fill="#6c4bff"
+			fill-opacity="0.10"
+			stroke="#8b6fff"
+			stroke-width="22"
+			stroke-linejoin="round"
+		/>
+		<rect x="143" y="143" width="226" height="226" rx="54" fill="url(#blLogoTile)" />
+		<text
+			x="256"
+			y="260"
+			text-anchor="middle"
+			dominant-baseline="central"
+			font-family="Inter, 'Segoe UI', Arial, sans-serif"
+			font-weight="700"
+			font-size="172"
+			fill="#ffffff"
+		>B</text>
+	</g>
+	<text
+		x="214"
+		y="133"
+		font-family="Inter, 'Segoe UI', Arial, sans-serif"
+		font-weight="700"
+		font-size="108"
+		letter-spacing="-2"
+	><tspan fill="currentColor">Byte</tspan><tspan fill="var(--color-brand)">Launcher</tspan></text>
+</svg>

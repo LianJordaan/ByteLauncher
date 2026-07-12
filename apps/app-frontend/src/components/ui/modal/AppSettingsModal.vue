@@ -4,13 +4,13 @@ import {
 	GameIcon,
 	GaugeIcon,
 	LanguagesIcon,
-	ModrinthIcon,
 	PaintbrushIcon,
 	PlugIcon,
 	SettingsIcon,
 	ShieldIcon,
 	ToggleRightIcon,
 } from '@modrinth/assets'
+import ByteLauncherMark from '@/assets/bytelauncher_mark.svg?component'
 import {
 	commonMessages,
 	commonSettingsMessages,
@@ -185,10 +185,11 @@ const messages = defineMessages({
 						}"
 						@click="devModeCount"
 					>
-						<ModrinthIcon class="w-6 h-6" />
+						<ByteLauncherMark class="w-6 h-6" />
 					</button>
 					<div class="max-w-[200px]">
-						<p class="m-0">Modrinth App {{ version }}</p>
+						<p class="m-0">ByteLauncher {{ version }}</p>
+						<p class="m-0 text-secondary">Built on Modrinth</p>
 						<p class="m-0">
 							<span v-if="osPlatform === 'macos'">macOS</span>
 							<span v-else class="capitalize">{{ osPlatform }}</span>

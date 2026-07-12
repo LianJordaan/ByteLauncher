@@ -1,12 +1,12 @@
 import { getVersion } from '@tauri-apps/api/app'
 import { openUrl } from '@tauri-apps/plugin-opener'
 
-// PatchedModrinth: checks the fork's latest GitHub release on startup and shows
+// ByteLauncher: checks the fork's latest GitHub release on startup and shows
 // a dismissible banner when a newer version is available. This is the update
 // path for builds that ship without the bundled Tauri updater. It is fully
 // self-contained (plain DOM) so it cannot interfere with Vue rendering.
 
-const REPO = 'LianJordaan/PatchedModrinth'
+const REPO = 'LianJordaan/ByteLauncher'
 const BANNER_ID = 'mr-upstream-update-banner'
 const DISMISS_KEY = 'mr-dismissed-update-version'
 
@@ -34,7 +34,7 @@ function showBanner(version, url) {
 	].join(';')
 
 	const text = document.createElement('span')
-	text.textContent = `PatchedModrinth ${version} is available.`
+	text.textContent = `ByteLauncher ${version} is available.`
 
 	const view = document.createElement('button')
 	view.textContent = 'View release'
@@ -44,8 +44,8 @@ function showBanner(version, url) {
 		'border-radius:6px',
 		'cursor:pointer',
 		'font-weight:600',
-		'background:var(--color-brand, #1bd96a)',
-		'color:#000',
+		'background:var(--color-brand, #6c4bff)',
+		'color:#fff',
 	].join(';')
 	view.addEventListener('click', () => {
 		openUrl(url).catch((e) => console.error('[update-check] failed to open release', e))

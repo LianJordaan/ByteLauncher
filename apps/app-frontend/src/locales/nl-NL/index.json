@@ -51,7 +51,7 @@
     "message": "Geavanceerde weergave"
   },
   "app.appearance-settings.color-theme.description": {
-    "message": "Selecteer je voorkeur kleurenthema voor de Modrinth App."
+    "message": "Selecteer je voorkeur kleurenthema voor de ByteLauncher."
   },
   "app.appearance-settings.color-theme.title": {
     "message": "Kleurenthema"
@@ -468,13 +468,13 @@
     "message": "Skinkiezer"
   },
   "app.update-popup.body.download-complete": {
-    "message": "Modrinth App v{version} is klaar met downloaden. Herlaad om nu te updaten, of automatisch wanneer je de Modrinth App afsluit."
+    "message": "ByteLauncher v{version} is klaar met downloaden. Herlaad om nu te updaten, of automatisch wanneer je de ByteLauncher afsluit."
   },
   "app.update-popup.body.linux": {
-    "message": "Modrinth App v{version} is beschikbaar. Gebruik je pakketbeheerder om te updaten voor de laatste functies en oplossingen!"
+    "message": "ByteLauncher v{version} is beschikbaar. Gebruik je pakketbeheerder om te updaten voor de laatste functies en oplossingen!"
   },
   "app.update-popup.body.metered": {
-    "message": "Modrinth App v{version} is nu beschikbaar! Omdat je nu op een netwerk met datalimiet zit, is de download niet automatisch gestart."
+    "message": "ByteLauncher v{version} is nu beschikbaar! Omdat je nu op een netwerk met datalimiet zit, is de download niet automatisch gestart."
   },
   "app.update-popup.changelog": {
     "message": "Wijzigingen"

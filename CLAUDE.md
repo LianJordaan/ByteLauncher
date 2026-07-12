@@ -1,8 +1,8 @@
-# PatchedModrinth — fork of the Modrinth App (READ THIS FIRST)
+# ByteLauncher — fork of the Modrinth App (READ THIS FIRST)
 
-This repository is **PatchedModrinth**, a personal fork of `modrinth/code` (the Modrinth monorepo — upstream's own docs begin at the `# Modrinth Monorepo` heading further down). It bakes a **Vencord-style plugin system**, an **in-app self-updater**, and **automatic upstream syncing** into the Modrinth desktop app (`apps/app` + `apps/app-frontend`).
+This repository is **ByteLauncher**, a personal fork of `modrinth/code` (the Modrinth monorepo — upstream's own docs begin at the `# Modrinth Monorepo` heading further down). It bakes a **Vencord-style plugin system**, an **in-app self-updater**, and **automatic upstream syncing** into the Modrinth desktop app (`apps/app` + `apps/app-frontend`).
 
-- **Owner:** GitHub **LianJordaan**. **Fork repo:** `git@github.com:LianJordaan/PatchedModrinth.git` (public). **Upstream remote:** `https://github.com/modrinth/code.git`.
+- **Owner:** GitHub **LianJordaan**. **Fork repo:** `git@github.com:LianJordaan/ByteLauncher.git` (public). **Upstream remote:** `https://github.com/modrinth/code.git`.
 - **The user is a capable hobbyist, not a Rust/Vue expert — explain things clearly and don't assume deep framework knowledge.**
 - The authoritative engineering reference is **[MAINTAINING.md](MAINTAINING.md)**; the user-facing overview is **[README.md](README.md)**. Keep all three in sync.
 
@@ -11,7 +11,7 @@ This repository is **PatchedModrinth**, a personal fork of `modrinth/code` (the 
 A "Vencord for the Modrinth App": a forked Modrinth desktop app (Tauri v2 + WebView2) with a built-in plugin system (toggle in-app: hide ads, run the same instance multiple times, custom CSS/themes) that:
 
 - loads plugins on every launch with **no debug port and no background process**;
-- ships as a **drop-in `Modrinth App.exe`** (no installer) that replaces an existing Modrinth install with **zero data loss** — same exe name + app identifier ⇒ same `%AppData%\ModrinthApp\` data dir;
+- ships as a **standalone `ByteLauncher.exe`** (no installer) that reads the **same `%AppData%\ModrinthApp\` data dir** as an existing Modrinth install (via the unchanged bundle `identifier`), so instances/accounts/settings carry over with **zero data loss**;
 - **stays synced with upstream automatically** and **updates itself in-app**.
 
 ## Working conventions (IMPORTANT — read before acting)
@@ -42,20 +42,30 @@ Everything works end-to-end and is shipping. Releases are standalone `Modrinth A
 - **Multi-Launch** (opt-in, native — manifest-only, no JS) — when `playing && enabledPluginIds.has('multi-launch')`, `apps/app-frontend/src/pages/instance/Index.vue` shows a native **Play** button next to **Stop** to launch another copy. The core dedupe guard in `packages/app-lib/src/launcher/mod.rs` (which rejected launching an already-running instance) was **removed**; accidental double-fire is prevented by disabling Play while a launch is in flight.
 - **Custom CSS** (opt-in) — loads user CSS from `plugins\custom-css\user.css`.
 
-**In-app self-updater:** `fork_apply_update(app, download_url, expected_sha256)` in `addons.rs`. Validates the URL (HTTPS + GitHub hosts only), downloads via `tauri_plugin_http::reqwest`, verifies size + `MZ` header + GitHub's published SHA-256 digest, then swaps (rename running exe → `Modrinth App.old.exe`, move new exe in with a copy-fallback rollback so the app is never left without an exe), `app.restart()`. Startup cleans up `*.old.exe`. Frontend: the "App updates" section of `PluginsSettings.vue`. Startup version banner: `apps/app-frontend/src/plugins/update-check.js`.
+**In-app self-updater:** `fork_apply_update(app, download_url, expected_sha256)` in `addons.rs`. Validates the URL (HTTPS + GitHub hosts only), downloads via `tauri_plugin_http::reqwest`, verifies size + `MZ` header + GitHub's published SHA-256 digest, then swaps (rename running exe → `ByteLauncher.old.exe`, move new exe in with a copy-fallback rollback so the app is never left without an exe), `app.restart()`. Startup cleans up `*.old.exe`. Frontend: the "App updates" section of `PluginsSettings.vue`. Startup version banner: `apps/app-frontend/src/plugins/update-check.js`.
 
 **CI:** `.github/workflows/fork-build.yml` (validate — builds the standalone exe on push), `fork-release.yml` (build + publish the exe on a `v*` tag / dispatch), `fork-sync.yml` (daily; merges new upstream **releases** into `main`, tags `v<upstream>-fork`). All inherited Modrinth workflows were **deleted** (they need private Blacksmith runners / Modrinth secrets and just hang or fail on a fork).
 
 ## Migration safety — do NOT change
 
-- `productName` = `"Modrinth App"` and bundle `identifier` = `"ModrinthApp"` (in `apps/app/tauri.conf.json`) — unchanged so the fork shares `%AppData%\ModrinthApp\` (instances/accounts/settings preserved). Never add data-dir cleanup.
+- **Bundle `identifier` = `"ModrinthApp"`** (in `apps/app/tauri.conf.json`) is the load-bearing constant: the data dir is `dirs::data_dir()/<identifier>` = `%AppData%\ModrinthApp\` (instances/accounts/settings), wired via `State::init(app.config().identifier.clone())`. **Never change `identifier`** and never add data-dir cleanup — that is what preserves user data.
+- `productName`/`mainBinaryName` are `"ByteLauncher"` (compliance rebrand — exe `ByteLauncher.exe` in `%LOCALAPPDATA%\ByteLauncher\`). These are **independent of the data dir**, so the rename kept zero data loss. Do **not** "restore" them to `Modrinth App` — that re-introduces the Modrinth trademark the fork must not use.
 - The updater endpoint in `apps/app/tauri-release.conf.json` points at the fork's releases — **never** repoint it to `launcher-files.modrinth.com` (that would auto-update the fork back into real Modrinth).
+
+## Branding (ByteLauncher rebrand — compliance)
+
+Modrinth's `COPYING.md` requires forks to remove all Modrinth branding assets (logos, landing art, trademark). What changed vs. upstream:
+
+- **Name/identity:** product/exe/window title = **ByteLauncher**; app icons + in-app logo/wordmark + splash = a hexagon-**B** mark (master `apps/app/icons/bytelauncher.svg`; OS icons in `apps/app/icons/` regenerated by a Pillow script from that mark; in-app vectors `apps/app-frontend/src/assets/bytelauncher_logo.svg` + `bytelauncher_mark.svg`). Removed the Modrinth logo/mascot (`sad-modrinth-bot.webp`), the Modrinth macOS `.icon` bundle, and the `.github/assets/*_cover.png` banners; every raster icon (incl. `icon.icns`) is regenerated as the ByteLauncher mark.
+- **Theme accent → purple** (`--color-brand` = `#6c4bff` dark / `#5a38d6` light in `packages/assets/styles/variables.scss`); the green scale stays as the **success** semantic; `.btn-primary` text forced white for contrast on purple.
+- **Kept (functional, not branding):** Modrinth API/CDN hosts, `modrinth://` deep-link, `.mrpack`, mod-repo browsing, the `com.modrinth.theseus` codename, and an honest "Built on Modrinth" line (About tab). The bundle `identifier`/data-dir folder stays `ModrinthApp` (internal, not user-facing — see Migration safety).
+- **Scope:** only the shipped desktop app (`apps/app` + `apps/app-frontend`) and the shared packages it compiles (`app-lib`, `ui`, `assets`) were rebranded. The website (`apps/frontend`), `apps/docs`, `packages/blog` (Modrinth's authored posts), and `packages/moderation` are **not built/shipped by the fork** and are left as-is.
 
 ## Gotchas / hard-won lessons
 
 - **CSP nonce:** Tauri injects a nonce that neutralizes `'unsafe-inline'` and can block `blob:` scripts, so plugin JS uses **indirect eval** (`'unsafe-eval'` is honored regardless). CSP is relaxed in `apps/app/tauri.conf.json` (`script-src`, `connect-src` + `https://api.github.com`).
 - **The in-memory launch guard** in `launch_minecraft` is why multi-launch only worked after restarting the app (a fresh process list). Removed in fork.7.
-- **GitHub renames release-asset spaces to dots:** the download is `Modrinth.App.exe` and must be renamed back to `Modrinth App.exe` before dropping it into `%LOCALAPPDATA%\Modrinth App\`.
+- **Exe name has no space now (`ByteLauncher.exe`),** so GitHub no longer mangles the release-asset name (the old `Modrinth App.exe` downloaded as `Modrinth.App.exe`). Drop it into `%LOCALAPPDATA%\ByteLauncher\`; user data stays in `%AppData%\ModrinthApp\` via the unchanged `identifier`.
 - **Apply timing:** CSS/JS plugins apply on next launch (restart-to-apply); the native Multi-Launch applies live via the reactive set.
 - **Project memory does NOT travel** with a directory move (it's keyed to the project path under `~/.claude`). This CLAUDE.md + MAINTAINING.md + README.md are the authoritative, self-contained record — keep them current.
 

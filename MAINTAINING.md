@@ -1,4 +1,4 @@
-# Maintaining PatchedModrinth
+# Maintaining ByteLauncher
 
 This fork keeps a **thin patch set** on top of `modrinth/code` so upstream merges
 stay painless. Almost everything is new files plus a handful of one-line hooks.
@@ -26,13 +26,13 @@ There is **no local build** here — building the Tauri app needs a full Rust +
 Node toolchain. Everything builds in **GitHub Actions**:
 
 - **`fork-build.yml`** — sanity build on every push to `main` (and manual dispatch).
-  Builds the standalone `Modrinth App.exe` (`--no-bundle`, unsigned, no installer)
+  Builds the standalone `ByteLauncher.exe` (`--no-bundle`, unsigned, no installer)
   and uploads it as an artifact. Use this to confirm a change compiles.
-- **`fork-release.yml`** — builds the standalone `Modrinth App.exe` (`--no-bundle`,
+- **`fork-release.yml`** — builds the standalone `ByteLauncher.exe` (`--no-bundle`,
   no installer) and publishes it as a GitHub Release asset. Triggered by pushing a
   `v*` tag, or manually via **Actions → Fork release → Run workflow** with a version
-  like `v0.15.10-fork.1`. To install: close Modrinth and drop the exe into
-  `%LOCALAPPDATA%\Modrinth App\`.
+  like `v0.15.10-fork.1`. To install: drop `ByteLauncher.exe` anywhere (e.g.
+  `%LOCALAPPDATA%\ByteLauncher\`); it reads the shared `%AppData%\ModrinthApp\` data.
 - **`fork-sync.yml`** — scheduled daily. Only acts when Modrinth publishes a
   **new release**; then it merges that release tag into `main` and pushes a
   `v<upstream>-fork` tag to trigger a release.
@@ -100,15 +100,18 @@ that would auto-update the fork into official Modrinth and wipe the patches.
 
 ## Do-not-change list (migration safety)
 
-Keep these exactly as upstream so the fork upgrades a real Modrinth install with
-zero data loss:
+Preserve user data across the upgrade from a real Modrinth install:
 
-- `productName` = `"Modrinth App"` (→ `Modrinth App.exe`).
-- bundle `identifier` = `"ModrinthApp"` (→ same `%AppData%\ModrinthApp\` data dir).
+- **Bundle `identifier` = `"ModrinthApp"`** — the ONLY load-bearing constant. The
+  data dir is `dirs::data_dir()/<identifier>` = `%AppData%\ModrinthApp\`, set via
+  `State::init(app.config().identifier.clone())`. Never rename it.
 - No cleanup of the data directory anywhere.
+- `productName`/`mainBinaryName` = `"ByteLauncher"` (rebranded from `Modrinth App`
+  for Modrinth-terms compliance → `ByteLauncher.exe`). These do NOT affect the data
+  dir, so the rename kept zero data loss — do not restore the Modrinth trademark.
 
-You may freely change the in-app display name, icons, about text, and the repo
-name — just not the exe name or identifier.
+Everything else (display name, icons, about text, exe name, theme, repo name) is
+rebranded to ByteLauncher; only the `identifier` must stay `ModrinthApp`.
 
 ## Plugin system internals
 
@@ -137,7 +140,7 @@ name — just not the exe name or identifier.
 The app updates itself without an installer. `fork_apply_update(download_url,
 expected_sha256)` in `addons.rs`: validates the URL (HTTPS + GitHub hosts only),
 downloads the new exe, checks size + `MZ` header + GitHub's published SHA-256
-digest, renames the running exe to `Modrinth App.old.exe`, moves the new one into
+digest, renames the running exe to `ByteLauncher.old.exe`, moves the new one into
 place (with a copy-fallback so the app is never left without an exe), then
 `app.restart()`s. Startup deletes any stale `*.old.exe`. The **Settings → Plugins →
 App updates** UI checks the fork's latest release, skips installer assets, offers

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+	<defs>
+		<linearGradient id="blTile" x1="143" y1="143" x2="369" y2="369" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#7c5cff" />
+			<stop offset="1" stop-color="#4b2fb0" />
+		</linearGradient>
+	</defs>
+	<path
+		d="M256 26 L455 141 L455 371 L256 486 L57 371 L57 141 Z"
+		fill="#6c4bff"
+		fill-opacity="0.08"
+		stroke="#8b6fff"
+		stroke-width="20"
+		stroke-linejoin="round"
+	/>
+	<rect x="143" y="143" width="226" height="226" rx="54" fill="url(#blTile)" />
+	<text
+		x="256"
+		y="260"
+		text-anchor="middle"
+		dominant-baseline="central"
+		font-family="Inter, 'Segoe UI', Arial, sans-serif"
+		font-weight="700"
+		font-size="172"
+		fill="#ffffff"
+	>B</text>
+</svg>

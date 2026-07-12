@@ -31,11 +31,11 @@
 Var /GLOBAL OldInstallDir
 
 !macro NSIS_HOOK_PREINSTALL
-    ; PatchedModrinth: reassure the user that replacing an existing install keeps
+    ; ByteLauncher: reassure the user that replacing an existing install keeps
     ; all their data. Instances, accounts, settings and worlds live in %AppData%,
     ; which the installer never touches. Auto-continues on silent/updater runs.
     ${If} ${FileExists} "$INSTDIR\${MAINBINARYNAME}.exe"
-        MessageBox MB_ICONINFORMATION|MB_OKCANCEL "PatchedModrinth will replace your existing installation in place.$\r$\n$\r$\nYour data - instances, accounts, settings and worlds - is stored separately and will NOT be touched.$\r$\n$\r$\nClick OK to continue, or Cancel to abort." /SD IDOK IDOK +2
+        MessageBox MB_ICONINFORMATION|MB_OKCANCEL "ByteLauncher will replace your existing installation in place.$\r$\n$\r$\nYour data - instances, accounts, settings and worlds - is stored separately and will NOT be touched.$\r$\n$\r$\nClick OK to continue, or Cancel to abort." /SD IDOK IDOK +2
         Abort
     ${EndIf}
 
@@ -44,7 +44,7 @@ Var /GLOBAL OldInstallDir
         UserInfo::GetAccountType
         Pop $0
         ${If} $0 != "Admin"
-            MessageBox MB_ICONINFORMATION|MB_OK "An old installation of the Modrinth App was detected that requires administrator permission to update from. You will be prompted with an admin prompt shortly."
+            MessageBox MB_ICONINFORMATION|MB_OK "An old installation of ByteLauncher was detected that requires administrator permission to update from. You will be prompted with an admin prompt shortly."
         ${EndIf}
 
         ReadRegStr $4 SHCTX "${MANUPRODUCTKEY}" ""

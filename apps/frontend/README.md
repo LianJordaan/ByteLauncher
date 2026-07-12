@@ -1,4 +1,4 @@
-# ![Frontend Cover](/.github/assets/web_cover.png)
+# Frontend
 
 # Modrinth Web Interface
 

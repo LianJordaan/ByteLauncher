@@ -27,7 +27,7 @@ const ADS_USER_AGENT: &str = concat!(
     "(KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 ",
     "ModrinthApp/",
     env!("CARGO_PKG_VERSION"),
-    " (Modrinth App)",
+    " (ByteLauncher)",
 );
 
 #[cfg(windows)]
@@ -39,14 +39,14 @@ fn ads_user_agent_override_params() -> String {
             "brands": [
                 { "brand": "Chromium", "version": "128" },
                 { "brand": "Google Chrome", "version": "128" },
-                { "brand": "Modrinth App", "version": env!("CARGO_PKG_VERSION") },
+                { "brand": "ByteLauncher", "version": env!("CARGO_PKG_VERSION") },
                 { "brand": "Not=A?Brand", "version": "99" },
             ],
             "fullVersion": "128.0.0.0",
             "fullVersionList": [
                 { "brand": "Chromium", "version": "128.0.0.0" },
                 { "brand": "Google Chrome", "version": "128.0.0.0" },
-                { "brand": "Modrinth App", "version": env!("CARGO_PKG_VERSION") },
+                { "brand": "ByteLauncher", "version": env!("CARGO_PKG_VERSION") },
                 { "brand": "Not=A?Brand", "version": "99.0.0.0" },
             ],
             "platform": "Windows",
@@ -430,7 +430,7 @@ pub async fn init_ads_window<R: Runtime>(
 ) -> crate::api::Result<()> {
     use tauri::WebviewUrl;
 
-    // PatchedModrinth: honor the built-in "hide-ads" plugin. When it is enabled
+    // ByteLauncher: honor the built-in "hide-ads" plugin. When it is enabled
     // we never create the "ads-window" webview; every other ads code path
     // no-ops when that webview is absent, so this neutralizes ads cleanly.
     if crate::api::addons::is_plugin_enabled("hide-ads").await {

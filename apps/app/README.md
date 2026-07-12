@@ -1,4 +1,4 @@
-# ![Modrinth App](/.github/assets/app_cover.png)
+# ByteLauncher
 
 ## Modrinth App
 

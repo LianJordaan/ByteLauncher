@@ -66,7 +66,7 @@
     "message": "Gelişmiş işleme"
   },
   "app.appearance-settings.color-theme.description": {
-    "message": "Modrinth App için tercih ettiğiniz temayı seçin."
+    "message": "ByteLauncher için tercih ettiğiniz temayı seçin."
   },
   "app.appearance-settings.color-theme.title": {
     "message": "Tema Rengi"
@@ -576,13 +576,13 @@
     "message": "Skin seçici"
   },
   "app.update-popup.body.download-complete": {
-    "message": "Modrinth App v{version} indirildi. Güncellemek için yeniden başlatın veya Modrinth App’i kapattığınızda otomatik olarak güncellenecektir."
+    "message": "ByteLauncher v{version} indirildi. Güncellemek için yeniden başlatın veya ByteLauncher’i kapattığınızda otomatik olarak güncellenecektir."
   },
   "app.update-popup.body.linux": {
-    "message": "Modrinth App v{version} yayımlandı. En yeni özellikler ve hata düzeltmeleri için paket yöneticin üzerinden güncelle!"
+    "message": "ByteLauncher v{version} yayımlandı. En yeni özellikler ve hata düzeltmeleri için paket yöneticin üzerinden güncelle!"
   },
   "app.update-popup.body.metered": {
-    "message": "Modrinth App v{version} mevcut! Kısıtlı bağlantıda olduğunuzdan otomatik olarak indirmedik."
+    "message": "ByteLauncher v{version} mevcut! Kısıtlı bağlantıda olduğunuzdan otomatik olarak indirmedik."
   },
   "app.update-popup.changelog": {
     "message": "Yama Notları"
