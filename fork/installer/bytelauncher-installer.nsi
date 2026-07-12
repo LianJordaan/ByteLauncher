@@ -7,6 +7,7 @@ Unicode true
   !define VERSION "0.0.0"
 !endif
 !define REPO "LianJordaan/ByteLauncher"
+!define UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\ByteLauncher"
 
 Name "ByteLauncher ${VERSION}"
 
@@ -30,6 +31,8 @@ ShowInstDetails show
 !define MUI_FINISHPAGE_RUN "$INSTDIR\ByteLauncher.exe"
 !define MUI_FINISHPAGE_RUN_TEXT "Launch ByteLauncher"
 !insertmacro MUI_PAGE_FINISH
+!insertmacro MUI_UNPAGE_CONFIRM
+!insertmacro MUI_UNPAGE_INSTFILES
 !insertmacro MUI_LANGUAGE "English"
 
 ; --- Require an existing Modrinth App install ---------------------------------
@@ -135,5 +138,47 @@ Section "ByteLauncher"
   ; --- Fresh Start Menu shortcut ----------------------------------------------
   CreateShortcut "$SMPROGRAMS\ByteLauncher.lnk" "$INSTDIR\ByteLauncher.exe" "" "$INSTDIR\ByteLauncher.exe" 0
 
+  ; --- Uninstaller: registers in Add/Remove Programs, reverts to Modrinth ------
+  WriteUninstaller "$INSTDIR\ByteLauncher-uninstall.exe"
+  WriteRegStr HKCU "${UNINST_KEY}" "DisplayName" "ByteLauncher"
+  WriteRegStr HKCU "${UNINST_KEY}" "DisplayVersion" "${VERSION}"
+  WriteRegStr HKCU "${UNINST_KEY}" "Publisher" "ByteBuilders"
+  WriteRegStr HKCU "${UNINST_KEY}" "DisplayIcon" "$INSTDIR\ByteLauncher.exe"
+  WriteRegStr HKCU "${UNINST_KEY}" "UninstallString" "$\"$INSTDIR\ByteLauncher-uninstall.exe$\""
+  WriteRegDWORD HKCU "${UNINST_KEY}" "NoModify" 1
+  WriteRegDWORD HKCU "${UNINST_KEY}" "NoRepair" 1
+
   DetailPrint "ByteLauncher ${VERSION} installed to $INSTDIR"
+SectionEnd
+
+; --- Uninstaller: restore the Modrinth App, remove ByteLauncher's own files ----
+Function un.onInit
+  SetShellVarContext current
+  StrCpy $INSTDIR "$LOCALAPPDATA\Modrinth App"
+FunctionEnd
+
+Section "Uninstall"
+  SetShellVarContext current
+
+  ; Close the app if it is running.
+  nsExec::Exec 'taskkill /F /IM "ByteLauncher.exe"'
+  Pop $0
+  nsExec::Exec 'taskkill /F /IM "Modrinth App.exe"'
+  Pop $0
+  Sleep 1000
+
+  ; Restore the original Modrinth App.exe from the backup (replacing the shim)
+  ; and remove ByteLauncher — but only when a real backup exists, so the user is
+  ; never left without a working exe. The shared data dir is left untouched.
+  ${If} ${FileExists} "$INSTDIR\Modrinth App.old.exe"
+    Delete "$INSTDIR\Modrinth App.exe"
+    Rename "$INSTDIR\Modrinth App.old.exe" "$INSTDIR\Modrinth App.exe"
+    Delete "$INSTDIR\ByteLauncher.exe"
+  ${EndIf}
+
+  Delete "$SMPROGRAMS\ByteLauncher.lnk"
+  DeleteRegKey HKCU "${UNINST_KEY}"
+  Delete /REBOOTOK "$INSTDIR\ByteLauncher-uninstall.exe"
+
+  DetailPrint "ByteLauncher removed; the Modrinth App has been restored."
 SectionEnd

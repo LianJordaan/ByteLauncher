@@ -35,6 +35,14 @@ async fn open_migrated_app_db(db_path: &Path) -> crate::Result<Pool<Sqlite>> {
         );
     }
 
+    // ByteLauncher: strip any fork-only migration bookkeeping rows before running
+    // migrations. The app.db is shared with the real Modrinth App, which must not
+    // see migrations it doesn't know about (older ByteLauncher builds recorded
+    // one). Must run before migrate() so our own migration set stays consistent.
+    if let Err(err) = remove_fork_only_migrations(&pool).await {
+        tracing::warn!("Failed to remove fork-only migration records: {err}");
+    }
+
     sqlx::migrate!().run(&pool).await?;
     record_current_app_version(&pool).await?;
 
@@ -100,6 +108,29 @@ async fn stale_data_cleanup(pool: &Pool<Sqlite>) -> crate::Result<()> {
     }
 
     tx.commit().await?;
+
+    Ok(())
+}
+
+/// Removes migration bookkeeping rows for fork-only migrations that older
+/// ByteLauncher builds recorded in the shared Modrinth `app.db`. Leaving them in
+/// place makes the upstream Modrinth App refuse to start ("migration ... was
+/// previously applied but is missing in the resolved migrations"), and would
+/// likewise break newer ByteLauncher builds that no longer ship that migration.
+/// Best-effort and idempotent; runs before migrate().
+async fn remove_fork_only_migrations(pool: &Pool<Sqlite>) -> crate::Result<()> {
+    let migrations_table_count: i64 = sqlx::query_scalar(
+        "SELECT COUNT(*) FROM sqlite_master WHERE type = 'table' AND name = '_sqlx_migrations'",
+    )
+    .fetch_one(pool)
+    .await?;
+
+    if migrations_table_count > 0 {
+        // 20260712120000 = the fork-only "default purple theme" migration.
+        sqlx::query("DELETE FROM _sqlx_migrations WHERE version = 20260712120000")
+            .execute(pool)
+            .await?;
+    }
 
     Ok(())
 }
