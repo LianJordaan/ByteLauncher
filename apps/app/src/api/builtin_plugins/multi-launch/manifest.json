@@ -1,10 +1,9 @@
 {
 	"id": "multi-launch",
 	"name": "Multi-Launch",
-	"description": "Adds a \"Launch again\" button on instance pages so you can run the same instance multiple times at once. Note: the same account cannot join one server twice, and a singleplayer world cannot be opened twice.",
-	"version": "1.1.0",
+	"description": "Keeps a Play button next to Stop while an instance is running, so you can launch the same instance multiple times at once. Note: the same account cannot join one server twice, and a singleplayer world cannot be opened twice.",
+	"version": "2.0.0",
 	"author": "PatchedModrinth",
-	"js": "index.js",
 	"enabledByDefault": false,
 	"builtin": true
 }

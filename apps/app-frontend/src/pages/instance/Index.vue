@@ -118,12 +118,24 @@
 								Repair
 							</button>
 						</ButtonStyled>
-						<ButtonStyled v-else-if="playing === true" color="red" size="large">
-							<button :disabled="stopping" @click="stopInstance('InstancePage')">
-								<StopCircleIcon />
-								{{ stopping ? 'Stopping...' : 'Stop' }}
-							</button>
-						</ButtonStyled>
+						<template v-else-if="playing === true">
+							<ButtonStyled
+								v-if="enabledPluginIds.has('multi-launch')"
+								color="brand"
+								size="large"
+							>
+								<button @click="startInstance('InstancePage')">
+									<PlayIcon />
+									Play
+								</button>
+							</ButtonStyled>
+							<ButtonStyled color="red" size="large">
+								<button :disabled="stopping" @click="stopInstance('InstancePage')">
+									<StopCircleIcon />
+									{{ stopping ? 'Stopping...' : 'Stop' }}
+								</button>
+							</ButtonStyled>
+						</template>
 						<ButtonStyled
 							v-else-if="playing === false && loading === false && !isServerInstance"
 							color="brand"
@@ -332,6 +344,7 @@ import { get_by_instance_id } from '@/helpers/process'
 import type { GameInstance } from '@/helpers/types'
 import { createInstanceShortcut, showInstanceInFolder } from '@/helpers/utils.js'
 import { refreshWorlds, type ServerStatus } from '@/helpers/worlds'
+import { enabledPluginIds } from '@/plugins/plugin-state'
 import { injectServerInstall } from '@/providers/server-install'
 import { handleSevereError } from '@/store/error.js'
 import { useBreadcrumbs, useTheming } from '@/store/state'

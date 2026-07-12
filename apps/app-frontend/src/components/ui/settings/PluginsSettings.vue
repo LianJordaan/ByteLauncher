@@ -5,6 +5,7 @@ import { invoke } from '@tauri-apps/api/core'
 import { ref } from 'vue'
 
 import { openPath, restartApp } from '@/helpers/utils'
+import { setPluginEnabledState } from '@/plugins/plugin-state'
 
 interface PluginData {
 	id: string
@@ -26,11 +27,13 @@ async function toggle(plugin: PluginData) {
 	const next = !plugin.enabled
 	plugin.enabled = next
 	restartNeeded.value = true
+	setPluginEnabledState(plugin.id, next)
 	try {
 		await invoke('plugin:addons|set_plugin_enabled', { id: plugin.id, enabled: next })
 	} catch (e) {
 		console.error('Failed to toggle plugin', e)
 		plugin.enabled = !next
+		setPluginEnabledState(plugin.id, !next)
 	}
 }
 

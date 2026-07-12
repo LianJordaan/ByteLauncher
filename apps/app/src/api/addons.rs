@@ -322,18 +322,11 @@ const BUILTINS: &[Builtin] = &[
     },
     Builtin {
         id: "multi-launch",
-        files: &[
-            BuiltinFile {
-                name: "manifest.json",
-                content: include_str!("builtin_plugins/multi-launch/manifest.json"),
-                preserve: false,
-            },
-            BuiltinFile {
-                name: "index.js",
-                content: include_str!("builtin_plugins/multi-launch/index.js"),
-                preserve: false,
-            },
-        ],
+        files: &[BuiltinFile {
+            name: "manifest.json",
+            content: include_str!("builtin_plugins/multi-launch/manifest.json"),
+            preserve: false,
+        }],
     },
     Builtin {
         id: "custom-css",
@@ -379,5 +372,7 @@ async fn seed_builtin_plugins() -> crate::api::Result<()> {
             tokio::fs::write(&file_path, file.content).await?;
         }
     }
+    // multi-launch v1.x seeded an index.js; it is a native feature now.
+    let _ = tokio::fs::remove_file(dir.join("multi-launch").join("index.js")).await;
     Ok(())
 }

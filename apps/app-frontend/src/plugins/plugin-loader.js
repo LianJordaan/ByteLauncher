@@ -1,5 +1,7 @@
 import { invoke } from '@tauri-apps/api/core'
 
+import { setEnabledPluginIds } from '@/plugins/plugin-state'
+
 // Loads user/built-in plugins on startup. Plugins live in
 // <app data>/plugins/<id>/ and are read by the Rust `addons` plugin. Each
 // enabled plugin's CSS is injected as a <style> and its JS is executed.
@@ -38,6 +40,8 @@ export async function loadPlugins() {
 	}
 
 	if (!Array.isArray(plugins)) return
+
+	setEnabledPluginIds(plugins.filter((plugin) => plugin.enabled).map((plugin) => plugin.id))
 
 	for (const plugin of plugins) {
 		if (!plugin.enabled) continue
