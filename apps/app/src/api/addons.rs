@@ -21,6 +21,7 @@ pub fn init<R: tauri::Runtime>() -> TauriPlugin<R> {
             read_plugins,
             set_plugin_enabled,
             get_plugins_dir,
+            fork_apply_update,
         ])
         .build()
 }
@@ -88,6 +89,7 @@ async fn write_enabled_map(map: &HashMap<String, bool>) -> crate::api::Result<()
 #[tauri::command]
 pub async fn read_plugins() -> crate::api::Result<Vec<PluginData>> {
     ensure_seeded().await;
+    cleanup_stale_update_files().await;
 
     let dir = plugins_dir().await?;
     let enabled_map = read_enabled_map().await?;
@@ -160,6 +162,110 @@ pub async fn set_plugin_enabled(id: String, enabled: bool) -> crate::api::Result
 #[tauri::command]
 pub async fn get_plugins_dir() -> crate::api::Result<String> {
     Ok(plugins_dir().await?.to_string_lossy().to_string())
+}
+
+fn io_other<E: std::fmt::Display>(e: E) -> std::io::Error {
+    std::io::Error::new(std::io::ErrorKind::Other, e.to_string())
+}
+
+/// Downloads a new `Modrinth App.exe` from `download_url` (which must be an
+/// HTTPS GitHub URL), verifies it against `expected_sha256` when provided,
+/// swaps it in for the currently running executable (keeping the old one as
+/// `*.old.exe`), and restarts. The swap is guarded so the app is never left
+/// without a working executable.
+#[tauri::command]
+pub async fn fork_apply_update<R: tauri::Runtime>(
+    app: tauri::AppHandle<R>,
+    download_url: String,
+    expected_sha256: Option<String>,
+) -> crate::api::Result<()> {
+    use sha2::{Digest, Sha256};
+    use tauri_plugin_http::reqwest;
+
+    // This command is reachable from plugin JS, so only allow HTTPS downloads
+    // from GitHub's own release hosts — otherwise an arbitrary URL would be a
+    // code-execution vector.
+    let url = reqwest::Url::parse(&download_url).map_err(io_other)?;
+    if url.scheme() != "https" {
+        return Err(io_other("update URL must be HTTPS").into());
+    }
+    match url.host_str() {
+        Some("github.com")
+        | Some("objects.githubusercontent.com")
+        | Some("release-assets.githubusercontent.com") => {}
+        _ => return Err(io_other("update URL host is not allowed").into()),
+    }
+
+    let exe = std::env::current_exe()?;
+    let dir = exe
+        .parent()
+        .ok_or_else(|| io_other("executable has no parent directory"))?
+        .to_path_buf();
+    let staged = dir.join("Modrinth App.update.exe");
+    let backup = dir.join("Modrinth App.old.exe");
+
+    let bytes = reqwest::Client::new()
+        .get(url)
+        .header(reqwest::header::USER_AGENT, "PatchedModrinth-Updater")
+        .send()
+        .await
+        .map_err(io_other)?
+        .error_for_status()
+        .map_err(io_other)?
+        .bytes()
+        .await
+        .map_err(io_other)?;
+
+    // Must be a Windows executable ("MZ") of a plausible size.
+    if bytes.len() < 5_000_000 || !bytes.starts_with(b"MZ") {
+        return Err(io_other("downloaded file is not a valid Windows executable").into());
+    }
+
+    // Verify the GitHub-published SHA-256 digest when we have one.
+    if let Some(expected) = expected_sha256
+        .as_deref()
+        .map(str::trim)
+        .filter(|s| !s.is_empty())
+    {
+        let actual: String = Sha256::digest(bytes.as_ref())
+            .iter()
+            .map(|b| format!("{b:02x}"))
+            .collect();
+        if !actual.eq_ignore_ascii_case(expected) {
+            return Err(io_other("update failed checksum verification").into());
+        }
+    }
+
+    tokio::fs::write(&staged, &bytes).await?;
+
+    let _ = tokio::fs::remove_file(&backup).await;
+    tokio::fs::rename(&exe, &backup).await?;
+    if let Err(e) = tokio::fs::rename(&staged, &exe).await {
+        // `backup` holds the only working binary — restore it no matter what.
+        if tokio::fs::rename(&backup, &exe).await.is_err() {
+            let _ = tokio::fs::copy(&backup, &exe).await;
+        }
+        let _ = tokio::fs::remove_file(&staged).await;
+        return Err(e.into());
+    }
+    // Never restart into a missing executable.
+    if !tokio::fs::try_exists(&exe).await.unwrap_or(false) {
+        let _ = tokio::fs::copy(&backup, &exe).await;
+        return Err(io_other("update left no executable in place").into());
+    }
+
+    app.restart();
+}
+
+/// Removes the backup left by a previous self-update (best effort). The
+/// transient `*.update.exe` is intentionally left alone here so this cannot
+/// race an in-progress update.
+async fn cleanup_stale_update_files() {
+    if let Ok(exe) = std::env::current_exe() {
+        if let Some(dir) = exe.parent() {
+            let _ = tokio::fs::remove_file(dir.join("Modrinth App.old.exe")).await;
+        }
+    }
 }
 
 /// Whether a plugin is currently enabled. Used natively (e.g. by the ads

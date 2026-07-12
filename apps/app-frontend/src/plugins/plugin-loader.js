@@ -2,14 +2,14 @@ import { invoke } from '@tauri-apps/api/core'
 
 // Loads user/built-in plugins on startup. Plugins live in
 // <app data>/plugins/<id>/ and are read by the Rust `addons` plugin. Each
-// enabled plugin's CSS is injected as a <style> and its JS as a <script>.
+// enabled plugin's CSS is injected as a <style> and its JS is executed.
 //
-// JS is injected via a blob: URL rather than an inline <script>, so it loads
-// even when Tauri locks inline scripts with a CSP nonce/hash. `script-src` in
-// apps/app/tauri.conf.json includes `blob:` for exactly this reason.
+// JS runs via indirect eval, which executes in global scope and is permitted by
+// `script-src 'unsafe-eval'` in apps/app/tauri.conf.json. Unlike 'unsafe-inline'
+// or a blob:/inline <script>, 'unsafe-eval' is NOT neutralized when Tauri adds a
+// CSP nonce, so plugin JS runs reliably in WebView2.
 
 const STYLE_ATTR = 'data-mr-plugin-style'
-const SCRIPT_ATTR = 'data-mr-plugin-script'
 
 function injectCss(id, css) {
 	const style = document.createElement('style')
@@ -19,14 +19,13 @@ function injectCss(id, css) {
 }
 
 function injectJs(id, js) {
-	const blob = new Blob([js], { type: 'text/javascript' })
-	const url = URL.createObjectURL(blob)
-	const script = document.createElement('script')
-	script.setAttribute(SCRIPT_ATTR, id)
-	script.src = url
-	script.addEventListener('load', () => URL.revokeObjectURL(url))
-	script.addEventListener('error', (e) => console.error(`[plugins] error running ${id}`, e))
-	document.head.appendChild(script)
+	// Indirect eval: runs in global scope, allowed by script-src 'unsafe-eval'.
+	const indirectEval = eval
+	try {
+		indirectEval(js)
+	} catch (e) {
+		console.error(`[plugins] error running "${id}"`, e)
+	}
 }
 
 export async function loadPlugins() {

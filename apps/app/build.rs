@@ -343,6 +343,7 @@ fn main() {
                         "read_plugins",
                         "set_plugin_enabled",
                         "get_plugins_dir",
+                        "fork_apply_update",
                     ])
                     .default_permission(
                         DefaultPermissionRule::AllowAllCommands,

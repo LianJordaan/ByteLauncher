@@ -26,6 +26,8 @@ tauri-plugin-deep-link = { workspace = true }
 tauri-plugin-dialog = { workspace = true }
 tauri-plugin-fs = { workspace = true }
 tauri-plugin-http = { workspace = true }
+reqwest = { workspace = true, features = ["rustls-tls-webpki-roots"] }
+sha2 = { workspace = true }
 tauri-plugin-opener = { workspace = true }
 tauri-plugin-os = { workspace = true }
 tauri-plugin-single-instance = { workspace = true }
