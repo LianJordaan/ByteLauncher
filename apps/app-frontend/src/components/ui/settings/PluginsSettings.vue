@@ -115,6 +115,20 @@ async function installUpdate() {
 		updateState.value = 'error'
 	}
 }
+
+const confirmingUninstall = ref<boolean>(false)
+const uninstallError = ref<string>('')
+
+async function uninstall() {
+	uninstallError.value = ''
+	try {
+		await invoke('plugin:addons|fork_uninstall')
+		// The app quits on success so the uninstaller can run.
+	} catch (e) {
+		uninstallError.value = e instanceof Error ? e.message : String(e)
+		confirmingUninstall.value = false
+	}
+}
 </script>
 
 <template>
@@ -194,5 +208,32 @@ async function installUpdate() {
 		</div>
 
 		<p v-if="plugins.length === 0" class="m-0 text-sm">No plugins found.</p>
+
+		<div class="mt-2 border-0 border-t border-solid border-surface-5 pt-6">
+			<h2 class="m-0 text-lg font-semibold text-red">Danger zone</h2>
+			<div class="mt-3 flex items-center justify-between gap-4">
+				<div>
+					<h3 class="m-0 text-base font-semibold text-contrast">Uninstall ByteLauncher</h3>
+					<p class="m-0 mt-1 text-sm">
+						Reverts to the Modrinth App — restores <code>Modrinth App.exe</code>, removes
+						ByteLauncher and closes. Your instances, accounts and settings are kept.
+					</p>
+					<p v-if="uninstallError" class="m-0 mt-1 text-sm text-red">{{ uninstallError }}</p>
+				</div>
+				<div class="flex shrink-0 items-center gap-2">
+					<ButtonStyled v-if="!confirmingUninstall" color="red">
+						<button @click="confirmingUninstall = true">Uninstall</button>
+					</ButtonStyled>
+					<template v-else>
+						<ButtonStyled>
+							<button @click="confirmingUninstall = false">Cancel</button>
+						</ButtonStyled>
+						<ButtonStyled color="red">
+							<button @click="uninstall">Yes, revert to Modrinth</button>
+						</ButtonStyled>
+					</template>
+				</div>
+			</div>
+		</div>
 	</div>
 </template>

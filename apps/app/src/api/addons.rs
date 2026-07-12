@@ -22,6 +22,7 @@ pub fn init<R: tauri::Runtime>() -> TauriPlugin<R> {
             set_plugin_enabled,
             get_plugins_dir,
             fork_apply_update,
+            fork_uninstall,
         ])
         .build()
 }
@@ -266,6 +267,38 @@ async fn cleanup_stale_update_files() {
             let _ = tokio::fs::remove_file(dir.join("ByteLauncher.old.exe")).await;
         }
     }
+}
+
+/// Reverts ByteLauncher back to the Modrinth App by launching the installer's
+/// uninstaller — which restores `Modrinth App.exe` from the `.old.exe` backup
+/// and removes ByteLauncher's own files — then quits so it can finish. Only
+/// works for installs made with the ByteLauncher installer (which drops the
+/// uninstaller next to the exe); a raw-exe drop-in has no uninstaller.
+#[tauri::command]
+pub async fn fork_uninstall<R: tauri::Runtime>(
+    app: tauri::AppHandle<R>,
+) -> crate::api::Result<()> {
+    let exe = std::env::current_exe()?;
+    let dir = exe
+        .parent()
+        .ok_or_else(|| io_other("executable has no parent directory"))?;
+    let uninstaller = dir.join("ByteLauncher-uninstall.exe");
+
+    if !uninstaller.exists() {
+        return Err(io_other(
+            "Uninstaller not found — ByteLauncher wasn't installed with the ByteLauncher installer. To revert manually, close ByteLauncher and rename \"Modrinth App.old.exe\" back to \"Modrinth App.exe\".",
+        )
+        .into());
+    }
+
+    std::process::Command::new(&uninstaller)
+        .spawn()
+        .map_err(io_other)?;
+
+    // Quit so the uninstaller can replace the running executable.
+    app.exit(0);
+
+    Ok(())
 }
 
 /// Whether a plugin is currently enabled. Used natively (e.g. by the ads

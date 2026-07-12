@@ -138,7 +138,7 @@ const messages = defineMessages({
 						<span
 							v-if="friend.online"
 							aria-hidden="true"
-							class="bottom-[2px] right-[-2px] absolute w-3 h-3 bg-brand border-2 border-black border-solid rounded-full"
+							class="bottom-[2px] right-[-2px] absolute w-3 h-3 bg-green border-2 border-black border-solid rounded-full"
 						/>
 					</div>
 					<div class="flex flex-col">
