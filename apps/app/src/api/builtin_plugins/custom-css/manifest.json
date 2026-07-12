@@ -3,7 +3,7 @@
 	"name": "Custom CSS",
 	"description": "Applies your own CSS from plugins/custom-css/user.css to the whole app. Use \"Open plugins folder\" in the Plugins tab to edit it, then restart the app.",
 	"version": "1.0.0",
-	"author": "PatchedModrinth",
+	"author": "ByteLauncher",
 	"css": "user.css",
 	"enabledByDefault": false,
 	"builtin": true

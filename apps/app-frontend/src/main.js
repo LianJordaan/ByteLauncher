@@ -58,7 +58,7 @@ app.directive('overlay-scrollbars', overlayScrollbarsDirective)
 
 app.mount('#app')
 
-// PatchedModrinth: load user/built-in plugins after the app is mounted, then
+// ByteLauncher: load user/built-in plugins after the app is mounted, then
 // check the fork's releases for a newer version.
 loadPlugins()
 checkForUpdates()

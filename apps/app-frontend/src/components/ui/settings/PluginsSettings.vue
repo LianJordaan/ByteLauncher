@@ -43,7 +43,7 @@ async function openFolder() {
 	}
 }
 
-const REPO = 'LianJordaan/PatchedModrinth'
+const REPO = 'LianJordaan/ByteLauncher'
 type UpdateState = 'idle' | 'checking' | 'current' | 'available' | 'installing' | 'error'
 interface GithubAsset {
 	name?: string
@@ -123,7 +123,7 @@ async function installUpdate() {
 			<div>
 				<h2 class="m-0 text-lg font-semibold text-contrast">App updates</h2>
 				<p class="m-0 mt-1 text-sm">
-					<span>You're on PatchedModrinth v{{ currentVersion }}. </span>
+					<span>You're on ByteLauncher v{{ currentVersion }}. </span>
 					<span v-if="updateState === 'current'">You're up to date.</span>
 					<span v-else-if="updateState === 'available'"
 						>Update available: v{{ updateInfo?.version }}.</span
