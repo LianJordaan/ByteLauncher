@@ -23,9 +23,9 @@ A "Vencord for the Modrinth App": a forked Modrinth desktop app (Tauri v2 + WebV
 - **Ship carefully:** the proven loop is *write code → run a Workflow of review agents (compile / vue-tsc / logic / safety) → fix findings → commit → tag `v0.15.10-fork.N` → poll the CI run until it concludes*. Risky native code (exe swap, launcher changes) gets adversarially reviewed before tagging.
 - **Indentation:** Rust files use **4 spaces** (rustfmt); frontend (JS/Vue) uses **tabs**. (The upstream "use TAB everywhere" note below is about the frontend.)
 
-## Current status (latest release: v0.15.10-fork.7)
+## Current status (latest release: v0.15.10-fork.11)
 
-Everything works end-to-end and is shipping. Releases are standalone `Modrinth App.exe` files on GitHub Releases; the app updates itself in-app. Recent fork.N history: fork.2 switched releases to the raw exe (no installer); fork.3 fixed a leftover sidebar fade with ads hidden; fork.4 added the in-app updater and switched plugin JS to indirect eval; fork.5→6 made Multi-Launch a native Play-next-to-Stop button; fork.7 removed the core "already running" guard so relaunch actually works.
+Everything works end-to-end and is shipping. The app is fully **rebranded to ByteLauncher** (Modrinth branding removed per `COPYING.md` — see the Branding section) and defaults to a purple theme. Releases ship a standalone `ByteLauncher.exe` **plus** two NSIS installers (`ByteLauncher-Setup.exe` online / `ByteLauncher-Setup-Offline.exe`); the app updates itself in-app — one-click from the Settings page **and** the startup banner. Recent fork.N history: fork.7 removed the core "already running" guard so relaunch works; **fork.8 = the ByteLauncher de-brand** (name/exe/icons/theme; bundle `identifier` kept `ModrinthApp` for zero data loss); fork.9 added the Purple theme (default) + fixed green accents; fork.10 = ByteBuilders Hosting "coming soon" page + more green fixes; **fork.11 = one-click update banner + the online/offline installers**.
 
 **Two optional follow-ups that need the user** (see MAINTAINING.md):
 1. **Bundled Tauri auto-updater** — *not* enabled (needs a minisign signing key generated via the Tauri CLI). The custom in-app updater already covers updates, so this is optional.
