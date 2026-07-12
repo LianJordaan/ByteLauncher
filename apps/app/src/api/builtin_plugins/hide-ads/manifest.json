@@ -2,7 +2,7 @@
 	"id": "hide-ads",
 	"name": "Hide Ads",
 	"description": "Removes the in-app ad panel and the \"Upgrade to Modrinth+\" banner. The native ad window is not created while this is enabled.",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"author": "PatchedModrinth",
 	"css": "styles.css",
 	"enabledByDefault": true,

@@ -7,3 +7,10 @@
 a[href="https://modrinth.plus?app"] {
 	display: none !important;
 }
+
+/* Hide the gradient "fade-out" bar the sidebar draws just above the ad slot.
+   Modrinth already hides it for ad-free (Modrinth+) users via
+   `.app-sidebar.has-plus::after`; we do the same whenever ads are hidden. */
+.app-sidebar::after {
+	display: none !important;
+}
