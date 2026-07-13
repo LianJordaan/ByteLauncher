@@ -6,14 +6,17 @@ import { computed, ref } from 'vue'
 // panels themselves send X-Frame-Options/frame-ancestors that would otherwise
 // block framing.
 
-const PROXY_BASE = 'https://proxy.lianjordaan30052005.workers.dev'
 const STORAGE_KEY = 'bytelauncher-hosting-panel'
 const DEFAULT_PANEL_ID = 'main'
 
+// Each panel is served at the ROOT of its own proxy subdomain
+// (<id>.proxy.bytebuilders.co.za). Root-hosting — not a `/<host>` path prefix —
+// is required so the panel's single-page-app routing resolves; a path prefix
+// makes the SPA 404 when the tab is reopened at `/<host>`.
 export const HOSTING_PANELS = [
-	{ id: 'main', name: 'Main', host: 'panel.bytebuilders.co.za' },
-	{ id: 'supers', name: 'SuperS Network', host: 'panel.supersnetwork.com' },
-	{ id: 'kia', name: 'Kia', host: 'kia.bytebuilders.co.za' },
+	{ id: 'main', name: 'Main', host: 'panel.bytebuilders.co.za', url: 'https://main.proxy.bytebuilders.co.za/' },
+	{ id: 'supers', name: 'SuperS Network', host: 'panel.supersnetwork.com', url: 'https://supers.proxy.bytebuilders.co.za/' },
+	{ id: 'kia', name: 'Kia', host: 'kia.bytebuilders.co.za', url: 'https://kia.proxy.bytebuilders.co.za/' },
 ]
 
 function loadPanelId() {
@@ -28,8 +31,8 @@ export const selectedPanel = computed(
 	() => HOSTING_PANELS.find((p) => p.id === selectedPanelId.value) ?? HOSTING_PANELS[0],
 )
 
-// Full proxied URL to embed, e.g. https://proxy…workers.dev/panel.bytebuilders.co.za
-export const hostingPanelUrl = computed(() => `${PROXY_BASE}/${selectedPanel.value.host}`)
+// The proxy-subdomain root URL to embed, e.g. https://main.proxy.bytebuilders.co.za/
+export const hostingPanelUrl = computed(() => selectedPanel.value.url)
 
 export function setHostingPanel(id) {
 	if (!HOSTING_PANELS.some((p) => p.id === id)) return
