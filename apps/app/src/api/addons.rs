@@ -49,6 +49,10 @@ struct Manifest {
     enabled_by_default: bool,
     #[serde(default)]
     builtin: bool,
+    /// Name of a color theme this plugin contributes to Settings → Appearance.
+    /// The plugin's CSS must define a matching `.<theme>-mode` block.
+    #[serde(default)]
+    theme: Option<String>,
 }
 
 #[derive(Debug, Clone, Serialize)]
@@ -63,6 +67,7 @@ pub struct PluginData {
     builtin: bool,
     js: Option<String>,
     css: Option<String>,
+    theme: Option<String>,
 }
 
 async fn plugins_dir() -> crate::api::Result<PathBuf> {
@@ -148,6 +153,7 @@ pub async fn read_plugins() -> crate::api::Result<Vec<PluginData>> {
             builtin: manifest.builtin,
             js,
             css,
+            theme: manifest.theme,
         });
     }
 
@@ -464,6 +470,22 @@ const BUILTINS: &[Builtin] = &[
             content: include_str!("builtin_plugins/hosting/manifest.json"),
             preserve: false,
         }],
+    },
+    Builtin {
+        id: "rebrand-template",
+        files: &[
+            BuiltinFile {
+                name: "manifest.json",
+                content: include_str!("builtin_plugins/rebrand-template/manifest.json"),
+                preserve: false,
+            },
+            BuiltinFile {
+                name: "theme.css",
+                content: include_str!("builtin_plugins/rebrand-template/theme.css"),
+                // Never overwrite the user's edited colors on update.
+                preserve: true,
+            },
+        ],
     },
     Builtin {
         id: "custom-css",

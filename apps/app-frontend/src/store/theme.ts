@@ -19,12 +19,19 @@ export const DEFAULT_FEATURE_FLAGS = {
 
 export const THEME_OPTIONS = ['purple', 'light', 'dark', 'oled'] as const
 
+// Built-in theme applied under a plugin theme (which only overrides the bits it
+// wants) and used as the safe fallback when a selected theme isn't available.
+const BASE_THEME = 'dark'
+
 export type FeatureFlag = keyof typeof DEFAULT_FEATURE_FLAGS
 export type FeatureFlags = Record<FeatureFlag, boolean>
-export type ColorTheme = (typeof THEME_OPTIONS)[number]
+// Loosened to string so plugin-provided themes (e.g. "Modrinth") are valid too.
+export type ColorTheme = string
 
 export type ThemeStore = {
-	selectedTheme: ColorTheme
+	selectedTheme: string
+	// Theme names contributed by enabled plugins (their manifest `theme` value).
+	pluginThemes: string[]
 	advancedRendering: boolean
 	hideNametagSkinsPage: boolean
 	toggleSidebar: boolean
@@ -35,6 +42,7 @@ export type ThemeStore = {
 
 export const DEFAULT_THEME_STORE: ThemeStore = {
 	selectedTheme: 'purple',
+	pluginThemes: [],
 	advancedRendering: true,
 	hideNametagSkinsPage: false,
 	toggleSidebar: false,
@@ -46,13 +54,20 @@ export const DEFAULT_THEME_STORE: ThemeStore = {
 export const useTheming = defineStore('themeStore', {
 	state: () => DEFAULT_THEME_STORE,
 	actions: {
-		setThemeState(newTheme: ColorTheme) {
-			if (THEME_OPTIONS.includes(newTheme)) {
-				this.selectedTheme = newTheme
-			} else {
-				console.warn('Selected theme is not present. Check themeOptions.')
-			}
-
+		setThemeState(newTheme: string) {
+			// Remember the intent even if the theme isn't available yet (its
+			// plugin may load a moment later); setThemeClass falls back visually.
+			this.selectedTheme = newTheme
+			this.setThemeClass()
+		},
+		// Registered by the plugin loader on startup once each plugin's `.<name>-mode`
+		// CSS has been injected. Re-applies the class so a saved plugin theme resolves.
+		setPluginThemes(themes: string[]) {
+			// Names become `.<name>-mode` CSS classes, so reject empties and any
+			// whitespace (classList would throw on a token containing a space).
+			this.pluginThemes = themes.filter(
+				(t) => typeof t === 'string' && t.length > 0 && !/\s/.test(t),
+			)
 			this.setThemeClass()
 		},
 		setThemeClass() {
@@ -60,13 +75,31 @@ export const useTheming = defineStore('themeStore', {
 			for (const theme of THEME_OPTIONS) {
 				html.classList.remove(`${theme}-mode`)
 			}
-			html.classList.add(`${this.selectedTheme}-mode`)
+			for (const theme of this.pluginThemes) {
+				html.classList.remove(`${theme}-mode`)
+			}
+
+			const isBuiltin = (THEME_OPTIONS as readonly string[]).includes(this.selectedTheme)
+			const isPlugin = this.pluginThemes.includes(this.selectedTheme)
+
+			if (isBuiltin) {
+				html.classList.add(`${this.selectedTheme}-mode`)
+			} else if (isPlugin) {
+				// Plugin themes layer over the dark base and override only what they
+				// redefine (brand colors, etc.), so templates can stay small.
+				html.classList.add(`${BASE_THEME}-mode`)
+				html.classList.add(`${this.selectedTheme}-mode`)
+			} else {
+				// Selected theme isn't available (e.g. its plugin is disabled/removed).
+				html.classList.add(`${BASE_THEME}-mode`)
+			}
 		},
 		getFeatureFlag(key: FeatureFlag) {
 			return this.featureFlags[key] ?? DEFAULT_FEATURE_FLAGS[key]
 		},
 		getThemeOptions() {
-			return THEME_OPTIONS
+			// Dedupe so a plugin can't inject a duplicate key / built-in collision.
+			return [...new Set([...THEME_OPTIONS, ...this.pluginThemes])]
 		},
 	},
 })

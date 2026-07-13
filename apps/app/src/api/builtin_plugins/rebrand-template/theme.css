@@ -1,0 +1,56 @@
+/* ============================================================================
+   REBRAND TEMPLATE  —  make ByteLauncher your own
+   ============================================================================
+
+   This adds a color theme called "MyBrand" to Settings → Appearance. Edit the
+   values below, restart ByteLauncher, then pick "MyBrand" to see your colors.
+
+   HOW IT WORKS
+   - This theme LAYERS over the dark base, so you only override what you want.
+   - Every "--..." line is a CSS variable. Change the color, keep the name.
+   - The block is scoped to ".MyBrand-mode": while your theme is selected, the
+     app's <html> gets that class, so only these overrides apply.
+
+   TO RENAME YOUR THEME (optional)
+     1. change  "theme": "MyBrand"  in manifest.json, and
+     2. change  .MyBrand-mode       below to match (no spaces, same name).
+   To make a fully separate theme, copy this whole folder, give it a new "id"
+   in manifest.json, and edit away — the original stays as a reference.
+
+   ABOUT ICONS / LOGO
+   - The window title and app icon are baked in at build time and can't be
+     changed by a plugin. But you CAN restyle or hide in-app elements with CSS
+     here (e.g. hide the wordmark), and swap image backgrounds with data: URLs.
+   ============================================================================ */
+
+.MyBrand-mode {
+	/* --- Accent color (buttons, highlights, links, selection) --------------- */
+	--color-brand: #ff5c8a;
+	--color-brand-highlight: rgba(255, 92, 138, 0.25);
+	--color-brand-shadow: rgba(255, 92, 138, 0.7);
+	--color-button-bg-selected: var(--color-brand-highlight);
+
+	/* Text color drawn ON TOP of the accent (e.g. primary button labels).
+	   Use a dark value for light accents, #ffffff for dark accents. */
+	--color-accent-contrast: #ffffff;
+
+	/* --- Background surfaces (OPTIONAL) ------------------------------------
+	   Uncomment and edit these to change the greys. surface-1 is the deepest
+	   layer, surface-5 is borders/dividers. Leave commented to keep the neutral
+	   dark backgrounds. */
+	/*
+	--surface-1: #17131a;
+	--surface-2: #1e1922;
+	--surface-3: #262029;
+	--surface-4: #2f2833;
+	--surface-5: #3a323f;
+	--color-bg: var(--surface-1);
+	--color-raised-bg: var(--surface-3);
+	*/
+}
+
+/* --- Example: hide the in-app wordmark (uncomment to use) -------------------
+.MyBrand-mode svg[class*="logo"] {
+	display: none;
+}
+*/

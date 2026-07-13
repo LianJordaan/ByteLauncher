@@ -1,0 +1,11 @@
+{
+	"id": "rebrand-template",
+	"name": "Rebrand Template",
+	"description": "A starter color theme you can edit to rebrand ByteLauncher with your own colors. Enable it, restart, then pick \"MyBrand\" in Settings → Appearance. Use \"Open plugins folder\" above and edit rebrand-template/theme.css to change the colors (your edits are kept across updates).",
+	"version": "1.0.0",
+	"author": "ByteLauncher",
+	"builtin": true,
+	"enabledByDefault": false,
+	"theme": "MyBrand",
+	"css": "theme.css"
+}

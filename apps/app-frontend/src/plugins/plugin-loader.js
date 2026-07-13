@@ -1,6 +1,7 @@
 import { invoke } from '@tauri-apps/api/core'
 
 import { setEnabledPluginIds } from '@/plugins/plugin-state'
+import { useTheming } from '@/store/theme.ts'
 
 // Loads user/built-in plugins on startup. Plugins live in
 // <app data>/plugins/<id>/ and are read by the Rust `addons` plugin. Each
@@ -52,5 +53,18 @@ export async function loadPlugins() {
 		} catch (e) {
 			console.error(`[plugins] failed to load "${plugin.id}"`, e)
 		}
+	}
+
+	// Register plugin-provided themes. Each declares a manifest `theme` name and
+	// ships a `.<name>-mode` CSS block (injected above). This makes the theme
+	// selectable in Settings → Appearance and re-applies the saved theme now that
+	// its CSS is present (so a plugin theme survives a restart without a flash).
+	try {
+		const themes = plugins
+			.filter((plugin) => plugin.enabled && plugin.theme)
+			.map((plugin) => plugin.theme)
+		useTheming().setPluginThemes(themes)
+	} catch (e) {
+		console.error('[plugins] failed to register plugin themes', e)
 	}
 }
