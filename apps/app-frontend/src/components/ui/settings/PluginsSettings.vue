@@ -5,6 +5,7 @@ import { invoke } from '@tauri-apps/api/core'
 import { ref } from 'vue'
 
 import { openPath, restartApp } from '@/helpers/utils'
+import { hideAllNews, setHideAllNews } from '@/plugins/hidden-news'
 import {
 	HOSTING_PANELS,
 	selectedPanel,
@@ -226,6 +227,24 @@ async function uninstall() {
 					</button>
 				</div>
 				<p class="m-0 mt-2 text-xs text-secondary">Loading: {{ selectedPanel.host }}</p>
+			</div>
+			<div
+				v-if="plugin.id === 'hide-news' && plugin.enabled"
+				class="rounded-xl bg-bg p-3 border-[1px] border-solid border-surface-5"
+			>
+				<div class="flex items-center justify-between gap-3">
+					<div>
+						<p class="m-0 text-sm font-semibold text-contrast">Hide the entire news section</p>
+						<p class="m-0 mt-1 text-xs text-secondary">
+							Removes the News heading, articles and “View all news” from the sidebar.
+						</p>
+					</div>
+					<Toggle
+						id="hide-all-news"
+						:model-value="hideAllNews"
+						@update:model-value="(v) => setHideAllNews(v)"
+					/>
+				</div>
 			</div>
 		</div>
 

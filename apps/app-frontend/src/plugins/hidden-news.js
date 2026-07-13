@@ -7,6 +7,7 @@ import { computed, ref } from 'vue'
 
 const STORAGE_KEY = 'bytelauncher-hidden-news'
 const SHOW_HIDDEN_KEY = 'bytelauncher-show-hidden-news'
+const HIDE_ALL_KEY = 'bytelauncher-hide-all-news'
 
 function loadHidden() {
 	try {
@@ -21,6 +22,9 @@ function loadHidden() {
 
 export const hiddenNews = ref(loadHidden())
 export const showHiddenNews = ref(localStorage.getItem(SHOW_HIDDEN_KEY) === '1')
+
+// When on, the entire News section (heading + cards + "View all news") is hidden.
+export const hideAllNews = ref(localStorage.getItem(HIDE_ALL_KEY) === '1')
 
 export const hiddenNewsCount = computed(() => hiddenNews.value.length)
 
@@ -68,5 +72,14 @@ export function setShowHiddenNews(value) {
 		localStorage.setItem(SHOW_HIDDEN_KEY, value ? '1' : '0')
 	} catch (e) {
 		console.error('[hide-news] failed to save show-hidden preference', e)
+	}
+}
+
+export function setHideAllNews(value) {
+	hideAllNews.value = value
+	try {
+		localStorage.setItem(HIDE_ALL_KEY, value ? '1' : '0')
+	} catch (e) {
+		console.error('[hide-news] failed to save hide-all preference', e)
 	}
 }

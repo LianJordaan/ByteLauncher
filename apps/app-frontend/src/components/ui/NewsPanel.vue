@@ -7,6 +7,7 @@ import ContextMenu from '@/components/ui/ContextMenu.vue'
 import {
 	articleId,
 	hiddenNewsCount,
+	hideAllNews,
 	hideNews,
 	isNewsHidden,
 	resetHiddenNews,
@@ -26,6 +27,9 @@ const props = defineProps({
 const articleMenu = ref(null)
 
 const hideNewsEnabled = computed(() => enabledPluginIds.value.has('hide-news'))
+
+// "Hide all news" option: with the plugin on, hide the whole section.
+const hideEntireNews = computed(() => hideNewsEnabled.value && hideAllNews.value)
 
 // Which articles to render. With the plugin off, this is the original top 4.
 // With it on, hidden articles are filtered out and the list backfills from the
@@ -61,7 +65,7 @@ function toggleShowHidden() {
 </script>
 
 <template>
-	<div v-if="news && news.length > 0" class="p-4 flex flex-col items-center">
+	<div v-if="news && news.length > 0 && !hideEntireNews" class="p-4 flex flex-col items-center">
 		<div class="mb-4 flex w-full items-center justify-between gap-2">
 			<h3 class="m-0 text-base text-primary font-medium">News</h3>
 			<div v-if="hideNewsEnabled && hiddenNewsCount > 0" class="flex items-center gap-1">
