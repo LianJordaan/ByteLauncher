@@ -458,6 +458,14 @@ const BUILTINS: &[Builtin] = &[
         }],
     },
     Builtin {
+        id: "hosting",
+        files: &[BuiltinFile {
+            name: "manifest.json",
+            content: include_str!("builtin_plugins/hosting/manifest.json"),
+            preserve: false,
+        }],
+    },
+    Builtin {
         id: "custom-css",
         files: &[
             BuiltinFile {

@@ -5,6 +5,12 @@ import { invoke } from '@tauri-apps/api/core'
 import { ref } from 'vue'
 
 import { openPath, restartApp } from '@/helpers/utils'
+import {
+	HOSTING_PANELS,
+	selectedPanel,
+	selectedPanelId,
+	setHostingPanel,
+} from '@/plugins/hosting-panel'
 import { setPluginEnabledState } from '@/plugins/plugin-state'
 
 interface PluginData {
@@ -184,27 +190,43 @@ async function uninstall() {
 			</ButtonStyled>
 		</div>
 
-		<div
-			v-for="plugin in plugins"
-			:key="plugin.id"
-			class="flex items-center justify-between gap-4"
-		>
-			<div>
-				<h2 class="m-0 text-lg font-semibold text-contrast">
-					{{ plugin.name }}
-					<span v-if="plugin.builtin" class="text-sm font-normal">(built-in)</span>
-				</h2>
-				<p class="m-0 mt-1 text-sm">{{ plugin.description }}</p>
-				<p v-if="plugin.version || plugin.author" class="m-0 mt-1 text-sm">
-					<span v-if="plugin.version">v{{ plugin.version }}</span>
-					<span v-if="plugin.author"> · {{ plugin.author }}</span>
-				</p>
+		<div v-for="plugin in plugins" :key="plugin.id" class="flex flex-col gap-3">
+			<div class="flex items-center justify-between gap-4">
+				<div>
+					<h2 class="m-0 text-lg font-semibold text-contrast">
+						{{ plugin.name }}
+						<span v-if="plugin.builtin" class="text-sm font-normal">(built-in)</span>
+					</h2>
+					<p class="m-0 mt-1 text-sm">{{ plugin.description }}</p>
+					<p v-if="plugin.version || plugin.author" class="m-0 mt-1 text-sm">
+						<span v-if="plugin.version">v{{ plugin.version }}</span>
+						<span v-if="plugin.author"> · {{ plugin.author }}</span>
+					</p>
+				</div>
+				<Toggle
+					:id="`plugin-${plugin.id}`"
+					:model-value="plugin.enabled"
+					@update:model-value="() => toggle(plugin)"
+				/>
 			</div>
-			<Toggle
-				:id="`plugin-${plugin.id}`"
-				:model-value="plugin.enabled"
-				@update:model-value="() => toggle(plugin)"
-			/>
+			<div
+				v-if="plugin.id === 'hosting' && plugin.enabled"
+				class="rounded-xl bg-bg p-3 border-[1px] border-solid border-surface-5"
+			>
+				<p class="m-0 mb-2 text-sm font-semibold text-contrast">Panel</p>
+				<div class="flex flex-wrap gap-2">
+					<button
+						v-for="panel in HOSTING_PANELS"
+						:key="panel.id"
+						class="panel-option"
+						:class="{ active: panel.id === selectedPanelId }"
+						@click="setHostingPanel(panel.id)"
+					>
+						{{ panel.name }}
+					</button>
+				</div>
+				<p class="m-0 mt-2 text-xs text-secondary">Loading: {{ selectedPanel.host }}</p>
+			</div>
 		</div>
 
 		<p v-if="plugins.length === 0" class="m-0 text-sm">No plugins found.</p>
@@ -237,3 +259,28 @@ async function uninstall() {
 		</div>
 	</div>
 </template>
+
+<style scoped>
+.panel-option {
+	padding: 0.4rem 0.85rem;
+	border-radius: var(--radius-md);
+	border: 1px solid var(--color-button-bg);
+	background: var(--color-button-bg);
+	color: var(--color-base);
+	font-weight: 600;
+	font-size: 0.875rem;
+	cursor: pointer;
+	transition: all 0.1s ease-in-out;
+}
+
+.panel-option:hover {
+	filter: brightness(0.85);
+	color: var(--color-contrast);
+}
+
+.panel-option.active {
+	background: var(--color-brand);
+	border-color: var(--color-brand);
+	color: #ffffff;
+}
+</style>

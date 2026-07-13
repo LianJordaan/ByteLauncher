@@ -1,0 +1,9 @@
+{
+	"id": "hosting",
+	"name": "ByteBuilders Hosting (Experimental)",
+	"description": "Opens a game-hosting panel inside the Hosting tab. Experimental. Choose which panel to load (Main, SuperS Network, or Kia) in this plugin's settings below.",
+	"version": "1.0.0",
+	"author": "ByteLauncher",
+	"enabledByDefault": false,
+	"builtin": true
+}
