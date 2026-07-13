@@ -10,13 +10,15 @@ const STORAGE_KEY = 'bytelauncher-hosting-panel'
 const DEFAULT_PANEL_ID = 'main'
 
 // Each panel is served at the ROOT of its own proxy subdomain
-// (<id>.proxy.bytebuilders.co.za). Root-hosting — not a `/<host>` path prefix —
-// is required so the panel's single-page-app routing resolves; a path prefix
-// makes the SPA 404 when the tab is reopened at `/<host>`.
+// (proxy-<id>.bytebuilders.co.za — a single label, so Cloudflare's free
+// `*.bytebuilders.co.za` Universal SSL cert covers it; a two-level
+// `<id>.proxy.…` host would have no cert). Root-hosting — not a `/<host>` path
+// prefix — is required so the panel's single-page-app routing resolves; a path
+// prefix makes the SPA 404 when the tab is reopened at `/<host>`.
 export const HOSTING_PANELS = [
-	{ id: 'main', name: 'Main', host: 'panel.bytebuilders.co.za', url: 'https://main.proxy.bytebuilders.co.za/' },
-	{ id: 'supers', name: 'SuperS Network', host: 'panel.supersnetwork.com', url: 'https://supers.proxy.bytebuilders.co.za/' },
-	{ id: 'kia', name: 'Kia', host: 'kia.bytebuilders.co.za', url: 'https://kia.proxy.bytebuilders.co.za/' },
+	{ id: 'main', name: 'Main', host: 'panel.bytebuilders.co.za', url: 'https://proxy-main.bytebuilders.co.za/' },
+	{ id: 'supers', name: 'SuperS Network', host: 'panel.supersnetwork.com', url: 'https://proxy-supers.bytebuilders.co.za/' },
+	{ id: 'kia', name: 'Kia', host: 'kia.bytebuilders.co.za', url: 'https://proxy-kia.bytebuilders.co.za/' },
 ]
 
 function loadPanelId() {
@@ -31,7 +33,7 @@ export const selectedPanel = computed(
 	() => HOSTING_PANELS.find((p) => p.id === selectedPanelId.value) ?? HOSTING_PANELS[0],
 )
 
-// The proxy-subdomain root URL to embed, e.g. https://main.proxy.bytebuilders.co.za/
+// The proxy-subdomain root URL to embed, e.g. https://proxy-main.bytebuilders.co.za/
 export const hostingPanelUrl = computed(() => selectedPanel.value.url)
 
 export function setHostingPanel(id) {
