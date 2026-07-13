@@ -442,6 +442,22 @@ const BUILTINS: &[Builtin] = &[
         }],
     },
     Builtin {
+        id: "hide-news",
+        files: &[BuiltinFile {
+            name: "manifest.json",
+            content: include_str!("builtin_plugins/hide-news/manifest.json"),
+            preserve: false,
+        }],
+    },
+    Builtin {
+        id: "experimental-home",
+        files: &[BuiltinFile {
+            name: "manifest.json",
+            content: include_str!("builtin_plugins/experimental-home/manifest.json"),
+            preserve: false,
+        }],
+    },
+    Builtin {
         id: "custom-css",
         files: &[
             BuiltinFile {

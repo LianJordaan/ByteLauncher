@@ -1,0 +1,9 @@
+{
+	"id": "hide-news",
+	"name": "Hide News",
+	"description": "Right-click any news article in the sidebar to hide it. Use the eye button on the News heading to review or restore hidden articles.",
+	"version": "1.0.0",
+	"author": "ByteLauncher",
+	"enabledByDefault": false,
+	"builtin": true
+}

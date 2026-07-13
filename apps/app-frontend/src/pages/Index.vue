@@ -6,11 +6,13 @@ import { computed, onUnmounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 
 import RowDisplay from '@/components/RowDisplay.vue'
+import HomeDashboard from '@/components/ui/HomeDashboard.vue'
 import RecentWorldsList from '@/components/ui/world/RecentWorldsList.vue'
 import { get_search_results } from '@/helpers/cache.js'
 import { instance_listener } from '@/helpers/events'
 import { list } from '@/helpers/instance'
 import type { GameInstance } from '@/helpers/types'
+import { enabledPluginIds } from '@/plugins/plugin-state'
 import { useBreadcrumbs } from '@/store/breadcrumbs'
 
 const { handleError } = injectNotificationManager()
@@ -35,6 +37,8 @@ const recentInstances = computed(() =>
 const hasFeaturedProjects = computed(
 	() => (featuredModpacks.value?.length ?? 0) + (featuredMods.value?.length ?? 0) > 0,
 )
+
+const dashboardEnabled = computed(() => enabledPluginIds.value.has('experimental-home'))
 
 const offline = ref<boolean>(!navigator.onLine)
 window.addEventListener('offline', () => {
@@ -101,7 +105,13 @@ onUnmounted(() => {
 </script>
 
 <template>
-	<div class="p-6 flex flex-col gap-2">
+	<HomeDashboard
+		v-if="dashboardEnabled"
+		:recent-instances="recentInstances"
+		:featured-modpacks="featuredModpacks"
+		:featured-mods="featuredMods"
+	/>
+	<div v-else class="p-6 flex flex-col gap-2">
 		<h1 v-if="recentInstances?.length > 0" class="m-0 text-2xl font-extrabold">Welcome back!</h1>
 		<h1 v-else class="m-0 text-2xl font-extrabold">Welcome to ByteLauncher!</h1>
 		<RecentWorldsList :recent-instances="recentInstances" />

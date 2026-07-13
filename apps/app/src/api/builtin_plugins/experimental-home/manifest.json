@@ -1,0 +1,9 @@
+{
+	"id": "experimental-home",
+	"name": "Home Dashboard (Experimental)",
+	"description": "Replaces the Home page with a dashboard: big quick-launch tiles for your recent instances up top, then your recent worlds and discover rows. Applies live.",
+	"version": "1.0.0",
+	"author": "ByteLauncher",
+	"enabledByDefault": false,
+	"builtin": true
+}
