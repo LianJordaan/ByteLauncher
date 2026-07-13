@@ -60,8 +60,14 @@ fn ads_user_agent_override_params() -> String {
     .to_string()
 }
 
+/// Disables WebView2 tracking prevention on a webview's profile. The default
+/// level (Balanced) blocks third-party cookies in cross-site `<iframe>`s, which
+/// breaks any embedded site that relies on a session cookie — both the ads
+/// webview and the ByteBuilders Hosting plugin's panel iframe on the main
+/// webview. WebView2 profiles are shared, so setting this on the main webview
+/// covers the whole app.
 #[cfg(windows)]
-fn configure_ads_cookie_settings(
+pub fn disable_tracking_prevention(
     core_webview2: &webview2_com::Microsoft::Web::WebView2::Win32::ICoreWebView2,
 ) {
     use webview2_com::Microsoft::Web::WebView2::Win32::{
@@ -524,7 +530,7 @@ pub async fn init_ads_window<R: Runtime>(
                         unsafe { webview2.controller().CoreWebView2() };
 
                     if let Ok(core_webview2) = core_webview2 {
-                        configure_ads_cookie_settings(&core_webview2);
+                        disable_tracking_prevention(&core_webview2);
 
                         let navigate_webview = core_webview2.clone();
                         let handler =

@@ -226,6 +226,24 @@ fn main() {
                 tracing::warn!("Failed to set window shadow: {e}");
             }
 
+            // Disable WebView2 tracking prevention on the main webview so
+            // third-party cookies survive inside embedded iframes (e.g. the
+            // ByteBuilders Hosting plugin's panel, which needs its session
+            // cookie to log in). Without this the panel returns "CSRF token
+            // mismatch". The ads webview already does this, but it is never
+            // created when Hide Ads is enabled (the default), so the main
+            // webview must set it independently.
+            #[cfg(windows)]
+            if let Some(webview) = app.get_webview_window("main") {
+                let _ = webview.with_webview(|platform_webview| {
+                    let core_webview2 =
+                        unsafe { platform_webview.controller().CoreWebView2() };
+                    if let Ok(core_webview2) = core_webview2 {
+                        crate::api::ads::disable_tracking_prevention(&core_webview2);
+                    }
+                });
+            }
+
             Ok(())
         });
 
