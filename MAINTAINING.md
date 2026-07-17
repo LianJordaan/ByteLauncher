@@ -146,3 +146,33 @@ place (with a copy-fallback so the app is never left without an exe), then
 App updates** UI checks the fork's latest release, skips installer assets, offers
 only strictly-newer versions, and passes the asset's digest. This is independent
 of the optional bundled Tauri updater below.
+
+### Update-check endpoint — Cloudflare Worker (v0.15.11-fork.1+)
+
+The update **check** (both the Settings UI and the startup banner in
+`update-check.js`) fetches its release manifest from a Cloudflare Worker at
+`https://cloudflare-api.bytebuilders.co.za/bytelauncher/`, not `api.github.com`.
+Why: GitHub's API is 60 requests/hr per IP, which users behind a shared IP kept
+exhausting, so update prompts silently stopped appearing. The Worker calls GitHub
+**server-side** (Cloudflare's IP) and **edge-caches** the response ~5 min, so all
+users share one lookup and the per-user limit is never in play.
+
+- **Worker source:** `.private/update-worker.js` (gitignored, NOT shipped — deploy
+  it by hand). It's a single module Worker; paste it as the Worker's `src/index.js`.
+- **Route:** `cloudflare-api.bytebuilders.co.za/bytelauncher/*` (single-label
+  subdomain → free `*.bytebuilders.co.za` Universal SSL; plural `bytebuilders`,
+  not the hosting proxy's singular `bytebuilder.co.za`).
+- **Manifest shape:** a trimmed copy of GitHub's `releases/latest` object
+  (`tag_name`, `html_url`, `assets[].name/.browser_download_url/.digest/...`), so
+  the frontend parsing didn't change. It backfills the exe `digest` from the
+  `ByteLauncher.exe.sha256` sidecar when GitHub's `digest` is null.
+- **Optional secret:** `wrangler secret put GITHUB_TOKEN` (a zero-scope / public-repo
+  read-only PAT) lifts the Worker's server-side GitHub limit to 5000/hr. With the
+  cache this is rarely needed — pure insurance.
+- **No Rust change:** the exe still downloads from `github.com`, already in
+  `fork_apply_update`'s host allowlist. Switching the check only touched the two
+  frontend fetch URLs and the `connect-src` CSP in `tauri.conf.json`.
+- **Degrades safely:** if the Worker is down/misrouted, both call sites treat a
+  non-2xx as "skip the check" — the app never breaks, it just won't detect updates
+  until the Worker is reachable. Delivery of a build is unaffected (users still
+  arrive via the prior build's check + the `github.com` download).
