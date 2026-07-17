@@ -50,7 +50,11 @@ async function openFolder() {
 	}
 }
 
-const REPO = 'LianJordaan/ByteLauncher'
+// ByteLauncher update endpoint (Cloudflare Worker). It mirrors GitHub's
+// `releases/latest` JSON shape but is edge-cached and server-side authenticated,
+// so users never hit GitHub's 60/hr API rate limit. The .exe still downloads
+// from github.com (already trusted by the Rust updater).
+const UPDATE_API = 'https://cloudflare-api.bytebuilders.co.za/bytelauncher/'
 type UpdateState = 'idle' | 'checking' | 'current' | 'available' | 'installing' | 'error'
 interface GithubAsset {
 	name?: string
@@ -80,10 +84,10 @@ async function checkForUpdates() {
 	updateState.value = 'checking'
 	updateError.value = ''
 	try {
-		const res = await fetch(`https://api.github.com/repos/${REPO}/releases/latest`, {
-			headers: { Accept: 'application/vnd.github+json' },
+		const res = await fetch(UPDATE_API, {
+			headers: { Accept: 'application/json' },
 		})
-		if (!res.ok) throw new Error(`GitHub returned ${res.status}`)
+		if (!res.ok) throw new Error(`Update server returned ${res.status}`)
 		const data = await res.json()
 		const latest = String(data.tag_name || '').replace(/^v/, '')
 		// The standalone app binary, never an installer.

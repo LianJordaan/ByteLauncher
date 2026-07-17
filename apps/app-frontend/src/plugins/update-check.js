@@ -9,6 +9,11 @@ import { openUrl } from '@tauri-apps/plugin-opener'
 // (plain DOM) so it cannot interfere with Vue rendering.
 
 const REPO = 'LianJordaan/ByteLauncher'
+// ByteLauncher update endpoint (Cloudflare Worker) — mirrors GitHub's
+// `releases/latest` JSON but is edge-cached + server-side authenticated, so the
+// startup check never hits GitHub's 60/hr API rate limit. The .exe still
+// downloads from github.com, which the Rust updater already allowlists.
+const UPDATE_API = 'https://cloudflare-api.bytebuilders.co.za/bytelauncher/'
 const BANNER_ID = 'mr-upstream-update-banner'
 const DISMISS_KEY = 'mr-dismissed-update-version'
 
@@ -110,8 +115,8 @@ export async function checkForUpdates() {
 		// Skip local/dev/canary builds where the version is not a real release.
 		if (/local|dev|canary/i.test(current)) return
 
-		const res = await fetch(`https://api.github.com/repos/${REPO}/releases/latest`, {
-			headers: { Accept: 'application/vnd.github+json' },
+		const res = await fetch(UPDATE_API, {
+			headers: { Accept: 'application/json' },
 		})
 		if (!res.ok) return
 
