@@ -23,6 +23,11 @@ export const THEME_OPTIONS = ['purple', 'light', 'dark', 'oled'] as const
 // wants) and used as the safe fallback when a selected theme isn't available.
 const BASE_THEME = 'dark'
 
+// The backend `theme` setting is a fixed enum (dark/light/oled/purple/system),
+// so a plugin-contributed theme can't be stored there. We remember a selected
+// plugin theme client-side instead (localStorage, never the shared app.db).
+export const PLUGIN_THEME_STORAGE_KEY = 'bytelauncher-plugin-theme'
+
 export type FeatureFlag = keyof typeof DEFAULT_FEATURE_FLAGS
 export type FeatureFlags = Record<FeatureFlag, boolean>
 // Loosened to string so plugin-provided themes (e.g. "Modrinth") are valid too.
@@ -58,7 +63,31 @@ export const useTheming = defineStore('themeStore', {
 			// Remember the intent even if the theme isn't available yet (its
 			// plugin may load a moment later); setThemeClass falls back visually.
 			this.selectedTheme = newTheme
+			this.persistThemeSelection(newTheme)
 			this.setThemeClass()
+		},
+		isBuiltinTheme(theme: string): boolean {
+			return (THEME_OPTIONS as readonly string[]).includes(theme)
+		},
+		// A built-in theme clears the client-side override (the backend value is
+		// authoritative); a plugin theme is stored here so it survives a restart.
+		persistThemeSelection(theme: string) {
+			try {
+				if (this.isBuiltinTheme(theme)) {
+					localStorage.removeItem(PLUGIN_THEME_STORAGE_KEY)
+				} else {
+					localStorage.setItem(PLUGIN_THEME_STORAGE_KEY, theme)
+				}
+			} catch {
+				// localStorage unavailable — non-fatal; the theme still applies this session.
+			}
+		},
+		getPersistedPluginTheme(): string | null {
+			try {
+				return localStorage.getItem(PLUGIN_THEME_STORAGE_KEY)
+			} catch {
+				return null
+			}
 		},
 		// Registered by the plugin loader on startup once each plugin's `.<name>-mode`
 		// CSS has been injected. Re-applies the class so a saved plugin theme resolves.

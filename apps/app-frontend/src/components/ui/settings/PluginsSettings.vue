@@ -1,8 +1,9 @@
 <script setup lang="ts">
+import { SearchIcon } from '@modrinth/assets'
 import { ButtonStyled, Toggle } from '@modrinth/ui'
 import { getVersion } from '@tauri-apps/api/app'
 import { invoke } from '@tauri-apps/api/core'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 
 import { openPath, restartApp } from '@/helpers/utils'
 import { hideAllNews, setHideAllNews } from '@/plugins/hidden-news'
@@ -24,11 +25,56 @@ interface PluginData {
 	builtin: boolean
 	js: string | null
 	css: string | null
+	updatedAt: number
 }
 
 const plugins = ref<PluginData[]>((await invoke('plugin:addons|read_plugins')) as PluginData[])
 const pluginsDir = ref<string>((await invoke('plugin:addons|get_plugins_dir')) as string)
 const restartNeeded = ref(false)
+
+type PluginFilter = 'all' | 'enabled' | 'disabled' | 'new'
+type PluginSort = 'name' | 'recent'
+const PLUGIN_FILTERS: { id: PluginFilter; label: string }[] = [
+	{ id: 'all', label: 'All' },
+	{ id: 'enabled', label: 'Enabled' },
+	{ id: 'disabled', label: 'Disabled' },
+	{ id: 'new', label: 'New' },
+]
+const PLUGIN_SORTS: { id: PluginSort; label: string }[] = [
+	{ id: 'name', label: 'Name' },
+	{ id: 'recent', label: 'Recently updated' },
+]
+const searchQuery = ref('')
+const filterMode = ref<PluginFilter>('all')
+const sortMode = ref<PluginSort>('name')
+
+// A plugin counts as "new" for a week after its files were last written, so a
+// freshly-added or just-updated plugin is easy to spot.
+const NEW_PLUGIN_WINDOW_MS = 7 * 24 * 60 * 60 * 1000
+function isNewPlugin(plugin: PluginData): boolean {
+	return plugin.updatedAt > 0 && Date.now() - plugin.updatedAt < NEW_PLUGIN_WINDOW_MS
+}
+
+const filteredPlugins = computed(() => {
+	const query = searchQuery.value.trim().toLowerCase()
+	const list = plugins.value.filter((plugin) => {
+		if (filterMode.value === 'enabled' && !plugin.enabled) return false
+		if (filterMode.value === 'disabled' && plugin.enabled) return false
+		if (filterMode.value === 'new' && !isNewPlugin(plugin)) return false
+		if (!query) return true
+		return (
+			plugin.name.toLowerCase().includes(query) ||
+			plugin.description.toLowerCase().includes(query) ||
+			plugin.id.toLowerCase().includes(query) ||
+			plugin.author.toLowerCase().includes(query)
+		)
+	})
+	return list.sort((a, b) =>
+		sortMode.value === 'recent'
+			? b.updatedAt - a.updatedAt
+			: a.name.toLowerCase().localeCompare(b.name.toLowerCase()),
+	)
+})
 
 async function toggle(plugin: PluginData) {
 	const next = !plugin.enabled
@@ -195,12 +241,48 @@ async function uninstall() {
 			</ButtonStyled>
 		</div>
 
-		<div v-for="plugin in plugins" :key="plugin.id" class="flex flex-col gap-3">
+		<div v-if="plugins.length > 0" class="flex flex-wrap items-center gap-2">
+			<label class="plugin-search">
+				<SearchIcon class="plugin-search-icon" aria-hidden="true" />
+				<input
+					v-model="searchQuery"
+					type="text"
+					placeholder="Search plugins…"
+					aria-label="Search plugins"
+				/>
+			</label>
+			<div class="flex flex-wrap gap-1">
+				<button
+					v-for="f in PLUGIN_FILTERS"
+					:key="f.id"
+					class="chip"
+					:class="{ active: filterMode === f.id }"
+					@click="filterMode = f.id"
+				>
+					{{ f.label }}
+				</button>
+			</div>
+			<div class="flex flex-wrap items-center gap-1">
+				<span class="text-xs text-secondary">Sort:</span>
+				<button
+					v-for="s in PLUGIN_SORTS"
+					:key="s.id"
+					class="chip"
+					:class="{ active: sortMode === s.id }"
+					@click="sortMode = s.id"
+				>
+					{{ s.label }}
+				</button>
+			</div>
+		</div>
+
+		<div v-for="plugin in filteredPlugins" :key="plugin.id" class="flex flex-col gap-3">
 			<div class="flex items-center justify-between gap-4">
 				<div>
 					<h2 class="m-0 text-lg font-semibold text-contrast">
 						{{ plugin.name }}
 						<span v-if="plugin.builtin" class="text-sm font-normal">(built-in)</span>
+						<span v-if="isNewPlugin(plugin)" class="new-badge">New</span>
 					</h2>
 					<p class="m-0 mt-1 text-sm">{{ plugin.description }}</p>
 					<p v-if="plugin.version || plugin.author" class="m-0 mt-1 text-sm">
@@ -252,7 +334,9 @@ async function uninstall() {
 			</div>
 		</div>
 
-		<p v-if="plugins.length === 0" class="m-0 text-sm">No plugins found.</p>
+		<p v-if="filteredPlugins.length === 0" class="m-0 text-sm text-secondary">
+			{{ plugins.length === 0 ? 'No plugins found.' : 'No plugins match your filters.' }}
+		</p>
 
 		<div class="mt-2 border-0 border-t border-solid border-surface-5 pt-6">
 			<h2 class="m-0 text-lg font-semibold text-red">Danger zone</h2>
@@ -305,5 +389,70 @@ async function uninstall() {
 	background: var(--color-brand);
 	border-color: var(--color-brand);
 	color: #ffffff;
+}
+
+.plugin-search {
+	position: relative;
+	display: flex;
+	align-items: center;
+	flex: 1 1 200px;
+	min-width: 180px;
+}
+
+.plugin-search-icon {
+	position: absolute;
+	left: 0.6rem;
+	width: 1rem;
+	height: 1rem;
+	color: var(--color-secondary);
+	pointer-events: none;
+}
+
+.plugin-search input {
+	width: 100%;
+	padding: 0.45rem 0.6rem 0.45rem 2rem;
+	border-radius: var(--radius-md);
+	border: 1px solid var(--color-button-bg);
+	background: var(--color-raised-bg);
+	color: var(--color-contrast);
+	font-size: 0.875rem;
+}
+
+.plugin-search input::placeholder {
+	color: var(--color-secondary);
+}
+
+.chip {
+	padding: 0.4rem 0.75rem;
+	border-radius: var(--radius-md);
+	border: 1px solid var(--color-button-bg);
+	background: var(--color-button-bg);
+	color: var(--color-base);
+	font-weight: 600;
+	font-size: 0.8rem;
+	cursor: pointer;
+	transition: all 0.1s ease-in-out;
+}
+
+.chip:hover {
+	color: var(--color-contrast);
+}
+
+.chip.active {
+	background: var(--color-brand);
+	border-color: var(--color-brand);
+	color: #ffffff;
+}
+
+.new-badge {
+	display: inline-block;
+	margin-left: 0.4rem;
+	padding: 0.05rem 0.4rem;
+	border-radius: var(--radius-sm);
+	background: var(--color-brand);
+	color: #ffffff;
+	font-size: 0.7rem;
+	font-weight: 600;
+	vertical-align: middle;
 }
 </style>

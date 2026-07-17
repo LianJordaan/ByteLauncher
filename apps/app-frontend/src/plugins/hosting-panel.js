@@ -16,7 +16,7 @@ const DEFAULT_PANEL_ID = 'main'
 // prefix makes the SPA 404 when the tab is reopened at `/<host>`.
 export const HOSTING_PANELS = [
 	{ id: 'main', name: 'Main', host: 'panel.bytebuilders.co.za', url: 'https://main.bytebuilder.co.za/' },
-	{ id: 'supers', name: 'SuperS Network', host: 'panel.supersnetwork.com', url: 'https://supers.bytebuilder.co.za/' },
+	{ id: 'supers', name: 'Supers Network', host: 'panel.supersnetwork.com', url: 'https://supers.bytebuilder.co.za/' },
 	{ id: 'kia', name: 'Kia', host: 'kia.bytebuilders.co.za', url: 'https://kia.bytebuilder.co.za/' },
 ]
 

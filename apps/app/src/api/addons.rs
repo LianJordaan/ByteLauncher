@@ -68,6 +68,9 @@ pub struct PluginData {
     js: Option<String>,
     css: Option<String>,
     theme: Option<String>,
+    /// Newest modification time (epoch millis) across the plugin's files, so the
+    /// UI can offer "recently updated" sorting and flag freshly-added plugins.
+    updated_at: u64,
 }
 
 async fn plugins_dir() -> crate::api::Result<PathBuf> {
@@ -92,6 +95,18 @@ async fn write_enabled_map(map: &HashMap<String, bool>) -> crate::api::Result<()
         .map_err(|e| std::io::Error::new(std::io::ErrorKind::InvalidData, e))?;
     tokio::fs::write(&path, json).await?;
     Ok(())
+}
+
+/// Modification time of `path` as milliseconds since the Unix epoch, or 0 if the
+/// file is missing or its timestamp can't be read.
+async fn file_modified_millis(path: &std::path::Path) -> u64 {
+    tokio::fs::metadata(path)
+        .await
+        .and_then(|meta| meta.modified())
+        .ok()
+        .and_then(|time| time.duration_since(std::time::UNIX_EPOCH).ok())
+        .map(|dur| dur.as_millis() as u64)
+        .unwrap_or(0)
 }
 
 #[tauri::command]
@@ -139,6 +154,15 @@ pub async fn read_plugins() -> crate::api::Result<Vec<PluginData>> {
             .copied()
             .unwrap_or(manifest.enabled_by_default);
 
+        let mut updated_at = file_modified_millis(&path.join("manifest.json")).await;
+        for file in [manifest.js.as_deref(), manifest.css.as_deref()]
+            .into_iter()
+            .flatten()
+            .filter(|f| !f.is_empty())
+        {
+            updated_at = updated_at.max(file_modified_millis(&path.join(file)).await);
+        }
+
         out.push(PluginData {
             name: if manifest.name.is_empty() {
                 manifest.id.clone()
@@ -154,6 +178,7 @@ pub async fn read_plugins() -> crate::api::Result<Vec<PluginData>> {
             js,
             css,
             theme: manifest.theme,
+            updated_at,
         });
     }
 

@@ -386,6 +386,12 @@ async function setupApp() {
 		}
 	}
 
+	// A previously-selected plugin theme is stored client-side (the backend enum
+	// only knows the built-ins), so let it override the backend theme on startup.
+	// Its CSS loads a moment later via the plugin loader, which re-applies it.
+	const pluginTheme = themeStore.getPersistedPluginTheme()
+	if (pluginTheme) effectiveTheme = pluginTheme
+
 	themeStore.setThemeState(effectiveTheme)
 	themeStore.collapsedNavigation = collapsed_navigation
 	themeStore.advancedRendering = advanced_rendering

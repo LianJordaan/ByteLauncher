@@ -142,10 +142,10 @@ watch(
 		:update-color-theme="
 			(theme: ColorTheme) => {
 				themeStore.setThemeState(theme)
-				settings.theme = theme
+				if (themeStore.isBuiltinTheme(theme)) settings.theme = theme
 			}
 		"
-		:current-theme="settings.theme"
+		:current-theme="themeStore.selectedTheme"
 		:theme-options="themeStore.getThemeOptions()"
 		system-theme-color="dark"
 	/>
