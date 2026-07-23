@@ -47,9 +47,13 @@ Modrinth-only secrets, so on a fork they queue forever ("waiting for a runner")
 or fail red on every push. Only `fork-build`, `fork-release`, and `fork-sync`
 remain.
 
-If an upstream release edits one of those deleted files, `fork-sync` will hit a
-modify/delete conflict and open an issue — resolve it by keeping the file
-deleted (`git rm <file>`) and pushing `main`.
+Upstream constantly edits its CI, and the fork deleted all 16 of those workflow
+files, so a "deleted by us" (modify/delete) conflict on them was the #1 cause of
+sync failures. `fork-sync.yml` now **auto-resolves** these: on a merge failure it
+`git rm`s every deleted-by-us (`DU`) path (keeping it deleted) and completes the
+merge. It only aborts + opens an issue when a genuine **content** conflict (`UU`)
+remains — e.g. a fork-patched source file that upstream refactored (resolve those
+locally, keeping the fork's intent, and push `main`).
 
 ## Cutting a release manually
 
@@ -68,8 +72,10 @@ and write**. Without it the merge still happens, but you must run
 `fork-release.yml` manually (GitHub's default `GITHUB_TOKEN` cannot trigger
 another workflow).
 
-If a sync merge ever conflicts, the workflow aborts and opens an issue instead
-of pushing a broken merge — resolve it locally and push `main`.
+If a sync merge hits a genuine content conflict (after auto-resolving the
+deleted-workflow churn described above), the workflow aborts and opens an issue
+listing the conflicted files instead of pushing a broken merge — resolve it
+locally and push `main`.
 
 ## Enabling the bundled auto-updater (later)
 
