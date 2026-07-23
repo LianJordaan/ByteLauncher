@@ -61,12 +61,30 @@ jobs:
 
           echo "Merging upstream ${UPSTREAM_TAG} into main..."
           if ! git merge --no-edit "${UPSTREAM_TAG}"; then
-            git merge --abort || true
-            gh issue create \
-              --title "Upstream sync conflict: ${UPSTREAM_TAG}" \
-              --body "Automatic merge of upstream \`${UPSTREAM_TAG}\` into \`main\` hit conflicts and needs manual resolution." \
-              || true
-            exit 1
+            # The fork deletes all inherited Modrinth workflows, so whenever
+            # upstream edits one it surfaces as a "deleted by us" (DU) conflict.
+            # Those are never wanted back — auto-resolve by keeping them deleted,
+            # so only genuine content conflicts ever need a human.
+            while IFS= read -r du_file; do
+              if [ -z "${du_file}" ]; then continue; fi
+              echo "Auto-resolving deleted-by-us conflict: ${du_file}"
+              git rm -f -- "${du_file}" >/dev/null
+            done < <(git status --porcelain | sed -n 's/^DU //p')
+
+            remaining=$(git diff --name-only --diff-filter=U)
+            if [ -n "${remaining}" ]; then
+              echo "Unresolved content conflicts remain:"
+              echo "${remaining}"
+              git merge --abort || true
+              gh issue create \
+                --title "Upstream sync conflict: ${UPSTREAM_TAG}" \
+                --body "$(printf 'Automatic merge of upstream `%s` into `main` had content conflicts needing manual resolution:\n\n%s' "${UPSTREAM_TAG}" "${remaining}")" \
+                || true
+              exit 1
+            fi
+
+            echo "All conflicts were deleted-by-us files; completing the merge."
+            git commit --no-edit
           fi
 
           mkdir -p .github
