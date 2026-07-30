@@ -3,7 +3,6 @@ import { defineStore } from 'pinia'
 export const DEFAULT_FEATURE_FLAGS = {
 	project_background: false,
 	page_path: false,
-	worlds_tab: false,
 	worlds_in_home: true,
 	server_project_qa: false,
 	show_version_environment_column: false,
@@ -15,9 +14,11 @@ export const DEFAULT_FEATURE_FLAGS = {
 	i18n_debug: false,
 	show_instance_play_time: true,
 	advanced_filters_collapsed: true,
+	always_show_copy_details: false,
+	hide_installed_modpacks: false,
 }
 
-export const THEME_OPTIONS = ['purple', 'light', 'dark', 'oled'] as const
+export const THEME_OPTIONS = ['purple', 'light', 'dark', 'oled', 'retro'] as const
 
 // Built-in theme applied under a plugin theme (which only overrides the bits it
 // wants) and used as the safe fallback when a selected theme isn't available.

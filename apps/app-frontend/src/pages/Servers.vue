@@ -4,8 +4,17 @@ import { computed } from 'vue'
 
 import { hostingPanelUrl } from '@/plugins/hosting-panel'
 import { enabledPluginIds } from '@/plugins/plugin-state'
+import { useRootBreadcrumb } from '@/providers/breadcrumbs'
 
 const hostingEnabled = computed(() => enabledPluginIds.value.has('hosting'))
+
+useRootBreadcrumb({
+	slot: 'root',
+	id: 'servers',
+	label: 'ByteBuilders Hosting',
+	to: '/hosting/manage/',
+	visual: { type: 'icon', component: ServerStackIcon },
+})
 </script>
 
 <template>
