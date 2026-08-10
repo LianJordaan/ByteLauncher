@@ -1,1415 +1,1907 @@
 {
-  "app.action-bar.downloading-java": {
-    "message": "Скачивание Java {version}"
-  },
-  "app.action-bar.downloading-update": {
-    "message": "Скачивание обновления"
-  },
-  "app.action-bar.downloads": {
-    "message": "Загрузки"
-  },
-  "app.action-bar.hide-more-running-instances": {
-    "message": "Скрыть другие активные сборки"
-  },
-  "app.action-bar.install.copied-details": {
-    "message": "Скопировано"
-  },
-  "app.action-bar.install.copy-details": {
-    "message": "Копировать"
-  },
-  "app.action-bar.install.dismiss": {
-    "message": "Закрыть"
-  },
-  "app.action-bar.install.open-instance": {
-    "message": "Открыть сборку"
-  },
-  "app.action-bar.install.retry": {
-    "message": "Повторить"
-  },
-  "app.action-bar.install.summary.app-closing": {
-    "message": "Отменено из‑за закрытия приложения"
-  },
-  "app.action-bar.install.summary.bad-modpack-file": {
-    "message": "Не удалось прочитать сборку"
-  },
-  "app.action-bar.install.summary.canceled": {
-    "message": "Отменено"
-  },
-  "app.action-bar.install.summary.cleanup-incomplete": {
-    "message": "Очистка прервана"
-  },
-  "app.action-bar.install.summary.content-download-failed": {
-    "message": "Не удалось скачать файлы"
-  },
-  "app.action-bar.install.summary.corrupt-download": {
-    "message": "Скачанный файл повреждён"
-  },
-  "app.action-bar.install.summary.could-not-save-files": {
-    "message": "Не удалось сохранить файлы"
-  },
-  "app.action-bar.install.summary.download-failed": {
-    "message": "Скачивание прервано"
-  },
-  "app.action-bar.install.summary.instance-not-found": {
-    "message": "Сборка не найдена"
-  },
-  "app.action-bar.install.summary.invalid-file-path": {
-    "message": "Неверный путь к файлу"
-  },
-  "app.action-bar.install.summary.invalid-modpack": {
-    "message": "Неверные данные сборки"
-  },
-  "app.action-bar.install.summary.invalid-modpack-files": {
-    "message": "Неверные метаданные в файлах сборки "
-  },
-  "app.action-bar.install.summary.java-setup-failed": {
-    "message": "Установка Java прервана"
-  },
-  "app.action-bar.install.summary.loader-setup-failed": {
-    "message": "Не удалось установить загрузчик"
-  },
-  "app.action-bar.install.summary.local-data-error": {
-    "message": "Не удалось обновить локальные данные"
-  },
-  "app.action-bar.install.summary.minecraft-setup-failed": {
-    "message": "Не удалось установить Minecraft"
-  },
-  "app.action-bar.install.summary.modrinth-unreachable": {
-    "message": "Не удалось подключиться к Modrinth"
-  },
-  "app.action-bar.install.summary.no-write-permission": {
-    "message": "Нет разрешения на запись"
-  },
-  "app.action-bar.install.summary.pack-download-failed": {
-    "message": "Не удалось скачать сборку"
-  },
-  "app.action-bar.install.summary.unexpected-error": {
-    "message": "Произошла ошибка"
-  },
-  "app.action-bar.install.unknown-instance": {
-    "message": "Неизвестная сборка"
-  },
-  "app.action-bar.install.updating-shared-content": {
-    "message": "Обновление совместного контента"
-  },
-  "app.action-bar.installs": {
-    "message": "Установки"
-  },
-  "app.action-bar.make-primary-instance": {
-    "message": "Сделать основной сборкой"
-  },
-  "app.action-bar.no-instances-running": {
-    "message": "Нет активных сборок"
-  },
-  "app.action-bar.offline": {
-    "message": "Офлайн"
-  },
-  "app.action-bar.primary-instance": {
-    "message": "Основная сборка"
-  },
-  "app.action-bar.reload-to-update": {
-    "message": "Перезапустить и обновить"
-  },
-  "app.action-bar.show-more-running-instances": {
-    "message": "Показать другие активные сборки"
-  },
-  "app.action-bar.stop-instance": {
-    "message": "Остановить сборку"
-  },
-  "app.action-bar.update": {
-    "message": "Обновить"
-  },
-  "app.action-bar.view-active-downloads": {
-    "message": "Посмотреть текущие загрузки"
-  },
-  "app.action-bar.view-instance": {
-    "message": "Посмотреть сборку"
-  },
-  "app.action-bar.view-logs": {
-    "message": "Посмотреть журнал"
-  },
-  "app.ads-consent.accept": {
-    "message": "Принять всё"
-  },
-  "app.ads-consent.body": {
-    "message": "Реклама обеспечивает работу Modrinth и финансирует выплаты авторам. Наши партнёры могут хранить или получать доступ к файлам cookie в приложении для персонализации рекламы и измерения производительности."
-  },
-  "app.ads-consent.manage": {
-    "message": "Настроить предпочтения"
-  },
-  "app.ads-consent.reject": {
-    "message": "Отклонить всё"
-  },
-  "app.ads-consent.title": {
-    "message": "Конфиденциальность и как реклама помогает Modrinth"
-  },
-  "app.appearance-settings.advanced-rendering.description": {
-    "message": "Включает продвинутые эффекты вроде размытия, но может снизить производительность на устройствах без аппаратного ускорения."
-  },
-  "app.appearance-settings.advanced-rendering.title": {
-    "message": "Расширенные эффекты"
-  },
-  "app.appearance-settings.color-theme.description": {
-    "message": "Выберите тему для Modrinth App."
-  },
-  "app.appearance-settings.color-theme.title": {
-    "message": "Тема"
-  },
-  "app.appearance-settings.default-landing-page.description": {
-    "message": "Страница, которая открывается при запуске лаунчера."
-  },
-  "app.appearance-settings.default-landing-page.home": {
-    "message": "Главная"
-  },
-  "app.appearance-settings.default-landing-page.library": {
-    "message": "Библиотека"
-  },
-  "app.appearance-settings.default-landing-page.title": {
-    "message": "Стартовая страница"
-  },
-  "app.appearance-settings.hide-nametag.description": {
-    "message": "Скрывать имя над игроком на странице скинов."
-  },
-  "app.appearance-settings.hide-nametag.title": {
-    "message": "Без имени над скином"
-  },
-  "app.appearance-settings.jump-back-into-worlds.description": {
-    "message": "Показывать недавние миры в разделе «Jump back in» на главной."
-  },
-  "app.appearance-settings.jump-back-into-worlds.title": {
-    "message": "Миры на главной"
-  },
-  "app.appearance-settings.minimize-launcher.description": {
-    "message": "Сворачивать окно лаунчера при запуске Minecraft."
-  },
-  "app.appearance-settings.minimize-launcher.title": {
-    "message": "Сворачивание лаунчера"
-  },
-  "app.appearance-settings.native-decorations.description": {
-    "message": "Использовать системную рамку окна (требуется перезапуск)."
-  },
-  "app.appearance-settings.native-decorations.title": {
-    "message": "Системное оформление"
-  },
-  "app.appearance-settings.show-play-time.description": {
-    "message": "Показывать время, проведённое в сборке."
-  },
-  "app.appearance-settings.show-play-time.title": {
-    "message": "Время игры"
-  },
-  "app.appearance-settings.skip-non-essential-warnings.description": {
-    "message": "Скрывать малозначимые подтверждения: установку копий сборок, обычное удаление контента, массовые обновления, отвязку и исправление сборок. Критические предупреждения останутся."
-  },
-  "app.appearance-settings.skip-non-essential-warnings.title": {
-    "message": "Только опасные предупреждения"
-  },
-  "app.appearance-settings.toggle-sidebar.description": {
-    "message": "Показывать кнопку скрытия боковой панели."
-  },
-  "app.appearance-settings.toggle-sidebar.title": {
-    "message": "Переключатель боковой панели"
-  },
-  "app.appearance-settings.unknown-pack-warning.description": {
-    "message": "Предупреждать о рисках перед установкой файлов .mrpack, не размещённых на Modrinth."
-  },
-  "app.appearance-settings.unknown-pack-warning.title": {
-    "message": "Предупреждение о сторонних сборках"
-  },
-  "app.auth-servers.unreachable.body": {
-    "message": "Серверы аутентификации Minecraft сейчас могут быть недоступны. Проверьте подключение к интернету и повторите попытку позже."
-  },
-  "app.auth-servers.unreachable.header": {
-    "message": "Нет связи с серверами аутентификации"
-  },
-  "app.browse.add-servers-to-instance": {
-    "message": "Добавление серверов в сборку"
-  },
-  "app.browse.add-to-an-instance": {
-    "message": "Добавить в сборку"
-  },
-  "app.browse.add-to-instance": {
-    "message": "Добавить в сборку"
-  },
-  "app.browse.add-to-instance-name": {
-    "message": "Добавить в {instanceName}"
-  },
-  "app.browse.added": {
-    "message": "Добавлено"
-  },
-  "app.browse.already-added": {
-    "message": "Уже добавлено"
-  },
-  "app.browse.back-to-instance": {
-    "message": "Вернуться к сборке"
-  },
-  "app.browse.discover-servers": {
-    "message": "Поиск серверов"
-  },
-  "app.browse.hide-added-servers": {
-    "message": "Скрывать добавленные"
-  },
-  "app.browse.project-type.modpacks": {
-    "message": "Сборки"
-  },
-  "app.browse.server-instance-content-warning": {
-    "message": "Добавление контента может сломать совместимость при подключении к серверу. Весь добавленный контент также будет удалён при обновлении сервера."
-  },
-  "app.browse.server.installing": {
-    "message": "Установка"
-  },
-  "app.content-install.no-compatible-versions": {
-    "message": "Не найдено доступных версий, совместимых с {compatibilityLabel}. Выберите версию для установки вручную. Зависимости не будут установлены автоматически."
-  },
-  "app.export-modal.description-placeholder": {
-    "message": "Введите описание сборки..."
-  },
-  "app.export-modal.export-button": {
-    "message": "Экспортировать"
-  },
-  "app.export-modal.header": {
-    "message": "Экспорт сборки"
-  },
-  "app.export-modal.modpack-name-label": {
-    "message": "Название сборки"
-  },
-  "app.export-modal.modpack-name-placeholder": {
-    "message": "Название сборки"
-  },
-  "app.export-modal.version-number-label": {
-    "message": "Номер версии"
-  },
-  "app.export-modal.version-number-placeholder": {
-    "message": "1.0.0"
-  },
-  "app.install.phase.downloading_content": {
-    "message": "Скачивание контента"
-  },
-  "app.install.phase.downloading_minecraft": {
-    "message": "Скачивание Minecraft"
-  },
-  "app.install.phase.downloading_pack_file": {
-    "message": "Скачивание файла сборки"
-  },
-  "app.install.phase.extracting_overrides": {
-    "message": "Распаковка переопределений"
-  },
-  "app.install.phase.finalizing": {
-    "message": "Завершение"
-  },
-  "app.install.phase.preparing_instance": {
-    "message": "В очереди на установку"
-  },
-  "app.install.phase.preparing_java": {
-    "message": "Подготовка Java"
-  },
-  "app.install.phase.preparing_java.downloading": {
-    "message": "Скачивание Java {version}"
-  },
-  "app.install.phase.preparing_java.extracting": {
-    "message": "Распаковка Java {version}"
-  },
-  "app.install.phase.preparing_java.fetching-metadata": {
-    "message": "Получение Java {version}"
-  },
-  "app.install.phase.preparing_java.resolving": {
-    "message": "Подготовка Java {version}"
-  },
-  "app.install.phase.preparing_java.validating": {
-    "message": "Проверка Java {version}"
-  },
-  "app.install.phase.reading_pack_manifest": {
-    "message": "Чтение манифеста сборки"
-  },
-  "app.install.phase.resolving_loader": {
-    "message": "Разрешение загрузчика"
-  },
-  "app.install.phase.resolving_minecraft": {
-    "message": "Разрешение Minecraft"
-  },
-  "app.install.phase.resolving_pack": {
-    "message": "Разрешение контента"
-  },
-  "app.install.phase.rolling_back": {
-    "message": "Откат"
-  },
-  "app.install.phase.running_loader_processors": {
-    "message": "Запуск процессоров загрузчика"
-  },
-  "app.instance.admonitions.shared-instance.added-label": {
-    "message": "Добавлен"
-  },
-  "app.instance.admonitions.shared-instance.changes-body": {
-    "message": "Локальная сборка опережает версию других участников."
-  },
-  "app.instance.admonitions.shared-instance.changes-header": {
-    "message": "Изменения не отправлены"
-  },
-  "app.instance.admonitions.shared-instance.publish-button": {
-    "message": "Отправить изменения"
-  },
-  "app.instance.admonitions.shared-instance.publishing-button": {
-    "message": "Отправка..."
-  },
-  "app.instance.admonitions.shared-instance.removed-label": {
-    "message": "Удалён"
-  },
-  "app.instance.admonitions.shared-instance.review-admonition-header": {
-    "message": "Отправка изменений"
-  },
-  "app.instance.admonitions.shared-instance.review-header": {
-    "message": "Проверьте изменения"
-  },
-  "app.instance.admonitions.shared-instance.reviewing-button": {
-    "message": "Проверка..."
-  },
-  "app.instance.confirm-delete.admonition-body": {
-    "message": "Все данные сборки будут удалены навсегда, в том числе миры, настройки и весь установленный контент."
-  },
-  "app.instance.confirm-delete.admonition-header": {
-    "message": "Это действие необратимо"
-  },
-  "app.instance.confirm-delete.delete-button": {
-    "message": "Удалить сборку"
-  },
-  "app.instance.confirm-delete.header": {
-    "message": "Удаление сборки"
-  },
-  "app.instance.modpack-already-installed.body": {
-    "message": "Выбранное содержимое уже установлено в сборке <bold>{instanceName}</bold>. Создать копию?"
-  },
-  "app.instance.modpack-already-installed.create": {
-    "message": "Создать"
-  },
-  "app.instance.modpack-already-installed.header": {
-    "message": "Содержимое уже установлено"
-  },
-  "app.instance.modpack-already-installed.instance": {
-    "message": "Сборка"
-  },
-  "app.instance.mods.bulk-update.downloading-projects": {
-    "message": "Скачивание проектов: {current, number}/{total, number}..."
-  },
-  "app.instance.mods.bulk-update.finishing": {
-    "message": "Завершение обновления..."
-  },
-  "app.instance.mods.bulk-update.resolving-versions": {
-    "message": "Разрешение версий..."
-  },
-  "app.instance.mods.content-type-project": {
-    "message": "проект"
-  },
-  "app.instance.mods.locked-content": {
-    "message": "Содержимое заблокированных экземпляров нельзя изменить."
-  },
-  "app.instance.mods.project-was-added": {
-    "message": "«{name}» добавлен"
-  },
-  "app.instance.mods.share-text": {
-    "message": "Что в моей сборке:"
-  },
-  "app.instance.mods.share-title": {
-    "message": "Содержимое сборки"
-  },
-  "app.instance.mods.successfully-uploaded": {
-    "message": "Успешно загружено"
-  },
-  "app.instance.share.empty.description": {
-    "message": "Поделитесь сборкой со своими друзьями!"
-  },
-  "app.instance.share.empty.heading": {
-    "message": "Нет приглашённых друзей"
-  },
-  "app.instance.share.empty.invite-friends-button": {
-    "message": "Пригласить друзей"
-  },
-  "app.instance.share.invite-modal.heading": {
-    "message": "Доступ к {name}"
-  },
-  "app.instance.share.locked.empty-description-prefix": {
-    "message": "Необходимо войти как"
-  },
-  "app.instance.share.locked.empty-description-suffix": {
-    "message": "для доступа к этой странице."
-  },
-  "app.instance.share.locked.linked-account-fallback": {
-    "message": "связанный аккаунт"
-  },
-  "app.instance.share.locked.signed-out-heading": {
-    "message": "Вход не выполнен"
-  },
-  "app.instance.share.locked.switch-account-button": {
-    "message": "Сменить аккаунт"
-  },
-  "app.instance.share.locked.wrong-account-heading": {
-    "message": "Неверный аккаунт"
-  },
-  "app.instance.share.remove-user-modal.effects-label": {
-    "message": "Что произойдёт?"
-  },
-  "app.instance.share.remove-user-modal.header": {
-    "message": "Отзыв доступа"
-  },
-  "app.instance.share.remove-user-modal.remove-button": {
-    "message": "Отозвать доступ"
-  },
-  "app.instance.share.remove-user-modal.user-avatar-alt": {
-    "message": "Аватар {username}"
-  },
-  "app.instance.share.sign-in.button": {
-    "message": "Войти"
-  },
-  "app.instance.shared-instance-already-installed.header": {
-    "message": "Сборка уже установлена"
-  },
-  "app.instance.shared-instance-already-installed.install-anyway": {
-    "message": "Всё равно установить"
-  },
-  "app.instance.shared-instance-already-installed.instance": {
-    "message": "Сборка"
-  },
-  "app.instance.shared-instance-wrong-account.sign-in-as-label": {
-    "message": "Войти как"
-  },
-  "app.instance.shared-instance-wrong-account.signed-out-header": {
-    "message": "Необходимо войти в Modrinth"
-  },
-  "app.instance.shared-instance-wrong-account.user-admonition-body-v2": {
-    "message": "для получения обновлений сборки."
-  },
-  "app.instance.worlds.add-server": {
-    "message": "Добавить сервер"
-  },
-  "app.instance.worlds.browse-servers": {
-    "message": "Найти серверы"
-  },
-  "app.instance.worlds.delete-world-modal.delete-button": {
-    "message": "Удалить мир"
-  },
-  "app.instance.worlds.delete-world-modal.title": {
-    "message": "Удаление мира"
-  },
-  "app.instance.worlds.delete-world-modal.warning-body": {
-    "message": "Этот мир будет удалён навсегда из этой сборки. Это действие необратимо."
-  },
-  "app.instance.worlds.delete-world-modal.warning-header": {
-    "message": "Удаление {name}"
-  },
-  "app.instance.worlds.filter-modded": {
-    "message": "Модовые"
-  },
-  "app.instance.worlds.filter-offline": {
-    "message": "Не в сети"
-  },
-  "app.instance.worlds.filter-online": {
-    "message": "В сети"
-  },
-  "app.instance.worlds.filter-vanilla": {
-    "message": "Ванильные"
-  },
-  "app.instance.worlds.no-worlds-description": {
-    "message": "Добавьте или найдите сервер"
-  },
-  "app.instance.worlds.no-worlds-heading": {
-    "message": "Нет серверов и миров"
-  },
-  "app.instance.worlds.remove-server-modal.remove-button": {
-    "message": "Удалить сервер"
-  },
-  "app.instance.worlds.remove-server-modal.title": {
-    "message": "Удаление сервера"
-  },
-  "app.instance.worlds.remove-server-modal.warning-body": {
-    "message": "Этот сервер будет удалён из списка серверов, в том числе и в игре. Его можно вернуть, зная адрес."
-  },
-  "app.instance.worlds.remove-server-modal.warning-header": {
-    "message": "Удаление {name}"
-  },
-  "app.modal.install-to-play.additional-context": {
-    "message": "Дополнительный контекст"
-  },
-  "app.modal.install-to-play.additional-context-placeholder": {
-    "message": "При желании прикрепите ссылки и изображения"
-  },
-  "app.modal.install-to-play.delete-instance": {
-    "message": "Удалить сборку"
-  },
-  "app.modal.install-to-play.external-files-dont-install": {
-    "message": "Не устанавливать"
-  },
-  "app.modal.install-to-play.header": {
-    "message": "Установка перед запуском"
-  },
-  "app.modal.install-to-play.install-anyway": {
-    "message": "Всё равно установить"
-  },
-  "app.modal.install-to-play.install-button": {
-    "message": "Установить"
-  },
-  "app.modal.install-to-play.invite-warning": {
-    "message": "Это приглашение создано другим пользователем Modrinth. Принимайте приглашения только от тех, кому доверяете."
-  },
-  "app.modal.install-to-play.mod-count": {
-    "message": "{count, plural, one {# мод} few {# мода} other {# модов}}"
-  },
-  "app.modal.install-to-play.report-description": {
-    "message": "Используйте эту форму, чтобы отправить жалобу на сборки, которые могут нарушать наши <rules-link>Правила</rules-link> или <terms-link>Условия использования</terms-link>."
-  },
-  "app.modal.install-to-play.report-image-too-large": {
-    "message": "Размер файла превышает лимит в 1 МиБ"
-  },
-  "app.modal.install-to-play.report-reason": {
-    "message": "Какое правило нарушает данная сборка?"
-  },
-  "app.modal.install-to-play.report-reason.inappropriate": {
-    "message": "Неприемлемое содержимое"
-  },
-  "app.modal.install-to-play.report-reason.malicious": {
-    "message": "Вредоносное содержимое"
-  },
-  "app.modal.install-to-play.report-reason.spam": {
-    "message": "Спам"
-  },
-  "app.modal.install-to-play.report-submitted": {
-    "message": "Жалоба отправлена"
-  },
-  "app.modal.install-to-play.reviewed-files": {
-    "message": "Файл проверяется только если он опубликован на Modrinth, независимо от его формата (включая .mrpack)."
-  },
-  "app.modal.install-to-play.shared-instance": {
-    "message": "Сборка"
-  },
-  "app.modal.install-to-play.shared-instance-content": {
-    "message": "Контент"
-  },
-  "app.modal.install-to-play.shared-instance-unknown-files-description": {
-    "message": "Сборка содержит файлы, которые не опубликованы на Modrinth. Рекомендуется скачивать файлы только из надёжных источников."
-  },
-  "app.modal.install-to-play.unknown-files-description": {
-    "message": "Сборка этого сервера содержит файлы, которые не опубликованы на Modrinth. Рекомендуется скачивать файлы только из надёжных источников."
-  },
-  "app.modal.install-to-play.unknown-files-warning": {
-    "message": "Предупреждение о неизвестных файлах"
-  },
-  "app.modal.install-to-play.unrecognized-files": {
-    "message": "Нераспознанные файлы"
-  },
-  "app.modal.install-to-play.view-contents": {
-    "message": "Посмотреть содержимое"
-  },
-  "app.modal.update-to-play.header": {
-    "message": "Обновление перед запуском"
-  },
-  "app.modal.update-to-play.removed": {
-    "message": "Удалён"
-  },
-  "app.modal.update-to-play.server-modpack-unknown-files-description": {
-    "message": "Обновление сборки этого сервера содержит файлы, которые не опубликованы на Modrinth. Рекомендуется скачивать файлы только из надёжных источников."
-  },
-  "app.modal.update-to-play.shared-instance-added-label": {
-    "message": "Добавлен"
-  },
-  "app.modal.update-to-play.shared-instance-removed-label": {
-    "message": "Удалён"
-  },
-  "app.modal.update-to-play.update-required": {
-    "message": "Требуется обновление"
-  },
-  "app.modal.update-to-play.update-required-description": {
-    "message": "Обновите {name} до последней версии, чтобы запустить игру."
-  },
-  "app.project.install-button.already-installed": {
-    "message": "Этот проект уже установлен"
-  },
-  "app.project.install-button.switch-version": {
-    "message": "Сменить версию"
-  },
-  "app.project.install-context.back-to-browse": {
-    "message": "Вернуться к поиску"
-  },
-  "app.project.version.all-versions": {
-    "message": "Все версии"
-  },
-  "app.project.version.download-in-browser": {
-    "message": "Скачать в браузере"
-  },
-  "app.project.version.installing": {
-    "message": "Установка"
-  },
-  "app.project.versions.already-installed": {
-    "message": "Уже установлено"
-  },
-  "app.settings.developer-mode-enabled": {
-    "message": "Режим разработчика включён."
-  },
-  "app.settings.downloading": {
-    "message": "Скачивание версии {version}"
-  },
-  "app.settings.privacy.ads-consent.intro": {
-    "message": "Реклама обеспечивает работу Modrinth и финансирует выплаты авторам. Наши партнёры могут хранить или получать доступ к файлам cookie в приложении для персонализации рекламы и измерения производительности. Вы можете отказаться или настроить предпочтения ниже."
-  },
-  "app.settings.tabs.appearance": {
-    "message": "Внешний вид"
-  },
-  "app.settings.tabs.default-instance-options": {
-    "message": "Предустановки"
-  },
-  "app.settings.tabs.java-installations": {
-    "message": "Установки Java"
-  },
-  "app.settings.tabs.language": {
-    "message": "Язык"
-  },
-  "app.settings.tabs.privacy": {
-    "message": "Конфиденциальность"
-  },
-  "app.settings.tabs.resource-management": {
-    "message": "Управление ресурсами"
-  },
-  "app.skins.add-button": {
-    "message": "Добавить скин"
-  },
-  "app.skins.add-button.drag-and-drop": {
-    "message": "Перетащите сюда"
-  },
-  "app.skins.apply-button": {
-    "message": "Применить"
-  },
-  "app.skins.delete-button": {
-    "message": "Удалить скин"
-  },
-  "app.skins.delete-modal.description": {
-    "message": "Выбранный скин будет удалён навсегда. Это действие необратимо."
-  },
-  "app.skins.delete-modal.title": {
-    "message": "Вы действительно хотите удалить этот скин?"
-  },
-  "app.skins.dropped-file-error.text": {
-    "message": "Не удалось прочитать перетащенный файл."
-  },
-  "app.skins.dropped-file-error.title": {
-    "message": "Ошибка обработки файла"
-  },
-  "app.skins.ears-feature-notice": {
-    "message": "В этом скине используются функционал мода {ears}"
-  },
-  "app.skins.edit-button": {
-    "message": "Изменить скин"
-  },
-  "app.skins.modal.add-skin-button": {
-    "message": "Добавить скин"
-  },
-  "app.skins.modal.add-title": {
-    "message": "Добавление скина"
-  },
-  "app.skins.modal.arm-style-section": {
-    "message": "Руки"
-  },
-  "app.skins.modal.arm-style-slim": {
-    "message": "Тонкие"
-  },
-  "app.skins.modal.arm-style-wide": {
-    "message": "Широкие"
-  },
-  "app.skins.modal.cape-fallback-name": {
-    "message": "Плащ"
-  },
-  "app.skins.modal.cape-section": {
-    "message": "Плащ"
-  },
-  "app.skins.modal.edit-title": {
-    "message": "Настройка скина"
-  },
-  "app.skins.modal.make-edit-first-tooltip": {
-    "message": "Сначала внесите изменения в скин!"
-  },
-  "app.skins.modal.no-cape-tooltip": {
-    "message": "Без плаща"
-  },
-  "app.skins.modal.none-cape-option": {
-    "message": "Нет"
-  },
-  "app.skins.modal.replace-texture-button": {
-    "message": "Заменить текстуру"
-  },
-  "app.skins.modal.save-skin-button": {
-    "message": "Сохранить скин"
-  },
-  "app.skins.modal.saving-tooltip": {
-    "message": "Сохранение..."
-  },
-  "app.skins.modal.texture-section": {
-    "message": "Текстура"
-  },
-  "app.skins.modal.upload-skin-first-tooltip": {
-    "message": "Сначала загрузите скин!"
-  },
-  "app.skins.preview.edit-button": {
-    "message": "Изменить"
-  },
-  "app.skins.previewing-badge": {
-    "message": "Предпросмотр"
-  },
-  "app.skins.rate-limit.text": {
-    "message": "Вы слишком часто меняете скин. Серверы Mojang временно заблокировали дальнейшие запросы. Подождите немного, прежде чем попробовать снова."
-  },
-  "app.skins.rate-limit.title": {
-    "message": "Не так быстро!"
-  },
-  "app.skins.reorder-error.text": {
-    "message": "Порядок скинов не сохранился."
-  },
-  "app.skins.reorder-error.title": {
-    "message": "Не удалось изменить порядок скинов"
-  },
-  "app.skins.section.builders-and-biomes": {
-    "message": "Builders & Biomes"
-  },
-  "app.skins.section.chaos-cubed": {
-    "message": "Chaos Cubed"
-  },
-  "app.skins.section.chase-the-skies": {
-    "message": "Chase the Skies"
-  },
-  "app.skins.section.default-skins": {
-    "message": "Стандартные скины"
-  },
-  "app.skins.section.minecon-earth-2017": {
-    "message": "MINECON Earth 2017"
-  },
-  "app.skins.section.modrinth": {
-    "message": "Modrinth"
-  },
-  "app.skins.section.modrinth-pride": {
-    "message": "Modrinth Pride"
-  },
-  "app.skins.section.modrinth-pride.tooltip": {
-    "message": "Эти скины получены за участие в сборе средств Modrinth Pride в месяц гордости."
-  },
-  "app.skins.section.mounts-of-mayhem": {
-    "message": "Mounts of Mayhem"
-  },
-  "app.skins.section.saved-skins": {
-    "message": "Сохранённые скины"
-  },
-  "app.skins.section.striding-hero": {
-    "message": "Striding Hero"
-  },
-  "app.skins.section.the-copper-age": {
-    "message": "The Copper Age"
-  },
-  "app.skins.section.the-garden-awakens": {
-    "message": "The Garden Awakens"
-  },
-  "app.skins.section.tiny-takeover": {
-    "message": "Tiny Takeover"
-  },
-  "app.skins.sign-in.button": {
-    "message": "Войти"
-  },
-  "app.skins.sign-in.description": {
-    "message": "Пожалуйста, войдите в свой аккаунт Minecraft, чтобы воспользоваться функциями управления скинами в приложении Modrinth."
-  },
-  "app.skins.sign-in.rinthbot-alt": {
-    "message": "Восторженный Modrinth Bot"
-  },
-  "app.skins.sign-in.title": {
-    "message": "Войдите"
-  },
-  "app.skins.title": {
-    "message": "Выбор скина"
-  },
-  "app.skins.toggle-ears-features-off": {
-    "message": "Выключить"
-  },
-  "app.skins.toggle-ears-features-on": {
-    "message": "Включить"
-  },
-  "app.update-popup.body.download-complete": {
-    "message": "Скачивание версии Modrinth App {version} завершено. Перезапустите приложение, чтобы обновить его, или оно обновится автоматически после закрытия."
-  },
-  "app.update-popup.body.linux": {
-    "message": "Доступна версия Modrinth App {version}. Обновите приложение через менеджер пакетов, чтобы получить последние улучшения и исправления!"
-  },
-  "app.update-popup.body.metered": {
-    "message": "Версия Modrinth App {version} доступна для скачивания! Используется сеть с лимитным тарифным планом, поэтому скачивание не началось автоматически."
-  },
-  "app.update-popup.changelog": {
-    "message": "Список изменений"
-  },
-  "app.update-popup.download": {
-    "message": "Скачать ({size})"
-  },
-  "app.update-popup.download-complete": {
-    "message": "Скачивание завершено"
-  },
-  "app.update-popup.reload": {
-    "message": "Перезапустить"
-  },
-  "app.update-popup.title": {
-    "message": "Доступно обновление"
-  },
-  "app.update.complete-toast.text": {
-    "message": "Нажмите, чтобы посмотреть список изменений."
-  },
-  "app.update.complete-toast.title": {
-    "message": "Версия {version} успешно установлена!"
-  },
-  "app.world.server-modal.placeholder-address": {
-    "message": "example.modrinth.gg"
-  },
-  "app.world.server-modal.select-an-option": {
-    "message": "Выберите вариант"
-  },
-  "app.world.world-item.incompatible-version": {
-    "message": "Несовместимая версия {version}"
-  },
-  "app.world.world-item.not-played-yet": {
-    "message": "Не запускалось"
-  },
-  "app.world.world-item.offline": {
-    "message": "Не в сети"
-  },
-  "app.world.world-item.players-online": {
-    "message": "{count} в игре"
-  },
-  "content.shared-instance.delete-button": {
-    "message": "Всё равно удалить"
-  },
-  "content.shared-instance.delete-many-button": {
-    "message": "Всё равно удалить {count, plural, one {# проект} few {# проекта} other {# проектов}}"
-  },
-  "content.shared-instance.disable-button": {
-    "message": "Всё равно отключить"
-  },
-  "content.shared-instance.disable-many-button": {
-    "message": "Всё равно отключить {count, plural, one {# проект} few {# проекта} other {# проектов}}"
-  },
-  "content.shared-instance.warning-header": {
-    "message": "Это часть сборки"
-  },
-  "friends.action.add-friend": {
-    "message": "Добавить в друзья"
-  },
-  "friends.action.view-friend-requests": {
-    "message": "{count} {count, plural, one {запрос} few {запроса} other {запросов}} дружбы"
-  },
-  "friends.add-friend.submit": {
-    "message": "Отправить запрос дружбы"
-  },
-  "friends.add-friend.title": {
-    "message": "Добавление в друзья"
-  },
-  "friends.add-friend.username.description": {
-    "message": "Оно может быть не таким, как в Minecraft!"
-  },
-  "friends.add-friend.username.placeholder": {
-    "message": "Введите имя с Modrinth..."
-  },
-  "friends.add-friend.username.title": {
-    "message": "Какое имя у друга на Modrinth?"
-  },
-  "friends.add-friends-to-share": {
-    "message": "<link>Добавьте друзей</link> и следите за ними!"
-  },
-  "friends.friend.cancel-request": {
-    "message": "Отменить запрос"
-  },
-  "friends.friend.remove-friend": {
-    "message": "Удалить из друзей"
-  },
-  "friends.friend.request-sent": {
-    "message": "Отправлен запрос дружбы"
-  },
-  "friends.friend.view-profile": {
-    "message": "Открыть профиль"
-  },
-  "friends.heading": {
-    "message": "Друзья"
-  },
-  "friends.heading.active": {
-    "message": "В игре"
-  },
-  "friends.heading.offline": {
-    "message": "Не в сети"
-  },
-  "friends.heading.online": {
-    "message": "В сети"
-  },
-  "friends.heading.pending": {
-    "message": "В ожидании"
-  },
-  "friends.no-friends-match": {
-    "message": "Нет друзей по запросу «{query}»"
-  },
-  "friends.search-friends-placeholder": {
-    "message": "Поиск по друзьям..."
-  },
-  "friends.section.heading": {
-    "message": "{title} — {count}"
-  },
-  "friends.sign-in-to-add-friends": {
-    "message": "<link>Войдите в аккаунт Modrinth</link>, чтобы добавлять друзей и следить за ними!"
-  },
-  "installation-settings.shared-instance.linked-title": {
-    "message": "Связанная сборка"
-  },
-  "installation-settings.shared-instance.unlink-button": {
-    "message": "Отвязать сборку"
-  },
-  "installation-settings.shared-instance.unlinking-button": {
-    "message": "Отвязка..."
-  },
-  "installation-settings.unlink-shared-instance.modal.admonition-header": {
-    "message": "Отвязка сборки"
-  },
-  "installation-settings.unlink-shared-instance.modal.header": {
-    "message": "Отвязка сборки"
-  },
-  "instance.action.create-shortcut": {
-    "message": "Создать ярлык"
-  },
-  "instance.action.export-modpack": {
-    "message": "Экспортировать сборку"
-  },
-  "instance.action.launch-instance": {
-    "message": "Запустить сборку"
-  },
-  "instance.action.more-actions": {
-    "message": "Дополнительно"
-  },
-  "instance.action.open-folder": {
-    "message": "Открыть папку"
-  },
-  "instance.action.repair": {
-    "message": "Исправить"
-  },
-  "instance.action.settings": {
-    "message": "Настройки сборки"
-  },
-  "instance.action.starting": {
-    "message": "Запуск..."
-  },
-  "instance.action.stopping": {
-    "message": "Остановка..."
-  },
-  "instance.add-server.add-and-play": {
-    "message": "Добавить и играть"
-  },
-  "instance.add-server.add-server": {
-    "message": "Добавить сервер"
-  },
-  "instance.add-server.resource-pack.disabled": {
-    "message": "Отключён"
-  },
-  "instance.add-server.resource-pack.enabled": {
-    "message": "Включён"
-  },
-  "instance.add-server.resource-pack.prompt": {
-    "message": "Запрашивать"
-  },
-  "instance.add-server.title": {
-    "message": "Добавление сервера"
-  },
-  "instance.edit-server.title": {
-    "message": "Настройка сервера"
-  },
-  "instance.edit-world.hide-from-home": {
-    "message": "Не показывать на главной"
-  },
-  "instance.edit-world.name": {
-    "message": "Название"
-  },
-  "instance.edit-world.placeholder-name": {
-    "message": "Мир Minecraft"
-  },
-  "instance.edit-world.reset-icon": {
-    "message": "Сбросить иконку"
-  },
-  "instance.edit-world.title": {
-    "message": "Настройка мира"
-  },
-  "instance.files.save-as": {
-    "message": "Сохранить как..."
-  },
-  "instance.locked.delete-button": {
-    "message": "Удалить сборку"
-  },
-  "instance.playtime.never-played": {
-    "message": "Не запускалась"
-  },
-  "instance.server-modal.address": {
-    "message": "Адрес"
-  },
-  "instance.server-modal.name": {
-    "message": "Название"
-  },
-  "instance.server-modal.placeholder-name": {
-    "message": "Сервер Minecraft"
-  },
-  "instance.server-modal.resource-pack": {
-    "message": "Набор ресурсов"
-  },
-  "instance.settings.tabs.general": {
-    "message": "Основные"
-  },
-  "instance.settings.tabs.general.delete": {
-    "message": "Удаление сборки"
-  },
-  "instance.settings.tabs.general.delete.button": {
-    "message": "Удалить сборку"
-  },
-  "instance.settings.tabs.general.delete.description": {
-    "message": "Навсегда удаляет сборку с устройства, в том числе миры, настройки и весь установленный контент. Учтите, что после удаления сборки её невозможно восстановить."
-  },
-  "instance.settings.tabs.general.deleting.button": {
-    "message": "Удаление..."
-  },
-  "instance.settings.tabs.general.duplicate-button": {
-    "message": "Создать копию"
-  },
-  "instance.settings.tabs.general.duplicate-button.tooltip.installing": {
-    "message": "Создание копии невозможно во время установки."
-  },
-  "instance.settings.tabs.general.duplicate-instance": {
-    "message": "Создание копии сборки"
-  },
-  "instance.settings.tabs.general.duplicate-instance.description": {
-    "message": "Создаёт копию сборки, включая миры, настройки, моды и т. д."
-  },
-  "instance.settings.tabs.general.edit-icon": {
-    "message": "Изменить иконку"
-  },
-  "instance.settings.tabs.general.edit-icon.remove": {
-    "message": "Удалить иконку"
-  },
-  "instance.settings.tabs.general.edit-icon.replace": {
-    "message": "Заменить иконку"
-  },
-  "instance.settings.tabs.general.edit-icon.select": {
-    "message": "Выбрать иконку"
-  },
-  "instance.settings.tabs.general.library-groups": {
-    "message": "Группировка"
-  },
-  "instance.settings.tabs.general.library-groups.create": {
-    "message": "Создать новую группу"
-  },
-  "instance.settings.tabs.general.library-groups.description": {
-    "message": "Позволяет организовать сборки по разным разделам в библиотеке."
-  },
-  "instance.settings.tabs.general.library-groups.enter-name": {
-    "message": "Введите название группы"
-  },
-  "instance.settings.tabs.general.name": {
-    "message": "Название"
-  },
-  "instance.settings.tabs.general.update-channel": {
-    "message": "Канал обновления"
-  },
-  "instance.settings.tabs.general.update-channel.alpha": {
-    "message": "Альфа"
-  },
-  "instance.settings.tabs.general.update-channel.alpha.description": {
-    "message": "Релизные, бета и альфа версии будут отображаться как доступные обновления."
-  },
-  "instance.settings.tabs.general.update-channel.beta": {
-    "message": "Бета"
-  },
-  "instance.settings.tabs.general.update-channel.beta.description": {
-    "message": "Релизные и бета версии будут отображаться как доступные обновления."
-  },
-  "instance.settings.tabs.general.update-channel.release": {
-    "message": "Релиз"
-  },
-  "instance.settings.tabs.general.update-channel.release.description": {
-    "message": "Только релизные версии будут отображаться как доступные обновления."
-  },
-  "instance.settings.tabs.general.update-channel.select": {
-    "message": "Выберите канал обновления"
-  },
-  "instance.settings.tabs.hooks": {
-    "message": "Команды запуска"
-  },
-  "instance.settings.tabs.hooks.custom-hooks": {
-    "message": "Переопределение команд запуска"
-  },
-  "instance.settings.tabs.hooks.description": {
-    "message": "Позволяет опытным пользователям задать системные команды, выполняемые до и после запуска игры."
-  },
-  "instance.settings.tabs.hooks.post-exit": {
-    "message": "После выхода"
-  },
-  "instance.settings.tabs.hooks.post-exit.description": {
-    "message": "Выполняется после выхода из игры."
-  },
-  "instance.settings.tabs.hooks.post-exit.enter": {
-    "message": "Введите команду после выхода..."
-  },
-  "instance.settings.tabs.hooks.pre-launch": {
-    "message": "Перед запуском"
-  },
-  "instance.settings.tabs.hooks.pre-launch.description": {
-    "message": "Выполняется перед запуском сборки."
-  },
-  "instance.settings.tabs.hooks.pre-launch.enter": {
-    "message": "Введите команду перед запуском..."
-  },
-  "instance.settings.tabs.hooks.title": {
-    "message": "Команды запуска игры"
-  },
-  "instance.settings.tabs.hooks.wrapper": {
-    "message": "Обёртка"
-  },
-  "instance.settings.tabs.hooks.wrapper.description": {
-    "message": "Команда-обёртка для запуска Minecraft."
-  },
-  "instance.settings.tabs.hooks.wrapper.enter": {
-    "message": "Введите команду-обёртку..."
-  },
-  "instance.settings.tabs.installation": {
-    "message": "Установка"
-  },
-  "instance.settings.tabs.installation.loader-version": {
-    "message": "Версия {loader}"
-  },
-  "instance.settings.tabs.java": {
-    "message": "Java и память"
-  },
-  "instance.settings.tabs.java.custom-environment-variables": {
-    "message": "Переопределение переменных среды"
-  },
-  "instance.settings.tabs.java.custom-java-arguments": {
-    "message": "Переопределение аргументов Java"
-  },
-  "instance.settings.tabs.java.custom-java-installation": {
-    "message": "Переопределение расположения Java"
-  },
-  "instance.settings.tabs.java.custom-memory-allocation": {
-    "message": "Переопределение выделенной памяти"
-  },
-  "instance.settings.tabs.java.enter-environment-variables": {
-    "message": "Введите переменные среды..."
-  },
-  "instance.settings.tabs.java.enter-java-arguments": {
-    "message": "Введите аргументы Java..."
-  },
-  "instance.settings.tabs.java.environment-variables": {
-    "message": "Переменные среды"
-  },
-  "instance.settings.tabs.java.hooks": {
-    "message": "Команды запуска"
-  },
-  "instance.settings.tabs.java.java-arguments": {
-    "message": "Аргументы Java"
-  },
-  "instance.settings.tabs.java.java-installation": {
-    "message": "Расположение Java"
-  },
-  "instance.settings.tabs.java.java-memory": {
-    "message": "Выделенная память"
-  },
-  "instance.settings.tabs.java.java-path-placeholder": {
-    "message": "/путь/к/java"
-  },
-  "instance.settings.tabs.sharing": {
-    "message": "Доступ"
-  },
-  "instance.settings.tabs.window": {
-    "message": "Окно"
-  },
-  "instance.settings.tabs.window.custom-window-settings": {
-    "message": "Переопределение настроек окна"
-  },
-  "instance.settings.tabs.window.fullscreen": {
-    "message": "Полноэкранный режим"
-  },
-  "instance.settings.tabs.window.fullscreen.description": {
-    "message": "Запускать игру в полноэкранном режиме (через options.txt)."
-  },
-  "instance.settings.tabs.window.height": {
-    "message": "Высота"
-  },
-  "instance.settings.tabs.window.height.description": {
-    "message": "Высота окна игры при запуске."
-  },
-  "instance.settings.tabs.window.height.enter": {
-    "message": "Введите высоту..."
-  },
-  "instance.settings.tabs.window.width": {
-    "message": "Ширина"
-  },
-  "instance.settings.tabs.window.width.description": {
-    "message": "Ширина окна игры при запуске."
-  },
-  "instance.settings.tabs.window.width.enter": {
-    "message": "Введите ширину..."
-  },
-  "instance.shared-instance.error.title": {
-    "message": "Произошла ошибка"
-  },
-  "instance.shared-instance.publish-review.added-label": {
-    "message": "Добавлен"
-  },
-  "instance.shared-instance.publish-review.admonition-header": {
-    "message": "Отправка изменений игрокам"
-  },
-  "instance.shared-instance.publish-review.config-title-v2": {
-    "message": "Выберите файлы настройки"
-  },
-  "instance.shared-instance.publish-review.header": {
-    "message": "Проверьте изменения"
-  },
-  "instance.shared-instance.publish-review.publish-button": {
-    "message": "Отправить изменения"
-  },
-  "instance.shared-instance.publish-review.removed-label": {
-    "message": "Удалён"
-  },
-  "instance.shared-instance.unavailable.locked-title": {
-    "message": "Сборка заблокирована"
-  },
-  "instance.worlds.a_minecraft_server": {
-    "message": "Сервер Minecraft"
-  },
-  "instance.worlds.cant_connect": {
-    "message": "Невозможно подключиться к серверу"
-  },
-  "instance.worlds.copy_address": {
-    "message": "Копировать адрес"
-  },
-  "instance.worlds.create_shortcut": {
-    "message": "Создать ярлык"
-  },
-  "instance.worlds.dont_show_on_home": {
-    "message": "Не показывать на главной"
-  },
-  "instance.worlds.game_already_open": {
-    "message": "Сборка уже запущена"
-  },
-  "instance.worlds.hardcore": {
-    "message": "Хардкор"
-  },
-  "instance.worlds.incompatible_server": {
-    "message": "Сервер несовместим"
-  },
-  "instance.worlds.linked_server": {
-    "message": "Управляется серверным проектом"
-  },
-  "instance.worlds.no_contact": {
-    "message": "Не удалось связаться с сервером"
-  },
-  "instance.worlds.no_server_quick_play": {
-    "message": "Подключаться к серверам напрямую можно только в Minecraft Alpha 1.0.5 и выше"
-  },
-  "instance.worlds.no_singleplayer_quick_play": {
-    "message": "Открывать миры напрямую можно только в Minecraft 1.20 и выше"
-  },
-  "instance.worlds.play_instance": {
-    "message": "Запустить сборку"
-  },
-  "instance.worlds.view_instance": {
-    "message": "Посмотреть сборку"
-  },
-  "instance.worlds.world_in_use": {
-    "message": "Мир используется"
-  },
-  "minecraft-account.add-account": {
-    "message": "Добавить аккаунт"
-  },
-  "minecraft-account.label": {
-    "message": "Аккаунт Minecraft"
-  },
-  "minecraft-account.not-signed-in": {
-    "message": "Вход не выполнен"
-  },
-  "minecraft-account.remove-account": {
-    "message": "Удалить аккаунт"
-  },
-  "minecraft-account.select-account": {
-    "message": "Выберите аккаунт"
-  },
-  "minecraft-account.sign-in": {
-    "message": "Войти в Minecraft"
-  },
-  "minecraft-required.description": {
-    "message": "Для запуска и игры требуется аккаунт Microsoft с приобретённым Minecraft."
-  },
-  "minecraft-required.description-header": {
-    "message": "Войдите в аккаунт Microsoft"
-  },
-  "minecraft-required.dont-have-account": {
-    "message": "Нет аккаунта?"
-  },
-  "minecraft-required.get-minecraft": {
-    "message": "Приобрести Minecraft"
-  },
-  "minecraft-required.get-support": {
-    "message": "Поддержка"
-  },
-  "minecraft-required.header": {
-    "message": "Требуется Minecraft"
-  },
-  "minecraft-required.sign-in": {
-    "message": "Войти в Microsoft"
-  },
-  "modal.modrinth-account-required.browser-description": {
-    "message": "Открылась вкладка для входа. Завершение вход и вернитесь в приложение."
-  },
-  "modal.modrinth-account-required.cancel-button": {
-    "message": "Отмена"
-  },
-  "modal.modrinth-account-required.continue-in-browser-heading": {
-    "message": "Продолжите в браузере"
-  },
-  "modal.modrinth-account-required.create-account-button": {
-    "message": "Создать аккаунт"
-  },
-  "modal.modrinth-account-required.description": {
-    "message": "Войдите в аккаунт Modrinth, чтобы использовать эту функцию."
-  },
-  "modal.modrinth-account-required.header": {
-    "message": "Требуется аккаунт"
-  },
-  "modal.modrinth-account-required.open-browser-again-button": {
-    "message": "Открыть браузер снова"
-  },
-  "modal.modrinth-account-required.sign-in-button": {
-    "message": "Войти в Modrinth"
-  },
-  "modal.modrinth-account-required.sign-in-heading": {
-    "message": "Войдите в аккаунт Modrinth"
-  },
-  "modal.modrinth-account-required.signing-in-header": {
-    "message": "Вход"
-  },
-  "modal.modrinth-account-required.support-prompt": {
-    "message": "Проблемы с входом? <support>Обратитесь в поддержку</support>"
-  },
-  "modal.modrinth-account-required.waiting-for-browser": {
-    "message": "Ожидание подтверждения браузера..."
-  },
-  "search.filter.locked.instance": {
-    "message": "Управляется сборкой"
-  },
-  "search.filter.locked.instance-game-version.title": {
-    "message": "Версия игры управляется сборкой"
-  },
-  "search.filter.locked.instance-loader.title": {
-    "message": "Загрузчик управляется сборкой"
-  },
-  "search.filter.locked.instance.sync": {
-    "message": "Использовать из сборки"
-  },
-  "search.filter.locked.server": {
-    "message": "Управляется сервером"
-  },
-  "search.filter.locked.server-environment.title": {
-    "message": "В серверной сборке доступны только клиентские моды"
-  },
-  "search.filter.locked.server-game-version.title": {
-    "message": "Версия игры управляется сервером"
-  },
-  "search.filter.locked.server-loader.title": {
-    "message": "Загрузчик управляется сервером"
-  }
+    "app.action-bar.downloading-java":  {
+                                            "message":  "Ð¡ÐºÐ°Ñ‡Ð¸Ð²Ð°Ð½Ð¸Ðµ JavaÂ {version}"
+                                        },
+    "app.action-bar.downloading-update":  {
+                                              "message":  "Ð¡ÐºÐ°Ñ‡Ð¸Ð²Ð°Ð½Ð¸Ðµ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ"
+                                          },
+    "app.action-bar.downloads":  {
+                                     "message":  "Ð—Ð°Ð³Ñ€ÑƒÐ·ÐºÐ¸"
+                                 },
+    "app.action-bar.hide-more-running-instances":  {
+                                                       "message":  "Ð¡ÐºÑ€Ñ‹Ñ‚ÑŒ Ð´Ñ€ÑƒÐ³Ð¸Ðµ Ð°ÐºÑ‚Ð¸Ð²Ð½Ñ‹Ðµ ÑÐ±Ð¾Ñ€ÐºÐ¸"
+                                                   },
+    "app.action-bar.install.copied-details":  {
+                                                  "message":  "Ð¡ÐºÐ¾Ð¿Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¾"
+                                              },
+    "app.action-bar.install.copy-details":  {
+                                                "message":  "ÐŸÐ¾Ð»ÑƒÑ‡Ð¸Ñ‚ÑŒ Ð¾Ñ‚Ñ‡Ñ‘Ñ‚"
+                                            },
+    "app.action-bar.install.dismiss":  {
+                                           "message":  "Ð—Ð°ÐºÑ€Ñ‹Ñ‚ÑŒ"
+                                       },
+    "app.action-bar.install.open-instance":  {
+                                                 "message":  "ÐžÑ‚ÐºÑ€Ñ‹Ñ‚ÑŒ ÑÐ±Ð¾Ñ€ÐºÑƒ"
+                                             },
+    "app.action-bar.install.retry":  {
+                                         "message":  "ÐŸÐ¾Ð²Ñ‚Ð¾Ñ€Ð¸Ñ‚ÑŒ"
+                                     },
+    "app.action-bar.install.summary.app-closing":  {
+                                                       "message":  "ÐžÑ‚Ð¼ÐµÐ½ÐµÐ½Ð¾ Ð¸Ð·â€‘Ð·Ð° Ð·Ð°ÐºÑ€Ñ‹Ñ‚Ð¸Ñ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ"
+                                                   },
+    "app.action-bar.install.summary.bad-modpack-file":  {
+                                                            "message":  "ÐÐµ ÑƒÐ´Ð°Ð»Ð¾ÑÑŒ Ð¿Ñ€Ð¾Ñ‡Ð¸Ñ‚Ð°Ñ‚ÑŒ ÑÐ±Ð¾Ñ€ÐºÑƒ"
+                                                        },
+    "app.action-bar.install.summary.canceled":  {
+                                                    "message":  "ÐžÑ‚Ð¼ÐµÐ½ÐµÐ½Ð¾"
+                                                },
+    "app.action-bar.install.summary.cleanup-incomplete":  {
+                                                              "message":  "ÐžÑ‡Ð¸ÑÑ‚ÐºÐ° Ð¿Ñ€ÐµÑ€Ð²Ð°Ð½Ð°"
+                                                          },
+    "app.action-bar.install.summary.content-download-failed":  {
+                                                                   "message":  "ÐÐµ ÑƒÐ´Ð°Ð»Ð¾ÑÑŒ ÑÐºÐ°Ñ‡Ð°Ñ‚ÑŒ Ñ„Ð°Ð¹Ð»Ñ‹"
+                                                               },
+    "app.action-bar.install.summary.corrupt-download":  {
+                                                            "message":  "Ð¡ÐºÐ°Ñ‡Ð°Ð½Ð½Ñ‹Ð¹ Ñ„Ð°Ð¹Ð» Ð¿Ð¾Ð²Ñ€ÐµÐ¶Ð´Ñ‘Ð½"
+                                                        },
+    "app.action-bar.install.summary.could-not-save-files":  {
+                                                                "message":  "ÐÐµ ÑƒÐ´Ð°Ð»Ð¾ÑÑŒ ÑÐ¾Ñ…Ñ€Ð°Ð½Ð¸Ñ‚ÑŒ Ñ„Ð°Ð¹Ð»Ñ‹"
+                                                            },
+    "app.action-bar.install.summary.download-failed":  {
+                                                           "message":  "Ð¡ÐºÐ°Ñ‡Ð¸Ð²Ð°Ð½Ð¸Ðµ Ð¿Ñ€ÐµÑ€Ð²Ð°Ð½Ð¾"
+                                                       },
+    "app.action-bar.install.summary.instance-not-found":  {
+                                                              "message":  "Ð¡Ð±Ð¾Ñ€ÐºÐ° Ð½ÐµÂ Ð½Ð°Ð¹Ð´ÐµÐ½Ð°"
+                                                          },
+    "app.action-bar.install.summary.invalid-file-path":  {
+                                                             "message":  "ÐÐµÐ²ÐµÑ€Ð½Ñ‹Ð¹ Ð¿ÑƒÑ‚ÑŒ ÐºÂ Ñ„Ð°Ð¹Ð»Ñƒ"
+                                                         },
+    "app.action-bar.install.summary.invalid-modpack":  {
+                                                           "message":  "ÐÐµÐ²ÐµÑ€Ð½Ñ‹Ðµ Ð´Ð°Ð½Ð½Ñ‹Ðµ ÑÐ±Ð¾Ñ€ÐºÐ¸"
+                                                       },
+    "app.action-bar.install.summary.invalid-modpack-files":  {
+                                                                 "message":  "ÐÐµÐ²ÐµÑ€Ð½Ñ‹Ðµ Ð¼ÐµÑ‚Ð°Ð´Ð°Ð½Ð½Ñ‹Ðµ Ð²Â Ñ„Ð°Ð¹Ð»Ð°Ñ… ÑÐ±Ð¾Ñ€ÐºÐ¸ "
+                                                             },
+    "app.action-bar.install.summary.java-setup-failed":  {
+                                                             "message":  "Ð£ÑÑ‚Ð°Ð½Ð¾Ð²ÐºÐ° Java Ð¿Ñ€ÐµÑ€Ð²Ð°Ð½Ð°"
+                                                         },
+    "app.action-bar.install.summary.loader-setup-failed":  {
+                                                               "message":  "ÐÐµ ÑƒÐ´Ð°Ð»Ð¾ÑÑŒ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ Ð·Ð°Ð³Ñ€ÑƒÐ·Ñ‡Ð¸Ðº"
+                                                           },
+    "app.action-bar.install.summary.local-data-error":  {
+                                                            "message":  "ÐÐµ ÑƒÐ´Ð°Ð»Ð¾ÑÑŒ Ð¾Ð±Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ Ð»Ð¾ÐºÐ°Ð»ÑŒÐ½Ñ‹Ðµ Ð´Ð°Ð½Ð½Ñ‹Ðµ"
+                                                        },
+    "app.action-bar.install.summary.minecraft-setup-failed":  {
+                                                                  "message":  "ÐÐµ ÑƒÐ´Ð°Ð»Ð¾ÑÑŒ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ Minecraft"
+                                                              },
+    "app.action-bar.install.summary.modrinth-unreachable":  {
+                                                                "message":  "ÐÐµÂ ÑƒÐ´Ð°Ð»Ð¾ÑÑŒ Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒÑÑ ÐºÂ Modrinth"
+                                                            },
+    "app.action-bar.install.summary.no-write-permission":  {
+                                                               "message":  "ÐÐµÑ‚ Ñ€Ð°Ð·Ñ€ÐµÑˆÐµÐ½Ð¸Ñ Ð½Ð°Â Ð·Ð°Ð¿Ð¸ÑÑŒ"
+                                                           },
+    "app.action-bar.install.summary.pack-download-failed":  {
+                                                                "message":  "ÐÐµ ÑƒÐ´Ð°Ð»Ð¾ÑÑŒ ÑÐºÐ°Ñ‡Ð°Ñ‚ÑŒ ÑÐ±Ð¾Ñ€ÐºÑƒ"
+                                                            },
+    "app.action-bar.install.summary.unexpected-error":  {
+                                                            "message":  "ÐŸÑ€Ð¾Ð¸Ð·Ð¾ÑˆÐ»Ð° Ð¾ÑˆÐ¸Ð±ÐºÐ°"
+                                                        },
+    "app.action-bar.install.unknown-instance":  {
+                                                    "message":  "ÐÐµÐ¸Ð·Ð²ÐµÑÑ‚Ð½Ð°Ñ ÑÐ±Ð¾Ñ€ÐºÐ°"
+                                                },
+    "app.action-bar.install.updating-shared-content":  {
+                                                           "message":  "ÐžÐ±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ ÑÐ¾Ð²Ð¼ÐµÑÑ‚Ð½Ð¾Ð³Ð¾ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚Ð°"
+                                                       },
+    "app.action-bar.installs":  {
+                                    "message":  "Ð£ÑÑ‚Ð°Ð½Ð¾Ð²ÐºÐ¸"
+                                },
+    "app.action-bar.make-primary-instance":  {
+                                                 "message":  "Ð¡Ð´ÐµÐ»Ð°Ñ‚ÑŒ Ð¾ÑÐ½Ð¾Ð²Ð½Ð¾Ð¹ ÑÐ±Ð¾Ñ€ÐºÐ¾Ð¹"
+                                             },
+    "app.action-bar.no-instances-running":  {
+                                                "message":  "ÐÐµÑ‚ Ð°ÐºÑ‚Ð¸Ð²Ð½Ñ‹Ñ… ÑÐ±Ð¾Ñ€Ð¾Ðº"
+                                            },
+    "app.action-bar.offline":  {
+                                   "message":  "ÐžÑ„Ð»Ð°Ð¹Ð½"
+                               },
+    "app.action-bar.primary-instance":  {
+                                            "message":  "ÐžÑÐ½Ð¾Ð²Ð½Ð°Ñ ÑÐ±Ð¾Ñ€ÐºÐ°"
+                                        },
+    "app.action-bar.reload-to-update":  {
+                                            "message":  "ÐŸÐµÑ€ÐµÐ·Ð°Ð¿ÑƒÑÑ‚Ð¸Ñ‚ÑŒ Ð¸Â Ð¾Ð±Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ"
+                                        },
+    "app.action-bar.show-more-running-instances":  {
+                                                       "message":  "ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚ÑŒ Ð´Ñ€ÑƒÐ³Ð¸Ðµ Ð°ÐºÑ‚Ð¸Ð²Ð½Ñ‹Ðµ ÑÐ±Ð¾Ñ€ÐºÐ¸"
+                                                   },
+    "app.action-bar.stop-instance":  {
+                                         "message":  "ÐžÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ ÑÐ±Ð¾Ñ€ÐºÑƒ"
+                                     },
+    "app.action-bar.update":  {
+                                  "message":  "ÐžÐ±Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ"
+                              },
+    "app.action-bar.view-active-downloads":  {
+                                                 "message":  "ÐŸÐ¾ÑÐ¼Ð¾Ñ‚Ñ€ÐµÑ‚ÑŒ Ñ‚ÐµÐºÑƒÑ‰Ð¸Ðµ Ð·Ð°Ð³Ñ€ÑƒÐ·ÐºÐ¸"
+                                             },
+    "app.action-bar.view-instance":  {
+                                         "message":  "ÐŸÐ¾ÑÐ¼Ð¾Ñ‚Ñ€ÐµÑ‚ÑŒ ÑÐ±Ð¾Ñ€ÐºÑƒ"
+                                     },
+    "app.action-bar.view-logs":  {
+                                     "message":  "ÐŸÐ¾ÑÐ¼Ð¾Ñ‚Ñ€ÐµÑ‚ÑŒ Ð¶ÑƒÑ€Ð½Ð°Ð»"
+                                 },
+    "app.ads-consent.accept":  {
+                                   "message":  "ÐŸÑ€Ð¸Ð½ÑÑ‚ÑŒ Ð²ÑÑ‘"
+                               },
+    "app.ads-consent.body":  {
+                                 "message":  "Ð ÐµÐºÐ»Ð°Ð¼Ð° Ð¾Ð±ÐµÑÐ¿ÐµÑ‡Ð¸Ð²Ð°ÐµÑ‚ Ñ€Ð°Ð±Ð¾Ñ‚Ñƒ Modrinth Ð¸Â Ð²Ñ‹Ð¿Ð»Ð°Ñ‚Ñ‹ Ð°Ð²Ñ‚Ð¾Ñ€Ð°Ð¼. Ð”Ð»ÑÂ Ð¿ÐµÑ€ÑÐ¾Ð½Ð°Ð»Ð¸Ð·Ð°Ñ†Ð¸Ð¸ Ð¸Â Ð°Ð½Ð°Ð»Ð¸Ð·Ð° Ñ€ÐµÐºÐ»Ð°Ð¼Ñ‹ Ð½Ð°ÑˆÐ¸ Ð¿Ð°Ñ€Ñ‚Ð½Ñ‘Ñ€Ñ‹ Ð¼Ð¾Ð³ÑƒÑ‚ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÑŒ ÐºÑƒÐºÐ¸."
+                             },
+    "app.ads-consent.manage":  {
+                                   "message":  "ÐÐ°ÑÑ‚Ñ€Ð¾Ð¸Ñ‚ÑŒ"
+                               },
+    "app.ads-consent.reject":  {
+                                   "message":  "ÐžÑ‚ÐºÐ»Ð¾Ð½Ð¸Ñ‚ÑŒ Ð²ÑÑ‘"
+                               },
+    "app.ads-consent.title":  {
+                                  "message":  "ÐšÐ¾Ð½Ñ„Ð¸Ð´ÐµÐ½Ñ†Ð¸Ð°Ð»ÑŒÐ½Ð¾ÑÑ‚ÑŒ Ð¸Â Ñ€ÐµÐºÐ»Ð°Ð¼Ð° Ð½Ð°Â Modrinth"
+                              },
+    "app.appearance-settings.advanced-rendering.description":  {
+                                                                   "message":  "Ð˜ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÑŒ ÑÑ„Ñ„ÐµÐºÑ‚Ñ‹ Ð²Ñ€Ð¾Ð´Ðµ Ñ€Ð°Ð·Ð¼Ñ‹Ñ‚Ð¸Ñ Ñ„Ð¾Ð½Ð°. Ð‘ÐµÐ·Â Ð°Ð¿Ð¿Ð°Ñ€Ð°Ñ‚Ð½Ð¾Ð³Ð¾ ÑƒÑÐºÐ¾Ñ€ÐµÐ½Ð¸Ñ Ð²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð° Ð¿Ð¾Ñ‚ÐµÑ€Ñ Ð¿Ñ€Ð¾Ð¸Ð·Ð²Ð¾Ð´Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾ÑÑ‚Ð¸."
+                                                               },
+    "app.appearance-settings.advanced-rendering.title":  {
+                                                             "message":  "Ð Ð°ÑÑˆÐ¸Ñ€ÐµÐ½Ð½Ñ‹Ðµ ÑÑ„Ñ„ÐµÐºÑ‚Ñ‹"
+                                                         },
+    "app.appearance-settings.color-theme.description":  {
+                                                            "message":  "Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ñ‚ÐµÐ¼Ñƒ Ð´Ð»ÑÂ ModrinthÂ App."
+                                                        },
+    "app.appearance-settings.color-theme.title":  {
+                                                      "message":  "Ð¢ÐµÐ¼Ð°"
+                                                  },
+    "app.appearance-settings.default-landing-page.description":  {
+                                                                     "message":  "Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ñƒ Ð´Ð»ÑÂ Ð¿Ð¾ÐºÐ°Ð·Ð° Ð¿Ñ€Ð¸Â Ð·Ð°Ð¿ÑƒÑÐºÐµ ModrinthÂ App."
+                                                                 },
+    "app.appearance-settings.default-landing-page.home":  {
+                                                              "message":  "Ð“Ð»Ð°Ð²Ð½Ð°Ñ"
+                                                          },
+    "app.appearance-settings.default-landing-page.library":  {
+                                                                 "message":  "Ð‘Ð¸Ð±Ð»Ð¸Ð¾Ñ‚ÐµÐºÐ°"
+                                                             },
+    "app.appearance-settings.default-landing-page.title":  {
+                                                               "message":  "Ð¡Ñ‚Ð°Ñ€Ñ‚Ð¾Ð²Ð°Ñ ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ð°"
+                                                           },
+    "app.appearance-settings.hide-nametag.description":  {
+                                                             "message":  "Ð¡ÐºÑ€Ñ‹Ð²Ð°Ñ‚ÑŒ Ð¸Ð¼Ñ Ð½Ð°Ð´Â Ð¸Ð³Ñ€Ð¾ÐºÐ¾Ð¼ Ð½Ð°Â ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ðµ Ð²Ñ‹Ð±Ð¾Ñ€Ð° ÑÐºÐ¸Ð½Ð°."
+                                                         },
+    "app.appearance-settings.hide-nametag.title":  {
+                                                       "message":  "Ð‘ÐµÐ·Â Ð¸Ð¼ÐµÐ½Ð¸ Ð½Ð°Ð´Â ÑÐºÐ¸Ð½Ð¾Ð¼"
+                                                   },
+    "app.appearance-settings.jump-back-into-worlds.description":  {
+                                                                      "message":  "ÐŸÐ¾ÐºÐ°Ð·Ñ‹Ð²Ð°Ñ‚ÑŒ Ð¼Ð¸Ñ€Ñ‹ Ð²Â Ñ€Ð°Ð·Ð´ÐµÐ»Ðµ Â«Jump backÂ inÂ» Ð½Ð°Â Ð³Ð»Ð°Ð²Ð½Ð¾Ð¹."
+                                                                  },
+    "app.appearance-settings.jump-back-into-worlds.title":  {
+                                                                "message":  "ÐœÐ¸Ñ€Ñ‹ Ð½Ð°Â Ð³Ð»Ð°Ð²Ð½Ð¾Ð¹"
+                                                            },
+    "app.appearance-settings.minimize-launcher.description":  {
+                                                                  "message":  "Ð¡Ð²Ð¾Ñ€Ð°Ñ‡Ð¸Ð²Ð°Ñ‚ÑŒ Ð¾ÐºÐ½Ð¾ ModrinthÂ App Ð¿Ñ€Ð¸Â Ð·Ð°Ð¿ÑƒÑÐºÐµ Minecraft."
+                                                              },
+    "app.appearance-settings.minimize-launcher.title":  {
+                                                            "message":  "Ð¡Ð²Ð¾Ñ€Ð°Ñ‡Ð¸Ð²Ð°Ð½Ð¸Ðµ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ"
+                                                        },
+    "app.appearance-settings.native-decorations.description":  {
+                                                                   "message":  "Ð˜ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÑŒ ÑÐ¸ÑÑ‚ÐµÐ¼Ð½Ð¾Ðµ Ð¾Ñ„Ð¾Ñ€Ð¼Ð»ÐµÐ½Ð¸Ðµ Ð·Ð°Ð³Ð¾Ð»Ð¾Ð²ÐºÐ° Ð¸Â ÐºÐ½Ð¾Ð¿Ð¾Ðº Ð¾ÐºÐ½Ð°. Ð¢Ñ€ÐµÐ±ÑƒÐµÑ‚ÑÑ Ð¿ÐµÑ€ÐµÐ·Ð°Ð¿ÑƒÑÐº."
+                                                               },
+    "app.appearance-settings.native-decorations.title":  {
+                                                             "message":  "Ð¡Ð¸ÑÑ‚ÐµÐ¼Ð½Ð°Ñ Ñ€Ð°Ð¼ÐºÐ° Ð¾ÐºÐ½Ð°"
+                                                         },
+    "app.appearance-settings.show-play-time.description":  {
+                                                               "message":  "ÐŸÐ¾ÐºÐ°Ð·Ñ‹Ð²Ð°Ñ‚ÑŒ Ð¿Ñ€Ð¾Ð²ÐµÐ´Ñ‘Ð½Ð½Ð¾Ðµ Ð²Ñ€ÐµÐ¼Ñ Ð²Â ÑÐ±Ð¾Ñ€ÐºÐµ."
+                                                           },
+    "app.appearance-settings.show-play-time.title":  {
+                                                         "message":  "Ð’Ñ€ÐµÐ¼Ñ Ð¸Ð³Ñ€Ñ‹"
+                                                     },
+    "app.appearance-settings.skip-non-essential-warnings.description":  {
+                                                                            "message":  "Ð¡ÐºÑ€Ñ‹Ð²Ð°Ñ‚ÑŒ Ð¼Ð°Ð»Ð¾Ð·Ð½Ð°Ñ‡Ð¸Ð¼Ñ‹Ðµ Ð¿Ð¾Ð´Ñ‚Ð²ÐµÑ€Ð¶Ð´ÐµÐ½Ð¸Ñ: ÑƒÑÑ‚Ð°Ð½Ð¾Ð²ÐºÑƒ ÐºÐ¾Ð¿Ð¸Ð¹, Ð¾Ð±Ñ‹Ñ‡Ð½Ð¾Ðµ ÑƒÐ´Ð°Ð»ÐµÐ½Ð¸Ðµ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚Ð°, Ð¼Ð°ÑÑÐ¾Ð²Ñ‹Ðµ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ, Ð¾Ñ‚Ð²ÑÐ·ÐºÑƒ Ð¸Â Ð¸ÑÐ¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ. ÐšÑ€Ð¸Ñ‚Ð¸Ñ‡ÐµÑÐºÐ¸Ðµ Ð¿Ñ€ÐµÐ´ÑƒÐ¿Ñ€ÐµÐ¶Ð´ÐµÐ½Ð¸Ñ Ð¾ÑÑ‚Ð°Ð½ÑƒÑ‚ÑÑ."
+                                                                        },
+    "app.appearance-settings.skip-non-essential-warnings.title":  {
+                                                                      "message":  "Ð¢Ð¾Ð»ÑŒÐºÐ¾ Ð¾Ð¿Ð°ÑÐ½Ñ‹Ðµ Ð¿Ñ€ÐµÐ´ÑƒÐ¿Ñ€ÐµÐ¶Ð´ÐµÐ½Ð¸Ñ"
+                                                                  },
+    "app.appearance-settings.toggle-sidebar.description":  {
+                                                               "message":  "Ð¡ÐºÑ€Ñ‹Ð²Ð°Ñ‚ÑŒ Ð¿Ð°Ð½ÐµÐ»ÑŒ ÑÐ¿Ñ€Ð°Ð²Ð° Ð¿Ñ€Ð¸Â Ð·Ð°Ð¿ÑƒÑÐºÐµ Ð¸Â Ð¿ÐµÑ€ÐµÐºÐ»ÑŽÑ‡Ð°Ñ‚ÑŒ ÐºÐ½Ð¾Ð¿ÐºÐ¾Ð¹."
+                                                           },
+    "app.appearance-settings.toggle-sidebar.title":  {
+                                                         "message":  "Ð¡ÐºÑ€Ñ‹Ñ‚Ð¸Ðµ Ð¿Ð°Ð½ÐµÐ»Ð¸ ÑÐ¿Ñ€Ð°Ð²Ð°"
+                                                     },
+    "app.appearance-settings.unknown-pack-warning.description":  {
+                                                                     "message":  "ÐŸÑ€ÐµÐ´ÑƒÐ¿Ñ€ÐµÐ¶Ð´Ð°Ñ‚ÑŒ Ð¾Â Ñ€Ð¸ÑÐºÐ°Ñ… Ð¿ÐµÑ€ÐµÐ´ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²ÐºÐ¾Ð¹ Ñ„Ð°Ð¹Ð»Ð¾Ð² .mrpack, Ð½ÐµÂ Ñ€Ð°Ð·Ð¼ÐµÑ‰Ñ‘Ð½Ð½Ñ‹Ñ… Ð½Ð°Â Modrinth."
+                                                                 },
+    "app.appearance-settings.unknown-pack-warning.title":  {
+                                                               "message":  "ÐŸÑ€ÐµÐ´ÑƒÐ¿Ñ€ÐµÐ¶Ð´ÐµÐ½Ð¸Ðµ Ð¾Â ÑÑ‚Ð¾Ñ€Ð¾Ð½Ð½Ð¸Ñ… ÑÐ±Ð¾Ñ€ÐºÐ°Ñ…"
+                                                           },
+    "app.auth-servers.unreachable.body":  {
+                                              "message":  "Ð¡ÐµÑ€Ð²ÐµÑ€Ñ‹ Ð°ÑƒÑ‚ÐµÐ½Ñ‚Ð¸Ñ„Ð¸ÐºÐ°Ñ†Ð¸Ð¸ Minecraft ÑÐµÐ¹Ñ‡Ð°Ñ Ð¼Ð¾Ð³ÑƒÑ‚ Ð±Ñ‹Ñ‚ÑŒ Ð½ÐµÐ´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ñ‹. ÐŸÑ€Ð¾Ð²ÐµÑ€ÑŒÑ‚Ðµ Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ðµ ÐºÂ Ð¸Ð½Ñ‚ÐµÑ€Ð½ÐµÑ‚Ñƒ Ð¸Â Ð¿Ð¾Ð²Ñ‚Ð¾Ñ€Ð¸Ñ‚Ðµ Ð¿Ð¾Ð¿Ñ‹Ñ‚ÐºÑƒ Ð¿Ð¾Ð·Ð¶Ðµ."
+                                          },
+    "app.auth-servers.unreachable.header":  {
+                                                "message":  "ÐÐµÑ‚ ÑÐ²ÑÐ·Ð¸ ÑÂ ÑÐµÑ€Ð²ÐµÑ€Ð°Ð¼Ð¸ Ð°ÑƒÑ‚ÐµÐ½Ñ‚Ð¸Ñ„Ð¸ÐºÐ°Ñ†Ð¸Ð¸"
+                                            },
+    "app.behavior-settings.confirmations.title":  {
+                                                      "message":  "ÐŸÐ¾Ð´Ñ‚Ð²ÐµÑ€Ð¶Ð´ÐµÐ½Ð¸Ñ"
+                                                  },
+    "app.behavior-settings.content.title":  {
+                                                "message":  "Ð“Ð»Ð°Ð²Ð½Ð°Ñ Ð¸Â ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚"
+                                            },
+    "app.behavior-settings.startup-and-navigation.title":  {
+                                                               "message":  "Ð—Ð°Ð¿ÑƒÑÐº Ð¸Â Ð½Ð°Ð²Ð¸Ð³Ð°Ñ†Ð¸Ñ"
+                                                           },
+    "app.browse.add-servers-to-instance":  {
+                                               "message":  "Ð”Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ ÑÐµÑ€Ð²ÐµÑ€Ð¾Ð² Ð²Â ÑÐ±Ð¾Ñ€ÐºÑƒ"
+                                           },
+    "app.browse.add-to-an-instance":  {
+                                          "message":  "Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð²Â ÑÐ±Ð¾Ñ€ÐºÑƒ"
+                                      },
+    "app.browse.add-to-instance":  {
+                                       "message":  "Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð²Â ÑÐ±Ð¾Ñ€ÐºÑƒ"
+                                   },
+    "app.browse.add-to-instance-name":  {
+                                            "message":  "Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð²Â {instanceName}"
+                                        },
+    "app.browse.added":  {
+                             "message":  "Ð”Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¾"
+                         },
+    "app.browse.already-added":  {
+                                     "message":  "Ð£Ð¶Ðµ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¾"
+                                 },
+    "app.browse.back-to-instance":  {
+                                        "message":  "Ð’ÐµÑ€Ð½ÑƒÑ‚ÑŒÑÑ ÐºÂ ÑÐ±Ð¾Ñ€ÐºÐµ"
+                                    },
+    "app.browse.discover-project-type":  {
+                                             "message":  "ÐŸÐ¾Ð¸ÑÐº Ð¿Ñ€Ð¾ÐµÐºÑ‚Ð¾Ð²"
+                                         },
+    "app.browse.discover-servers":  {
+                                        "message":  "ÐŸÐ¾Ð¸ÑÐº ÑÐµÑ€Ð²ÐµÑ€Ð¾Ð²"
+                                    },
+    "app.browse.hide-added-servers":  {
+                                          "message":  "Ð¡ÐºÑ€Ñ‹Ð²Ð°Ñ‚ÑŒ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð½Ñ‹Ðµ"
+                                      },
+    "app.browse.hide-installed-modpacks":  {
+                                               "message":  "Ð¡ÐºÑ€Ñ‹Ð²Ð°Ñ‚ÑŒ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð½Ñ‹Ðµ"
+                                           },
+    "app.browse.project-type.modpacks":  {
+                                             "message":  "Ð¡Ð±Ð¾Ñ€ÐºÐ¸"
+                                         },
+    "app.browse.server-instance-content-warning":  {
+                                                       "message":  "Ð”Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚Ð° Ð¼Ð¾Ð¶ÐµÑ‚ ÑÐ»Ð¾Ð¼Ð°Ñ‚ÑŒ ÑÐ¾Ð²Ð¼ÐµÑÑ‚Ð¸Ð¼Ð¾ÑÑ‚ÑŒ Ð¿Ñ€Ð¸ Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ð¸ Ðº ÑÐµÑ€Ð²ÐµÑ€Ñƒ. Ð’ÐµÑÑŒ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð½Ñ‹Ð¹ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚ Ñ‚Ð°ÐºÐ¶Ðµ Ð±ÑƒÐ´ÐµÑ‚ ÑƒÐ´Ð°Ð»Ñ‘Ð½ Ð¿Ñ€Ð¸ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ð¸ ÑÐµÑ€Ð²ÐµÑ€Ð°."
+                                                   },
+    "app.browse.server.installing":  {
+                                         "message":  "Ð£ÑÑ‚Ð°Ð½Ð¾Ð²ÐºÐ°"
+                                     },
+    "app.content-install.no-compatible-versions":  {
+                                                       "message":  "ÐÐµ Ð½Ð°Ð¹Ð´ÐµÐ½Ð¾ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ñ‹Ñ… Ð²ÐµÑ€ÑÐ¸Ð¹, ÑÐ¾Ð²Ð¼ÐµÑÑ‚Ð¸Ð¼Ñ‹Ñ… Ñ {compatibilityLabel}. Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð²ÐµÑ€ÑÐ¸ÑŽ Ð´Ð»Ñ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²ÐºÐ¸ Ð²Ñ€ÑƒÑ‡Ð½ÑƒÑŽ. Ð—Ð°Ð²Ð¸ÑÐ¸Ð¼Ð¾ÑÑ‚Ð¸ Ð½Ðµ Ð±ÑƒÐ´ÑƒÑ‚ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ñ‹ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ¸."
+                                                   },
+    "app.export-modal.description-placeholder":  {
+                                                     "message":  "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¾Ð¿Ð¸ÑÐ°Ð½Ð¸Ðµ ÑÐ±Ð¾Ñ€ÐºÐ¸..."
+                                                 },
+    "app.export-modal.export-button":  {
+                                           "message":  "Ð­ÐºÑÐ¿Ð¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ"
+                                       },
+    "app.export-modal.header":  {
+                                    "message":  "Ð­ÐºÑÐ¿Ð¾Ñ€Ñ‚ ÑÐ±Ð¾Ñ€ÐºÐ¸"
+                                },
+    "app.export-modal.modpack-name-label":  {
+                                                "message":  "ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ ÑÐ±Ð¾Ñ€ÐºÐ¸"
+                                            },
+    "app.export-modal.modpack-name-placeholder":  {
+                                                      "message":  "ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ ÑÐ±Ð¾Ñ€ÐºÐ¸"
+                                                  },
+    "app.export-modal.version-number-label":  {
+                                                  "message":  "ÐÐ¾Ð¼ÐµÑ€ Ð²ÐµÑ€ÑÐ¸Ð¸"
+                                              },
+    "app.export-modal.version-number-placeholder":  {
+                                                        "message":  "1.0.0"
+                                                    },
+    "app.install.phase.downloading_content":  {
+                                                  "message":  "Ð¡ÐºÐ°Ñ‡Ð¸Ð²Ð°Ð½Ð¸Ðµ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚Ð°"
+                                              },
+    "app.install.phase.downloading_minecraft":  {
+                                                    "message":  "Ð¡ÐºÐ°Ñ‡Ð¸Ð²Ð°Ð½Ð¸Ðµ Minecraft"
+                                                },
+    "app.install.phase.downloading_pack_file":  {
+                                                    "message":  "Ð¡ÐºÐ°Ñ‡Ð¸Ð²Ð°Ð½Ð¸Ðµ Ñ„Ð°Ð¹Ð»Ð° ÑÐ±Ð¾Ñ€ÐºÐ¸"
+                                                },
+    "app.install.phase.extracting_overrides":  {
+                                                   "message":  "Ð Ð°ÑÐ¿Ð°ÐºÐ¾Ð²ÐºÐ° Ð¿ÐµÑ€ÐµÐ¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÐµÐ½Ð¸Ð¹"
+                                               },
+    "app.install.phase.finalizing":  {
+                                         "message":  "Ð—Ð°Ð²ÐµÑ€ÑˆÐµÐ½Ð¸Ðµ"
+                                     },
+    "app.install.phase.preparing_instance":  {
+                                                 "message":  "Ð’Â Ð¾Ñ‡ÐµÑ€ÐµÐ´Ð¸ Ð½Ð°Â ÑƒÑÑ‚Ð°Ð½Ð¾Ð²ÐºÑƒ"
+                                             },
+    "app.install.phase.preparing_java":  {
+                                             "message":  "ÐŸÐ¾Ð´Ð³Ð¾Ñ‚Ð¾Ð²ÐºÐ° Java"
+                                         },
+    "app.install.phase.preparing_java.downloading":  {
+                                                         "message":  "Ð¡ÐºÐ°Ñ‡Ð¸Ð²Ð°Ð½Ð¸Ðµ JavaÂ {version}"
+                                                     },
+    "app.install.phase.preparing_java.extracting":  {
+                                                        "message":  "Ð Ð°ÑÐ¿Ð°ÐºÐ¾Ð²ÐºÐ° JavaÂ {version}"
+                                                    },
+    "app.install.phase.preparing_java.fetching-metadata":  {
+                                                               "message":  "ÐŸÐ¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ðµ JavaÂ {version}"
+                                                           },
+    "app.install.phase.preparing_java.resolving":  {
+                                                       "message":  "ÐŸÐ¾Ð´Ð³Ð¾Ñ‚Ð¾Ð²ÐºÐ° JavaÂ {version}"
+                                                   },
+    "app.install.phase.preparing_java.validating":  {
+                                                        "message":  "ÐŸÑ€Ð¾Ð²ÐµÑ€ÐºÐ° JavaÂ {version}"
+                                                    },
+    "app.install.phase.reading_pack_manifest":  {
+                                                    "message":  "Ð§Ñ‚ÐµÐ½Ð¸Ðµ Ð¼Ð°Ð½Ð¸Ñ„ÐµÑÑ‚Ð° ÑÐ±Ð¾Ñ€ÐºÐ¸"
+                                                },
+    "app.install.phase.resolving_loader":  {
+                                               "message":  "Ð Ð°Ð·Ñ€ÐµÑˆÐµÐ½Ð¸Ðµ Ð·Ð°Ð³Ñ€ÑƒÐ·Ñ‡Ð¸ÐºÐ°"
+                                           },
+    "app.install.phase.resolving_minecraft":  {
+                                                  "message":  "Ð Ð°Ð·Ñ€ÐµÑˆÐµÐ½Ð¸Ðµ Minecraft"
+                                              },
+    "app.install.phase.resolving_pack":  {
+                                             "message":  "Ð Ð°Ð·Ñ€ÐµÑˆÐµÐ½Ð¸Ðµ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚Ð°"
+                                         },
+    "app.install.phase.rolling_back":  {
+                                           "message":  "ÐžÑ‚ÐºÐ°Ñ‚"
+                                       },
+    "app.install.phase.running_loader_processors":  {
+                                                        "message":  "Ð—Ð°Ð¿ÑƒÑÐº Ð¿Ñ€Ð¾Ñ†ÐµÑÑÐ¾Ñ€Ð¾Ð² Ð·Ð°Ð³Ñ€ÑƒÐ·Ñ‡Ð¸ÐºÐ°"
+                                                    },
+    "app.instance.admonitions.shared-instance.added-label":  {
+                                                                 "message":  "Ð”Ð¾Ð±Ð°Ð²Ð»ÐµÐ½"
+                                                             },
+    "app.instance.admonitions.shared-instance.changes-body":  {
+                                                                  "message":  "Ð›Ð¾ÐºÐ°Ð»ÑŒÐ½Ð°Ñ ÑÐ±Ð¾Ñ€ÐºÐ° Ð¾Ð¿ÐµÑ€ÐµÐ¶Ð°ÐµÑ‚ Ð²ÐµÑ€ÑÐ¸ÑŽ Ð´Ñ€ÑƒÐ³Ð¸Ñ… ÑƒÑ‡Ð°ÑÑ‚Ð½Ð¸ÐºÐ¾Ð²."
+                                                              },
+    "app.instance.admonitions.shared-instance.changes-header":  {
+                                                                    "message":  "Ð˜Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ Ð½ÐµÂ Ð¾Ñ‚Ð¿Ñ€Ð°Ð²Ð»ÐµÐ½Ñ‹"
+                                                                },
+    "app.instance.admonitions.shared-instance.publish-button":  {
+                                                                    "message":  "ÐžÑ‚Ð¿Ñ€Ð°Ð²Ð¸Ñ‚ÑŒ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ"
+                                                                },
+    "app.instance.admonitions.shared-instance.publishing-button":  {
+                                                                       "message":  "ÐžÑ‚Ð¿Ñ€Ð°Ð²ÐºÐ°..."
+                                                                   },
+    "app.instance.admonitions.shared-instance.removed-label":  {
+                                                                   "message":  "Ð£Ð´Ð°Ð»Ñ‘Ð½"
+                                                               },
+    "app.instance.admonitions.shared-instance.review-admonition-header":  {
+                                                                              "message":  "ÐžÑ‚Ð¿Ñ€Ð°Ð²ÐºÐ° Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ð¹"
+                                                                          },
+    "app.instance.admonitions.shared-instance.review-description":  {
+                                                                        "message":  "ÐžÐ·Ð½Ð°ÐºÐ¾Ð¼ÑŒÑ‚ÐµÑÑŒ Ñ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸ÑÐ¼Ð¸ ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ð¼Ð¾Ð³Ð¾, ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ðµ Ð±ÑƒÐ´ÑƒÑ‚ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ñ‹ Ð²ÑÐµÐ¼ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑÐ¼ ÑÑ‚Ð¾Ð³Ð¾ ÑÐºÐ·ÐµÐ¼Ð¿Ð»ÑÑ€Ð°."
+                                                                    },
+    "app.instance.admonitions.shared-instance.review-header":  {
+                                                                   "message":  "ÐŸÑ€Ð¾Ð²ÐµÑ€ÑŒÑ‚Ðµ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ"
+                                                               },
+    "app.instance.admonitions.shared-instance.review-update-button":  {
+                                                                          "message":  "ÐžÐ±Ð·Ð¾Ñ€ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ"
+                                                                      },
+    "app.instance.admonitions.shared-instance.reviewing-button":  {
+                                                                      "message":  "ÐŸÑ€Ð¾Ð²ÐµÑ€ÐºÐ°..."
+                                                                  },
+    "app.instance.admonitions.shared-instance.update-available-body":  {
+                                                                           "message":  "ÐÐµÐ¾Ð±Ñ…Ð¾Ð´Ð¸Ð¼Ð¾ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ Ð´Ð»Ñ Ð¸Ð³Ñ€Ñ‹ Ð² {name}. ÐžÐ±Ð½Ð¾Ð²Ð¸Ñ‚ÐµÑÑŒ Ð´Ð¾ Ð¿Ð¾ÑÐ»ÐµÐ´Ð½ÐµÐ¹ Ð²ÐµÑ€ÑÐ¸Ð¸ Ð¸ Ð·Ð°Ð¿ÑƒÑÑ‚Ð¸Ñ‚Ðµ Ð¸Ð³Ñ€Ñƒ."
+                                                                       },
+    "app.instance.admonitions.shared-instance.update-available-header":  {
+                                                                             "message":  "Ð”Ð¾ÑÑ‚ÑƒÐ¿Ð½Ð¾ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ"
+                                                                         },
+    "app.instance.confirm-delete.admonition-body":  {
+                                                        "message":  "Ð’ÑÐµ Ð´Ð°Ð½Ð½Ñ‹Ðµ ÑÐ±Ð¾Ñ€ÐºÐ¸ Ð±ÑƒÐ´ÑƒÑ‚ ÑƒÐ´Ð°Ð»ÐµÐ½Ñ‹ Ð½Ð°Ð²ÑÐµÐ³Ð´Ð°, Ð²Â Ñ‚Ð¾Ð¼Â Ñ‡Ð¸ÑÐ»Ðµ Ð¼Ð¸Ñ€Ñ‹, Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ Ð¸Â Ð²ÐµÑÑŒ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð½Ñ‹Ð¹ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚."
+                                                    },
+    "app.instance.confirm-delete.admonition-header":  {
+                                                          "message":  "Ð­Ñ‚Ð¾ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ðµ Ð½ÐµÐ¾Ð±Ñ€Ð°Ñ‚Ð¸Ð¼Ð¾"
+                                                      },
+    "app.instance.confirm-delete.delete-button":  {
+                                                      "message":  "Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ ÑÐ±Ð¾Ñ€ÐºÑƒ"
+                                                  },
+    "app.instance.confirm-delete.header":  {
+                                               "message":  "Ð£Ð´Ð°Ð»ÐµÐ½Ð¸Ðµ ÑÐ±Ð¾Ñ€ÐºÐ¸"
+                                           },
+    "app.instance.modpack-already-installed.body":  {
+                                                        "message":  "Ð’Ñ‹Ð±Ñ€Ð°Ð½Ð½Ð¾Ðµ ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ð¼Ð¾Ðµ ÑƒÐ¶ÐµÂ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð¾ Ð²Â ÑÐ±Ð¾Ñ€ÐºÐµ \u003cbold\u003e{instanceName}\u003c/bold\u003e. Ð¡Ð¾Ð·Ð´Ð°Ñ‚ÑŒ ÐºÐ¾Ð¿Ð¸ÑŽ?"
+                                                    },
+    "app.instance.modpack-already-installed.create":  {
+                                                          "message":  "Ð¡Ð¾Ð·Ð´Ð°Ñ‚ÑŒ"
+                                                      },
+    "app.instance.modpack-already-installed.header":  {
+                                                          "message":  "Ð¡Ð¾Ð´ÐµÑ€Ð¶Ð¸Ð¼Ð¾Ðµ ÑƒÐ¶Ðµ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð¾"
+                                                      },
+    "app.instance.modpack-already-installed.instance":  {
+                                                            "message":  "Ð¡Ð±Ð¾Ñ€ÐºÐ°"
+                                                        },
+    "app.instance.mods.bulk-update.downloading-projects":  {
+                                                               "message":  "Ð¡ÐºÐ°Ñ‡Ð¸Ð²Ð°Ð½Ð¸Ðµ Ð¿Ñ€Ð¾ÐµÐºÑ‚Ð¾Ð²: {current, number}/{total, number}..."
+                                                           },
+    "app.instance.mods.bulk-update.finishing":  {
+                                                    "message":  "Ð—Ð°Ð²ÐµÑ€ÑˆÐµÐ½Ð¸Ðµ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ..."
+                                                },
+    "app.instance.mods.bulk-update.resolving-versions":  {
+                                                             "message":  "Ð Ð°Ð·Ñ€ÐµÑˆÐµÐ½Ð¸Ðµ Ð²ÐµÑ€ÑÐ¸Ð¹..."
+                                                         },
+    "app.instance.mods.content-type-project":  {
+                                                   "message":  "Ð¿Ñ€Ð¾ÐµÐºÑ‚"
+                                               },
+    "app.instance.mods.locked-content":  {
+                                             "message":  "Ð¡Ð¾Ð´ÐµÑ€Ð¶Ð¸Ð¼Ð¾Ðµ Ð·Ð°Ð±Ð»Ð¾ÐºÐ¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ñ‹Ñ… ÑÐ±Ð¾Ñ€Ð¾Ðº Ð½ÐµÐ»ÑŒÐ·Ñ Ð¸Ð·Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ."
+                                         },
+    "app.instance.mods.project-was-added":  {
+                                                "message":  "Â«{name}Â» Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½"
+                                            },
+    "app.instance.mods.share-text":  {
+                                         "message":  "Ð§Ñ‚Ð¾ Ð² Ð¼Ð¾ÐµÐ¹ ÑÐ±Ð¾Ñ€ÐºÐµ:"
+                                     },
+    "app.instance.mods.share-title":  {
+                                          "message":  "Ð¡Ð¾Ð´ÐµÑ€Ð¶Ð¸Ð¼Ð¾Ðµ ÑÐ±Ð¾Ñ€ÐºÐ¸"
+                                      },
+    "app.instance.mods.successfully-uploaded":  {
+                                                    "message":  "Ð£ÑÐ¿ÐµÑˆÐ½Ð¾ Ð·Ð°Ð³Ñ€ÑƒÐ¶ÐµÐ½Ð¾"
+                                                },
+    "app.instance.share.empty.description":  {
+                                                 "message":  "ÐŸÐ¾Ð´ÐµÐ»Ð¸Ñ‚ÐµÑÑŒ ÑÐ±Ð¾Ñ€ÐºÐ¾Ð¹ ÑÐ¾Â ÑÐ²Ð¾Ð¸Ð¼Ð¸ Ð´Ñ€ÑƒÐ·ÑŒÑÐ¼Ð¸!"
+                                             },
+    "app.instance.share.empty.heading":  {
+                                             "message":  "ÐÐµÑ‚ Ð¿Ñ€Ð¸Ð³Ð»Ð°ÑˆÑ‘Ð½Ð½Ñ‹Ñ… Ð´Ñ€ÑƒÐ·ÐµÐ¹"
+                                         },
+    "app.instance.share.empty.invite-friends-button":  {
+                                                           "message":  "ÐŸÑ€Ð¸Ð³Ð»Ð°ÑÐ¸Ñ‚ÑŒ Ð´Ñ€ÑƒÐ·ÐµÐ¹"
+                                                       },
+    "app.instance.share.invite-modal.heading":  {
+                                                    "message":  "Ð”Ð¾ÑÑ‚ÑƒÐ¿ ÐºÂ {name}"
+                                                },
+    "app.instance.share.locked.empty-description-prefix":  {
+                                                               "message":  "ÐÐµÐ¾Ð±Ñ…Ð¾Ð´Ð¸Ð¼Ð¾ Ð²Ð¾Ð¹Ñ‚Ð¸ ÐºÐ°Ðº"
+                                                           },
+    "app.instance.share.locked.empty-description-suffix":  {
+                                                               "message":  "Ð´Ð»Ñ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð° Ðº ÑÑ‚Ð¾Ð¹ ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ðµ."
+                                                           },
+    "app.instance.share.locked.linked-account-fallback":  {
+                                                              "message":  "ÑÐ²ÑÐ·Ð°Ð½Ð½Ñ‹Ð¹ Ð°ÐºÐºÐ°ÑƒÐ½Ñ‚"
+                                                          },
+    "app.instance.share.locked.signed-out-heading":  {
+                                                         "message":  "Ð’Ñ…Ð¾Ð´ Ð½ÐµÂ Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½"
+                                                     },
+    "app.instance.share.locked.switch-account-button":  {
+                                                            "message":  "Ð¡Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ð°ÐºÐºÐ°ÑƒÐ½Ñ‚"
+                                                        },
+    "app.instance.share.locked.wrong-account-heading":  {
+                                                            "message":  "ÐÐµÐ²ÐµÑ€Ð½Ñ‹Ð¹ Ð°ÐºÐºÐ°ÑƒÐ½Ñ‚"
+                                                        },
+    "app.instance.share.members.empty":  {
+                                             "message":  "ÐÐ¸ Ð¾Ð´Ð¸Ð½ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒ ÐµÑ‰Ñ‘ Ð½Ðµ Ð¿Ñ€Ð¸ÑÐ¾ÐµÐ´Ð¸Ð½Ð¸Ð»ÑÑ"
+                                         },
+    "app.instance.share.members.no-filter-results":  {
+                                                         "message":  "ÐŸÐ¾ Ð·Ð°Ð´Ð°Ð½Ð½Ñ‹Ð¼ Ñ„Ð¸Ð»ÑŒÑ‚Ñ€Ð°Ð¼ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ð¸ Ð½Ðµ Ð½Ð°Ð¹Ð´ÐµÐ½Ñ‹."
+                                                     },
+    "app.instance.share.remove-user-modal.effect-access":  {
+                                                               "message":  "ÐžÐ½Ð¸ Ð±Ð¾Ð»ÑŒÑˆÐµ Ð½Ðµ Ð±ÑƒÐ´ÑƒÑ‚ Ð¿Ð¾Ð»ÑƒÑ‡Ð°Ñ‚ÑŒ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ Ð´Ð»Ñ ÑÑ‚Ð¾Ð³Ð¾ Ð¾Ð±Ñ‰ÐµÐ³Ð¾ ÑÐºÐ·ÐµÐ¼Ð¿Ð»ÑÑ€Ð°"
+                                                           },
+    "app.instance.share.remove-user-modal.effect-installed-copy":  {
+                                                                       "message":  "Ð›ÑŽÐ±Ð°Ñ ÑƒÐ¶Ðµ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð½Ð°Ñ ÐºÐ¾Ð¿Ð¸Ñ Ð¾ÑÑ‚Ð°Ð½ÐµÑ‚ÑÑ Ð½Ð° Ð¸Ñ… ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð²Ðµ"
+                                                                   },
+    "app.instance.share.remove-user-modal.effect-invite-again":  {
+                                                                     "message":  "Ð’Ñ‹ Ð¼Ð¾Ð¶ÐµÑ‚Ðµ Ð¿Ñ€Ð¸Ð³Ð»Ð°ÑÐ¸Ñ‚ÑŒ Ð¸Ñ… ÑÐ½Ð¾Ð²Ð° Ð¿Ð¾Ð·Ð¶Ðµ"
+                                                                 },
+    "app.instance.share.remove-user-modal.effect-last-user":  {
+                                                                  "message":  "Ð­Ñ‚Ð¾ Ð¿Ð¾ÑÐ»ÐµÐ´Ð½Ð¸Ð¹ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒ, Ð² ÑÑ‚Ð¾Ð¼ ÑÐ»ÑƒÑ‡Ð°Ðµ Ñ„ÑƒÐ½ÐºÑ†Ð¸Ñ Ð¾Ð±Ñ‰ÐµÐ³Ð¾ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð° Ð±ÑƒÐ´ÐµÑ‚ Ð¾Ñ‚ÐºÐ»ÑŽÑ‡ÐµÐ½Ð°"
+                                                              },
+    "app.instance.share.remove-user-modal.effects-label":  {
+                                                               "message":  "Ð§Ñ‚Ð¾ Ð¿Ñ€Ð¾Ð¸Ð·Ð¾Ð¹Ð´Ñ‘Ñ‚?"
+                                                           },
+    "app.instance.share.remove-user-modal.header":  {
+                                                        "message":  "ÐžÑ‚Ð·Ñ‹Ð² Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð°"
+                                                    },
+    "app.instance.share.remove-user-modal.remove-button":  {
+                                                               "message":  "ÐžÑ‚Ð¾Ð·Ð²Ð°Ñ‚ÑŒ Ð´Ð¾ÑÑ‚ÑƒÐ¿"
+                                                           },
+    "app.instance.share.remove-user-modal.user-avatar-alt":  {
+                                                                 "message":  "ÐÐ²Ð°Ñ‚Ð°Ñ€ {username}"
+                                                             },
+    "app.instance.share.remove-user-modal.warning-body":  {
+                                                              "message":  "Ð•ÑÐ»Ð¸ Ð²Ñ‹ Ð¾Ñ‚Ð·Ð¾Ð²ÐµÑ‚Ðµ Ð´Ð¾ÑÑ‚ÑƒÐ¿ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ {username} Ðº ÑÑ‚Ð¾Ð¼Ñƒ Ð¾Ð±Ñ‰ÐµÐ¼Ñƒ ÑÐºÐ·ÐµÐ¼Ð¿Ð»ÑÑ€Ñƒ, Ð²Ð°Ð¼ Ð¿Ð¾Ñ‚Ñ€ÐµÐ±ÑƒÐµÑ‚ÑÑ ÑÐ½Ð¾Ð²Ð° Ð¿Ñ€Ð¸Ð³Ð»Ð°ÑÐ¸Ñ‚ÑŒ ÐµÐ³Ð¾, Ð¿Ñ€ÐµÐ¶Ð´Ðµ Ñ‡ÐµÐ¼ Ð¾Ð½ ÑÐ¼Ð¾Ð¶ÐµÑ‚ Ð¿Ð¾Ð»ÑƒÑ‡Ð°Ñ‚ÑŒ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ."
+                                                          },
+    "app.instance.share.sign-in.button":  {
+                                              "message":  "Ð’Ð¾Ð¹Ñ‚Ð¸"
+                                          },
+    "app.instance.share.unable-to-connect.description":  {
+                                                             "message":  "Ð¡ÐµÑ€Ð²Ð¸Ñ ÑÐ±Ð¾Ñ€Ð¾Ðº Ð½ÐµÐ´Ð¾ÑÑ‚ÑƒÐ¿ÐµÐ½, Ð¿Ð¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ Ð¿Ð¾Ð·Ð¶Ðµ"
+                                                         },
+    "app.instance.share.unable-to-connect.heading":  {
+                                                         "message":  "ÐÐµ ÑƒÐ´Ð°Ð»Ð¾ÑÑŒ Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒÑÑ"
+                                                     },
+    "app.instance.share.unlink.body":  {
+                                           "message":  "Ð”Ð»Ñ Ð¿Ñ€ÐµÐ´Ð¾ÑÑ‚Ð°Ð²Ð»ÐµÐ½Ð¸Ñ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð° Ðº Ð²Ð°ÑˆÐµÐ¼Ñƒ ÑÐºÐ·ÐµÐ¼Ð¿Ð»ÑÑ€Ñƒ Ð¸Ð³Ñ€Ñ‹ Ð½ÐµÐ¾Ð±Ñ…Ð¾Ð´Ð¸Ð¼Ð¾ Ð¾Ñ‚Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ð¿Ñ€Ð¸Ð²ÑÐ·ÐºÑƒ ÑÑ‚Ð¾Ð³Ð¾ Ð¼Ð¾Ð´Ð¿Ð°ÐºÐ°"
+                                       },
+    "app.instance.share.unlink.header":  {
+                                             "message":  "Ð”Ð»Ñ Ð¾Ð±Ð¼ÐµÐ½Ð° Ð½ÐµÐ¾Ð±Ñ…Ð¾Ð´Ð¸Ð¼Ð¾ Ð¾Ñ‚Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ ÑÐ²ÑÐ·ÑŒ"
+                                         },
+    "app.instance.shared-instance-already-installed.body":  {
+                                                                "message":  "Ð­Ñ‚Ð¾Ñ‚ Ð¾Ð±Ñ‰Ð¸Ð¹ ÑÐºÐ·ÐµÐ¼Ð¿Ð»ÑÑ€ ÑƒÐ¶Ðµ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½ ÐºÐ°Ðº \u003cbold\u003e{instanceName}\u003c/bold\u003e. Ð’Ñ‹ ÑƒÐ²ÐµÑ€ÐµÐ½Ñ‹, Ñ‡Ñ‚Ð¾ Ñ…Ð¾Ñ‚Ð¸Ñ‚Ðµ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ ÐµÑ‰Ðµ Ð¾Ð´Ð½Ñƒ ÐºÐ¾Ð¿Ð¸ÑŽ?"
+                                                            },
+    "app.instance.shared-instance-already-installed.header":  {
+                                                                  "message":  "Ð¡Ð±Ð¾Ñ€ÐºÐ° ÑƒÐ¶Ðµ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð°"
+                                                              },
+    "app.instance.shared-instance-already-installed.install-anyway":  {
+                                                                          "message":  "Ð’ÑÑ‘ Ñ€Ð°Ð²Ð½Ð¾ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ"
+                                                                      },
+    "app.instance.shared-instance-already-installed.instance":  {
+                                                                    "message":  "Ð¡Ð±Ð¾Ñ€ÐºÐ°"
+                                                                },
+    "app.instance.shared-instance-wrong-account.fallback-username":  {
+                                                                         "message":  "Ð¿Ñ€Ð¸Ð²ÑÐ·Ð°Ð½Ð½Ñ‹Ð¹ Ð°ÐºÐºÐ°ÑƒÐ½Ñ‚"
+                                                                     },
+    "app.instance.shared-instance-wrong-account.owner-admonition-body-v2":  {
+                                                                                "message":  "Ð´Ð»Ñ ÑƒÐ¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ñ ÑÑ‚Ð¸Ð¼ Ð¾Ð±Ñ‰Ð¸Ð¼ ÑÐºÐ·ÐµÐ¼Ð¿Ð»ÑÑ€Ð¾Ð¼. Ð’Ñ‹ Ð½Ðµ ÑÐ¼Ð¾Ð¶ÐµÑ‚Ðµ Ð¾Ñ‚Ð¿Ñ€Ð°Ð²Ð»ÑÑ‚ÑŒ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑÐ¼."
+                                                                            },
+    "app.instance.shared-instance-wrong-account.sign-in-as-label":  {
+                                                                        "message":  "Ð’Ð¾Ð¹Ñ‚Ð¸ ÐºÐ°Ðº"
+                                                                    },
+    "app.instance.shared-instance-wrong-account.signed-out-header":  {
+                                                                         "message":  "ÐÐµÐ¾Ð±Ñ…Ð¾Ð´Ð¸Ð¼Ð¾ Ð²Ð¾Ð¹Ñ‚Ð¸ Ð² Modrinth"
+                                                                     },
+    "app.instance.shared-instance-wrong-account.user-admonition-body-v2":  {
+                                                                               "message":  "Ð´Ð»Ñ Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ñ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ð¹ ÑÐ±Ð¾Ñ€ÐºÐ¸."
+                                                                           },
+    "app.instance.shared-instance-wrong-account.warning-header":  {
+                                                                      "message":  "Ð’Ñ‹ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐµÑ‚Ðµ Ð½ÐµÐ¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½ÑƒÑŽ ÑƒÑ‡ÐµÑ‚Ð½ÑƒÑŽ Ð·Ð°Ð¿Ð¸ÑÑŒ Modrinth"
+                                                                  },
+    "app.instance.worlds.add-server":  {
+                                           "message":  "Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ ÑÐµÑ€Ð²ÐµÑ€"
+                                       },
+    "app.instance.worlds.browse-servers":  {
+                                               "message":  "ÐÐ°Ð¹Ñ‚Ð¸ ÑÐµÑ€Ð²ÐµÑ€Ñ‹"
+                                           },
+    "app.instance.worlds.delete-world-modal.delete-button":  {
+                                                                 "message":  "Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ Ð¼Ð¸Ñ€"
+                                                             },
+    "app.instance.worlds.delete-world-modal.title":  {
+                                                         "message":  "Ð£Ð´Ð°Ð»ÐµÐ½Ð¸Ðµ Ð¼Ð¸Ñ€Ð°"
+                                                     },
+    "app.instance.worlds.delete-world-modal.warning-body":  {
+                                                                "message":  "Ð­Ñ‚Ð¾Ñ‚ Ð¼Ð¸Ñ€ Ð±ÑƒÐ´ÐµÑ‚ ÑƒÐ´Ð°Ð»Ñ‘Ð½ Ð½Ð°Ð²ÑÐµÐ³Ð´Ð° Ð¸Ð· ÑÑ‚Ð¾Ð¹ ÑÐ±Ð¾Ñ€ÐºÐ¸. Ð­Ñ‚Ð¾ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ðµ Ð½ÐµÐ¾Ð±Ñ€Ð°Ñ‚Ð¸Ð¼Ð¾."
+                                                            },
+    "app.instance.worlds.delete-world-modal.warning-header":  {
+                                                                  "message":  "Ð£Ð´Ð°Ð»ÐµÐ½Ð¸Ðµ {name}"
+                                                              },
+    "app.instance.worlds.filter-modded":  {
+                                              "message":  "ÐœÐ¾Ð´Ð¾Ð²Ñ‹Ðµ"
+                                          },
+    "app.instance.worlds.filter-offline":  {
+                                               "message":  "ÐÐµ Ð² ÑÐµÑ‚Ð¸"
+                                           },
+    "app.instance.worlds.filter-online":  {
+                                              "message":  "Ð’ ÑÐµÑ‚Ð¸"
+                                          },
+    "app.instance.worlds.filter-vanilla":  {
+                                               "message":  "Ð’Ð°Ð½Ð¸Ð»ÑŒÐ½Ñ‹Ðµ"
+                                           },
+    "app.instance.worlds.no-worlds-description":  {
+                                                      "message":  "Ð”Ð¾Ð±Ð°Ð²ÑŒÑ‚Ðµ Ð¸Ð»Ð¸Â Ð½Ð°Ð¹Ð´Ð¸Ñ‚Ðµ ÑÐµÑ€Ð²ÐµÑ€"
+                                                  },
+    "app.instance.worlds.no-worlds-heading":  {
+                                                  "message":  "ÐÐµÑ‚ ÑÐµÑ€Ð²ÐµÑ€Ð¾Ð² Ð¸Â Ð¼Ð¸Ñ€Ð¾Ð²"
+                                              },
+    "app.instance.worlds.refreshing":  {
+                                           "message":  "ÐŸÐµÑ€ÐµÐ·Ð°Ð³Ñ€ÑƒÐ·ÐºÐ°..."
+                                       },
+    "app.instance.worlds.remove-server-modal.remove-button":  {
+                                                                  "message":  "Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ ÑÐµÑ€Ð²ÐµÑ€"
+                                                              },
+    "app.instance.worlds.remove-server-modal.title":  {
+                                                          "message":  "Ð£Ð´Ð°Ð»ÐµÐ½Ð¸Ðµ ÑÐµÑ€Ð²ÐµÑ€Ð°"
+                                                      },
+    "app.instance.worlds.remove-server-modal.warning-body":  {
+                                                                 "message":  "Ð­Ñ‚Ð¾Ñ‚ ÑÐµÑ€Ð²ÐµÑ€ Ð±ÑƒÐ´ÐµÑ‚ ÑƒÐ´Ð°Ð»Ñ‘Ð½ Ð¸Ð· ÑÐ¿Ð¸ÑÐºÐ° ÑÐµÑ€Ð²ÐµÑ€Ð¾Ð², Ð² Ñ‚Ð¾Ð¼ Ñ‡Ð¸ÑÐ»Ðµ Ð¸ Ð² Ð¸Ð³Ñ€Ðµ. Ð•Ð³Ð¾ Ð¼Ð¾Ð¶Ð½Ð¾ Ð²ÐµÑ€Ð½ÑƒÑ‚ÑŒ, Ð·Ð½Ð°Ñ Ð°Ð´Ñ€ÐµÑ."
+                                                             },
+    "app.instance.worlds.remove-server-modal.warning-header":  {
+                                                                   "message":  "Ð£Ð´Ð°Ð»ÐµÐ½Ð¸Ðµ {name}"
+                                                               },
+    "app.java-detection.cancel":  {
+                                      "message":  "ÐžÑ‚Ð¼ÐµÐ½Ð°"
+                                  },
+    "app.java-detection.columns.actions":  {
+                                               "message":  "Ð”ÐµÐ¹ÑÑ‚Ð²Ð¸Ñ"
+                                           },
+    "app.java-detection.columns.path":  {
+                                            "message":  "ÐŸÑƒÑ‚ÑŒ"
+                                        },
+    "app.java-detection.columns.version":  {
+                                               "message":  "Ð’ÐµÑ€ÑÐ¸Ñ"
+                                           },
+    "app.java-detection.no-installations-found":  {
+                                                      "message":  "Ð£ÑÑ‚Ð°Ð½Ð¾Ð²ÐºÐ¸ Java Ð½ÐµÂ Ð½Ð°Ð¹Ð´ÐµÐ½Ñ‹."
+                                                  },
+    "app.java-detection.select":  {
+                                      "message":  "Ð’Ñ‹Ð±Ñ€Ð°Ñ‚ÑŒ"
+                                  },
+    "app.java-detection.selected":  {
+                                        "message":  "Ð’Ñ‹Ð±Ñ€Ð°Ð½Ð¾"
+                                    },
+    "app.java-detection.title":  {
+                                     "message":  "Ð’Ñ‹Ð±Ð¾Ñ€ Ñ€Ð°ÑÐ¿Ð¾Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ Java"
+                                 },
+    "app.java-selector.already-installed":  {
+                                                "message":  "Ð£Ð¶Ðµ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð°"
+                                            },
+    "app.java-selector.browse":  {
+                                     "message":  "ÐžÐ±Ð·Ð¾Ñ€"
+                                 },
+    "app.java-selector.detect":  {
+                                     "message":  "ÐžÐ±Ð½Ð°Ñ€ÑƒÐ¶Ð¸Ñ‚ÑŒ"
+                                 },
+    "app.java-selector.install-recommended":  {
+                                                  "message":  "Ð£ÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ Ñ€ÐµÐºÐ¾Ð¼ÐµÐ½Ð´ÑƒÐµÐ¼ÑƒÑŽ"
+                                              },
+    "app.java-selector.installing":  {
+                                         "message":  "Ð£ÑÑ‚Ð°Ð½Ð¾Ð²ÐºÐ°..."
+                                     },
+    "app.java-selector.path.placeholder":  {
+                                               "message":  "/Ð¿ÑƒÑ‚ÑŒ/Ðº/java"
+                                           },
+    "app.java-selector.test-installation":  {
+                                                "message":  "ÐŸÑ€Ð¾Ð²ÐµÑ€Ð¸Ñ‚ÑŒ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²ÐºÑƒ Java"
+                                            },
+    "app.modal.install-to-play.additional-context":  {
+                                                         "message":  "Ð”Ð¾Ð¿Ð¾Ð»Ð½Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ñ‹Ð¹ ÐºÐ¾Ð½Ñ‚ÐµÐºÑÑ‚"
+                                                     },
+    "app.modal.install-to-play.additional-context-placeholder":  {
+                                                                     "message":  "ÐŸÑ€Ð¸Â Ð¶ÐµÐ»Ð°Ð½Ð¸Ð¸ Ð¿Ñ€Ð¸ÐºÑ€ÐµÐ¿Ð¸Ñ‚Ðµ ÑÑÑ‹Ð»ÐºÐ¸ Ð¸Â Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ñ"
+                                                                 },
+    "app.modal.install-to-play.block-user":  {
+                                                 "message":  "Ð—Ð°Ð±Ð»Ð¾ÐºÐ¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ"
+                                             },
+    "app.modal.install-to-play.content-you-are-reporting":  {
+                                                                "message":  "Ð­ÐºÐ·ÐµÐ¼Ð¿Ð»ÑÑ€, Ð¾ ÐºÐ¾Ñ‚Ð¾Ñ€Ð¾Ð¼ Ð²Ñ‹ ÑÐ¾Ð¾Ð±Ñ‰Ð°ÐµÑ‚Ðµ"
+                                                            },
+    "app.modal.install-to-play.delete-instance":  {
+                                                      "message":  "Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ ÑÐ±Ð¾Ñ€ÐºÑƒ"
+                                                  },
+    "app.modal.install-to-play.external-files-dont-install":  {
+                                                                  "message":  "ÐÐµ ÑƒÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°Ñ‚ÑŒ"
+                                                              },
+    "app.modal.install-to-play.header":  {
+                                             "message":  "Ð£ÑÑ‚Ð°Ð½Ð¾Ð²ÐºÐ° Ð¿ÐµÑ€ÐµÐ´ Ð·Ð°Ð¿ÑƒÑÐºÐ¾Ð¼"
+                                         },
+    "app.modal.install-to-play.install-anyway":  {
+                                                     "message":  "Ð’ÑÑ‘ Ñ€Ð°Ð²Ð½Ð¾ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ"
+                                                 },
+    "app.modal.install-to-play.install-button":  {
+                                                     "message":  "Ð£ÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ"
+                                                 },
+    "app.modal.install-to-play.invite-warning":  {
+                                                     "message":  "Ð­Ñ‚Ð¾ Ð¿Ñ€Ð¸Ð³Ð»Ð°ÑˆÐµÐ½Ð¸Ðµ ÑÐ¾Ð·Ð´Ð°Ð½Ð¾ Ð´Ñ€ÑƒÐ³Ð¸Ð¼ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÐµÐ¼ Modrinth. ÐŸÑ€Ð¸Ð½Ð¸Ð¼Ð°Ð¹Ñ‚Ðµ Ð¿Ñ€Ð¸Ð³Ð»Ð°ÑˆÐµÐ½Ð¸Ñ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð¾Ñ‚ Ñ‚ÐµÑ…, ÐºÐ¾Ð¼Ñƒ Ð´Ð¾Ð²ÐµÑ€ÑÐµÑ‚Ðµ."
+                                                 },
+    "app.modal.install-to-play.invite-warning-with-creator":  {
+                                                                  "message":  "Ð­Ñ‚Ð¾ Ð¿Ñ€Ð¸Ð³Ð»Ð°ÑˆÐµÐ½Ð¸Ðµ ÑÐ¾Ð·Ð´Ð°Ð½Ð¾ \u003ccreator\u003e{username}\u003c/creator\u003e. ÐŸÑ€Ð¸Ð½Ð¸Ð¼Ð°Ð¹Ñ‚Ðµ Ð¿Ñ€Ð¸Ð³Ð»Ð°ÑˆÐµÐ½Ð¸Ñ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð¾Ñ‚ Ñ‚ÐµÑ…, ÐºÐ¾Ð¼Ñƒ Ð´Ð¾Ð²ÐµÑ€ÑÐµÑ‚Ðµ."
+                                                              },
+    "app.modal.install-to-play.mod-count":  {
+                                                "message":  "{count, plural, one {#Â Ð¼Ð¾Ð´} few {#Â Ð¼Ð¾Ð´Ð°} other {#Â Ð¼Ð¾Ð´Ð¾Ð²}}"
+                                            },
+    "app.modal.install-to-play.report-description":  {
+                                                         "message":  "Ð˜ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐ¹Ñ‚Ðµ ÑÑ‚Ñƒ Ñ„Ð¾Ñ€Ð¼Ñƒ, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¾Ñ‚Ð¿Ñ€Ð°Ð²Ð¸Ñ‚ÑŒ Ð¶Ð°Ð»Ð¾Ð±Ñƒ Ð½Ð° ÑÐ±Ð¾Ñ€ÐºÐ¸, ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ðµ Ð¼Ð¾Ð³ÑƒÑ‚ Ð½Ð°Ñ€ÑƒÑˆÐ°Ñ‚ÑŒ Ð½Ð°ÑˆÐ¸ \u003crules-link\u003eÐŸÑ€Ð°Ð²Ð¸Ð»Ð°\u003c/rules-link\u003e Ð¸Ð»Ð¸ \u003cterms-link\u003eÐ£ÑÐ»Ð¾Ð²Ð¸Ñ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð½Ð¸Ñ\u003c/terms-link\u003e."
+                                                     },
+    "app.modal.install-to-play.report-image-invalid-type":  {
+                                                                "message":  "Ð¢Ð¸Ð¿ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ñ Ð½Ðµ Ð¿Ñ€Ð¸Ð½Ð¸Ð¼Ð°ÐµÑ‚ÑÑ"
+                                                            },
+    "app.modal.install-to-play.report-image-too-large":  {
+                                                             "message":  "Ð Ð°Ð·Ð¼ÐµÑ€ Ñ„Ð°Ð¹Ð»Ð° Ð¿Ñ€ÐµÐ²Ñ‹ÑˆÐ°ÐµÑ‚ Ð»Ð¸Ð¼Ð¸Ñ‚ Ð² 1 ÐœÐ¸Ð‘"
+                                                         },
+    "app.modal.install-to-play.report-legal-claims":  {
+                                                          "message":  "ÐŸÐ¾ Ð²Ð¾Ð¿Ñ€Ð¾ÑÐ°Ð¼, ÐºÐ°ÑÐ°ÑŽÑ‰Ð¸Ð¼ÑÑ ÑƒÐ²ÐµÐ´Ð¾Ð¼Ð»ÐµÐ½Ð¸Ð¹ DMCA Ð¸Ð»Ð¸ Ð´Ñ€ÑƒÐ³Ð¸Ñ… ÑŽÑ€Ð¸Ð´Ð¸Ñ‡ÐµÑÐºÐ¸Ñ… Ð¿Ñ€ÐµÑ‚ÐµÐ½Ð·Ð¸Ð¹, Ð¾Ð·Ð½Ð°ÐºÐ¾Ð¼ÑŒÑ‚ÐµÑÑŒ Ñ Ð½Ð°ÑˆÐµÐ¹ \u003ccopyright-link\u003eÐŸÐ¾Ð»Ð¸Ñ‚Ð¸ÐºÐ¾Ð¹ Ð² â€‹â€‹Ð¾Ñ‚Ð½Ð¾ÑˆÐµÐ½Ð¸Ð¸ Ð°Ð²Ñ‚Ð¾Ñ€ÑÐºÐ¸Ñ… Ð¿Ñ€Ð°Ð²\u003c/copyright-link\u003e."
+                                                      },
+    "app.modal.install-to-play.report-reason":  {
+                                                    "message":  "ÐšÐ°ÐºÐ¾Ðµ Ð¿Ñ€Ð°Ð²Ð¸Ð»Ð¾ Ð½Ð°Ñ€ÑƒÑˆÐ°ÐµÑ‚ Ð´Ð°Ð½Ð½Ð°Ñ ÑÐ±Ð¾Ñ€ÐºÐ°?"
+                                                },
+    "app.modal.install-to-play.report-reason.inappropriate":  {
+                                                                  "message":  "ÐÐµÐ¿Ñ€Ð¸ÐµÐ¼Ð»ÐµÐ¼Ð¾Ðµ ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ð¼Ð¾Ðµ"
+                                                              },
+    "app.modal.install-to-play.report-reason.malicious":  {
+                                                              "message":  "Ð’Ñ€ÐµÐ´Ð¾Ð½Ð¾ÑÐ½Ð¾Ðµ ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ð¼Ð¾Ðµ"
+                                                          },
+    "app.modal.install-to-play.report-reason.spam":  {
+                                                         "message":  "Ð¡Ð¿Ð°Ð¼"
+                                                     },
+    "app.modal.install-to-play.report-shared-instance-header":  {
+                                                                    "message":  "Ð¡Ð¾Ð¾Ð±Ñ‰Ð¸Ñ‚ÑŒ Ð¾Ð± Ð¾Ð±Ñ‰ÐµÐ¼ ÑÐºÐ·ÐµÐ¼Ð¿Ð»ÑÑ€Ðµ"
+                                                                },
+    "app.modal.install-to-play.report-submitted":  {
+                                                       "message":  "Ð–Ð°Ð»Ð¾Ð±Ð° Ð¾Ñ‚Ð¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð°"
+                                                   },
+    "app.modal.install-to-play.report-support-and-bugs":  {
+                                                              "message":  "Ð”Ð»Ñ Ð·Ð°Ð¿Ñ€Ð¾ÑÐ¾Ð² Ð² Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶ÐºÑƒ Ð¾Ð±Ñ€Ð°Ñ‰Ð°Ð¹Ñ‚ÐµÑÑŒ Ð² Ð½Ð°ÑˆÑƒ \u003csupport-link\u003eÑÐ»ÑƒÐ¶Ð±Ñƒ Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶ÐºÐ¸\u003c/support-link\u003e. Ð”Ð»Ñ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ð¹ Ð¾Ð± Ð¾ÑˆÐ¸Ð±ÐºÐ°Ñ… Ð¾Ñ‚ÐºÑ€Ñ‹Ð²Ð°Ð¹Ñ‚Ðµ Ð·Ð°Ð¿Ñ€Ð¾ÑÑ‹ Ð² \u003cgithub-link\u003eGitHub \u003c/github-link\u003e."
+                                                          },
+    "app.modal.install-to-play.reviewed-files":  {
+                                                     "message":  "Ð¤Ð°Ð¹Ð» Ð¿Ñ€Ð¾Ð²ÐµÑ€ÑÐµÑ‚ÑÑ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ ÐµÑÐ»Ð¸ Ð¾Ð½ Ð¾Ð¿ÑƒÐ±Ð»Ð¸ÐºÐ¾Ð²Ð°Ð½ Ð½Ð° Modrinth, Ð½ÐµÐ·Ð°Ð²Ð¸ÑÐ¸Ð¼Ð¾ Ð¾Ñ‚ ÐµÐ³Ð¾ Ñ„Ð¾Ñ€Ð¼Ð°Ñ‚Ð° (Ð²ÐºÐ»ÑŽÑ‡Ð°Ñ .mrpack)."
+                                                 },
+    "app.modal.install-to-play.shared-instance":  {
+                                                      "message":  "Ð¡Ð±Ð¾Ñ€ÐºÐ°"
+                                                  },
+    "app.modal.install-to-play.shared-instance-content":  {
+                                                              "message":  "ÐšÐ¾Ð½Ñ‚ÐµÐ½Ñ‚"
+                                                          },
+    "app.modal.install-to-play.shared-instance-unknown-files-description":  {
+                                                                                "message":  "Ð¡Ð±Ð¾Ñ€ÐºÐ° ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ñ‚ Ñ„Ð°Ð¹Ð»Ñ‹, ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ðµ Ð½Ðµ Ð¾Ð¿ÑƒÐ±Ð»Ð¸ÐºÐ¾Ð²Ð°Ð½Ñ‹ Ð½Ð° Modrinth. Ð ÐµÐºÐ¾Ð¼ÐµÐ½Ð´ÑƒÐµÑ‚ÑÑ ÑÐºÐ°Ñ‡Ð¸Ð²Ð°Ñ‚ÑŒ Ñ„Ð°Ð¹Ð»Ñ‹ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð¸Ð·Â Ð½Ð°Ð´Ñ‘Ð¶Ð½Ñ‹Ñ… Ð¸ÑÑ‚Ð¾Ñ‡Ð½Ð¸ÐºÐ¾Ð²."
+                                                                            },
+    "app.modal.install-to-play.unknown-files-description":  {
+                                                                "message":  "Ð¡Ð±Ð¾Ñ€ÐºÐ° ÑÑ‚Ð¾Ð³Ð¾ ÑÐµÑ€Ð²ÐµÑ€Ð° ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ñ‚ Ñ„Ð°Ð¹Ð»Ñ‹, ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ðµ Ð½Ðµ Ð¾Ð¿ÑƒÐ±Ð»Ð¸ÐºÐ¾Ð²Ð°Ð½Ñ‹ Ð½Ð° Modrinth. Ð ÐµÐºÐ¾Ð¼ÐµÐ½Ð´ÑƒÐµÑ‚ÑÑ ÑÐºÐ°Ñ‡Ð¸Ð²Ð°Ñ‚ÑŒ Ñ„Ð°Ð¹Ð»Ñ‹ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð¸Ð·Â Ð½Ð°Ð´Ñ‘Ð¶Ð½Ñ‹Ñ… Ð¸ÑÑ‚Ð¾Ñ‡Ð½Ð¸ÐºÐ¾Ð²."
+                                                            },
+    "app.modal.install-to-play.unknown-files-warning":  {
+                                                            "message":  "ÐŸÑ€ÐµÐ´ÑƒÐ¿Ñ€ÐµÐ¶Ð´ÐµÐ½Ð¸Ðµ Ð¾Â Ð½ÐµÐ¸Ð·Ð²ÐµÑÑ‚Ð½Ñ‹Ñ… Ñ„Ð°Ð¹Ð»Ð°Ñ…"
+                                                        },
+    "app.modal.install-to-play.unrecognized-files":  {
+                                                         "message":  "ÐÐµÑ€Ð°ÑÐ¿Ð¾Ð·Ð½Ð°Ð½Ð½Ñ‹Ðµ Ñ„Ð°Ð¹Ð»Ñ‹"
+                                                     },
+    "app.modal.install-to-play.user-blocked":  {
+                                                   "message":  "ÐŸÐ¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒ Ð·Ð°Ð±Ð»Ð¾ÐºÐ¸Ñ€Ð¾Ð²Ð°Ð½"
+                                               },
+    "app.modal.install-to-play.view-contents":  {
+                                                    "message":  "ÐŸÐ¾ÑÐ¼Ð¾Ñ‚Ñ€ÐµÑ‚ÑŒ ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ð¼Ð¾Ðµ"
+                                                },
+    "app.modal.update-to-play.header":  {
+                                            "message":  "ÐžÐ±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ Ð¿ÐµÑ€ÐµÐ´ Ð·Ð°Ð¿ÑƒÑÐºÐ¾Ð¼"
+                                        },
+    "app.modal.update-to-play.removed":  {
+                                             "message":  "Ð£Ð´Ð°Ð»Ñ‘Ð½"
+                                         },
+    "app.modal.update-to-play.server-modpack-unknown-files-description":  {
+                                                                              "message":  "ÐžÐ±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ ÑÐ±Ð¾Ñ€ÐºÐ¸ ÑÑ‚Ð¾Ð³Ð¾ ÑÐµÑ€Ð²ÐµÑ€Ð° ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ñ‚ Ñ„Ð°Ð¹Ð»Ñ‹, ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ðµ Ð½Ðµ Ð¾Ð¿ÑƒÐ±Ð»Ð¸ÐºÐ¾Ð²Ð°Ð½Ñ‹ Ð½Ð° Modrinth. Ð ÐµÐºÐ¾Ð¼ÐµÐ½Ð´ÑƒÐµÑ‚ÑÑ ÑÐºÐ°Ñ‡Ð¸Ð²Ð°Ñ‚ÑŒ Ñ„Ð°Ð¹Ð»Ñ‹ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð¸Ð·Â Ð½Ð°Ð´Ñ‘Ð¶Ð½Ñ‹Ñ… Ð¸ÑÑ‚Ð¾Ñ‡Ð½Ð¸ÐºÐ¾Ð²."
+                                                                          },
+    "app.modal.update-to-play.shared-instance-added-label":  {
+                                                                 "message":  "Ð”Ð¾Ð±Ð°Ð²Ð»ÐµÐ½"
+                                                             },
+    "app.modal.update-to-play.shared-instance-removed-label":  {
+                                                                   "message":  "Ð£Ð´Ð°Ð»Ñ‘Ð½"
+                                                               },
+    "app.modal.update-to-play.shared-instance-unknown-files-description":  {
+                                                                               "message":  "Ð­Ñ‚Ð¾ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ Ð´Ð»Ñ Ð¾Ð±Ñ‰ÐµÐ³Ð¾ ÑÐºÐ·ÐµÐ¼Ð¿Ð»ÑÑ€Ð° ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ñ‚ Ñ„Ð°Ð¹Ð»Ñ‹, ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ðµ Ð½Ðµ Ð¾Ð¿ÑƒÐ±Ð»Ð¸ÐºÐ¾Ð²Ð°Ð½Ð½Ñ‹Ðµ Ð½Ð° Modrinth. ÐœÑ‹ Ð½Ð°ÑÑ‚Ð¾ÑÑ‚ÐµÐ»ÑŒÐ½Ð¾ Ñ€ÐµÐºÐ¾Ð¼ÐµÐ½Ð´ÑƒÐµÐ¼ ÑƒÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°Ñ‚ÑŒ Ñ„Ð°Ð¹Ð»Ñ‹ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð¸Ð· Ð¸ÑÑ‚Ð¾Ñ‡Ð½Ð¸ÐºÐ¾Ð², ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ð¼ Ð²Ñ‹ Ð´Ð¾Ð²ÐµÑ€ÑÐµÑ‚Ðµ."
+                                                                           },
+    "app.modal.update-to-play.update-required":  {
+                                                     "message":  "Ð¢Ñ€ÐµÐ±ÑƒÐµÑ‚ÑÑ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ"
+                                                 },
+    "app.modal.update-to-play.update-required-description":  {
+                                                                 "message":  "ÐžÐ±Ð½Ð¾Ð²Ð¸Ñ‚Ðµ {name} Ð´Ð¾Â Ð¿Ð¾ÑÐ»ÐµÐ´Ð½ÐµÐ¹ Ð²ÐµÑ€ÑÐ¸Ð¸, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð·Ð°Ð¿ÑƒÑÑ‚Ð¸Ñ‚ÑŒ Ð¸Ð³Ñ€Ñƒ."
+                                                             },
+    "app.nav.create-new-instance":  {
+                                        "message":  "Ð¡Ð¾Ð·Ð´Ð°Ñ‚ÑŒ Ð½Ð¾Ð²ÑƒÑŽ ÑÐ±Ð¾Ñ€ÐºÑƒ"
+                                    },
+    "app.nav.home":  {
+                         "message":  "Ð“Ð»Ð°Ð²Ð½Ð°Ñ"
+                     },
+    "app.nav.library":  {
+                            "message":  "Ð‘Ð¸Ð±Ð»Ð¸Ð¾Ñ‚ÐµÐºÐ°"
+                        },
+    "app.nav.modrinth-account":  {
+                                     "message":  "ÐÐºÐºÐ°ÑƒÐ½Ñ‚ Modrinth"
+                                 },
+    "app.nav.modrinth-hosting":  {
+                                     "message":  "Modrinth Hosting"
+                                 },
+    "app.nav.sign-in-to-modrinth-account":  {
+                                                "message":  "Ð’Ð¾Ð¹Ñ‚Ð¸ Ð²Â Ð°ÐºÐºÐ°ÑƒÐ½Ñ‚ Modrinth"
+                                            },
+    "app.nav.signed-in-as":  {
+                                 "message":  "Ð¢ÐµÐºÑƒÑ‰Ð¸Ð¹ Ð°ÐºÐºÐ°ÑƒÐ½Ñ‚: \u003cuser\u003e{username}\u003c/user\u003e"
+                             },
+    "app.nav.upgrade-to-modrinth-plus":  {
+                                             "message":  "ÐŸÐµÑ€ÐµÐ¹Ñ‚Ð¸ Ð½Ð°Â Modrinth+"
+                                         },
+    "app.news.title":  {
+                           "message":  "ÐÐ¾Ð²Ð¾ÑÑ‚Ð¸"
+                       },
+    "app.news.view-all":  {
+                              "message":  "ÐŸÐ¾ÑÐ¼Ð¾Ñ‚Ñ€ÐµÑ‚ÑŒ Ð²ÑÐµ Ð½Ð¾Ð²Ð¾ÑÑ‚Ð¸"
+                          },
+    "app.project.install-button.already-installed":  {
+                                                         "message":  "Ð­Ñ‚Ð¾Ñ‚ Ð¿Ñ€Ð¾ÐµÐºÑ‚ ÑƒÐ¶Ðµ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½"
+                                                     },
+    "app.project.install-button.switch-version":  {
+                                                      "message":  "Ð¡Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ð²ÐµÑ€ÑÐ¸ÑŽ"
+                                                  },
+    "app.project.install-context.back-to-browse":  {
+                                                       "message":  "Ð’ÐµÑ€Ð½ÑƒÑ‚ÑŒÑÑ ÐºÂ Ð¿Ð¾Ð¸ÑÐºÑƒ"
+                                                   },
+    "app.project.install-context.back-to-instance":  {
+                                                         "message":  "Ð’ÐµÑ€Ð½ÑƒÑ‚ÑŒÑÑ ÐºÂ ÑÐ±Ð¾Ñ€ÐºÐµ"
+                                                     },
+    "app.project.version.all-versions":  {
+                                             "message":  "Ð’ÑÐµ Ð²ÐµÑ€ÑÐ¸Ð¸"
+                                         },
+    "app.project.version.download-in-browser":  {
+                                                    "message":  "Ð¡ÐºÐ°Ñ‡Ð°Ñ‚ÑŒ Ð²Â Ð±Ñ€Ð°ÑƒÐ·ÐµÑ€Ðµ"
+                                                },
+    "app.project.version.installing":  {
+                                           "message":  "Ð£ÑÑ‚Ð°Ð½Ð¾Ð²ÐºÐ°"
+                                       },
+    "app.project.versions.already-installed":  {
+                                                   "message":  "Ð£Ð¶Ðµ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð¾"
+                                               },
+    "app.quick-instance-switcher.drag-show-tooltip":  {
+                                                          "message":  "ÐŸÐ¾Ñ‚ÑÐ½Ð¸Ñ‚Ðµ Ð´Ð»ÑÂ Ð¿Ð¾ÐºÐ°Ð·Ð° Ð½ÐµÐ´Ð°Ð²Ð½Ð¸Ñ… ÑÐ±Ð¾Ñ€Ð¾Ðº"
+                                                      },
+    "app.quick-instance-switcher.drag-tooltip":  {
+                                                     "message":  "ÐŸÐ¾Ñ‚ÑÐ½Ð¸Ñ‚Ðµ Ð´Ð»ÑÂ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ Ñ€Ð°Ð·Ð¼ÐµÑ€Ð°"
+                                                 },
+    "app.restarting":  {
+                           "message":  "ÐŸÐµÑ€ÐµÐ·Ð°Ð¿ÑƒÑÐº..."
+                       },
+    "app.settings.app-version":  {
+                                     "message":  "Modrinth App {version}"
+                                 },
+    "app.settings.default-instance-options.environment-variables.description":  {
+                                                                                    "message":  "ÐŸÐµÑ€ÐµÐ¼ÐµÐ½Ð½Ñ‹Ðµ ÑÑ€ÐµÐ´Ñ‹ Ð¿Ñ€Ð¸Â Ð·Ð°Ð¿ÑƒÑÐºÐµ Ð¸Ð³Ñ€Ñ‹."
+                                                                                },
+    "app.settings.default-instance-options.environment-variables.placeholder":  {
+                                                                                    "message":  "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¿ÐµÑ€ÐµÐ¼ÐµÐ½Ð½Ñ‹Ðµ ÑÑ€ÐµÐ´Ñ‹..."
+                                                                                },
+    "app.settings.default-instance-options.environment-variables.title":  {
+                                                                              "message":  "ÐŸÐµÑ€ÐµÐ¼ÐµÐ½Ð½Ñ‹Ðµ ÑÑ€ÐµÐ´Ñ‹"
+                                                                          },
+    "app.settings.default-instance-options.fullscreen.description":  {
+                                                                         "message":  "Ð—Ð°Ð¿ÑƒÑÐºÐ°Ñ‚ÑŒ Ð¸Ð³Ñ€Ñƒ Ð²Â Ð¿Ð¾Ð»Ð½Ð¾ÑÐºÑ€Ð°Ð½Ð½Ð¾Ð¼ Ñ€ÐµÐ¶Ð¸Ð¼Ðµ Ñ‡ÐµÑ€ÐµÐ· options.txt."
+                                                                     },
+    "app.settings.default-instance-options.fullscreen.title":  {
+                                                                   "message":  "ÐŸÐ¾Ð»Ð½Ð¾ÑÐºÑ€Ð°Ð½Ð½Ñ‹Ð¹ Ñ€ÐµÐ¶Ð¸Ð¼"
+                                                               },
+    "app.settings.default-instance-options.height.description":  {
+                                                                     "message":  "Ð’Ñ‹ÑÐ¾Ñ‚Ð° Ð¾ÐºÐ½Ð° Ð¸Ð³Ñ€Ñ‹ Ð¿Ñ€Ð¸Â Ð·Ð°Ð¿ÑƒÑÐºÐµ."
+                                                                 },
+    "app.settings.default-instance-options.height.placeholder":  {
+                                                                     "message":  "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð²Ñ‹ÑÐ¾Ñ‚Ñƒ..."
+                                                                 },
+    "app.settings.default-instance-options.height.title":  {
+                                                               "message":  "Ð’Ñ‹ÑÐ¾Ñ‚Ð°"
+                                                           },
+    "app.settings.default-instance-options.java-arguments.description":  {
+                                                                             "message":  "ÐÑ€Ð³ÑƒÐ¼ÐµÐ½Ñ‚Ñ‹, Ð¿ÐµÑ€ÐµÐ´Ð°Ð²Ð°ÐµÐ¼Ñ‹Ðµ Java Ð¿Ñ€Ð¸Â Ð·Ð°Ð¿ÑƒÑÐºÐµ Ð¸Ð³Ñ€Ñ‹."
+                                                                         },
+    "app.settings.default-instance-options.java-arguments.placeholder":  {
+                                                                             "message":  "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð°Ñ€Ð³ÑƒÐ¼ÐµÐ½Ñ‚Ñ‹ Java..."
+                                                                         },
+    "app.settings.default-instance-options.java-arguments.title":  {
+                                                                       "message":  "ÐÑ€Ð³ÑƒÐ¼ÐµÐ½Ñ‚Ñ‹ Java"
+                                                                   },
+    "app.settings.default-instance-options.memory-allocation.description":  {
+                                                                                "message":  "ÐœÐ°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ñ‹Ð¹ Ð¾Ð±ÑŠÑ‘Ð¼ Ð¿Ð°Ð¼ÑÑ‚Ð¸, Ð²Ñ‹Ð´ÐµÐ»ÑÐµÐ¼Ñ‹Ð¹ Ð¸Ð³Ñ€Ðµ."
+                                                                            },
+    "app.settings.default-instance-options.memory-allocation.title":  {
+                                                                          "message":  "Ð’Ñ‹Ð´ÐµÐ»ÐµÐ½Ð½Ð°Ñ Ð¿Ð°Ð¼ÑÑ‚ÑŒ"
+                                                                      },
+    "app.settings.default-instance-options.post-exit-hook.description":  {
+                                                                             "message":  "Ð’Ñ‹Ð¿Ð¾Ð»Ð½ÑÐµÑ‚ÑÑ Ð¿Ð¾ÑÐ»Ðµ Ð²Ñ‹Ñ…Ð¾Ð´Ð° Ð¸Ð·Â Ð¸Ð³Ñ€Ñ‹."
+                                                                         },
+    "app.settings.default-instance-options.post-exit-hook.placeholder":  {
+                                                                             "message":  "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ð¼Ð°Ð½Ð´Ñƒ Ð¿Ð¾ÑÐ»Ðµ Ð²Ñ‹Ñ…Ð¾Ð´Ð°..."
+                                                                         },
+    "app.settings.default-instance-options.post-exit-hook.title":  {
+                                                                       "message":  "ÐšÐ¾Ð¼Ð°Ð½Ð´Ð° Ð¿Ð¾ÑÐ»Ðµ Ð²Ñ‹Ñ…Ð¾Ð´Ð°"
+                                                                   },
+    "app.settings.default-instance-options.pre-launch-hook.description":  {
+                                                                              "message":  "Ð’Ñ‹Ð¿Ð¾Ð»Ð½ÑÐµÑ‚ÑÑ Ð¿ÐµÑ€ÐµÐ´ Ð·Ð°Ð¿ÑƒÑÐºÐ¾Ð¼ Ð¸Ð³Ñ€Ñ‹."
+                                                                          },
+    "app.settings.default-instance-options.pre-launch-hook.placeholder":  {
+                                                                              "message":  "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ð¼Ð°Ð½Ð´Ñƒ Ð¿ÐµÑ€ÐµÐ´ Ð·Ð°Ð¿ÑƒÑÐºÐ¾Ð¼..."
+                                                                          },
+    "app.settings.default-instance-options.pre-launch-hook.title":  {
+                                                                        "message":  "ÐšÐ¾Ð¼Ð°Ð½Ð´Ð° Ð¿ÐµÑ€ÐµÐ´ Ð·Ð°Ð¿ÑƒÑÐºÐ¾Ð¼"
+                                                                    },
+    "app.settings.default-instance-options.width.description":  {
+                                                                    "message":  "Ð¨Ð¸Ñ€Ð¸Ð½Ð° Ð¾ÐºÐ½Ð° Ð¸Ð³Ñ€Ñ‹ Ð¿Ñ€Ð¸Â Ð·Ð°Ð¿ÑƒÑÐºÐµ."
+                                                                },
+    "app.settings.default-instance-options.width.placeholder":  {
+                                                                    "message":  "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÑˆÐ¸Ñ€Ð¸Ð½Ñƒ..."
+                                                                },
+    "app.settings.default-instance-options.width.title":  {
+                                                              "message":  "Ð¨Ð¸Ñ€Ð¸Ð½Ð°"
+                                                          },
+    "app.settings.default-instance-options.wrapper-hook.description":  {
+                                                                           "message":  "ÐšÐ¾Ð¼Ð°Ð½Ð´Ð°, Ð¾Ð±Ð¾Ñ€Ð°Ñ‡Ð¸Ð²Ð°ÑŽÑ‰Ð°Ñ Ð¿Ñ€Ð¾Ñ†ÐµÑÑ Ð·Ð°Ð¿ÑƒÑÐºÐ° Minecraft."
+                                                                       },
+    "app.settings.default-instance-options.wrapper-hook.placeholder":  {
+                                                                           "message":  "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ð¼Ð°Ð½Ð´Ñƒ-Ð¾Ð±Ñ‘Ñ€Ñ‚ÐºÑƒ..."
+                                                                       },
+    "app.settings.default-instance-options.wrapper-hook.title":  {
+                                                                     "message":  "ÐšÐ¾Ð¼Ð°Ð½Ð´Ð°-Ð¾Ð±Ñ‘Ñ€Ñ‚ÐºÐ°"
+                                                                 },
+    "app.settings.developer-mode-button.label":  {
+                                                     "message":  "ÐŸÐµÑ€ÐµÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ñ€ÐµÐ¶Ð¸Ð¼ Ñ€Ð°Ð·Ñ€Ð°Ð±Ð¾Ñ‚Ñ‡Ð¸ÐºÐ°"
+                                                 },
+    "app.settings.developer-mode-enabled":  {
+                                                "message":  "Ð ÐµÐ¶Ð¸Ð¼ Ñ€Ð°Ð·Ñ€Ð°Ð±Ð¾Ñ‚Ñ‡Ð¸ÐºÐ° Ð²ÐºÐ»ÑŽÑ‡Ñ‘Ð½."
+                                            },
+    "app.settings.downloading":  {
+                                     "message":  "Ð¡ÐºÐ°Ñ‡Ð¸Ð²Ð°Ð½Ð¸Ðµ Ð²ÐµÑ€ÑÐ¸Ð¸Â {version}"
+                                 },
+    "app.settings.java-installations.location.title":  {
+                                                           "message":  "Ð Ð°ÑÐ¿Ð¾Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ JavaÂ {version}"
+                                                       },
+    "app.settings.operating-system.macos":  {
+                                                "message":  "macOS"
+                                            },
+    "app.settings.privacy.ads-consent.intro":  {
+                                                   "message":  "Ð ÐµÐºÐ»Ð°Ð¼Ð° Ð¾Ð±ÐµÑÐ¿ÐµÑ‡Ð¸Ð²Ð°ÐµÑ‚ Ñ€Ð°Ð±Ð¾Ñ‚Ñƒ Modrinth Ð¸Â Ð²Ñ‹Ð¿Ð»Ð°Ñ‚Ñ‹ Ð°Ð²Ñ‚Ð¾Ñ€Ð°Ð¼. Ð”Ð»ÑÂ Ð¿ÐµÑ€ÑÐ¾Ð½Ð°Ð»Ð¸Ð·Ð°Ñ†Ð¸Ð¸ Ð¸Â Ð°Ð½Ð°Ð»Ð¸Ð·Ð° Ñ€ÐµÐºÐ»Ð°Ð¼Ñ‹ Ð½Ð°ÑˆÐ¸ Ð¿Ð°Ñ€Ñ‚Ð½Ñ‘Ñ€Ñ‹ Ð¼Ð¾Ð³ÑƒÑ‚ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÑŒ ÐºÑƒÐºÐ¸. ÐžÑ‚ÐºÐ°Ð·Ð°Ñ‚ÑŒÑÑ Ð¸Â Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¸Ñ‚ÑŒ ÐºÑƒÐºÐ¸ Ð¼Ð¾Ð¶Ð½Ð¾ Ð½Ð¸Ð¶Ðµ."
+                                               },
+    "app.settings.privacy.discord-rich-presence.description":  {
+                                                                   "message":  "ÐŸÐ¾ÐºÐ°Ð·Ñ‹Ð²Ð°Ñ‚ÑŒ ModrinthÂ App Ð²Â Ñ‚ÐµÐºÑƒÑ‰ÐµÐ¹ Ð°ÐºÑ‚Ð¸Ð²Ð½Ð¾ÑÑ‚Ð¸ Discord. ÐÐµÂ Ð²Ð»Ð¸ÑÐµÑ‚ Ð½Ð°Â RichÂ Presence Ð¼Ð¾Ð´Ð¾Ð². Ð¢Ñ€ÐµÐ±ÑƒÐµÑ‚ÑÑ Ð¿ÐµÑ€ÐµÐ·Ð°Ð¿ÑƒÑÐº."
+                                                               },
+    "app.settings.privacy.discord-rich-presence.title":  {
+                                                             "message":  "Discord Rich Presence"
+                                                         },
+    "app.settings.privacy.telemetry.description":  {
+                                                       "message":  "Modrinth ÑÐ¾Ð±Ð¸Ñ€Ð°ÐµÑ‚ Ð°Ð½Ð¾Ð½Ð¸Ð¼Ð½Ñ‹Ðµ Ð´Ð°Ð½Ð½Ñ‹Ðµ Ð¾Ð±Â Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð½Ð¸Ð¸ Ð´Ð»ÑÂ Ð¿ÐµÑ€ÑÐ¾Ð½Ð°Ð»Ð¸Ð·Ð°Ñ†Ð¸Ð¸ Ð¸Â ÑƒÐ»ÑƒÑ‡ÑˆÐµÐ½Ð¸Ñ ÑÐµÑ€Ð²Ð¸ÑÐ°. ÐžÑ‚ÐºÐ»ÑŽÑ‡Ð¸Ñ‚Ðµ ÑÑ‚Ð¾Ñ‚Â Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¾Ñ‚ÐºÐ°Ð·Ð°Ñ‚ÑŒÑÑ Ð¾Ñ‚Â ÑÐ±Ð¾Ñ€Ð° Ð´Ð°Ð½Ð½Ñ‹Ñ…."
+                                                   },
+    "app.settings.privacy.telemetry.title":  {
+                                                 "message":  "Ð¢ÐµÐ»ÐµÐ¼ÐµÑ‚Ñ€Ð¸Ñ"
+                                             },
+    "app.settings.resource-management.always-show-copy-details.description":  {
+                                                                                  "message":  "ÐŸÐ¾ÐºÐ°Ð·Ñ‹Ð²Ð°Ñ‚ÑŒ ÐºÐ½Ð¾Ð¿ÐºÑƒ Â«ÐŸÐ¾Ð»ÑƒÑ‡Ð¸Ñ‚ÑŒ Ð¾Ñ‚Ñ‡Ñ‘Ñ‚Â» Ð²Ð¾Â Ð²Ñ€ÐµÐ¼Ñ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²ÐºÐ¸. Ð”Ð»ÑÂ Ð¿Ñ€ÐµÑ€Ð²Ð°Ð½Ð½Ñ‹Ñ… ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð¾Ðº ÐºÐ½Ð¾Ð¿ÐºÐ° Ð²Ð¸Ð´Ð½Ð° Ð²ÑÐµÐ³Ð´Ð°."
+                                                                              },
+    "app.settings.resource-management.always-show-copy-details.title":  {
+                                                                            "message":  "Ð’ÑÐµÐ³Ð´Ð° Ð¿Ð¾ÐºÐ°Ð·Ñ‹Ð²Ð°Ñ‚ÑŒ Â«ÐŸÐ¾Ð»ÑƒÑ‡Ð¸Ñ‚ÑŒ Ð¾Ñ‚Ñ‡Ñ‘Ñ‚Â»"
+                                                                        },
+    "app.settings.resource-management.app-cache.confirm.description":  {
+                                                                           "message":  "ÐŸÑ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð¼Ð¾Ð¶ÐµÑ‚ Ð·Ð°Ð¼ÐµÐ´Ð»Ð¸Ñ‚ÑŒÑÑ, Ð¿Ð¾ÐºÐ° ÐºÐµÑˆ Ð½ÐµÂ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑÑ."
+                                                                       },
+    "app.settings.resource-management.app-cache.confirm.title":  {
+                                                                     "message":  "ÐžÑ‡Ð¸ÑÑ‚Ð¸Ñ‚ÑŒ ÐºÐµÑˆ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ?"
+                                                                 },
+    "app.settings.resource-management.app-cache.description":  {
+                                                                   "message":  "Ð£Ð´Ð°Ð»ÑÐµÑ‚ ÐºÐµÑˆÐ¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ñ‹Ðµ Ð´Ð°Ð½Ð½Ñ‹Ðµ Ð¸Â Ð¿Ð¾Ð²Ñ‚Ð¾Ñ€Ð½Ð¾ ÑÐºÐ°Ñ‡Ð¸Ð²Ð°ÐµÑ‚ Ð¸Ñ… ÑÂ Modrinth. ÐŸÑ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð¼Ð¾Ð¶ÐµÑ‚ Ð·Ð°Ð¼ÐµÐ´Ð»Ð¸Ñ‚ÑŒÑÑ, Ð¿Ð¾ÐºÐ° ÐºÐµÑˆ Ð½ÐµÂ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑÑ."
+                                                               },
+    "app.settings.resource-management.app-cache.purge":  {
+                                                             "message":  "ÐžÑ‡Ð¸ÑÑ‚Ð¸Ñ‚ÑŒ ÐºÐµÑˆ"
+                                                         },
+    "app.settings.resource-management.app-cache.title":  {
+                                                             "message":  "ÐšÐµÑˆ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ"
+                                                         },
+    "app.settings.resource-management.app-database-backups.description":  {
+                                                                              "message":  "Ð—Ð´ÐµÑÑŒ Ñ…Ñ€Ð°Ð½ÑÑ‚ÑÑ Ñ€ÐµÐ·ÐµÑ€Ð²Ð½Ñ‹Ðµ ÐºÐ¾Ð¿Ð¸Ð¸ Ð²Ð°Ð¶Ð½Ñ‹Ñ… Ð´Ð°Ð½Ð½Ñ‹Ñ… Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ Ð½Ð°Â ÑÐ»ÑƒÑ‡Ð°Ð¹ Ð¸Ñ…Â ÑƒÑ‚ÐµÑ€Ð¸."
+                                                                          },
+    "app.settings.resource-management.app-database-backups.open-folder":  {
+                                                                              "message":  "ÐžÑ‚ÐºÑ€Ñ‹Ñ‚ÑŒ Ð¿Ð°Ð¿ÐºÑƒ Ñ€ÐµÐ·ÐµÑ€Ð²Ð½Ñ‹Ñ… ÐºÐ¾Ð¿Ð¸Ð¹"
+                                                                          },
+    "app.settings.resource-management.app-database-backups.title":  {
+                                                                        "message":  "Ð ÐµÐ·ÐµÑ€Ð²Ð½Ñ‹Ðµ ÐºÐ¾Ð¿Ð¸Ð¸ Ð±Ð°Ð·Ñ‹ Ð´Ð°Ð½Ð½Ñ‹Ñ…"
+                                                                    },
+    "app.settings.resource-management.app-directory.browse":  {
+                                                                  "message":  "Ð’Ñ‹Ð±Ñ€Ð°Ñ‚ÑŒ ÐºÐ°Ñ‚Ð°Ð»Ð¾Ð³ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ"
+                                                              },
+    "app.settings.resource-management.app-directory.description":  {
+                                                                       "message":  "Ð—Ð´ÐµÑÑŒ ModrinthÂ App Ñ…Ñ€Ð°Ð½Ð¸Ñ‚ ÑÐ±Ð¾Ñ€ÐºÐ¸ Ð¸Â Ð´Ñ€ÑƒÐ³Ð¸Ðµ Ñ„Ð°Ð¹Ð»Ñ‹. Ð˜Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ Ð²ÑÑ‚ÑƒÐ¿ÑÑ‚ Ð²Â ÑÐ¸Ð»Ñƒ Ð¿Ð¾ÑÐ»Ðµ Ð¿ÐµÑ€ÐµÐ·Ð°Ð¿ÑƒÑÐºÐ°."
+                                                                   },
+    "app.settings.resource-management.app-directory.select":  {
+                                                                  "message":  "Ð’Ñ‹Ð±Ð¾Ñ€ Ð½Ð¾Ð²Ð¾Ð³Ð¾ ÐºÐ°Ñ‚Ð°Ð»Ð¾Ð³Ð° Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ"
+                                                              },
+    "app.settings.resource-management.app-directory.title":  {
+                                                                 "message":  "ÐšÐ°Ñ‚Ð°Ð»Ð¾Ð³ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ"
+                                                             },
+    "app.settings.resource-management.maximum-concurrent-downloads.description":  {
+                                                                                      "message":  "ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð¾Ð´Ð½Ð¾Ð²Ñ€ÐµÐ¼ÐµÐ½Ð½Ð¾ ÑÐºÐ°Ñ‡Ð¸Ð²Ð°ÐµÐ¼Ñ‹Ñ… Ñ„Ð°Ð¹Ð»Ð¾Ð². Ð£Ð¼ÐµÐ½ÑŒÑˆÐ¸Ñ‚Ðµ, ÐµÑÐ»Ð¸ ÑÐºÐ°Ñ‡Ð¸Ð²Ð°Ð½Ð¸Ðµ Ñ€Ð°Ð±Ð¾Ñ‚Ð°ÐµÑ‚ Ð½ÐµÑÑ‚Ð°Ð±Ð¸Ð»ÑŒÐ½Ð¾. Ð¢Ñ€ÐµÐ±ÑƒÐµÑ‚ÑÑ Ð¿ÐµÑ€ÐµÐ·Ð°Ð¿ÑƒÑÐº."
+                                                                                  },
+    "app.settings.resource-management.maximum-concurrent-downloads.title":  {
+                                                                                "message":  "Ð›Ð¸Ð¼Ð¸Ñ‚ Ð¾Ð´Ð½Ð¾Ð²Ñ€ÐµÐ¼ÐµÐ½Ð½Ñ‹Ñ… ÑÐºÐ°Ñ‡Ð¸Ð²Ð°Ð½Ð¸Ð¹"
+                                                                            },
+    "app.settings.resource-management.maximum-concurrent-writes.description":  {
+                                                                                   "message":  "ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð¾Ð´Ð½Ð¾Ð²Ñ€ÐµÐ¼ÐµÐ½Ð½Ð¾ Ð·Ð°Ð¿Ð¸ÑÑ‹Ð²Ð°ÐµÐ¼Ñ‹Ñ… Ð½Ð°Â Ð´Ð¸ÑÐº Ñ„Ð°Ð¹Ð»Ð¾Ð². Ð£Ð¼ÐµÐ½ÑŒÑˆÐ¸Ñ‚Ðµ, ÐµÑÐ»Ð¸ Ð²Ð¾Ð·Ð½Ð¸ÐºÐ°ÑŽÑ‚ Ð¾ÑˆÐ¸Ð±ÐºÐ¸ Ð²Ð²Ð¾Ð´Ð°-Ð²Ñ‹Ð²Ð¾Ð´Ð°. Ð¢Ñ€ÐµÐ±ÑƒÐµÑ‚ÑÑ Ð¿ÐµÑ€ÐµÐ·Ð°Ð¿ÑƒÑÐº."
+                                                                               },
+    "app.settings.resource-management.maximum-concurrent-writes.title":  {
+                                                                             "message":  "Ð›Ð¸Ð¼Ð¸Ñ‚ Ð¾Ð´Ð½Ð¾Ð²Ñ€ÐµÐ¼ÐµÐ½Ð½Ñ‹Ñ… Ð·Ð°Ð¿Ð¸ÑÐµÐ¹"
+                                                                         },
+    "app.settings.sidebar.label.instances":  {
+                                                 "message":  "Ð¡Ð±Ð¾Ñ€ÐºÐ¸"
+                                             },
+    "app.settings.tabs.appearance":  {
+                                         "message":  "Ð’Ð½ÐµÑˆÐ½Ð¸Ð¹ Ð²Ð¸Ð´"
+                                     },
+    "app.settings.tabs.behavior":  {
+                                       "message":  "ÐŸÐ¾Ð²ÐµÐ´ÐµÐ½Ð¸Ðµ"
+                                   },
+    "app.settings.tabs.default-instance-options":  {
+                                                       "message":  "ÐŸÑ€ÐµÐ´ÑƒÑÑ‚Ð°Ð½Ð¾Ð²ÐºÐ¸ Ð¸Ð³Ñ€Ñ‹"
+                                                   },
+    "app.settings.tabs.java-installations":  {
+                                                 "message":  "Ð Ð°ÑÐ¿Ð¾Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Java"
+                                             },
+    "app.settings.tabs.language":  {
+                                       "message":  "Ð¯Ð·Ñ‹Ðº"
+                                   },
+    "app.settings.tabs.privacy":  {
+                                      "message":  "ÐšÐ¾Ð½Ñ„Ð¸Ð´ÐµÐ½Ñ†Ð¸Ð°Ð»ÑŒÐ½Ð¾ÑÑ‚ÑŒ"
+                                  },
+    "app.settings.tabs.resource-management":  {
+                                                  "message":  "Ð£Ð¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ Ñ€ÐµÑÑƒÑ€ÑÐ°Ð¼Ð¸"
+                                              },
+    "app.sidebar.playing-as":  {
+                                   "message":  "Ð¢ÐµÐºÑƒÑ‰Ð¸Ð¹ Ð°ÐºÐºÐ°ÑƒÐ½Ñ‚"
+                               },
+    "app.skins.add-button":  {
+                                 "message":  "Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ ÑÐºÐ¸Ð½"
+                             },
+    "app.skins.add-button.drag-and-drop":  {
+                                               "message":  "ÐŸÐµÑ€ÐµÑ‚Ð°Ñ‰Ð¸Ñ‚Ðµ ÑÑŽÐ´Ð°"
+                                           },
+    "app.skins.apply-button":  {
+                                   "message":  "ÐŸÑ€Ð¸Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ"
+                               },
+    "app.skins.delete-button":  {
+                                    "message":  "Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ ÑÐºÐ¸Ð½"
+                                },
+    "app.skins.delete-modal.description":  {
+                                               "message":  "Ð’Ñ‹Ð±Ñ€Ð°Ð½Ð½Ñ‹Ð¹ ÑÐºÐ¸Ð½ Ð±ÑƒÐ´ÐµÑ‚ ÑƒÐ´Ð°Ð»Ñ‘Ð½ Ð½Ð°Ð²ÑÐµÐ³Ð´Ð°. Ð­Ñ‚Ð¾ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ðµ Ð½ÐµÐ¾Ð±Ñ€Ð°Ñ‚Ð¸Ð¼Ð¾."
+                                           },
+    "app.skins.delete-modal.title":  {
+                                         "message":  "Ð’Ñ‹ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾ Ñ…Ð¾Ñ‚Ð¸Ñ‚Ðµ ÑƒÐ´Ð°Ð»Ð¸Ñ‚ÑŒ ÑÑ‚Ð¾Ñ‚ ÑÐºÐ¸Ð½?"
+                                     },
+    "app.skins.dropped-file-error.text":  {
+                                              "message":  "ÐÐµ ÑƒÐ´Ð°Ð»Ð¾ÑÑŒ Ð¿Ñ€Ð¾Ñ‡Ð¸Ñ‚Ð°Ñ‚ÑŒ Ð¿ÐµÑ€ÐµÑ‚Ð°Ñ‰ÐµÐ½Ð½Ñ‹Ð¹ Ñ„Ð°Ð¹Ð»."
+                                          },
+    "app.skins.dropped-file-error.title":  {
+                                               "message":  "ÐžÑˆÐ¸Ð±ÐºÐ° Ð¾Ð±Ñ€Ð°Ð±Ð¾Ñ‚ÐºÐ¸ Ñ„Ð°Ð¹Ð»Ð°"
+                                           },
+    "app.skins.ears-feature-notice":  {
+                                          "message":  "Ð’ ÑÑ‚Ð¾Ð¼ ÑÐºÐ¸Ð½Ðµ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÑŽÑ‚ÑÑ Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¾Ð½Ð°Ð» Ð¼Ð¾Ð´Ð° {ears}"
+                                      },
+    "app.skins.edit-button":  {
+                                  "message":  "Ð˜Ð·Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ ÑÐºÐ¸Ð½"
+                              },
+    "app.skins.modal.add-skin-button":  {
+                                            "message":  "Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ ÑÐºÐ¸Ð½"
+                                        },
+    "app.skins.modal.add-title":  {
+                                      "message":  "Ð”Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ ÑÐºÐ¸Ð½Ð°"
+                                  },
+    "app.skins.modal.arm-style-section":  {
+                                              "message":  "Ð ÑƒÐºÐ¸"
+                                          },
+    "app.skins.modal.arm-style-slim":  {
+                                           "message":  "Ð¢Ð¾Ð½ÐºÐ¸Ðµ"
+                                       },
+    "app.skins.modal.arm-style-wide":  {
+                                           "message":  "Ð¨Ð¸Ñ€Ð¾ÐºÐ¸Ðµ"
+                                       },
+    "app.skins.modal.cape-fallback-name":  {
+                                               "message":  "ÐŸÐ»Ð°Ñ‰"
+                                           },
+    "app.skins.modal.cape-section":  {
+                                         "message":  "ÐŸÐ»Ð°Ñ‰"
+                                     },
+    "app.skins.modal.edit-title":  {
+                                       "message":  "ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ° ÑÐºÐ¸Ð½Ð°"
+                                   },
+    "app.skins.modal.make-edit-first-tooltip":  {
+                                                    "message":  "Ð¡Ð½Ð°Ñ‡Ð°Ð»Ð° Ð²Ð½ÐµÑÐ¸Ñ‚Ðµ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ Ð² ÑÐºÐ¸Ð½!"
+                                                },
+    "app.skins.modal.no-cape-tooltip":  {
+                                            "message":  "Ð‘ÐµÐ· Ð¿Ð»Ð°Ñ‰Ð°"
+                                        },
+    "app.skins.modal.none-cape-option":  {
+                                             "message":  "ÐÐµÑ‚"
+                                         },
+    "app.skins.modal.replace-texture-button":  {
+                                                   "message":  "Ð—Ð°Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ñ‚ÐµÐºÑÑ‚ÑƒÑ€Ñƒ"
+                                               },
+    "app.skins.modal.save-skin-button":  {
+                                             "message":  "Ð¡Ð¾Ñ…Ñ€Ð°Ð½Ð¸Ñ‚ÑŒ ÑÐºÐ¸Ð½"
+                                         },
+    "app.skins.modal.saving-tooltip":  {
+                                           "message":  "Ð¡Ð¾Ñ…Ñ€Ð°Ð½ÐµÐ½Ð¸Ðµ..."
+                                       },
+    "app.skins.modal.texture-section":  {
+                                            "message":  "Ð¢ÐµÐºÑÑ‚ÑƒÑ€Ð°"
+                                        },
+    "app.skins.modal.upload-skin-first-tooltip":  {
+                                                      "message":  "Ð¡Ð½Ð°Ñ‡Ð°Ð»Ð° Ð·Ð°Ð³Ñ€ÑƒÐ·Ð¸Ñ‚Ðµ ÑÐºÐ¸Ð½!"
+                                                  },
+    "app.skins.preview.edit-button":  {
+                                          "message":  "Ð˜Ð·Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ"
+                                      },
+    "app.skins.previewing-badge":  {
+                                       "message":  "ÐŸÑ€ÐµÐ´Ð¿Ñ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€"
+                                   },
+    "app.skins.rate-limit.text":  {
+                                      "message":  "Ð’Ñ‹ ÑÐ»Ð¸ÑˆÐºÐ¾Ð¼ Ñ‡Ð°ÑÑ‚Ð¾ Ð¼ÐµÐ½ÑÐµÑ‚Ðµ ÑÐºÐ¸Ð½. Ð¡ÐµÑ€Ð²ÐµÑ€Ñ‹ Mojang Ð²Ñ€ÐµÐ¼ÐµÐ½Ð½Ð¾ Ð·Ð°Ð±Ð»Ð¾ÐºÐ¸Ñ€Ð¾Ð²Ð°Ð»Ð¸ Ð´Ð°Ð»ÑŒÐ½ÐµÐ¹ÑˆÐ¸Ðµ Ð·Ð°Ð¿Ñ€Ð¾ÑÑ‹. ÐŸÐ¾Ð´Ð¾Ð¶Ð´Ð¸Ñ‚Ðµ Ð½ÐµÐ¼Ð½Ð¾Ð³Ð¾, Ð¿Ñ€ÐµÐ¶Ð´Ðµ Ñ‡ÐµÐ¼ Ð¿Ð¾Ð¿Ñ€Ð¾Ð±Ð¾Ð²Ð°Ñ‚ÑŒ ÑÐ½Ð¾Ð²Ð°."
+                                  },
+    "app.skins.rate-limit.title":  {
+                                       "message":  "ÐÐµ Ñ‚Ð°Ðº Ð±Ñ‹ÑÑ‚Ñ€Ð¾!"
+                                   },
+    "app.skins.reorder-error.text":  {
+                                         "message":  "ÐŸÐ¾Ñ€ÑÐ´Ð¾Ðº ÑÐºÐ¸Ð½Ð¾Ð² Ð½Ðµ ÑÐ¾Ñ…Ñ€Ð°Ð½Ð¸Ð»ÑÑ."
+                                     },
+    "app.skins.reorder-error.title":  {
+                                          "message":  "ÐÐµ ÑƒÐ´Ð°Ð»Ð¾ÑÑŒ Ð¸Ð·Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ð¿Ð¾Ñ€ÑÐ´Ð¾Ðº ÑÐºÐ¸Ð½Ð¾Ð²"
+                                      },
+    "app.skins.section.builders-and-biomes":  {
+                                                  "message":  "Builders \u0026 Biomes"
+                                              },
+    "app.skins.section.chaos-cubed":  {
+                                          "message":  "Chaos Cubed"
+                                      },
+    "app.skins.section.chase-the-skies":  {
+                                              "message":  "Chase theÂ Skies"
+                                          },
+    "app.skins.section.default-skins":  {
+                                            "message":  "Ð¡Ñ‚Ð°Ð½Ð´Ð°Ñ€Ñ‚Ð½Ñ‹Ðµ ÑÐºÐ¸Ð½Ñ‹"
+                                        },
+    "app.skins.section.minecon-earth-2017":  {
+                                                 "message":  "MINECON EarthÂ 2017"
+                                             },
+    "app.skins.section.modrinth":  {
+                                       "message":  "Modrinth"
+                                   },
+    "app.skins.section.modrinth-pride":  {
+                                             "message":  "Modrinth Pride"
+                                         },
+    "app.skins.section.modrinth-pride.tooltip":  {
+                                                     "message":  "Ð­Ñ‚Ð¸ ÑÐºÐ¸Ð½Ñ‹ Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ñ‹ Ð·Ð°Â ÑƒÑ‡Ð°ÑÑ‚Ð¸Ðµ Ð²Â ÑÐ±Ð¾Ñ€Ðµ ÑÑ€ÐµÐ´ÑÑ‚Ð² ModrinthÂ Pride Ð²Â Ð¼ÐµÑÑÑ†Â Ð³Ð¾Ñ€Ð´Ð¾ÑÑ‚Ð¸."
+                                                 },
+    "app.skins.section.mounts-of-mayhem":  {
+                                               "message":  "Mounts ofÂ Mayhem"
+                                           },
+    "app.skins.section.saved-skins":  {
+                                          "message":  "Ð¡Ð¾Ñ…Ñ€Ð°Ð½Ñ‘Ð½Ð½Ñ‹Ðµ ÑÐºÐ¸Ð½Ñ‹"
+                                      },
+    "app.skins.section.striding-hero":  {
+                                            "message":  "Striding Hero"
+                                        },
+    "app.skins.section.the-copper-age":  {
+                                             "message":  "The Copper Age"
+                                         },
+    "app.skins.section.the-garden-awakens":  {
+                                                 "message":  "The Garden Awakens"
+                                             },
+    "app.skins.section.tiny-takeover":  {
+                                            "message":  "Tiny Takeover"
+                                        },
+    "app.skins.sign-in.button":  {
+                                     "message":  "Ð’Ð¾Ð¹Ñ‚Ð¸"
+                                 },
+    "app.skins.sign-in.description":  {
+                                          "message":  "ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð²Ð¾Ð¹Ð´Ð¸Ñ‚Ðµ Ð² ÑÐ²Ð¾Ð¹ Ð°ÐºÐºÐ°ÑƒÐ½Ñ‚ Minecraft, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð²Ð¾ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÑŒÑÑ Ñ„ÑƒÐ½ÐºÑ†Ð¸ÑÐ¼Ð¸ ÑƒÐ¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ñ ÑÐºÐ¸Ð½Ð°Ð¼Ð¸ Ð² Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ð¸ Modrinth."
+                                      },
+    "app.skins.sign-in.rinthbot-alt":  {
+                                           "message":  "Ð’Ð¾ÑÑ‚Ð¾Ñ€Ð¶ÐµÐ½Ð½Ñ‹Ð¹ Modrinth Bot"
+                                       },
+    "app.skins.sign-in.title":  {
+                                    "message":  "Ð’Ð¾Ð¹Ð´Ð¸Ñ‚Ðµ"
+                                },
+    "app.skins.title":  {
+                            "message":  "Ð’Ñ‹Ð±Ð¾Ñ€ ÑÐºÐ¸Ð½Ð°"
+                        },
+    "app.skins.toggle-ears-features-off":  {
+                                               "message":  "Ð’Ñ‹ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ"
+                                           },
+    "app.skins.toggle-ears-features-on":  {
+                                              "message":  "Ð’ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ"
+                                          },
+    "app.survey.body":  {
+                            "message":  "ÐÐµ Ñ…Ð¾Ñ‚Ð¸Ñ‚Ðµ Ð¾Ñ‚Ð²ÐµÑ‚Ð¸Ñ‚ÑŒ Ð½Ð° Ð½ÐµÑÐºÐ¾Ð»ÑŒÐºÐ¾ Ð²Ð¾Ð¿Ñ€Ð¾ÑÐ¾Ð² Ð¾ Ð²Ð°ÑˆÐµÐ¼ Ð¾Ð¿Ñ‹Ñ‚Ðµ Ñ Modrinth App?"
+                        },
+    "app.survey.footer":  {
+                              "message":  "Ð­Ñ‚Ð¾Ñ‚ Ð¾Ñ‚Ð·Ñ‹Ð² Ð±ÑƒÐ´ÐµÑ‚ Ð´Ð¾ÑÑ‚Ð°Ð²Ð»ÐµÐ½ Ð½Ð°Ð¿Ñ€ÑÐ¼ÑƒÑŽ ÐºÐ¾Ð¼Ð°Ð½Ð´Ðµ Modrinth Ð¸ Ð¿Ð¾Ð¼Ð¾Ð¶ÐµÑ‚ Ñ€Ð°Ð·Ñ€Ð°Ð±Ð°Ñ‚Ñ‹Ð²Ð°Ñ‚ÑŒ Ð±ÑƒÐ´ÑƒÑ‰Ð¸Ðµ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ!"
+                          },
+    "app.survey.no-thanks":  {
+                                 "message":  "ÐÐµÑ‚, ÑÐ¿Ð°ÑÐ¸Ð±Ð¾"
+                             },
+    "app.survey.take-survey":  {
+                                   "message":  "ÐŸÑ€Ð¾Ð¹Ñ‚Ð¸ Ð¾Ð¿Ñ€Ð¾Ñ"
+                               },
+    "app.survey.title":  {
+                             "message":  "ÐŸÑ€Ð¸Ð²ÐµÑ‚, Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒ Modrinth!"
+                         },
+    "app.update-popup.body.download-complete":  {
+                                                    "message":  "Ð¡ÐºÐ°Ñ‡Ð¸Ð²Ð°Ð½Ð¸Ðµ Ð²ÐµÑ€ÑÐ¸Ð¸ ModrinthÂ AppÂ {version} Ð·Ð°Ð²ÐµÑ€ÑˆÐµÐ½Ð¾. ÐŸÐµÑ€ÐµÐ·Ð°Ð¿ÑƒÑÑ‚Ð¸Ñ‚Ðµ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¾Ð±Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ ÐµÐ³Ð¾, Ð¸Ð»Ð¸Â Ð¾Ð½Ð¾ Ð¾Ð±Ð½Ð¾Ð²Ð¸Ñ‚ÑÑ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ¸ Ð¿Ð¾ÑÐ»Ðµ Ð·Ð°ÐºÑ€Ñ‹Ñ‚Ð¸Ñ."
+                                                },
+    "app.update-popup.body.linux":  {
+                                        "message":  "Ð”Ð¾ÑÑ‚ÑƒÐ¿Ð½Ð° Ð²ÐµÑ€ÑÐ¸Ñ ModrinthÂ AppÂ {version}. ÐžÐ±Ð½Ð¾Ð²Ð¸Ñ‚Ðµ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ñ‡ÐµÑ€ÐµÐ· Ð¼ÐµÐ½ÐµÐ´Ð¶ÐµÑ€ Ð¿Ð°ÐºÐµÑ‚Ð¾Ð², Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¿Ð¾Ð»ÑƒÑ‡Ð¸Ñ‚ÑŒ Ð¿Ð¾ÑÐ»ÐµÐ´Ð½Ð¸Ðµ ÑƒÐ»ÑƒÑ‡ÑˆÐµÐ½Ð¸Ñ Ð¸Â Ð¸ÑÐ¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ñ!"
+                                    },
+    "app.update-popup.body.metered":  {
+                                          "message":  "Ð’ÐµÑ€ÑÐ¸Ñ ModrinthÂ AppÂ {version} Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ð° Ð´Ð»ÑÂ ÑÐºÐ°Ñ‡Ð¸Ð²Ð°Ð½Ð¸Ñ! Ð˜ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐµÑ‚ÑÑ ÑÐµÑ‚ÑŒ ÑÂ Ð»Ð¸Ð¼Ð¸Ñ‚Ð½Ñ‹Ð¼ Ñ‚Ð°Ñ€Ð¸Ñ„Ð½Ñ‹Ð¼ Ð¿Ð»Ð°Ð½Ð¾Ð¼, Ð¿Ð¾ÑÑ‚Ð¾Ð¼Ñƒ ÑÐºÐ°Ñ‡Ð¸Ð²Ð°Ð½Ð¸Ðµ Ð½ÐµÂ Ð½Ð°Ñ‡Ð°Ð»Ð¾ÑÑŒ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ¸."
+                                      },
+    "app.update-popup.changelog":  {
+                                       "message":  "Ð¡Ð¿Ð¸ÑÐ¾Ðº Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ð¹"
+                                   },
+    "app.update-popup.download":  {
+                                      "message":  "Ð¡ÐºÐ°Ñ‡Ð°Ñ‚ÑŒ ({size})"
+                                  },
+    "app.update-popup.download-complete":  {
+                                               "message":  "Ð¡ÐºÐ°Ñ‡Ð¸Ð²Ð°Ð½Ð¸Ðµ Ð·Ð°Ð²ÐµÑ€ÑˆÐµÐ½Ð¾"
+                                           },
+    "app.update-popup.reload":  {
+                                    "message":  "ÐŸÐµÑ€ÐµÐ·Ð°Ð¿ÑƒÑÑ‚Ð¸Ñ‚ÑŒ"
+                                },
+    "app.update-popup.title":  {
+                                   "message":  "Ð”Ð¾ÑÑ‚ÑƒÐ¿Ð½Ð¾ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ"
+                               },
+    "app.update.complete-toast.text":  {
+                                           "message":  "ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¿Ð¾ÑÐ¼Ð¾Ñ‚Ñ€ÐµÑ‚ÑŒ ÑÐ¿Ð¸ÑÐ¾Ðº Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ð¹."
+                                       },
+    "app.update.complete-toast.title":  {
+                                            "message":  "Ð’ÐµÑ€ÑÐ¸Ñ {version} ÑƒÑÐ¿ÐµÑˆÐ½Ð¾ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð°!"
+                                        },
+    "app.world.server-modal.placeholder-address":  {
+                                                       "message":  "example.modrinth.gg"
+                                                   },
+    "app.world.server-modal.select-an-option":  {
+                                                    "message":  "Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð²Ð°Ñ€Ð¸Ð°Ð½Ñ‚"
+                                                },
+    "app.world.world-item.incompatible-version":  {
+                                                      "message":  "ÐÐµÑÐ¾Ð²Ð¼ÐµÑÑ‚Ð¸Ð¼Ð°Ñ Ð²ÐµÑ€ÑÐ¸Ñ {version}"
+                                                  },
+    "app.world.world-item.not-played-yet":  {
+                                                "message":  "ÐÐµÂ Ð·Ð°Ð¿ÑƒÑÐºÐ°Ð»Ð¾ÑÑŒ"
+                                            },
+    "app.world.world-item.offline":  {
+                                         "message":  "ÐÐµ Ð² ÑÐµÑ‚Ð¸"
+                                     },
+    "app.world.world-item.players-online":  {
+                                                "message":  "{count} Ð²Â Ð¸Ð³Ñ€Ðµ"
+                                            },
+    "content.shared-instance.change-version-body":  {
+                                                        "message":  "Ð˜Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ðµ Ð²ÐµÑ€ÑÐ¸Ð¸ Ð·Ð°Ñ‚Ñ€Ð°Ð³Ð¸Ð²Ð°ÐµÑ‚ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð»Ð¾ÐºÐ°Ð»ÑŒÐ½ÑƒÑŽ ÐºÐ¾Ð¿Ð¸ÑŽ. Ð’ Ð±ÑƒÐ´ÑƒÑ‰Ð¸Ñ… Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸ÑÑ… Ð¾Ð±Ñ‰ÐµÐ³Ð¾ ÑÐºÐ·ÐµÐ¼Ð¿Ð»ÑÑ€Ð° Ð¾Ð½Ð° Ð¼Ð¾Ð¶ÐµÑ‚ Ð±Ñ‹Ñ‚ÑŒ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð° â€‹â€‹Ð¸Ð»Ð¸ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð° ÑÐ½Ð¾Ð²Ð°."
+                                                    },
+    "content.shared-instance.delete-bulk-body":  {
+                                                     "message":  "ÐÐµÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ðµ Ð²Ñ‹Ð±Ñ€Ð°Ð½Ð½Ñ‹Ðµ Ð¿Ñ€Ð¾ÐµÐºÑ‚Ñ‹ ÑÐ²Ð»ÑÑŽÑ‚ÑÑ Ñ‡Ð°ÑÑ‚ÑŒÑŽ Ð¾Ð±Ñ‰ÐµÐ³Ð¾ ÑÐºÐ·ÐµÐ¼Ð¿Ð»ÑÑ€Ð°. Ð£Ð´Ð°Ð»ÐµÐ½Ð¸Ðµ ÑÑ‚Ð¸Ñ… Ð¿Ñ€Ð¾ÐµÐºÑ‚Ð¾Ð² Ð·Ð°Ñ‚Ñ€Ð°Ð³Ð¸Ð²Ð°ÐµÑ‚ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð²Ð°ÑˆÑƒ Ð»Ð¾ÐºÐ°Ð»ÑŒÐ½ÑƒÑŽ ÐºÐ¾Ð¿Ð¸ÑŽ, Ð¸ Ð±ÑƒÐ´ÑƒÑ‰Ð¸Ðµ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ Ð¾Ð±Ñ‰ÐµÐ³Ð¾ ÑÐºÐ·ÐµÐ¼Ð¿Ð»ÑÑ€Ð° Ð¼Ð¾Ð³ÑƒÑ‚ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ Ð¸Ð»Ð¸ Ð¸Ð·Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ð¸Ñ… ÑÐ½Ð¾Ð²Ð°."
+                                                 },
+    "content.shared-instance.delete-button":  {
+                                                  "message":  "Ð’ÑÑ‘ Ñ€Ð°Ð²Ð½Ð¾ ÑƒÐ´Ð°Ð»Ð¸Ñ‚ÑŒ"
+                                              },
+    "content.shared-instance.delete-many-button":  {
+                                                       "message":  "Ð’ÑÑ‘ Ñ€Ð°Ð²Ð½Ð¾ ÑƒÐ´Ð°Ð»Ð¸Ñ‚ÑŒ {count, plural, one {#Â Ð¿Ñ€Ð¾ÐµÐºÑ‚} few {#Â Ð¿Ñ€Ð¾ÐµÐºÑ‚Ð°} other {#Â Ð¿Ñ€Ð¾ÐµÐºÑ‚Ð¾Ð²}}"
+                                                   },
+    "content.shared-instance.delete-single-body":  {
+                                                       "message":  "Ð£Ð´Ð°Ð»ÐµÐ½Ð¸Ðµ Ð·Ð°Ñ‚Ñ€Ð°Ð³Ð¸Ð²Ð°ÐµÑ‚ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð»Ð¾ÐºÐ°Ð»ÑŒÐ½ÑƒÑŽ ÐºÐ¾Ð¿Ð¸ÑŽ. Ð’ Ð±ÑƒÐ´ÑƒÑ‰Ð¸Ñ… Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸ÑÑ… Ð¾Ð±Ñ‰ÐµÐ³Ð¾ ÑÐºÐ·ÐµÐ¼Ð¿Ð»ÑÑ€Ð° Ð¾Ð½ Ð¼Ð¾Ð¶ÐµÑ‚ Ð±Ñ‹Ñ‚ÑŒ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½ Ð¸Ð»Ð¸ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½ ÑÐ½Ð¾Ð²Ð°."
+                                                   },
+    "content.shared-instance.disable-bulk-body":  {
+                                                      "message":  "ÐÐµÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ðµ Ð²Ñ‹Ð±Ñ€Ð°Ð½Ð½Ñ‹Ðµ Ð¿Ñ€Ð¾ÐµÐºÑ‚Ñ‹ ÑÐ²Ð»ÑÑŽÑ‚ÑÑ Ñ‡Ð°ÑÑ‚ÑŒÑŽ Ð¾Ð±Ñ‰ÐµÐ³Ð¾ ÑÐºÐ·ÐµÐ¼Ð¿Ð»ÑÑ€Ð°. ÐžÑ‚ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ðµ ÑÑ‚Ð¸Ñ… Ð¿Ñ€Ð¾ÐµÐºÑ‚Ð¾Ð² Ð·Ð°Ñ‚Ñ€Ð°Ð³Ð¸Ð²Ð°ÐµÑ‚ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð²Ð°ÑˆÑƒ Ð»Ð¾ÐºÐ°Ð»ÑŒÐ½ÑƒÑŽ ÐºÐ¾Ð¿Ð¸ÑŽ, Ð¸ Ð±ÑƒÐ´ÑƒÑ‰Ð¸Ðµ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ Ð¾Ð±Ñ‰ÐµÐ³Ð¾ ÑÐºÐ·ÐµÐ¼Ð¿Ð»ÑÑ€Ð° Ð¼Ð¾Ð³ÑƒÑ‚ ÑÐ½Ð¾Ð²Ð° Ð²ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ, Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ Ð¸Ð»Ð¸ Ð¸Ð·Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ð¸Ñ…."
+                                                  },
+    "content.shared-instance.disable-button":  {
+                                                   "message":  "Ð’ÑÑ‘ Ñ€Ð°Ð²Ð½Ð¾ Ð¾Ñ‚ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ"
+                                               },
+    "content.shared-instance.disable-many-button":  {
+                                                        "message":  "Ð’ÑÑ‘ Ñ€Ð°Ð²Ð½Ð¾ Ð¾Ñ‚ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ {count, plural, one {#Â Ð¿Ñ€Ð¾ÐµÐºÑ‚} few {#Â Ð¿Ñ€Ð¾ÐµÐºÑ‚Ð°} other {#Â Ð¿Ñ€Ð¾ÐµÐºÑ‚Ð¾Ð²}}"
+                                                    },
+    "content.shared-instance.disable-single-body":  {
+                                                        "message":  "ÐžÑ‚ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ðµ ÑÑ‚Ð¾Ð¹ Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¸ Ð·Ð°Ñ‚Ñ€Ð°Ð³Ð¸Ð²Ð°ÐµÑ‚ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð»Ð¾ÐºÐ°Ð»ÑŒÐ½ÑƒÑŽ ÐºÐ¾Ð¿Ð¸ÑŽ. Ð’ Ð±ÑƒÐ´ÑƒÑ‰Ð¸Ñ… Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸ÑÑ… Ð¾Ð±Ñ‰ÐµÐ³Ð¾ ÑÐºÐ·ÐµÐ¼Ð¿Ð»ÑÑ€Ð° Ð¾Ð½Ð° Ð¼Ð¾Ð¶ÐµÑ‚ Ð±Ñ‹Ñ‚ÑŒ Ð¿Ð¾Ð²Ñ‚Ð¾Ñ€Ð½Ð¾ Ð²ÐºÐ»ÑŽÑ‡ÐµÐ½Ð°, Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð° â€‹â€‹Ð¸Ð»Ð¸ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð°."
+                                                    },
+    "content.shared-instance.unlink-body":  {
+                                                "message":  "Ð£Ð´Ð°Ð»ÐµÐ½Ð¸Ðµ Ð¿Ñ€Ð¸Ð²ÑÐ·ÐºÐ¸ Ð·Ð°Ñ‚Ñ€Ð°Ð³Ð¸Ð²Ð°ÐµÑ‚ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð»Ð¾ÐºÐ°Ð»ÑŒÐ½ÑƒÑŽ ÐºÐ¾Ð¿Ð¸ÑŽ. Ð’ Ð±ÑƒÐ´ÑƒÑ‰Ð¸Ñ… Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸ÑÑ… Ð¾Ð±Ñ‰ÐµÐ³Ð¾ ÑÐºÐ·ÐµÐ¼Ð¿Ð»ÑÑ€Ð° Ð¾Ð½Ð° Ð¼Ð¾Ð¶ÐµÑ‚ Ð±Ñ‹Ñ‚ÑŒ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð° â€‹â€‹Ð¸Ð»Ð¸ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð° ÑÐ½Ð¾Ð²Ð°."
+                                            },
+    "content.shared-instance.warning-header":  {
+                                                   "message":  "Ð­Ñ‚Ð¾ Ñ‡Ð°ÑÑ‚ÑŒ ÑÐ±Ð¾Ñ€ÐºÐ¸"
+                                               },
+    "friends.action.add-friend":  {
+                                      "message":  "Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð²Â Ð´Ñ€ÑƒÐ·ÑŒÑ"
+                                  },
+    "friends.action.view-friend-requests":  {
+                                                "message":  "{count}Â {count, plural, one {Ð·Ð°Ð¿Ñ€Ð¾Ñ} few {Ð·Ð°Ð¿Ñ€Ð¾ÑÐ°} other {Ð·Ð°Ð¿Ñ€Ð¾ÑÐ¾Ð²}} Ð´Ñ€ÑƒÐ¶Ð±Ñ‹"
+                                            },
+    "friends.add-friend.submit":  {
+                                      "message":  "ÐžÑ‚Ð¿Ñ€Ð°Ð²Ð¸Ñ‚ÑŒ Ð·Ð°Ð¿Ñ€Ð¾Ñ Ð´Ñ€ÑƒÐ¶Ð±Ñ‹"
+                                  },
+    "friends.add-friend.title":  {
+                                     "message":  "Ð”Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ Ð²Â Ð´Ñ€ÑƒÐ·ÑŒÑ"
+                                 },
+    "friends.add-friend.username.description":  {
+                                                    "message":  "ÐžÐ½Ð¾ Ð¼Ð¾Ð¶ÐµÑ‚ Ð±Ñ‹Ñ‚ÑŒ Ð½ÐµÂ Ñ‚Ð°ÐºÐ¸Ð¼, ÐºÐ°ÐºÂ Ð²Â Minecraft!"
+                                                },
+    "friends.add-friend.username.placeholder":  {
+                                                    "message":  "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð¼Ñ Ñ Modrinth..."
+                                                },
+    "friends.add-friend.username.title":  {
+                                              "message":  "ÐšÐ°ÐºÐ¾Ðµ Ð¸Ð¼Ñ ÑƒÂ Ð´Ñ€ÑƒÐ³Ð° Ð½Ð°Â Modrinth?"
+                                          },
+    "friends.add-friends-to-share":  {
+                                         "message":  "\u003clink\u003eÐ”Ð¾Ð±Ð°Ð²ÑŒÑ‚Ðµ Ð´Ñ€ÑƒÐ·ÐµÐ¹\u003c/link\u003e Ð¸Â ÑÐ»ÐµÐ´Ð¸Ñ‚Ðµ Ð·Ð°Â Ð½Ð¸Ð¼Ð¸!"
+                                     },
+    "friends.friend.cancel-request":  {
+                                          "message":  "ÐžÑ‚Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ð·Ð°Ð¿Ñ€Ð¾Ñ"
+                                      },
+    "friends.friend.remove-friend":  {
+                                         "message":  "Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ Ð¸Ð·Â Ð´Ñ€ÑƒÐ·ÐµÐ¹"
+                                     },
+    "friends.friend.request-sent":  {
+                                        "message":  "ÐžÑ‚Ð¿Ñ€Ð°Ð²Ð»ÐµÐ½ Ð·Ð°Ð¿Ñ€Ð¾Ñ Ð´Ñ€ÑƒÐ¶Ð±Ñ‹"
+                                    },
+    "friends.friend.view-profile":  {
+                                        "message":  "ÐŸÐ¾ÑÐ¼Ð¾Ñ‚Ñ€ÐµÑ‚ÑŒ Ð¿Ñ€Ð¾Ñ„Ð¸Ð»ÑŒ"
+                                    },
+    "friends.heading":  {
+                            "message":  "Ð”Ñ€ÑƒÐ·ÑŒÑ"
+                        },
+    "friends.heading.active":  {
+                                   "message":  "Ð’ Ð¸Ð³Ñ€Ðµ"
+                               },
+    "friends.heading.offline":  {
+                                    "message":  "ÐÐµ Ð² ÑÐµÑ‚Ð¸"
+                                },
+    "friends.heading.online":  {
+                                   "message":  "Ð’ ÑÐµÑ‚Ð¸"
+                               },
+    "friends.heading.pending":  {
+                                    "message":  "Ð’Â Ð¾Ð¶Ð¸Ð´Ð°Ð½Ð¸Ð¸"
+                                },
+    "friends.no-friends-match":  {
+                                     "message":  "ÐÐµÑ‚ Ð´Ñ€ÑƒÐ·ÐµÐ¹ Ð¿Ð¾Â Ð·Ð°Ð¿Ñ€Ð¾ÑÑƒ Â«{query}Â»"
+                                 },
+    "friends.search-friends-placeholder":  {
+                                               "message":  "ÐŸÐ¾Ð¸ÑÐº Ð¿Ð¾Â Ð´Ñ€ÑƒÐ·ÑŒÑÐ¼..."
+                                           },
+    "friends.section.heading":  {
+                                    "message":  "{title} â€” {count}"
+                                },
+    "friends.sign-in-to-add-friends":  {
+                                           "message":  "\u003clink\u003eÐ’Ð¾Ð¹Ð´Ð¸Ñ‚Ðµ Ð²Â Ð°ÐºÐºÐ°ÑƒÐ½Ñ‚ Modrinth\u003c/link\u003e, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð´Ð¾Ð±Ð°Ð²Ð»ÑÑ‚ÑŒ Ð´Ñ€ÑƒÐ·ÐµÐ¹ Ð¸Â ÑÐ»ÐµÐ´Ð¸Ñ‚ÑŒ Ð·Ð°Â Ð½Ð¸Ð¼Ð¸!"
+                                       },
+    "installation-settings.shared-instance.linked-title":  {
+                                                               "message":  "Ð¡Ð²ÑÐ·Ð°Ð½Ð½Ð°Ñ ÑÐ±Ð¾Ñ€ÐºÐ°"
+                                                           },
+    "installation-settings.shared-instance.title":  {
+                                                        "message":  "ÐžÑ‚Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ð¿ÑƒÐ±Ð»Ð¸ÐºÐ°Ñ†Ð¸ÑŽ ÑÐºÐ·ÐµÐ¼Ð¿Ð»ÑÑ€Ð°"
+                                                    },
+    "installation-settings.shared-instance.unlink-button":  {
+                                                                "message":  "ÐžÑ‚Ð²ÑÐ·Ð°Ñ‚ÑŒ ÑÐ±Ð¾Ñ€ÐºÑƒ"
+                                                            },
+    "installation-settings.shared-instance.unlink-description":  {
+                                                                     "message":  "ÐžÑ‚ÐºÐ»ÑŽÑ‡Ð¸Ñ‚Ðµ ÑÑ‚Ð¾Ñ‚ Ð»Ð¾ÐºÐ°Ð»ÑŒÐ½Ñ‹Ð¹ ÑÐºÐ·ÐµÐ¼Ð¿Ð»ÑÑ€ Ð¾Ñ‚ Ð±ÑƒÐ´ÑƒÑ‰Ð¸Ñ… Ð¾Ð±Ñ‰Ð¸Ñ… Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ð¹."
+                                                                 },
+    "installation-settings.shared-instance.unlinking-button":  {
+                                                                   "message":  "ÐžÑ‚Ð²ÑÐ·ÐºÐ°..."
+                                                               },
+    "installation-settings.shared-instance.unpublish-button":  {
+                                                                   "message":  "ÐžÑ‚Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ð¿ÑƒÐ±Ð»Ð¸ÐºÐ°Ñ†Ð¸ÑŽ Ð¾Ð±Ñ‰ÐµÐ³Ð¾ ÑÐºÐ·ÐµÐ¼Ð¿Ð»ÑÑ€Ð°"
+                                                               },
+    "installation-settings.shared-instance.unpublish-description":  {
+                                                                        "message":  "Ð£Ð´Ð°Ð»Ð¸Ñ‚Ðµ ÑÑ‚Ð¾Ñ‚ Ð¾Ð±Ñ‰Ð¸Ð¹ ÑÐºÐ·ÐµÐ¼Ð¿Ð»ÑÑ€ Ð¸Ð· Modrinth Ð¸ Ð¿Ñ€ÐµÐºÑ€Ð°Ñ‚Ð¸Ñ‚Ðµ Ð¾Ñ‚Ð¿Ñ€Ð°Ð²Ð»ÑÑ‚ÑŒ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ Ð²ÑÐµÐ¼, ÐºÑ‚Ð¾ ÐµÐ³Ð¾ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐµÑ‚. Ð’Ð°Ñˆ Ð»Ð¾ÐºÐ°Ð»ÑŒÐ½Ñ‹Ð¹ ÑÐºÐ·ÐµÐ¼Ð¿Ð»ÑÑ€ Ð¾ÑÑ‚Ð°Ð½ÐµÑ‚ÑÑ Ð±ÐµÐ· Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ð¹."
+                                                                    },
+    "installation-settings.shared-instance.unpublishing-button":  {
+                                                                      "message":  "Ð¡Ð½ÑÑ‚Ð¸Ðµ Ñ Ð¿ÑƒÐ±Ð»Ð¸ÐºÐ°Ñ†Ð¸Ð¸..."
+                                                                  },
+    "installation-settings.unlink-shared-instance.modal.admonition-body":  {
+                                                                               "message":  "Ð­Ñ‚Ð¾ Ð¿Ð¾Ð²Ð»Ð¸ÑÐµÑ‚ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð½Ð° Ð²Ð°Ñˆ Ð»Ð¾ÐºÐ°Ð»ÑŒÐ½Ñ‹Ð¹ ÑÐºÐ·ÐµÐ¼Ð¿Ð»ÑÑ€. Ð£ÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð½Ñ‹Ð¹ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚ Ð¾ÑÑ‚Ð°Ð½ÐµÑ‚ÑÑ Ð½Ð° ÑÑ‚Ð¾Ð¼ ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð²Ðµ, Ð¸ ÑÑ‚Ð¾ Ð½Ð¸ÐºÐ°Ðº Ð½Ðµ Ð¾Ñ‚Ñ€Ð°Ð·Ð¸Ñ‚ÑÑ Ð½Ð° Ð¾Ð±Ñ‰ÐµÐ¼ ÑÐºÐ·ÐµÐ¼Ð¿Ð»ÑÑ€Ðµ Ð¸ Ð´Ñ€ÑƒÐ³Ð¸Ñ… Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑÑ…."
+                                                                           },
+    "installation-settings.unlink-shared-instance.modal.admonition-header":  {
+                                                                                 "message":  "ÐžÑ‚Ð²ÑÐ·ÐºÐ° ÑÐ±Ð¾Ñ€ÐºÐ¸"
+                                                                             },
+    "installation-settings.unlink-shared-instance.modal.header":  {
+                                                                      "message":  "ÐžÑ‚Ð²ÑÐ·ÐºÐ° ÑÐ±Ð¾Ñ€ÐºÐ¸"
+                                                                  },
+    "installation-settings.unpublish-shared-instance.modal.admonition-body":  {
+                                                                                  "message":  "Ð­Ñ‚Ð¾ ÑƒÐ´Ð°Ð»Ð¸Ñ‚ Ð¾Ð±Ñ‰Ð¸Ð¹ ÑÐºÐ·ÐµÐ¼Ð¿Ð»ÑÑ€ Ñ ÑÐµÑ€Ð²ÐµÑ€Ð¾Ð² Modrinth. ÐŸÐ¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ð¸, Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÑŽÑ‰Ð¸Ðµ ÐµÐ³Ð¾ Ð² Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ð¸ Modrinth, Ð¿ÐµÑ€ÐµÑÑ‚Ð°Ð½ÑƒÑ‚ Ð¿Ð¾Ð»ÑƒÑ‡Ð°Ñ‚ÑŒ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ, Ð½Ð¾ Ð²Ð°Ñˆ Ð»Ð¾ÐºÐ°Ð»ÑŒÐ½Ñ‹Ð¹ ÑÐºÐ·ÐµÐ¼Ð¿Ð»ÑÑ€ Ð¸ ÐµÐ³Ð¾ ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ð¼Ð¾Ðµ Ð¾ÑÑ‚Ð°Ð½ÑƒÑ‚ÑÑ Ð½Ð° ÑÑ‚Ð¾Ð¼ ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð²Ðµ."
+                                                                              },
+    "installation-settings.unpublish-shared-instance.modal.admonition-header":  {
+                                                                                    "message":  "ÐžÑ‚Ð¼ÐµÐ½Ð° Ð¿ÑƒÐ±Ð»Ð¸ÐºÐ°Ñ†Ð¸Ð¸ Ð¾Ð±Ñ‰ÐµÐ³Ð¾ ÑÐºÐ·ÐµÐ¼Ð¿Ð»ÑÑ€Ð°"
+                                                                                },
+    "installation-settings.unpublish-shared-instance.modal.header":  {
+                                                                         "message":  "ÐžÑ‚Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ð¿ÑƒÐ±Ð»Ð¸ÐºÐ°Ñ†Ð¸ÑŽ Ð¾Ð±Ñ‰ÐµÐ³Ð¾ ÑÐºÐ·ÐµÐ¼Ð¿Ð»ÑÑ€Ð°"
+                                                                     },
+    "instance.action.create-shortcut":  {
+                                            "message":  "Ð¡Ð¾Ð·Ð´Ð°Ñ‚ÑŒ ÑÑ€Ð»Ñ‹Ðº"
+                                        },
+    "instance.action.export-modpack":  {
+                                           "message":  "Ð­ÐºÑÐ¿Ð¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ ÑÐ±Ð¾Ñ€ÐºÑƒ"
+                                       },
+    "instance.action.launch-instance":  {
+                                            "message":  "Ð—Ð°Ð¿ÑƒÑÑ‚Ð¸Ñ‚ÑŒ ÑÐ±Ð¾Ñ€ÐºÑƒ"
+                                        },
+    "instance.action.more-actions":  {
+                                         "message":  "Ð”Ð¾Ð¿Ð¾Ð»Ð½Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾"
+                                     },
+    "instance.action.open-folder":  {
+                                        "message":  "ÐžÑ‚ÐºÑ€Ñ‹Ñ‚ÑŒ Ð¿Ð°Ð¿ÐºÑƒ"
+                                    },
+    "instance.action.repair":  {
+                                   "message":  "Ð˜ÑÐ¿Ñ€Ð°Ð²Ð¸Ñ‚ÑŒ"
+                               },
+    "instance.action.settings":  {
+                                     "message":  "ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ ÑÐ±Ð¾Ñ€ÐºÐ¸"
+                                 },
+    "instance.action.starting":  {
+                                     "message":  "Ð—Ð°Ð¿ÑƒÑÐº..."
+                                 },
+    "instance.action.stopping":  {
+                                     "message":  "ÐžÑÑ‚Ð°Ð½Ð¾Ð²ÐºÐ°..."
+                                 },
+    "instance.add-server.add-and-play":  {
+                                             "message":  "Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð¸Â Ð¸Ð³Ñ€Ð°Ñ‚ÑŒ"
+                                         },
+    "instance.add-server.add-server":  {
+                                           "message":  "Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ ÑÐµÑ€Ð²ÐµÑ€"
+                                       },
+    "instance.add-server.resource-pack.disabled":  {
+                                                       "message":  "ÐžÑ‚ÐºÐ»ÑŽÑ‡Ñ‘Ð½"
+                                                   },
+    "instance.add-server.resource-pack.enabled":  {
+                                                      "message":  "Ð’ÐºÐ»ÑŽÑ‡Ñ‘Ð½"
+                                                  },
+    "instance.add-server.resource-pack.prompt":  {
+                                                     "message":  "Ð—Ð°Ð¿Ñ€Ð°ÑˆÐ¸Ð²Ð°Ñ‚ÑŒ"
+                                                 },
+    "instance.add-server.title":  {
+                                      "message":  "Ð”Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ ÑÐµÑ€Ð²ÐµÑ€Ð°"
+                                  },
+    "instance.edit-server.title":  {
+                                       "message":  "ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ° ÑÐµÑ€Ð²ÐµÑ€Ð°"
+                                   },
+    "instance.edit-world.hide-from-home":  {
+                                               "message":  "ÐÐµ Ð¿Ð¾ÐºÐ°Ð·Ñ‹Ð²Ð°Ñ‚ÑŒ Ð½Ð° Ð³Ð»Ð°Ð²Ð½Ð¾Ð¹"
+                                           },
+    "instance.edit-world.name":  {
+                                     "message":  "ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ"
+                                 },
+    "instance.edit-world.placeholder-name":  {
+                                                 "message":  "ÐœÐ¸Ñ€ Minecraft"
+                                             },
+    "instance.edit-world.reset-icon":  {
+                                           "message":  "Ð¡Ð±Ñ€Ð¾ÑÐ¸Ñ‚ÑŒ Ð¸ÐºÐ¾Ð½ÐºÑƒ"
+                                       },
+    "instance.edit-world.title":  {
+                                      "message":  "ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ° Ð¼Ð¸Ñ€Ð°"
+                                  },
+    "instance.files.save-as":  {
+                                   "message":  "Ð¡Ð¾Ñ…Ñ€Ð°Ð½Ð¸Ñ‚ÑŒ ÐºÐ°Ðº..."
+                               },
+    "instance.locked.delete-button":  {
+                                          "message":  "Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ ÑÐ±Ð¾Ñ€ÐºÑƒ"
+                                      },
+    "instance.locked.play-tooltip":  {
+                                         "message":  "Ð¡Ð±Ð¾Ñ€ÐºÐ° Ð·Ð°Ð±Ð»Ð¾ÐºÐ¸Ñ€Ð¾Ð²Ð°Ð½Ð°"
+                                     },
+    "instance.playtime.never-played":  {
+                                           "message":  "ÐÐµ Ð·Ð°Ð¿ÑƒÑÐºÐ°Ð»Ð°ÑÑŒ"
+                                       },
+    "instance.server-modal.address":  {
+                                          "message":  "ÐÐ´Ñ€ÐµÑ"
+                                      },
+    "instance.server-modal.name":  {
+                                       "message":  "ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ"
+                                   },
+    "instance.server-modal.placeholder-name":  {
+                                                   "message":  "Ð¡ÐµÑ€Ð²ÐµÑ€ Minecraft"
+                                               },
+    "instance.server-modal.resource-pack":  {
+                                                "message":  "ÐÐ°Ð±Ð¾Ñ€ Ñ€ÐµÑÑƒÑ€ÑÐ¾Ð²"
+                                            },
+    "instance.settings.sharing.active-invites.actions":  {
+                                                             "message":  "Ð”ÐµÐ¹ÑÑ‚Ð²Ð¸Ñ"
+                                                         },
+    "instance.settings.sharing.active-invites.code":  {
+                                                          "message":  "Ð¡ÑÑ‹Ð»ÐºÐ°"
+                                                      },
+    "instance.settings.sharing.active-invites.description":  {
+                                                                 "message":  "Ð›ÑŽÐ±Ð¾Ð¹, Ñƒ ÐºÐ¾Ð³Ð¾ ÐµÑÑ‚ÑŒ Ð¾Ð´Ð½Ð° Ð¸Ð· ÑÑ‚Ð¸Ñ… ÑÑÑ‹Ð»Ð¾Ðº, Ð¼Ð¾Ð¶ÐµÑ‚ Ð¿Ñ€Ð¸ÑÐ¾ÐµÐ´Ð¸Ð½Ð¸Ñ‚ÑŒÑÑ, Ð¿Ð¾ÐºÐ° Ð¾Ð½Ð° Ð°ÐºÑ‚Ð¸Ð²Ð½Ð°."
+                                                             },
+    "instance.settings.sharing.active-invites.empty":  {
+                                                           "message":  "ÐÐµÑ‚ Ð´ÐµÐ¹ÑÑ‚Ð²ÑƒÑŽÑ‰Ð¸Ñ… Ð¿Ñ€Ð¸Ð³Ð»Ð°ÑˆÐµÐ½Ð¸Ð¹."
+                                                       },
+    "instance.settings.sharing.active-invites.expires":  {
+                                                             "message":  "Ð˜ÑÑ‚ÐµÐºÐ°ÐµÑ‚"
+                                                         },
+    "instance.settings.sharing.active-invites.revoke":  {
+                                                            "message":  "ÐžÑ‚Ð¾Ð·Ð²Ð°Ñ‚ÑŒ Ð¿Ñ€Ð¸Ð³Ð»Ð°ÑˆÐµÐ½Ð¸Ðµ"
+                                                        },
+    "instance.settings.sharing.active-invites.revoke-with-code":  {
+                                                                      "message":  "ÐžÑ‚Ð¾Ð·Ð²Ð°Ñ‚ÑŒ Ð¿Ñ€Ð¸Ð³Ð»Ð°ÑˆÐµÐ½Ð¸Ðµ {code}"
+                                                                  },
+    "instance.settings.sharing.active-invites.title":  {
+                                                           "message":  "Ð”ÐµÐ¹ÑÑ‚Ð²ÑƒÑŽÑ‰Ð¸Ðµ Ð¿Ñ€Ð¸Ð³Ð»Ð°ÑˆÐµÐ½Ð¸Ñ"
+                                                       },
+    "instance.settings.sharing.active-invites.uses":  {
+                                                          "message":  "Ð˜ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð½Ð¸Ð¹"
+                                                      },
+    "instance.settings.sharing.revoke-invite.admonition-body":  {
+                                                                    "message":  "Ð¡ÑÑ‹Ð»ÐºÐ° \u003cmonospace\u003e{code}\u003c/monospace\u003e ÑÑ€Ð°Ð·Ñƒ Ð¿ÐµÑ€ÐµÑÑ‚Ð°Ð½ÐµÑ‚ Ñ€Ð°Ð±Ð¾Ñ‚Ð°Ñ‚ÑŒ. Ð£Ð¶Ðµ Ð¿Ñ€Ð¸ÑÐ¾ÐµÐ´Ð¸Ð½Ð¸Ð²ÑˆÐ¸ÐµÑÑ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ð¸ ÑÐ¾Ñ…Ñ€Ð°Ð½ÑÑ‚ Ð´Ð¾ÑÑ‚ÑƒÐ¿."
+                                                                },
+    "instance.settings.sharing.revoke-invite.admonition-header":  {
+                                                                      "message":  "Ð­Ñ‚Ð¾ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ðµ Ð½ÐµÐ¾Ð±Ñ€Ð°Ñ‚Ð¸Ð¼Ð¾"
+                                                                  },
+    "instance.settings.sharing.revoke-invite.confirm":  {
+                                                            "message":  "ÐžÑ‚Ð¾Ð·Ð²Ð°Ñ‚ÑŒ Ð¿Ñ€Ð¸Ð³Ð»Ð°ÑˆÐµÐ½Ð¸Ðµ"
+                                                        },
+    "instance.settings.sharing.revoke-invite.header":  {
+                                                           "message":  "ÐžÑ‚Ð·Ñ‹Ð² Ð¿Ñ€Ð¸Ð³Ð»Ð°ÑˆÐµÐ½Ð¸Ñ"
+                                                       },
+    "instance.settings.tabs.general":  {
+                                           "message":  "ÐžÑÐ½Ð¾Ð²Ð½Ñ‹Ðµ"
+                                       },
+    "instance.settings.tabs.general.delete":  {
+                                                  "message":  "Ð£Ð´Ð°Ð»ÐµÐ½Ð¸Ðµ ÑÐ±Ð¾Ñ€ÐºÐ¸"
+                                              },
+    "instance.settings.tabs.general.delete.button":  {
+                                                         "message":  "Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ ÑÐ±Ð¾Ñ€ÐºÑƒ"
+                                                     },
+    "instance.settings.tabs.general.delete.description":  {
+                                                              "message":  "ÐÐ°Ð²ÑÐµÐ³Ð´Ð° ÑƒÐ´Ð°Ð»ÑÐµÑ‚ ÑÐ±Ð¾Ñ€ÐºÑƒ ÑÂ ÑƒÑÑ‚Ñ€Ð¾Ð¹ÑÑ‚Ð²Ð°, Ð²Â Ñ‚Ð¾Ð¼Â Ñ‡Ð¸ÑÐ»Ðµ Ð¼Ð¸Ñ€Ñ‹, Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ Ð¸Â Ð²ÐµÑÑŒ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð½Ñ‹Ð¹ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚. Ð£Ñ‡Ñ‚Ð¸Ñ‚Ðµ, Ñ‡Ñ‚Ð¾Â Ð¿Ð¾ÑÐ»Ðµ ÑƒÐ´Ð°Ð»ÐµÐ½Ð¸Ñ ÑÐ±Ð¾Ñ€ÐºÐ¸ ÐµÑ‘Â Ð½ÐµÐ²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ."
+                                                          },
+    "instance.settings.tabs.general.deleting.button":  {
+                                                           "message":  "Ð£Ð´Ð°Ð»ÐµÐ½Ð¸Ðµ..."
+                                                       },
+    "instance.settings.tabs.general.duplicate-button":  {
+                                                            "message":  "Ð¡Ð¾Ð·Ð´Ð°Ñ‚ÑŒ ÐºÐ¾Ð¿Ð¸ÑŽ"
+                                                        },
+    "instance.settings.tabs.general.duplicate-button.tooltip.installing":  {
+                                                                               "message":  "Ð¡Ð¾Ð·Ð´Ð°Ð½Ð¸Ðµ ÐºÐ¾Ð¿Ð¸Ð¸ Ð½ÐµÐ²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ Ð²Ð¾Â Ð²Ñ€ÐµÐ¼Ñ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²ÐºÐ¸."
+                                                                           },
+    "instance.settings.tabs.general.duplicate-instance":  {
+                                                              "message":  "Ð¡Ð¾Ð·Ð´Ð°Ð½Ð¸Ðµ ÐºÐ¾Ð¿Ð¸Ð¸ ÑÐ±Ð¾Ñ€ÐºÐ¸"
+                                                          },
+    "instance.settings.tabs.general.duplicate-instance.description":  {
+                                                                          "message":  "Ð¡Ð¾Ð·Ð´Ð°Ñ‘Ñ‚ ÐºÐ¾Ð¿Ð¸ÑŽ ÑÐ±Ð¾Ñ€ÐºÐ¸, Ð²ÐºÐ»ÑŽÑ‡Ð°Ñ Ð¼Ð¸Ñ€Ñ‹, Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸, Ð¼Ð¾Ð´Ñ‹ Ð¸Â Ñ‚.â€¯Ð´."
+                                                                      },
+    "instance.settings.tabs.general.edit-icon":  {
+                                                     "message":  "Ð˜Ð·Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ð¸ÐºÐ¾Ð½ÐºÑƒ"
+                                                 },
+    "instance.settings.tabs.general.edit-icon.remove":  {
+                                                            "message":  "Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ Ð¸ÐºÐ¾Ð½ÐºÑƒ"
+                                                        },
+    "instance.settings.tabs.general.edit-icon.replace":  {
+                                                             "message":  "Ð—Ð°Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ð¸ÐºÐ¾Ð½ÐºÑƒ"
+                                                         },
+    "instance.settings.tabs.general.edit-icon.select":  {
+                                                            "message":  "Ð’Ñ‹Ð±Ñ€Ð°Ñ‚ÑŒ Ð¸ÐºÐ¾Ð½ÐºÑƒ"
+                                                        },
+    "instance.settings.tabs.general.library-groups":  {
+                                                          "message":  "Ð“Ñ€ÑƒÐ¿Ð¿Ð¸Ñ€Ð¾Ð²ÐºÐ°"
+                                                      },
+    "instance.settings.tabs.general.library-groups.create":  {
+                                                                 "message":  "Ð¡Ð¾Ð·Ð´Ð°Ñ‚ÑŒ Ð½Ð¾Ð²ÑƒÑŽ Ð³Ñ€ÑƒÐ¿Ð¿Ñƒ"
+                                                             },
+    "instance.settings.tabs.general.library-groups.description":  {
+                                                                      "message":  "ÐŸÐ¾Ð·Ð²Ð¾Ð»ÑÐµÑ‚ Ð¾Ñ€Ð³Ð°Ð½Ð¸Ð·Ð¾Ð²Ð°Ñ‚ÑŒ ÑÐ±Ð¾Ñ€ÐºÐ¸ Ð¿Ð¾Â Ñ€Ð°Ð·Ð½Ñ‹Ð¼ Ñ€Ð°Ð·Ð´ÐµÐ»Ð°Ð¼ Ð²Â Ð±Ð¸Ð±Ð»Ð¸Ð¾Ñ‚ÐµÐºÐµ."
+                                                                  },
+    "instance.settings.tabs.general.library-groups.enter-name":  {
+                                                                     "message":  "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ðµ Ð³Ñ€ÑƒÐ¿Ð¿Ñ‹"
+                                                                 },
+    "instance.settings.tabs.general.name":  {
+                                                "message":  "ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ"
+                                            },
+    "instance.settings.tabs.general.update-channel":  {
+                                                          "message":  "ÐšÐ°Ð½Ð°Ð» Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ"
+                                                      },
+    "instance.settings.tabs.general.update-channel.alpha":  {
+                                                                "message":  "ÐÐ»ÑŒÑ„Ð°"
+                                                            },
+    "instance.settings.tabs.general.update-channel.alpha.description":  {
+                                                                            "message":  "Ð ÐµÐ»Ð¸Ð·Ð½Ñ‹Ðµ, Ð±ÐµÑ‚Ð° Ð¸ Ð°Ð»ÑŒÑ„Ð° Ð²ÐµÑ€ÑÐ¸Ð¸ Ð±ÑƒÐ´ÑƒÑ‚ Ð¾Ñ‚Ð¾Ð±Ñ€Ð°Ð¶Ð°Ñ‚ÑŒÑÑ ÐºÐ°Ðº Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ñ‹Ðµ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ."
+                                                                        },
+    "instance.settings.tabs.general.update-channel.beta":  {
+                                                               "message":  "Ð‘ÐµÑ‚Ð°"
+                                                           },
+    "instance.settings.tabs.general.update-channel.beta.description":  {
+                                                                           "message":  "Ð ÐµÐ»Ð¸Ð·Ð½Ñ‹Ðµ Ð¸ Ð±ÐµÑ‚Ð° Ð²ÐµÑ€ÑÐ¸Ð¸ Ð±ÑƒÐ´ÑƒÑ‚ Ð¾Ñ‚Ð¾Ð±Ñ€Ð°Ð¶Ð°Ñ‚ÑŒÑÑ ÐºÐ°Ðº Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ñ‹Ðµ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ."
+                                                                       },
+    "instance.settings.tabs.general.update-channel.release":  {
+                                                                  "message":  "Ð ÐµÐ»Ð¸Ð·"
+                                                              },
+    "instance.settings.tabs.general.update-channel.release.description":  {
+                                                                              "message":  "Ð¢Ð¾Ð»ÑŒÐºÐ¾ Ñ€ÐµÐ»Ð¸Ð·Ð½Ñ‹Ðµ Ð²ÐµÑ€ÑÐ¸Ð¸ Ð±ÑƒÐ´ÑƒÑ‚ Ð¾Ñ‚Ð¾Ð±Ñ€Ð°Ð¶Ð°Ñ‚ÑŒÑÑ ÐºÐ°Ðº Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ñ‹Ðµ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ."
+                                                                          },
+    "instance.settings.tabs.general.update-channel.select":  {
+                                                                 "message":  "Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ ÐºÐ°Ð½Ð°Ð» Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ"
+                                                             },
+    "instance.settings.tabs.hooks":  {
+                                         "message":  "ÐšÐ¾Ð¼Ð°Ð½Ð´Ñ‹ Ð·Ð°Ð¿ÑƒÑÐºÐ°"
+                                     },
+    "instance.settings.tabs.hooks.custom-hooks":  {
+                                                      "message":  "ÐŸÐµÑ€ÐµÐ¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÐµÐ½Ð¸Ðµ ÐºÐ¾Ð¼Ð°Ð½Ð´ Ð·Ð°Ð¿ÑƒÑÐºÐ°"
+                                                  },
+    "instance.settings.tabs.hooks.description":  {
+                                                     "message":  "ÐŸÐ¾Ð·Ð²Ð¾Ð»ÑÐµÑ‚ Ð¾Ð¿Ñ‹Ñ‚Ð½Ñ‹Ð¼ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑÐ¼ Ð·Ð°Ð´Ð°Ñ‚ÑŒ ÑÐ¸ÑÑ‚ÐµÐ¼Ð½Ñ‹Ðµ ÐºÐ¾Ð¼Ð°Ð½Ð´Ñ‹, Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÑÐµÐ¼Ñ‹Ðµ Ð´Ð¾Â Ð¸Â Ð¿Ð¾ÑÐ»Ðµ Ð·Ð°Ð¿ÑƒÑÐºÐ° Ð¸Ð³Ñ€Ñ‹."
+                                                 },
+    "instance.settings.tabs.hooks.post-exit":  {
+                                                   "message":  "ÐŸÐ¾ÑÐ»Ðµ Ð²Ñ‹Ñ…Ð¾Ð´Ð°"
+                                               },
+    "instance.settings.tabs.hooks.post-exit.description":  {
+                                                               "message":  "Ð’Ñ‹Ð¿Ð¾Ð»Ð½ÑÐµÑ‚ÑÑ Ð¿Ð¾ÑÐ»Ðµ Ð²Ñ‹Ñ…Ð¾Ð´Ð° Ð¸Ð·Â Ð¸Ð³Ñ€Ñ‹."
+                                                           },
+    "instance.settings.tabs.hooks.post-exit.enter":  {
+                                                         "message":  "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ð¼Ð°Ð½Ð´Ñƒ Ð¿Ð¾ÑÐ»Ðµ Ð²Ñ‹Ñ…Ð¾Ð´Ð°..."
+                                                     },
+    "instance.settings.tabs.hooks.pre-launch":  {
+                                                    "message":  "ÐŸÐµÑ€ÐµÐ´ Ð·Ð°Ð¿ÑƒÑÐºÐ¾Ð¼"
+                                                },
+    "instance.settings.tabs.hooks.pre-launch.description":  {
+                                                                "message":  "Ð’Ñ‹Ð¿Ð¾Ð»Ð½ÑÐµÑ‚ÑÑ Ð¿ÐµÑ€ÐµÐ´ Ð·Ð°Ð¿ÑƒÑÐºÐ¾Ð¼ Ð¸Ð³Ñ€Ñ‹."
+                                                            },
+    "instance.settings.tabs.hooks.pre-launch.enter":  {
+                                                          "message":  "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ð¼Ð°Ð½Ð´Ñƒ Ð¿ÐµÑ€ÐµÐ´ Ð·Ð°Ð¿ÑƒÑÐºÐ¾Ð¼..."
+                                                      },
+    "instance.settings.tabs.hooks.title":  {
+                                               "message":  "ÐšÐ¾Ð¼Ð°Ð½Ð´Ñ‹ Ð·Ð°Ð¿ÑƒÑÐºÐ° Ð¸Ð³Ñ€Ñ‹"
+                                           },
+    "instance.settings.tabs.hooks.wrapper":  {
+                                                 "message":  "ÐžÐ±Ñ‘Ñ€Ñ‚ÐºÐ°"
+                                             },
+    "instance.settings.tabs.hooks.wrapper.description":  {
+                                                             "message":  "ÐšÐ¾Ð¼Ð°Ð½Ð´Ð°-Ð¾Ð±Ñ‘Ñ€Ñ‚ÐºÐ° Ð´Ð»ÑÂ Ð·Ð°Ð¿ÑƒÑÐºÐ° Minecraft."
+                                                         },
+    "instance.settings.tabs.hooks.wrapper.enter":  {
+                                                       "message":  "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ð¼Ð°Ð½Ð´Ñƒ-Ð¾Ð±Ñ‘Ñ€Ñ‚ÐºÑƒ..."
+                                                   },
+    "instance.settings.tabs.installation":  {
+                                                "message":  "Ð£ÑÑ‚Ð°Ð½Ð¾Ð²ÐºÐ°"
+                                            },
+    "instance.settings.tabs.installation.loader-version":  {
+                                                               "message":  "Ð’ÐµÑ€ÑÐ¸Ñ {loader}"
+                                                           },
+    "instance.settings.tabs.installation.locked":  {
+                                                       "message":  "ÐŸÐ°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ñ‹ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²ÐºÐ¸ Ð½ÐµÐ´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ñ‹, Ð¿Ð¾ÐºÐ° ÑÐ±Ð¾Ñ€ÐºÐ° Ð·Ð°Ð±Ð»Ð¾ÐºÐ¸Ñ€Ð¾Ð²Ð°Ð½Ð°."
+                                                   },
+    "instance.settings.tabs.java":  {
+                                        "message":  "Java Ð¸ Ð¿Ð°Ð¼ÑÑ‚ÑŒ"
+                                    },
+    "instance.settings.tabs.java.custom-environment-variables":  {
+                                                                     "message":  "ÐŸÐµÑ€ÐµÐ¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÐµÐ½Ð¸Ðµ Ð¿ÐµÑ€ÐµÐ¼ÐµÐ½Ð½Ñ‹Ñ… ÑÑ€ÐµÐ´Ñ‹"
+                                                                 },
+    "instance.settings.tabs.java.custom-java-arguments":  {
+                                                              "message":  "ÐŸÐµÑ€ÐµÐ¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÐµÐ½Ð¸Ðµ Ð°Ñ€Ð³ÑƒÐ¼ÐµÐ½Ñ‚Ð¾Ð² Java"
+                                                          },
+    "instance.settings.tabs.java.custom-java-installation":  {
+                                                                 "message":  "ÐŸÐµÑ€ÐµÐ¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÐµÐ½Ð¸Ðµ Ñ€Ð°ÑÐ¿Ð¾Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ Java"
+                                                             },
+    "instance.settings.tabs.java.custom-memory-allocation":  {
+                                                                 "message":  "ÐŸÐµÑ€ÐµÐ¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÐµÐ½Ð¸Ðµ Ð²Ñ‹Ð´ÐµÐ»ÐµÐ½Ð½Ð¾Ð¹ Ð¿Ð°Ð¼ÑÑ‚Ð¸"
+                                                             },
+    "instance.settings.tabs.java.enter-environment-variables":  {
+                                                                    "message":  "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¿ÐµÑ€ÐµÐ¼ÐµÐ½Ð½Ñ‹Ðµ ÑÑ€ÐµÐ´Ñ‹..."
+                                                                },
+    "instance.settings.tabs.java.enter-java-arguments":  {
+                                                             "message":  "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð°Ñ€Ð³ÑƒÐ¼ÐµÐ½Ñ‚Ñ‹ Java..."
+                                                         },
+    "instance.settings.tabs.java.environment-variables":  {
+                                                              "message":  "ÐŸÐµÑ€ÐµÐ¼ÐµÐ½Ð½Ñ‹Ðµ ÑÑ€ÐµÐ´Ñ‹"
+                                                          },
+    "instance.settings.tabs.java.hooks":  {
+                                              "message":  "ÐšÐ¾Ð¼Ð°Ð½Ð´Ñ‹ Ð·Ð°Ð¿ÑƒÑÐºÐ°"
+                                          },
+    "instance.settings.tabs.java.java-arguments":  {
+                                                       "message":  "ÐÑ€Ð³ÑƒÐ¼ÐµÐ½Ñ‚Ñ‹ Java"
+                                                   },
+    "instance.settings.tabs.java.java-installation":  {
+                                                          "message":  "Ð Ð°ÑÐ¿Ð¾Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Java"
+                                                      },
+    "instance.settings.tabs.java.java-memory":  {
+                                                    "message":  "Ð’Ñ‹Ð´ÐµÐ»ÐµÐ½Ð½Ð°Ñ Ð¿Ð°Ð¼ÑÑ‚ÑŒ"
+                                                },
+    "instance.settings.tabs.java.java-path-placeholder":  {
+                                                              "message":  "/Ð¿ÑƒÑ‚ÑŒ/Ðº/java"
+                                                          },
+    "instance.settings.tabs.sharing":  {
+                                           "message":  "Ð”Ð¾ÑÑ‚ÑƒÐ¿"
+                                       },
+    "instance.settings.tabs.window":  {
+                                          "message":  "ÐžÐºÐ½Ð¾"
+                                      },
+    "instance.settings.tabs.window.custom-window-settings":  {
+                                                                 "message":  "ÐŸÐµÑ€ÐµÐ¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÐµÐ½Ð¸Ðµ Ð½Ð°ÑÑ‚Ñ€Ð¾ÐµÐº Ð¾ÐºÐ½Ð°"
+                                                             },
+    "instance.settings.tabs.window.fullscreen":  {
+                                                     "message":  "ÐŸÐ¾Ð»Ð½Ð¾ÑÐºÑ€Ð°Ð½Ð½Ñ‹Ð¹ Ñ€ÐµÐ¶Ð¸Ð¼"
+                                                 },
+    "instance.settings.tabs.window.fullscreen.description":  {
+                                                                 "message":  "Ð—Ð°Ð¿ÑƒÑÐºÐ°Ñ‚ÑŒ Ð¸Ð³Ñ€Ñƒ Ð²Â Ð¿Ð¾Ð»Ð½Ð¾ÑÐºÑ€Ð°Ð½Ð½Ð¾Ð¼ Ñ€ÐµÐ¶Ð¸Ð¼Ðµ (Ñ‡ÐµÑ€ÐµÐ· options.txt)."
+                                                             },
+    "instance.settings.tabs.window.height":  {
+                                                 "message":  "Ð’Ñ‹ÑÐ¾Ñ‚Ð°"
+                                             },
+    "instance.settings.tabs.window.height.description":  {
+                                                             "message":  "Ð’Ñ‹ÑÐ¾Ñ‚Ð° Ð¾ÐºÐ½Ð° Ð¸Ð³Ñ€Ñ‹ Ð¿Ñ€Ð¸Â Ð·Ð°Ð¿ÑƒÑÐºÐµ."
+                                                         },
+    "instance.settings.tabs.window.height.enter":  {
+                                                       "message":  "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð²Ñ‹ÑÐ¾Ñ‚Ñƒ..."
+                                                   },
+    "instance.settings.tabs.window.width":  {
+                                                "message":  "Ð¨Ð¸Ñ€Ð¸Ð½Ð°"
+                                            },
+    "instance.settings.tabs.window.width.description":  {
+                                                            "message":  "Ð¨Ð¸Ñ€Ð¸Ð½Ð° Ð¾ÐºÐ½Ð° Ð¸Ð³Ñ€Ñ‹ Ð¿Ñ€Ð¸Â Ð·Ð°Ð¿ÑƒÑÐºÐµ."
+                                                        },
+    "instance.settings.tabs.window.width.enter":  {
+                                                      "message":  "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÑˆÐ¸Ñ€Ð¸Ð½Ñƒ..."
+                                                  },
+    "instance.shared-instance.error.title":  {
+                                                 "message":  "ÐŸÑ€Ð¾Ð¸Ð·Ð¾ÑˆÐ»Ð° Ð¾ÑˆÐ¸Ð±ÐºÐ°"
+                                             },
+    "instance.shared-instance.network-error.text":  {
+                                                        "message":  "ÐÐµ ÑƒÐ´Ð°Ð»Ð¾ÑÑŒ Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒÑÑ Ðº API ÑÐ±Ð¾Ñ€Ð¾Ðº"
+                                                    },
+    "instance.shared-instance.network-error.title":  {
+                                                         "message":  "ÐžÑˆÐ¸Ð±ÐºÐ° ÑÐµÑ‚Ð¸"
+                                                     },
+    "instance.shared-instance.owner-tooltip":  {
+                                                   "message":  "ÐšÐ¾Ð½Ñ‚ÐµÐ½Ñ‚ ÑÐ±Ð¾Ñ€ÐºÐ¸ Ð´Ð¾ÑÑ‚ÑƒÐ¿ÐµÐ½ Ð´Ñ€ÑƒÐ³Ð¸Ð¼ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑÐ¼."
+                                               },
+    "instance.shared-instance.publish-review.added-label":  {
+                                                                "message":  "Ð”Ð¾Ð±Ð°Ð²Ð»ÐµÐ½"
+                                                            },
+    "instance.shared-instance.publish-review.admonition-header":  {
+                                                                      "message":  "ÐžÑ‚Ð¿Ñ€Ð°Ð²ÐºÐ° Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ð¹ Ð¸Ð³Ñ€Ð¾ÐºÐ°Ð¼"
+                                                                  },
+    "instance.shared-instance.publish-review.config-title-v2":  {
+                                                                    "message":  "Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ñ„Ð°Ð¹Ð»Ñ‹ Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸"
+                                                                },
+    "instance.shared-instance.publish-review.description":  {
+                                                                "message":  "ÐžÐ·Ð½Ð°ÐºÐ¾Ð¼ÑŒÑ‚ÐµÑÑŒ Ñ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸ÑÐ¼Ð¸ Ð² ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ð¼Ð¾Ð¼ Ð¸ Ð²Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ñ„Ð°Ð¹Ð»Ñ‹ ÐºÐ¾Ð½Ñ„Ð¸Ð³ÑƒÑ€Ð°Ñ†Ð¸Ð¸, ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ðµ ÑÐ»ÐµÐ´ÑƒÐµÑ‚ Ð²ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ð² ÑÑ‚Ð¾ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ."
+                                                            },
+    "instance.shared-instance.publish-review.header":  {
+                                                           "message":  "ÐŸÑ€Ð¾Ð²ÐµÑ€ÑŒÑ‚Ðµ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ"
+                                                       },
+    "instance.shared-instance.publish-review.publish-button":  {
+                                                                   "message":  "ÐžÑ‚Ð¿Ñ€Ð°Ð²Ð¸Ñ‚ÑŒ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ"
+                                                               },
+    "instance.shared-instance.publish-review.removed-label":  {
+                                                                  "message":  "Ð£Ð´Ð°Ð»Ñ‘Ð½"
+                                                              },
+    "instance.shared-instance.tooltip":  {
+                                             "message":  "Ð¡Ð¾Ð´ÐµÑ€Ð¶Ð¸Ð¼Ð¾Ðµ Ð´Ð°Ð½Ð½Ð¾Ð³Ð¾ ÑÐºÐ·ÐµÐ¼Ð¿Ð»ÑÑ€Ð° ÑƒÐ¿Ñ€Ð°Ð²Ð»ÑÐµÑ‚ÑÑ Ð´Ñ€ÑƒÐ³Ð¸Ð¼ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÐµÐ¼."
+                                         },
+    "instance.shared-instance.unavailable.access-revoked-text":  {
+                                                                     "message":  "Ð”Ð¾ÑÑ‚ÑƒÐ¿ Ðº ÑÐ±Ð¾Ñ€ÐºÐµ Ð¾Ñ‚Ð¾Ð·Ð²Ð°Ð½. Ð¡Ð±Ð¾Ñ€ÐºÐ° Ð²ÑÑ‘ ÐµÑ‰Ñ‘ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ð°, Ð½Ð¾ Ð¾Ð½Ð° Ð½Ðµ Ð±ÑƒÐ´ÐµÑ‚ ÑÐ²ÑÐ·Ð°Ð½Ð° Ð¸ Ð½Ðµ Ð±ÑƒÐ´ÐµÑ‚ Ð¾Ð±Ð½Ð¾Ð²Ð»ÑÑ‚ÑŒÑÑ."
+                                                                 },
+    "instance.shared-instance.unavailable.deleted-text":  {
+                                                              "message":  "ÐžÑÐ½Ð¾Ð²Ð½Ð¾Ð¹ ÑÐºÐ·ÐµÐ¼Ð¿Ð»ÑÑ€ Ð±Ñ‹Ð» ÑƒÐ´Ð°Ð»ÐµÐ½. Ð­Ñ‚Ð¾Ñ‚ ÑÐºÐ·ÐµÐ¼Ð¿Ð»ÑÑ€ Ð¿Ð¾-Ð¿Ñ€ÐµÐ¶Ð½ÐµÐ¼Ñƒ Ð´Ð¾ÑÑ‚ÑƒÐ¿ÐµÐ½, Ð½Ð¾ Ð¾Ð½ Ð±Ð¾Ð»ÑŒÑˆÐµ Ð½Ðµ ÑÐ²ÑÐ·Ð°Ð½ Ñ Ð¿Ñ€ÐµÐ´Ñ‹Ð´ÑƒÑ‰Ð¸Ð¼ Ð¸ Ð½Ðµ Ð±ÑƒÐ´ÐµÑ‚ Ð¿Ð¾Ð»ÑƒÑ‡Ð°Ñ‚ÑŒ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ."
+                                                          },
+    "instance.shared-instance.unavailable.locked-text":  {
+                                                             "message":  "Ð­Ñ‚Ð¾Ñ‚ Ð¾Ð±Ñ‰Ð¸Ð¹ ÑÐºÐ·ÐµÐ¼Ð¿Ð»ÑÑ€ Ð±Ñ‹Ð» Ð·Ð°Ð±Ð»Ð¾ÐºÐ¸Ñ€Ð¾Ð²Ð°Ð½ ÐºÐ¾Ð¼Ð°Ð½Ð´Ð¾Ð¹ Ð¼Ð¾Ð´ÐµÑ€Ð°Ñ†Ð¸Ð¸ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚Ð°. ÐžÐ½ Ð±Ð¾Ð»ÑŒÑˆÐµ Ð½Ðµ Ð±ÑƒÐ´ÐµÑ‚ Ð¿Ð¾Ð»ÑƒÑ‡Ð°Ñ‚ÑŒ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ Ð¾Ñ‚ Ð¾ÑÐ½Ð¾Ð²Ð½Ð¾Ð³Ð¾ ÑÐºÐ·ÐµÐ¼Ð¿Ð»ÑÑ€Ð° Ð¸ Ð½ÐµÐ´Ð¾ÑÑ‚ÑƒÐ¿ÐµÐ½ Ð´Ð»Ñ Ð¸Ð³Ñ€Ñ‹."
+                                                         },
+    "instance.shared-instance.unavailable.locked-title":  {
+                                                              "message":  "Ð¡Ð±Ð¾Ñ€ÐºÐ° Ð·Ð°Ð±Ð»Ð¾ÐºÐ¸Ñ€Ð¾Ð²Ð°Ð½Ð°"
+                                                          },
+    "instance.shared-instance.unavailable.manager-fallback":  {
+                                                                  "message":  "Ð¼ÐµÐ½ÐµÐ´Ð¶ÐµÑ€ ÑÐ±Ð¾Ñ€ÐºÐ¸"
+                                                              },
+    "instance.shared-instance.unavailable.text":  {
+                                                      "message":  "Ð’Ð°Ñˆ Ð»Ð¾ÐºÐ°Ð»ÑŒÐ½Ñ‹Ð¹ ÑÐºÐ·ÐµÐ¼Ð¿Ð»ÑÑ€ Ð¿Ð¾-Ð¿Ñ€ÐµÐ¶Ð½ÐµÐ¼Ñƒ Ð´Ð¾ÑÑ‚ÑƒÐ¿ÐµÐ½, Ð½Ð¾ Ð¾Ð½ Ð±Ð¾Ð»ÑŒÑˆÐµ Ð½Ðµ ÑÐ²ÑÐ·Ð°Ð½ Ñ ÑÐ¸ÑÑ‚ÐµÐ¼Ð¾Ð¹ Ð¸ Ð½Ðµ Ð±ÑƒÐ´ÐµÑ‚ Ð¿Ð¾Ð»ÑƒÑ‡Ð°Ñ‚ÑŒ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ."
+                                                  },
+    "instance.shared-instance.unavailable.title":  {
+                                                       "message":  "Ð¡Ð±Ð¾Ñ€ÐºÐ° Ð±Ð¾Ð»ÑŒÑˆÐµ Ð½ÐµÐ´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ð°"
+                                                   },
+    "instance.worlds.a_minecraft_server":  {
+                                               "message":  "Ð¡ÐµÑ€Ð²ÐµÑ€ Minecraft"
+                                           },
+    "instance.worlds.cant_connect":  {
+                                         "message":  "ÐÐµÐ²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒÑÑ ÐºÂ ÑÐµÑ€Ð²ÐµÑ€Ñƒ"
+                                     },
+    "instance.worlds.copy_address":  {
+                                         "message":  "ÐšÐ¾Ð¿Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð°Ð´Ñ€ÐµÑ"
+                                     },
+    "instance.worlds.create_shortcut":  {
+                                            "message":  "Ð¡Ð¾Ð·Ð´Ð°Ñ‚ÑŒ ÑÑ€Ð»Ñ‹Ðº"
+                                        },
+    "instance.worlds.dont_show_on_home":  {
+                                              "message":  "ÐÐµ Ð¿Ð¾ÐºÐ°Ð·Ñ‹Ð²Ð°Ñ‚ÑŒ Ð½Ð° Ð³Ð»Ð°Ð²Ð½Ð¾Ð¹"
+                                          },
+    "instance.worlds.game_already_open":  {
+                                              "message":  "Ð¡Ð±Ð¾Ñ€ÐºÐ° ÑƒÐ¶Ðµ Ð·Ð°Ð¿ÑƒÑ‰ÐµÐ½Ð°"
+                                          },
+    "instance.worlds.hardcore":  {
+                                     "message":  "Ð¥Ð°Ñ€Ð´ÐºÐ¾Ñ€"
+                                 },
+    "instance.worlds.incompatible_server":  {
+                                                "message":  "Ð¡ÐµÑ€Ð²ÐµÑ€ Ð½ÐµÑÐ¾Ð²Ð¼ÐµÑÑ‚Ð¸Ð¼"
+                                            },
+    "instance.worlds.linked_server":  {
+                                          "message":  "Ð£Ð¿Ñ€Ð°Ð²Ð»ÑÐµÑ‚ÑÑ ÑÐµÑ€Ð²ÐµÑ€Ð½Ñ‹Ð¼ Ð¿Ñ€Ð¾ÐµÐºÑ‚Ð¾Ð¼"
+                                      },
+    "instance.worlds.no_contact":  {
+                                       "message":  "ÐÐµÂ ÑƒÐ´Ð°Ð»Ð¾ÑÑŒ ÑÐ²ÑÐ·Ð°Ñ‚ÑŒÑÑ ÑÂ ÑÐµÑ€Ð²ÐµÑ€Ð¾Ð¼"
+                                   },
+    "instance.worlds.no_server_quick_play":  {
+                                                 "message":  "ÐŸÐ¾Ð´ÐºÐ»ÑŽÑ‡Ð°Ñ‚ÑŒÑÑ ÐºÂ ÑÐµÑ€Ð²ÐµÑ€Ð°Ð¼ Ð½Ð°Ð¿Ñ€ÑÐ¼ÑƒÑŽ Ð¼Ð¾Ð¶Ð½Ð¾ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð²Â MinecraftÂ AlphaÂ 1.0.5 Ð¸Â Ð²Ñ‹ÑˆÐµ"
+                                             },
+    "instance.worlds.no_singleplayer_quick_play":  {
+                                                       "message":  "ÐžÑ‚ÐºÑ€Ñ‹Ð²Ð°Ñ‚ÑŒ Ð¼Ð¸Ñ€Ñ‹ Ð½Ð°Ð¿Ñ€ÑÐ¼ÑƒÑŽ Ð¼Ð¾Ð¶Ð½Ð¾ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð²Â MinecraftÂ 1.20 Ð¸Â Ð²Ñ‹ÑˆÐµ"
+                                                   },
+    "instance.worlds.play_instance":  {
+                                          "message":  "Ð—Ð°Ð¿ÑƒÑÑ‚Ð¸Ñ‚ÑŒ ÑÐ±Ð¾Ñ€ÐºÑƒ"
+                                      },
+    "instance.worlds.view_instance":  {
+                                          "message":  "ÐŸÐ¾ÑÐ¼Ð¾Ñ‚Ñ€ÐµÑ‚ÑŒ ÑÐ±Ð¾Ñ€ÐºÑƒ"
+                                      },
+    "instance.worlds.world_in_use":  {
+                                         "message":  "ÐœÐ¸Ñ€ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐµÑ‚ÑÑ"
+                                     },
+    "minecraft-account.add-account":  {
+                                          "message":  "Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð°ÐºÐºÐ°ÑƒÐ½Ñ‚"
+                                      },
+    "minecraft-account.label":  {
+                                    "message":  "ÐÐºÐºÐ°ÑƒÐ½Ñ‚ Minecraft"
+                                },
+    "minecraft-account.not-signed-in":  {
+                                            "message":  "Ð’Ñ…Ð¾Ð´ Ð½ÐµÂ Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½"
+                                        },
+    "minecraft-account.remove-account":  {
+                                             "message":  "Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ Ð°ÐºÐºÐ°ÑƒÐ½Ñ‚"
+                                         },
+    "minecraft-account.select-account":  {
+                                             "message":  "Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð°ÐºÐºÐ°ÑƒÐ½Ñ‚"
+                                         },
+    "minecraft-account.sign-in":  {
+                                      "message":  "Ð’Ð¾Ð¹Ñ‚Ð¸ Ð²Â Minecraft"
+                                  },
+    "minecraft-required.description":  {
+                                           "message":  "Ð”Ð»Ñ Ð·Ð°Ð¿ÑƒÑÐºÐ° Ð¸ Ð¸Ð³Ñ€Ñ‹ Ñ‚Ñ€ÐµÐ±ÑƒÐµÑ‚ÑÑ Ð°ÐºÐºÐ°ÑƒÐ½Ñ‚ Microsoft Ñ Ð¿Ñ€Ð¸Ð¾Ð±Ñ€ÐµÑ‚Ñ‘Ð½Ð½Ñ‹Ð¼ Minecraft."
+                                       },
+    "minecraft-required.description-header":  {
+                                                  "message":  "Ð’Ð¾Ð¹Ð´Ð¸Ñ‚Ðµ Ð² Ð°ÐºÐºÐ°ÑƒÐ½Ñ‚ Microsoft"
+                                              },
+    "minecraft-required.dont-have-account":  {
+                                                 "message":  "ÐÐµÑ‚ Ð°ÐºÐºÐ°ÑƒÐ½Ñ‚Ð°?"
+                                             },
+    "minecraft-required.get-minecraft":  {
+                                             "message":  "ÐŸÑ€Ð¸Ð¾Ð±Ñ€ÐµÑÑ‚Ð¸ Minecraft"
+                                         },
+    "minecraft-required.get-support":  {
+                                           "message":  "ÐŸÐ¾Ð´Ð´ÐµÑ€Ð¶ÐºÐ°"
+                                       },
+    "minecraft-required.header":  {
+                                      "message":  "Ð¢Ñ€ÐµÐ±ÑƒÐµÑ‚ÑÑ Minecraft"
+                                  },
+    "minecraft-required.sign-in":  {
+                                       "message":  "Ð’Ð¾Ð¹Ñ‚Ð¸ Ð²Â Microsoft"
+                                   },
+    "modal.modrinth-account-required.browser-description":  {
+                                                                "message":  "ÐžÑ‚ÐºÑ€Ñ‹Ð»Ð°ÑÑŒ Ð²ÐºÐ»Ð°Ð´ÐºÐ° Ð´Ð»Ñ Ð²Ñ…Ð¾Ð´Ð°. Ð—Ð°Ð²ÐµÑ€ÑˆÐµÐ½Ð¸Ðµ Ð²Ñ…Ð¾Ð´ Ð¸ Ð²ÐµÑ€Ð½Ð¸Ñ‚ÐµÑÑŒ Ð² Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ."
+                                                            },
+    "modal.modrinth-account-required.continue-in-browser-heading":  {
+                                                                        "message":  "ÐŸÑ€Ð¾Ð´Ð¾Ð»Ð¶Ð¸Ñ‚Ðµ Ð² Ð±Ñ€Ð°ÑƒÐ·ÐµÑ€Ðµ"
+                                                                    },
+    "modal.modrinth-account-required.create-account-button":  {
+                                                                  "message":  "Ð¡Ð¾Ð·Ð´Ð°Ñ‚ÑŒ Ð°ÐºÐºÐ°ÑƒÐ½Ñ‚"
+                                                              },
+    "modal.modrinth-account-required.description":  {
+                                                        "message":  "Ð’Ð¾Ð¹Ð´Ð¸Ñ‚Ðµ Ð² Ð°ÐºÐºÐ°ÑƒÐ½Ñ‚ Modrinth, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÑŒ ÑÑ‚Ñƒ Ñ„ÑƒÐ½ÐºÑ†Ð¸ÑŽ."
+                                                    },
+    "modal.modrinth-account-required.header":  {
+                                                   "message":  "Ð¢Ñ€ÐµÐ±ÑƒÐµÑ‚ÑÑ Ð°ÐºÐºÐ°ÑƒÐ½Ñ‚"
+                                               },
+    "modal.modrinth-account-required.open-browser-again-button":  {
+                                                                      "message":  "ÐžÑ‚ÐºÑ€Ñ‹Ñ‚ÑŒ Ð±Ñ€Ð°ÑƒÐ·ÐµÑ€ ÑÐ½Ð¾Ð²Ð°"
+                                                                  },
+    "modal.modrinth-account-required.sign-in-button":  {
+                                                           "message":  "Ð’Ð¾Ð¹Ñ‚Ð¸ Ð²Â Modrinth"
+                                                       },
+    "modal.modrinth-account-required.sign-in-heading":  {
+                                                            "message":  "Ð’Ð¾Ð¹Ð´Ð¸Ñ‚Ðµ Ð² Ð°ÐºÐºÐ°ÑƒÐ½Ñ‚ Modrinth"
+                                                        },
+    "modal.modrinth-account-required.signing-in-header":  {
+                                                              "message":  "Ð’Ñ…Ð¾Ð´"
+                                                          },
+    "modal.modrinth-account-required.support-prompt":  {
+                                                           "message":  "ÐŸÑ€Ð¾Ð±Ð»ÐµÐ¼Ñ‹ Ñ Ð²Ñ…Ð¾Ð´Ð¾Ð¼? \u003csupport\u003eÐžÐ±Ñ€Ð°Ñ‚Ð¸Ñ‚ÐµÑÑŒ Ð² Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶ÐºÑƒ\u003c/support\u003e"
+                                                       },
+    "modal.modrinth-account-required.waiting-for-browser":  {
+                                                                "message":  "ÐžÐ¶Ð¸Ð´Ð°Ð½Ð¸Ðµ Ð¿Ð¾Ð´Ñ‚Ð²ÐµÑ€Ð¶Ð´ÐµÐ½Ð¸Ñ Ð±Ñ€Ð°ÑƒÐ·ÐµÑ€Ð°..."
+                                                            },
+    "search.filter.locked.instance":  {
+                                          "message":  "Ð£Ð¿Ñ€Ð°Ð²Ð»ÑÐµÑ‚ÑÑ ÑÐ±Ð¾Ñ€ÐºÐ¾Ð¹"
+                                      },
+    "search.filter.locked.instance-game-version.title":  {
+                                                             "message":  "Ð’ÐµÑ€ÑÐ¸Ñ Ð¸Ð³Ñ€Ñ‹ ÑƒÐ¿Ñ€Ð°Ð²Ð»ÑÐµÑ‚ÑÑ ÑÐ±Ð¾Ñ€ÐºÐ¾Ð¹"
+                                                         },
+    "search.filter.locked.instance-loader.title":  {
+                                                       "message":  "Ð—Ð°Ð³Ñ€ÑƒÐ·Ñ‡Ð¸Ðº ÑƒÐ¿Ñ€Ð°Ð²Ð»ÑÐµÑ‚ÑÑ ÑÐ±Ð¾Ñ€ÐºÐ¾Ð¹"
+                                                   },
+    "search.filter.locked.instance.sync":  {
+                                               "message":  "Ð˜ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÑŒ Ð¸Ð· ÑÐ±Ð¾Ñ€ÐºÐ¸"
+                                           },
+    "search.filter.locked.server":  {
+                                        "message":  "Ð£Ð¿Ñ€Ð°Ð²Ð»ÑÐµÑ‚ÑÑ ÑÐµÑ€Ð²ÐµÑ€Ð¾Ð¼"
+                                    },
+    "search.filter.locked.server-environment.title":  {
+                                                          "message":  "Ð’Â ÑÐµÑ€Ð²ÐµÑ€Ð½Ð¾Ð¹ ÑÐ±Ð¾Ñ€ÐºÐµ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ñ‹ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ ÐºÐ»Ð¸ÐµÐ½Ñ‚ÑÐºÐ¸Ðµ Ð¼Ð¾Ð´Ñ‹"
+                                                      },
+    "search.filter.locked.server-game-version.title":  {
+                                                           "message":  "Ð’ÐµÑ€ÑÐ¸Ñ Ð¸Ð³Ñ€Ñ‹ ÑƒÐ¿Ñ€Ð°Ð²Ð»ÑÐµÑ‚ÑÑ ÑÐµÑ€Ð²ÐµÑ€Ð¾Ð¼"
+                                                       },
+    "search.filter.locked.server-loader.title":  {
+                                                     "message":  "Ð—Ð°Ð³Ñ€ÑƒÐ·Ñ‡Ð¸Ðº ÑƒÐ¿Ñ€Ð°Ð²Ð»ÑÐµÑ‚ÑÑ ÑÐµÑ€Ð²ÐµÑ€Ð¾Ð¼"
+                                                 },
+    "settings.sidebar.label.account":  {
+                                           "message":  "ÐÐºÐºÐ°ÑƒÐ½Ñ‚"
+                                       },
+    "settings.sidebar.label.display":  {
+                                           "message":  "ÐžÑ‚Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ðµ"
+                                       }
 }

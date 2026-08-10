@@ -17,11 +17,8 @@ import {
 	LibraryIcon,
 	LogInIcon,
 	LogOutIcon,
-	NotepadTextIcon,
-	NewspaperIcon,
 	PlusIcon,
 	RefreshCwIcon,
-	LeftArrowIcon,
 	RightArrowIcon,
 	ServerStackIcon,
 	SettingsIcon,
@@ -31,24 +28,23 @@ import {
 import {
 	Admonition,
 	Avatar,
-	ButtonStyled,
 	commonMessages,
 	ContentInstallModal,
 	ContentUpdaterModal,
 	CreationFlowModal,
 	defineMessages,
 	I18nDebugPanel,
+	IconButton,
 	IntlFormatted,
 	LoadingBar,
 	NotificationPanel,
-	OverflowMenu,
 	PopupNotificationPanel,
 	provideModalBehavior,
 	provideModrinthClient,
 	provideNotificationManager,
 	providePageContext,
 	providePopupNotificationManager,
-	TextLogo,
+	TeleportOverflowMenu,
 	useDebugLogger,
 	useFormatBytes,
 	useHostingIntercom,
@@ -123,6 +119,7 @@ import {
 } from '@/helpers/utils.js'
 import { start_join_server, start_join_singleplayer_world } from '@/helpers/worlds.ts'
 import i18n from '@/i18n.config'
+import { instanceKeys } from '@/pages/instance/query-options'
 import {
 	appUpdateState,
 	downloadAvailableAppUpdate,
@@ -245,7 +242,7 @@ const { data: authenticatedModrinthUser } = useQuery({
 	retry: false,
 })
 useQuery({
-	queryKey: computed(() => ['shared-instance-eligibility', credentials.value?.user?.id]),
+	queryKey: computed(() => instanceKeys.sharedEligibility(credentials.value?.user?.id)),
 	queryFn: can_current_user_use_shared_instances,
 	enabled: () => !!credentials.value?.session && !!credentials.value?.user?.id,
 	retry: false,
@@ -1572,8 +1569,10 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 			<NavButton
 				v-tooltip.right="formatMessage(commonMessages.discoverContentLabel)"
 				to="/browse/modpack"
-				:is-primary="() => route.path.startsWith('/browse') && !route.query.i"
-				:is-subpage="(route) => route.path.startsWith('/project') && !route.query.i"
+				:is-primary="() => route.path.startsWith('/browse') && !route.query.i && !route.query.sid"
+				:is-subpage="
+					(route) => route.path.startsWith('/project') && !route.query.i && !route.query.sid
+				"
 			>
 				<CompassIcon />
 			</NavButton>
@@ -1597,7 +1596,11 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 				v-tooltip.right="'ByteBuilders Hosting'"
 				to="/hosting/manage"
 				:is-primary="(r) => r.path === '/hosting/manage' || r.path === '/hosting/manage/'"
-				:is-subpage="(r) => r.path.startsWith('/hosting/manage/') && r.path !== '/hosting/manage/'"
+				:is-subpage="
+					(r) =>
+						(r.path.startsWith('/hosting/manage/') && r.path !== '/hosting/manage/') ||
+						((r.path.startsWith('/browse') || r.path.startsWith('/project')) && r.query.sid)
+				"
 			>
 				<ServerStackIcon />
 			</NavButton>
@@ -1618,22 +1621,29 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 			>
 				<SettingsIcon />
 			</NavButton>
-			<OverflowMenu
+			<TeleportOverflowMenu
 				v-if="credentials?.user"
 				v-tooltip.right="formatMessage(messages.modrinthAccount)"
-				class="w-12 h-12 text-primary rounded-full flex items-center justify-center text-2xl transition-all bg-transparent hover:bg-button-bg hover:text-contrast border-0 cursor-pointer"
+				type="quiet"
+				size="xl"
+				label="More options"
 				:options="[
 					{
 						id: 'view-profile',
+						label: formatMessage(messages.signedInAs, {
+							username: credentials.user.username,
+						}),
 						action: () => router.push(`/user/${encodeURIComponent(credentials.user.username)}`),
 					},
 					{
 						id: 'sign-out',
+						label: formatMessage(commonMessages.signOutButton),
+						tone: 'red',
 						action: () => logOut(),
-						color: 'danger',
 					},
 				]"
 				placement="right-end"
+				:distance="4"
 			>
 				<Avatar :src="credentials?.user?.avatar_url" alt="" size="32px" circle />
 				<template #view-profile>
@@ -1656,7 +1666,7 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 					<LogOutIcon />
 					{{ formatMessage(commonMessages.signOutButton) }}
 				</template>
-			</OverflowMenu>
+			</TeleportOverflowMenu>
 			<NavButton
 				v-else
 				v-tooltip.right="formatMessage(messages.signInToModrinthAccount)"
@@ -1666,38 +1676,47 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 			</NavButton>
 		</div>
 		<div data-tauri-drag-region class="app-grid-statusbar bg-bg-raised h-[--top-bar-height] flex">
-			<div data-tauri-drag-region class="flex min-w-0 flex-1 overflow-hidden p-3">
-				<ByteLauncherLogo class="app-brand-logo h-full w-auto shrink-0 text-contrast pointer-events-none" />
-				<div data-tauri-drag-region class="flex shrink-0 items-center gap-1 ml-3">
-					<button
-						class="cursor-pointer p-0 m-0 text-contrast border-none outline-none bg-button-bg rounded-full flex items-center justify-center w-6 h-6 hover:brightness-75 transition-all"
+			<div data-tauri-drag-region class="flex min-w-0 flex-1 items-center overflow-hidden p-2">
+				<ByteLauncherLogo class="app-brand-logo h-7 w-auto shrink-0 text-contrast pointer-events-none" />
+				<div data-tauri-drag-region class="ml-2 flex shrink-0 items-center gap-2">
+					<IconButton
+						type="outlined"
+						label="Go back"
+						class="!h-7 !min-w-7 !w-7 !border !border-surface-4 !p-0 !opacity-100"
+						:disabled="!canNavigateBack"
 						@click="router.back()"
 					>
-						<LeftArrowIcon />
-					</button>
-					<button
-						class="cursor-pointer p-0 m-0 text-contrast border-none outline-none bg-button-bg rounded-full flex items-center justify-center w-6 h-6 hover:brightness-75 transition-all"
+						<ChevronLeftIcon
+							class="!size-4 !text-primary"
+							:class="{ 'opacity-20': !canNavigateBack }"
+						/>
+					</IconButton>
+					<IconButton
+						type="outlined"
+						label="Go forward"
+						class="!h-7 !min-w-7 !w-7 !border !border-surface-4 !p-0 !opacity-100"
+						:disabled="!canNavigateForward"
 						@click="router.forward()"
 					>
-						<RightArrowIcon />
-					</button>
+						<ChevronRightIcon
+							class="!size-4 !text-primary"
+							:class="{ 'opacity-20': !canNavigateForward }"
+						/>
+					</IconButton>
 				</div>
 				<Breadcrumbs />
 			</div>
 			<section data-tauri-drag-region class="flex shrink-0 ml-auto items-center">
-				<ButtonStyled
+				<IconButton
 					v-if="!forceSidebar && themeStore.toggleSidebar"
-					:type="sidebarToggled ? 'standard' : 'transparent'"
-					circular
+					:type="sidebarToggled ? 'base' : 'quiet'"
+					label="Next image"
+					class="mr-3 transition-transform"
+					:class="{ 'rotate-180': !sidebarToggled }"
+					@click="sidebarToggled = !sidebarToggled"
 				>
-					<button
-						class="mr-3 transition-transform"
-						:class="{ 'rotate-180': !sidebarToggled }"
-						@click="sidebarToggled = !sidebarToggled"
-					>
-						<RightArrowIcon />
-					</button>
-				</ButtonStyled>
+					<RightArrowIcon />
+				</IconButton>
 				<div class="flex mr-3">
 					<Suspense>
 						<AppActionBar />
