@@ -1,6 +1,6 @@
 <script setup>
 import { EyeIcon, EyeOffIcon, HistoryIcon, NewspaperIcon } from '@modrinth/assets'
-import { ButtonStyled, NewsArticleCard } from '@modrinth/ui'
+import { ButtonLink, NewsArticleCard } from '@modrinth/ui'
 import { computed, ref } from 'vue'
 
 import ContextMenu from '@/components/ui/ContextMenu.vue'
@@ -105,11 +105,16 @@ function toggleShowHidden() {
 					<EyeIcon class="h-3.5 w-3.5" /> Unhide
 				</button>
 			</div>
-			<ButtonStyled color="brand" size="large">
-				<a href="https://modrinth.com/news" target="_blank" class="my-4">
-					<NewspaperIcon /> View all news
-				</a>
-			</ButtonStyled>
+			<ButtonLink
+				type="colored"
+				color="brand"
+				size="xl"
+				href="https://modrinth.com/news"
+				target="_blank"
+				class="my-4"
+			>
+				<NewspaperIcon /> View all news
+			</ButtonLink>
 		</div>
 		<ContextMenu ref="articleMenu" @option-clicked="onMenuOption">
 			<template #hide><EyeOffIcon /> Hide this article</template>

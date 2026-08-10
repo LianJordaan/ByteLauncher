@@ -7,7 +7,7 @@ import {
 	StopCircleIcon,
 	TimerIcon,
 } from '@modrinth/assets'
-import { Avatar, ButtonStyled, injectNotificationManager, useRelativeTime } from '@modrinth/ui'
+import { Avatar, IconButton, injectNotificationManager, useRelativeTime } from '@modrinth/ui'
 import { convertFileSrc } from '@tauri-apps/api/core'
 import dayjs from 'dayjs'
 import { computed, onMounted, onUnmounted, ref } from 'vue'
@@ -142,18 +142,18 @@ onUnmounted(() => unlisten?.())
 			</div>
 		</div>
 		<div class="shrink-0" @click.stop>
-			<ButtonStyled v-if="playing" size="large" color="red" circular>
-				<button v-tooltip="'Stop'" @click="stop"><StopCircleIcon /></button>
-			</ButtonStyled>
-			<ButtonStyled v-else-if="modLoading || installing" size="large" color="standard" circular>
-				<button v-tooltip="'Loading…'" disabled><SpinnerIcon class="animate-spin" /></button>
-			</ButtonStyled>
-			<ButtonStyled v-else-if="!installed" size="large" color="brand" circular>
-				<button v-tooltip="'Repair'" @click="repair"><DownloadIcon /></button>
-			</ButtonStyled>
-			<ButtonStyled v-else size="large" color="brand" circular>
-				<button v-tooltip="'Play'" @click="play"><PlayIcon class="translate-x-[2px]" /></button>
-			</ButtonStyled>
+			<IconButton v-if="playing" v-tooltip="'Stop'" type="colored" color="red" size="xl" label="Stop" @click="stop">
+				<StopCircleIcon />
+			</IconButton>
+			<IconButton v-else-if="modLoading || installing" v-tooltip="'Loading…'" size="xl" label="Loading" disabled>
+				<SpinnerIcon class="animate-spin" />
+			</IconButton>
+			<IconButton v-else-if="!installed" v-tooltip="'Repair'" type="colored" color="brand" size="xl" label="Repair" @click="repair">
+				<DownloadIcon />
+			</IconButton>
+			<IconButton v-else v-tooltip="'Play'" type="colored" color="brand" size="xl" label="Play" @click="play">
+				<PlayIcon class="translate-x-[2px]" />
+			</IconButton>
 		</div>
 	</div>
 </template>

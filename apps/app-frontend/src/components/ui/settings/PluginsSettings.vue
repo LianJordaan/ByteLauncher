@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { SearchIcon } from '@modrinth/assets'
-import { ButtonStyled, Toggle } from '@modrinth/ui'
+import { Button, Toggle } from '@modrinth/ui'
 import { getVersion } from '@tauri-apps/api/app'
 import { invoke } from '@tauri-apps/api/core'
 import { computed, ref } from 'vue'
@@ -206,19 +206,21 @@ async function uninstall() {
 				</p>
 			</div>
 			<div class="flex items-center gap-2">
-				<ButtonStyled v-if="updateState === 'available'" color="brand">
-					<button :disabled="updateState === 'installing'" @click="installUpdate">
-						Download &amp; install
-					</button>
-				</ButtonStyled>
-				<ButtonStyled>
-					<button
-						:disabled="updateState === 'checking' || updateState === 'installing'"
-						@click="checkForUpdates"
-					>
-						{{ updateState === 'checking' ? 'Checking…' : 'Check for updates' }}
-					</button>
-				</ButtonStyled>
+				<Button
+					v-if="updateState === 'available'"
+					type="colored"
+					color="brand"
+					:disabled="updateState === 'installing'"
+					@click="installUpdate"
+				>
+					Download &amp; install
+				</Button>
+				<Button
+					:disabled="updateState === 'checking' || updateState === 'installing'"
+					@click="checkForUpdates"
+				>
+					{{ updateState === 'checking' ? 'Checking…' : 'Check for updates' }}
+				</Button>
 			</div>
 		</div>
 		<div class="flex items-center justify-between gap-4">
@@ -229,16 +231,12 @@ async function uninstall() {
 					in a folder containing a <code>manifest.json</code> with its <code>.js</code>/<code>.css</code>.
 				</p>
 			</div>
-			<ButtonStyled>
-				<button @click="openFolder">Open plugins folder</button>
-			</ButtonStyled>
+			<Button @click="openFolder">Open plugins folder</Button>
 		</div>
 
 		<div v-if="restartNeeded" class="flex items-center justify-between gap-4">
 			<p class="m-0 text-sm">Restart the app to apply your changes.</p>
-			<ButtonStyled color="brand">
-				<button @click="restartApp">Restart now</button>
-			</ButtonStyled>
+			<Button type="colored" color="brand" @click="restartApp">Restart now</Button>
 		</div>
 
 		<div v-if="plugins.length > 0" class="flex flex-wrap items-center gap-2">
@@ -350,16 +348,17 @@ async function uninstall() {
 					<p v-if="uninstallError" class="m-0 mt-1 text-sm text-red">{{ uninstallError }}</p>
 				</div>
 				<div class="flex shrink-0 items-center gap-2">
-					<ButtonStyled v-if="!confirmingUninstall" color="red">
-						<button @click="confirmingUninstall = true">Uninstall</button>
-					</ButtonStyled>
+					<Button
+						v-if="!confirmingUninstall"
+						type="colored"
+						color="red"
+						@click="confirmingUninstall = true"
+					>
+						Uninstall
+					</Button>
 					<template v-else>
-						<ButtonStyled>
-							<button @click="confirmingUninstall = false">Cancel</button>
-						</ButtonStyled>
-						<ButtonStyled color="red">
-							<button @click="uninstall">Yes, revert to Modrinth</button>
-						</ButtonStyled>
+						<Button @click="confirmingUninstall = false">Cancel</Button>
+						<Button type="colored" color="red" @click="uninstall">Yes, revert to Modrinth</Button>
 					</template>
 				</div>
 			</div>
