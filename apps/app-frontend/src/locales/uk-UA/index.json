@@ -590,6 +590,9 @@
     "app.instance.worlds.no-worlds-heading":  {
                                                   "message":  "Ð¡ÐµÑ€Ð²ÐµÑ€Ð° Ð°Ð±Ð¾ ÑÐ²Ñ–Ñ‚Ð¸ Ð½Ðµ Ð´Ð¾Ð´Ð°Ð½Ð¾"
                                               },
+    "app.instance.worlds.refreshing":  {
+                                           "message":  "ÐŸÐµÑ€ÐµÐ·Ð°Ð²Ð°Ð½Ñ‚Ð°Ð¶ÐµÐ½Ð½Ñâ€¦"
+                                       },
     "app.instance.worlds.remove-server-modal.remove-button":  {
                                                                   "message":  "Ð’Ð¸Ð´Ð°Ð»Ð¸Ñ‚Ð¸ ÑÐµÑ€Ð²ÐµÑ€"
                                                               },
@@ -1226,6 +1229,9 @@
     "app.update.complete-toast.title":  {
                                             "message":  "Ð’ÐµÑ€ÑÑ–ÑŽ {version} ÑƒÑÐ¿Ñ–ÑˆÐ½Ð¾ Ð²ÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð¾!"
                                         },
+    "app.user.project.install-to-instance":  {
+                                                 "message":  "Ð£ÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚Ð¸ Ð² Ð¿Ñ€Ð¾Ñ„Ñ–Ð»ÑŒ"
+                                             },
     "app.world.server-modal.placeholder-address":  {
                                                        "message":  "example.modrinth.gg"
                                                    },
@@ -1619,6 +1625,27 @@
     "instance.settings.tabs.hooks.title":  {
                                                "message":  "Ð“ÑƒÐºÐ¸ Ð·Ð°Ð¿ÑƒÑÐºÑƒ Ð³Ñ€Ð¸"
                                            },
+    "instance.settings.tabs.hooks.variables.description":  {
+                                                               "message":  "Ð“ÑƒÐºÐ¸ Ð²Ð¸ÐºÐ¾Ð½ÑƒÑŽÑ‚ÑŒÑÑ Ð² Ñ€Ð¾Ð±Ð¾Ñ‡Ñ–Ð¹ Ð´Ð¸Ñ€ÐµÐºÑ‚Ð¾Ñ€Ñ–Ñ— Ð¿Ñ€Ð¾Ñ„Ñ–Ð»ÑŽ Ð· Ð½Ð°ÑÑ‚ÑƒÐ¿Ð½Ð¸Ð¼Ð¸ Ð·Ð¼Ñ–Ð½Ð½Ð¸Ð¼Ð¸:"
+                                                           },
+    "instance.settings.tabs.hooks.variables.inst-dir.description":  {
+                                                                        "message":  "$INST_DIR: Ð¿Ð¾Ð²Ð½Ð¸Ð¹ ÑˆÐ»ÑÑ… Ð´Ð¾ Ñ‚ÐµÐºÐ¸ Ð¿Ñ€Ð¾Ñ„Ñ–Ð»ÑŽ"
+                                                                    },
+    "instance.settings.tabs.hooks.variables.inst-id.description":  {
+                                                                       "message":  "$INST_ID: Ð½Ð°Ð·Ð²Ð° Ñ‚ÐµÐºÐ¸ Ð¿Ñ€Ð¾Ñ„Ñ–Ð»ÑŽ"
+                                                                   },
+    "instance.settings.tabs.hooks.variables.inst-java-args.description":  {
+                                                                              "message":  "$INST_JAVA_ARGS: Ð½Ð°Ð´Ð°Ð½Ñ– Ð´Ð»Ñ Ð³Ñ€Ð¸ Ð°Ñ€Ð³ÑƒÐ¼ÐµÐ½Ñ‚Ð¸ JVM"
+                                                                          },
+    "instance.settings.tabs.hooks.variables.inst-java.description":  {
+                                                                         "message":  "$INST_JAVA: Ð¿Ð¾Ð²Ð½Ð¸Ð¹ ÑˆÐ»ÑÑ… Ð´Ð¾ java"
+                                                                     },
+    "instance.settings.tabs.hooks.variables.inst-mc-dir.description":  {
+                                                                           "message":  "$INST_MC_DIR: Ñ‚Ðµ ÑÐ°Ð¼Ðµ, Ñ‰Ð¾ $INST_DIR"
+                                                                       },
+    "instance.settings.tabs.hooks.variables.inst-name.description":  {
+                                                                         "message":  "$INST_NAME: Ð½Ð°Ð·Ð²Ð° Ð¿Ñ€Ð¾Ñ„Ñ–Ð»ÑŽ"
+                                                                     },
     "instance.settings.tabs.hooks.wrapper":  {
                                                  "message":  "ÐžÐ±Ð³Ð¾Ñ€Ñ‚Ð°Ñ‡"
                                              },

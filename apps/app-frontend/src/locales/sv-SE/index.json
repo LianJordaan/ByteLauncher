@@ -62,6 +62,12 @@
     "app.action-bar.install.summary.invalid-modpack-files":  {
                                                                  "message":  "Modpaketets filer har ogiltig metadata"
                                                              },
+    "app.action-bar.install.summary.java-setup-failed":  {
+                                                             "message":  "Java-installationen kunde inte avslutas"
+                                                         },
+    "app.action-bar.install.summary.loader-setup-failed":  {
+                                                               "message":  "Konfigurering av loader misslyckades"
+                                                           },
     "app.action-bar.install.summary.local-data-error":  {
                                                             "message":  "Kunde inte uppdatera lokal data"
                                                         },
@@ -173,6 +179,9 @@
     "app.appearance-settings.show-play-time.title":  {
                                                          "message":  "Visa speltid"
                                                      },
+    "app.appearance-settings.skip-non-essential-warnings.description":  {
+                                                                            "message":  "Hoppa Ã¶ver bekrÃ¤ftelser till lÃ¥griskÃ¥tgÃ¤rder som att duplicera installationer, vanlig innehÃ¥lls radering, bulk uppdateringar, avlÃ¤nkning och reparationer. Varningar fÃ¶r farligare Ã¥tgÃ¤rder visas alltid."
+                                                                        },
     "app.appearance-settings.skip-non-essential-warnings.title":  {
                                                                       "message":  "Hoppa Ã¶ver icke nÃ¶dvÃ¤ndiga varningar"
                                                                   },
@@ -821,6 +830,9 @@
     "app.settings.default-instance-options.java-arguments.title":  {
                                                                        "message":  "Java-argument"
                                                                    },
+    "app.settings.default-instance-options.memory-allocation.title":  {
+                                                                          "message":  "Minnestilldelning"
+                                                                      },
     "app.settings.default-instance-options.post-exit-hook.description":  {
                                                                              "message":  "KÃ¶rs efter att spelet stÃ¤ngs."
                                                                          },
@@ -881,6 +893,9 @@
     "app.settings.tabs.behavior":  {
                                        "message":  "Beteende"
                                    },
+    "app.settings.tabs.default-instance-options":  {
+                                                       "message":  "Standard spelinstÃ¤llningar"
+                                                   },
     "app.settings.tabs.java-installations":  {
                                                  "message":  "Java-installationer"
                                              },
@@ -1094,6 +1109,9 @@
     "app.update.complete-toast.title":  {
                                             "message":  "Version {version} har installerats!"
                                         },
+    "app.user.project.install-to-instance":  {
+                                                 "message":  "Installera till instans"
+                                             },
     "app.world.server-modal.placeholder-address":  {
                                                        "message":  "exempel.modrinth.gg"
                                                    },
@@ -1217,6 +1235,12 @@
     "installation-settings.shared-instance.unpublishing-button":  {
                                                                       "message":  "Avpublicerar..."
                                                                   },
+    "installation-settings.unlink-shared-instance.modal.admonition-header":  {
+                                                                                 "message":  "AvlÃ¤nkar delad instans"
+                                                                             },
+    "installation-settings.unlink-shared-instance.modal.header":  {
+                                                                      "message":  "AvlÃ¤nka delad instans"
+                                                                  },
     "installation-settings.unpublish-shared-instance.modal.admonition-body":  {
                                                                                   "message":  "Detta raderar den delade instansen frÃ¥n Modrinths servrar. De som anvÃ¤nder den i Modrinth App kommer sluta fÃ¥ uppdateringar, men din lokala instans och dess innehÃ¥ll Ã¤r kvar pÃ¥ den hÃ¤r enheten."
                                                                               },
@@ -1316,9 +1340,15 @@
     "instance.server-modal.resource-pack":  {
                                                 "message":  "Resurs pack"
                                             },
+    "instance.settings.sharing.active-invites.actions":  {
+                                                             "message":  "Ã…tgÃ¤rder"
+                                                         },
     "instance.settings.sharing.active-invites.code":  {
                                                           "message":  "InbjudningslÃ¤nk"
                                                       },
+    "instance.settings.sharing.active-invites.empty":  {
+                                                           "message":  "Det finns inga aktiva inbjudningar."
+                                                       },
     "instance.settings.sharing.active-invites.expires":  {
                                                              "message":  "GÃ¥r ut"
                                                          },
@@ -1334,6 +1364,12 @@
     "instance.settings.sharing.active-invites.uses":  {
                                                           "message":  "AnvÃ¤ndningar"
                                                       },
+    "instance.settings.sharing.revoke-invite.admonition-body":  {
+                                                                    "message":  "InbjudningslÃ¤nken \u003cmonospace\u003e{code}\u003c/monospace\u003e kommer sluta fungera omedelbart. De som redan gÃ¥tt med kommer ha kvar Ã¥tkomst."
+                                                                },
+    "instance.settings.sharing.revoke-invite.admonition-header":  {
+                                                                      "message":  "Den hÃ¤r Ã¥tgÃ¤rden kan inte Ã¥ngras"
+                                                                  },
     "instance.settings.sharing.revoke-invite.confirm":  {
                                                             "message":  "Ã…terkalla inbjudan"
                                                         },
@@ -1448,6 +1484,12 @@
     "instance.settings.tabs.hooks.title":  {
                                                "message":  "Hooks fÃ¶r spelstart"
                                            },
+    "instance.settings.tabs.hooks.variables.inst-id.description":  {
+                                                                       "message":  "$INST_ID: Instansmappens namn"
+                                                                   },
+    "instance.settings.tabs.hooks.variables.inst-name.description":  {
+                                                                         "message":  "$INST_NAME: Instansnamnet"
+                                                                     },
     "instance.settings.tabs.hooks.wrapper":  {
                                                  "message":  "Omslag"
                                              },

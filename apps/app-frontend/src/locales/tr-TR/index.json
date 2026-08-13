@@ -173,6 +173,9 @@
     "app.appearance-settings.hide-nametag.title":  {
                                                        "message":  "Ä°sim etiketini gizle"
                                                    },
+    "app.appearance-settings.jump-back-into-worlds.description":  {
+                                                                      "message":  "Ana sayfadaki â€œTekrar oyuna katÄ±lâ€ bÃ¶lÃ¼mÃ¼nde son oynanan dÃ¼nyalarÄ± gÃ¶ster."
+                                                                  },
     "app.appearance-settings.jump-back-into-worlds.title":  {
                                                                 "message":  "DÃ¼nyalara hÄ±zlÄ±ca geri dÃ¶n"
                                                             },
@@ -188,9 +191,15 @@
     "app.appearance-settings.native-decorations.title":  {
                                                              "message":  "Sistem pencere Ã§erÃ§evesi"
                                                          },
+    "app.appearance-settings.show-play-time.description":  {
+                                                               "message":  "Her bir Ã¶rneÄŸi ne kadar sÃ¼reyle oynadÄ±ÄŸÄ±nÄ± gÃ¶ster."
+                                                           },
     "app.appearance-settings.show-play-time.title":  {
                                                          "message":  "Oynama sÃ¼resini gÃ¶ster"
                                                      },
+    "app.appearance-settings.skip-non-essential-warnings.description":  {
+                                                                            "message":  "Yinelenen yÃ¼klemeler, normal iÃ§erik silme, toplu gÃ¼ncellemeler, baÄŸlantÄ±larÄ±n kaldÄ±rÄ±lmasÄ± ve onarÄ±mlar gibi dÃ¼ÅŸÃ¼k riskli iÅŸlemlerde onay adÄ±mlarÄ±nÄ± atlayÄ±n. Tehlikeli iÅŸlemlerle ilgili uyarÄ±lar her zaman gÃ¶sterilir."
+                                                                        },
     "app.appearance-settings.skip-non-essential-warnings.title":  {
                                                                       "message":  "Gerekli olmayan uyarÄ±larÄ± atla"
                                                                   },
@@ -215,6 +224,12 @@
     "app.behavior-settings.confirmations.title":  {
                                                       "message":  "Onaylamalar"
                                                   },
+    "app.behavior-settings.content.title":  {
+                                                "message":  "Ana sayfa ve iÃ§erik"
+                                            },
+    "app.behavior-settings.startup-and-navigation.title":  {
+                                                               "message":  "BaÅŸlatma ve gezinme"
+                                                           },
     "app.browse.add-servers-to-instance":  {
                                                "message":  "Sunucuyu kuruluma ekle"
                                            },
@@ -245,6 +260,9 @@
     "app.browse.hide-added-servers":  {
                                           "message":  "Zaten eklenmiÅŸ sunucularÄ± gizle"
                                       },
+    "app.browse.hide-installed-modpacks":  {
+                                               "message":  "Zaten yÃ¼klenmiÅŸ olanlarÄ± gizle"
+                                           },
     "app.browse.project-type.modpacks":  {
                                              "message":  "Mod paketleri"
                                          },
@@ -473,6 +491,9 @@
     "app.instance.share.remove-user-modal.effect-invite-again":  {
                                                                      "message":  "OnlarÄ± sonradan tekrar davet edebilirsiniz"
                                                                  },
+    "app.instance.share.remove-user-modal.effect-last-user":  {
+                                                                  "message":  "Bu son kullanÄ±cÄ±dÄ±r; bu Ã¶rnek iÃ§in paylaÅŸÄ±m Ã¶zelliÄŸi devre dÄ±ÅŸÄ± bÄ±rakÄ±lacaktÄ±r"
+                                                              },
     "app.instance.share.remove-user-modal.effects-label":  {
                                                                "message":  "Ne olur?"
                                                            },
@@ -485,12 +506,18 @@
     "app.instance.share.remove-user-modal.user-avatar-alt":  {
                                                                  "message":  "{username} nÄ±n avatarÄ±"
                                                              },
+    "app.instance.share.remove-user-modal.warning-body":  {
+                                                              "message":  "{username}\u0027nÄ±n bu paylaÅŸÄ±lan Ã¶rneÄŸe eriÅŸimini iptal ederseniz, bu kiÅŸinin gÃ¼ncellemeleri alabilmesi iÃ§in onu yeniden davet etmeniz gerekecektir."
+                                                          },
     "app.instance.share.sign-in.button":  {
                                               "message":  "GiriÅŸ yap"
                                           },
     "app.instance.share.unable-to-connect.heading":  {
                                                          "message":  "BaÄŸlanÄ±lamÄ±yor"
                                                      },
+    "app.instance.share.unlink.body":  {
+                                           "message":  "Ã–rneÄŸini paylaÅŸmak iÃ§in bu mod paketinin baÄŸlantÄ±sÄ±nÄ± kaldÄ±rmalÄ±sÄ±n"
+                                       },
     "app.instance.shared-instance-already-installed.install-anyway":  {
                                                                           "message":  "Yine de kur"
                                                                       },

@@ -1226,6 +1226,9 @@
     "app.update.complete-toast.title":  {
                                             "message":  "La versione {version} Ã¨ stata installata con successo!"
                                         },
+    "app.user.project.install-to-instance":  {
+                                                 "message":  "Installa nell\u0027istanza"
+                                             },
     "app.world.server-modal.placeholder-address":  {
                                                        "message":  "example.modrinth.gg"
                                                    },
@@ -1619,6 +1622,27 @@
     "instance.settings.tabs.hooks.title":  {
                                                "message":  "Hook all\u0027avvio del gioco"
                                            },
+    "instance.settings.tabs.hooks.variables.description":  {
+                                                               "message":  "Gli hook si eseguono nella cartella principale dell\u0027istanza, con le seguenti variabili:"
+                                                           },
+    "instance.settings.tabs.hooks.variables.inst-dir.description":  {
+                                                                        "message":  "$INST_DIR: Il percorso assoluto della cartella dell\u0027istanza"
+                                                                    },
+    "instance.settings.tabs.hooks.variables.inst-id.description":  {
+                                                                       "message":  "$INST_ID: Il nome della cartella dell\u0027istanza"
+                                                                   },
+    "instance.settings.tabs.hooks.variables.inst-java-args.description":  {
+                                                                              "message":  "$INST_JAVA_ARGS: Gli argomenti JVM forniti al gioco"
+                                                                          },
+    "instance.settings.tabs.hooks.variables.inst-java.description":  {
+                                                                         "message":  "$INST_JAVA: Il percorso assoluto dei binari di Java"
+                                                                     },
+    "instance.settings.tabs.hooks.variables.inst-mc-dir.description":  {
+                                                                           "message":  "$INST_MC_DIR: Alias di $INST_DIR"
+                                                                       },
+    "instance.settings.tabs.hooks.variables.inst-name.description":  {
+                                                                         "message":  "$INST_NAME: Il nome dell\u0027istanza"
+                                                                     },
     "instance.settings.tabs.hooks.wrapper":  {
                                                  "message":  "Wrapper"
                                              },

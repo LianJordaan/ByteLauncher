@@ -1,10 +1,130 @@
 {
+    "app.action-bar.downloading-java":  {
+                                            "message":  "Se descarcÄƒ Java {version}"
+                                        },
+    "app.action-bar.downloading-update":  {
+                                              "message":  "Se descarcÄƒ actualizarea"
+                                          },
+    "app.action-bar.downloads":  {
+                                     "message":  "DescÄƒrcÄƒri"
+                                 },
+    "app.action-bar.install.copied-details":  {
+                                                  "message":  "Copiat"
+                                              },
+    "app.action-bar.install.copy-details":  {
+                                                "message":  "CopiazÄƒ detaliile"
+                                            },
+    "app.action-bar.install.dismiss":  {
+                                           "message":  "IgnorÄƒ"
+                                       },
+    "app.action-bar.install.open-instance":  {
+                                                 "message":  "InstanÈ›a nouÄƒ"
+                                             },
+    "app.action-bar.install.retry":  {
+                                         "message":  "ReÃ®ncearcÄƒ"
+                                     },
+    "app.action-bar.install.summary.canceled":  {
+                                                    "message":  "Anulat"
+                                                },
+    "app.action-bar.install.summary.could-not-save-files":  {
+                                                                "message":  "Nu s-au putut salva fiÈ™ierele"
+                                                            },
+    "app.action-bar.offline":  {
+                                   "message":  "Offline"
+                               },
+    "app.action-bar.update":  {
+                                  "message":  "ActualizeazÄƒ"
+                              },
+    "app.action-bar.view-active-downloads":  {
+                                                 "message":  "Vezi descÄƒrcÄƒrile active"
+                                             },
+    "app.action-bar.view-instance":  {
+                                         "message":  "Vezi instanÈ›ele"
+                                     },
+    "app.action-bar.view-logs":  {
+                                     "message":  "Vezi jurnalele"
+                                 },
+    "app.ads-consent.accept":  {
+                                   "message":  "AcceptÄƒ tot"
+                               },
+    "app.ads-consent.reject":  {
+                                   "message":  "RefuzÄƒ tot"
+                               },
     "app.auth-servers.unreachable.body":  {
                                               "message":  "Serverele de autentificare Minecraft pot fi indisponibile Ã®n acest moment. VerificaÈ›i conexiunea la internet È™i Ã®ncercaÈ›i din nou mai tÃ¢rziu."
                                           },
     "app.auth-servers.unreachable.header":  {
                                                 "message":  "Nu se pot accesa serverele de autentificare"
                                             },
+    "app.browse.added":  {
+                             "message":  "AdÄƒugat"
+                         },
+    "app.browse.already-added":  {
+                                     "message":  "Deja adÄƒugat"
+                                 },
+    "app.browse.back-to-instance":  {
+                                        "message":  "ÃŽnapoi la instanÈ›Äƒ"
+                                    },
+    "app.browse.discover-project-type":  {
+                                             "message":  "DescoperÄƒ {projectType}"
+                                         },
+    "app.browse.discover-servers":  {
+                                        "message":  "DescoperÄƒ servere"
+                                    },
+    "app.browse.hide-added-servers":  {
+                                          "message":  "Ascunde serverele deja adÄƒugate"
+                                      },
+    "app.browse.server.installing":  {
+                                         "message":  "Se instaleazÄƒ"
+                                     },
+    "app.export-modal.export-button":  {
+                                           "message":  "ExportÄƒ"
+                                       },
+    "app.export-modal.version-number-placeholder":  {
+                                                        "message":  "1.0.0"
+                                                    },
+    "app.install.phase.finalizing":  {
+                                         "message":  "Se finalizeazÄƒ"
+                                     },
+    "app.instance.admonitions.shared-instance.added-label":  {
+                                                                 "message":  "AdÄƒugat"
+                                                             },
+    "app.instance.modpack-already-installed.create":  {
+                                                          "message":  "CreeazÄƒ"
+                                                      },
+    "app.instance.share.sign-in.button":  {
+                                              "message":  "ConecteazÄƒ-te"
+                                          },
+    "app.instance.shared-instance-already-installed.instance":  {
+                                                                    "message":  "InstanÈ›Äƒ"
+                                                                },
+    "app.instance.worlds.delete-world-modal.delete-button":  {
+                                                                 "message":  "È˜terge lumea"
+                                                             },
+    "app.instance.worlds.delete-world-modal.title":  {
+                                                         "message":  "È˜terge lumea"
+                                                     },
+    "app.instance.worlds.delete-world-modal.warning-header":  {
+                                                                  "message":  "Se È™terge {name}"
+                                                              },
+    "app.instance.worlds.filter-offline":  {
+                                               "message":  "Offline"
+                                           },
+    "app.instance.worlds.filter-online":  {
+                                              "message":  "Online"
+                                          },
+    "app.instance.worlds.filter-vanilla":  {
+                                               "message":  "Vanilla"
+                                           },
+    "app.instance.worlds.refreshing":  {
+                                           "message":  "Se reÃ®mprospÄƒteazÄƒ..."
+                                       },
+    "app.java-detection.cancel":  {
+                                      "message":  "AnuleazÄƒ"
+                                  },
+    "app.java-detection.columns.actions":  {
+                                               "message":  "AcÈ›iuni"
+                                           },
     "app.modal.install-to-play.header":  {
                                              "message":  "InstalaÈ›i pentru a juca"
                                          },

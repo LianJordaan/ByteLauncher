@@ -14,6 +14,9 @@
     "app.action-bar.install.copied-details":  {
                                                   "message":  "ZkopÃ­rovÃ¡no"
                                               },
+    "app.action-bar.install.copy-details":  {
+                                                "message":  "KopÃ­rovat detaily"
+                                            },
     "app.action-bar.install.dismiss":  {
                                            "message":  "ZavÅ™Ã­t"
                                        },
@@ -26,6 +29,9 @@
     "app.action-bar.install.summary.canceled":  {
                                                     "message":  "ZruÅ¡eno"
                                                 },
+    "app.action-bar.install.summary.cleanup-incomplete":  {
+                                                              "message":  "ÄŒiÅ¡tÄ›nÃ­ nebylo dokonÄeno"
+                                                          },
     "app.action-bar.install.unknown-instance":  {
                                                     "message":  "NeznÃ¡mÃ¡ instance"
                                                 },
@@ -65,6 +71,9 @@
     "app.action-bar.view-logs":  {
                                      "message":  "Zobrazit logy"
                                  },
+    "app.ads-consent.title":  {
+                                  "message":  "VaÅ¡e soukromÃ­ a zpÅ¯sob, jakÃ½m reklamy podporujÃ­ Modrinth"
+                              },
     "app.appearance-settings.advanced-rendering.title":  {
                                                              "message":  "PokroÄilÃ© vykreslovÃ¡nÃ­"
                                                          },
@@ -212,6 +221,9 @@
     "app.install.phase.running_loader_processors":  {
                                                         "message":  "SpuÅ¡tÄ›nÃ­ loader procesÅ¯"
                                                     },
+    "app.instance.admonitions.shared-instance.removed-label":  {
+                                                                   "message":  "OdstranÄ›no"
+                                                               },
     "app.instance.confirm-delete.admonition-body":  {
                                                         "message":  "VÅ¡echna data tvÃ© instance budou trvale smazÃ¡na, vÄetnÄ› svÄ›tÅ¯, konfiguracÃ­ a veÅ¡kerÃ©ho nainstalovanÃ©ho obsahu."
                                                     },

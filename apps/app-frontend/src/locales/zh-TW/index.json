@@ -1229,6 +1229,9 @@
     "app.update.complete-toast.title":  {
                                             "message":  "ç‰ˆæœ¬ {version} å·²æˆåŠŸå®‰è£ï¼"
                                         },
+    "app.user.project.install-to-instance":  {
+                                                 "message":  "å®‰è£è‡³å¯¦ä¾‹"
+                                             },
     "app.world.server-modal.placeholder-address":  {
                                                        "message":  "example.modrinth.gg"
                                                    },
@@ -1622,6 +1625,27 @@
     "instance.settings.tabs.hooks.title":  {
                                                "message":  "éŠæˆ²å•Ÿå‹•æŽ›å‹¾"
                                            },
+    "instance.settings.tabs.hooks.variables.description":  {
+                                                               "message":  "æŽ›å‹¾æœƒåœ¨å¯¦ä¾‹çš„å·¥ä½œç›®éŒ„ä¸­åŸ·è¡Œï¼Œä¸¦å…·å‚™ä»¥ä¸‹è®Šæ•¸ï¼š"
+                                                           },
+    "instance.settings.tabs.hooks.variables.inst-dir.description":  {
+                                                                        "message":  "$INST_DIRï¼šå¯¦ä¾‹è³‡æ–™å¤¾çš„çµ•å°è·¯å¾‘"
+                                                                    },
+    "instance.settings.tabs.hooks.variables.inst-id.description":  {
+                                                                       "message":  "$INST_IDï¼šå¯¦ä¾‹è³‡æ–™å¤¾çš„åç¨±"
+                                                                   },
+    "instance.settings.tabs.hooks.variables.inst-java-args.description":  {
+                                                                              "message":  "$INST_JAVA_ARGSï¼šæä¾›çµ¦éŠæˆ²çš„ JVM åƒæ•¸"
+                                                                          },
+    "instance.settings.tabs.hooks.variables.inst-java.description":  {
+                                                                         "message":  "$INST_JAVAï¼šJava äºŒé€²ä½æª”æ¡ˆçš„çµ•å°è·¯å¾‘"
+                                                                     },
+    "instance.settings.tabs.hooks.variables.inst-mc-dir.description":  {
+                                                                           "message":  "$INST_MC_DIRï¼š$INST_DIR çš„åˆ¥å"
+                                                                       },
+    "instance.settings.tabs.hooks.variables.inst-name.description":  {
+                                                                         "message":  "$INST_NAMEï¼šå¯¦ä¾‹çš„åç¨±"
+                                                                     },
     "instance.settings.tabs.hooks.wrapper":  {
                                                  "message":  "åŒ…è£æŒ‡ä»¤"
                                              },

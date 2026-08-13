@@ -461,9 +461,18 @@
     "app.instance.share.locked.wrong-account-heading":  {
                                                             "message":  "ZÅ‚e konto"
                                                         },
+    "app.instance.share.members.empty":  {
+                                             "message":  "Å»aden uÅ¼ytkownik jeszcze nie doÅ‚Ä…czyÅ‚"
+                                         },
+    "app.instance.share.members.no-filter-results":  {
+                                                         "message":  "Nie znaleziono uÅ¼ytkownikÃ³w pasujÄ…cych do tych filtrÃ³w."
+                                                     },
     "app.instance.share.remove-user-modal.effect-access":  {
                                                                "message":  "Nie bÄ™dzie w stanie otrzymywaÄ‡ aktualizacji dla tej udostÄ™pnionej instancji"
                                                            },
+    "app.instance.share.remove-user-modal.effect-last-user":  {
+                                                                  "message":  "To jest ostatni uÅ¼ytkownik, udostÄ™pnianie zostanie wyÅ‚Ä…czone dla tej instancji"
+                                                              },
     "app.instance.share.remove-user-modal.effects-label":  {
                                                                "message":  "Co siÄ™ stanie?"
                                                            },
@@ -545,6 +554,9 @@
     "app.instance.worlds.no-worlds-heading":  {
                                                   "message":  "Nie dodano Å¼adnych Å›wiatÃ³w ani serwerÃ³w"
                                               },
+    "app.instance.worlds.refreshing":  {
+                                           "message":  "OdÅ›wieÅ¼anie..."
+                                       },
     "app.instance.worlds.remove-server-modal.remove-button":  {
                                                                   "message":  "UsuÅ„ serwer"
                                                               },
@@ -602,6 +614,9 @@
     "app.java-selector.path.placeholder":  {
                                                "message":  "/path/to/java"
                                            },
+    "app.java-selector.test-installation":  {
+                                                "message":  "Testuj instalacjÄ™ Java"
+                                            },
     "app.modal.install-to-play.additional-context":  {
                                                          "message":  "Dodatkowy kontekst"
                                                      },
@@ -632,6 +647,9 @@
     "app.modal.install-to-play.invite-warning":  {
                                                      "message":  "To zaproszenie zostaÅ‚o utworzone przez innego uÅ¼ytkownika Modrinth, nie przez firmÄ™ Modrinth. Tylko akceptuj zaproszenia od osÃ³b, ktÃ³rym ufasz."
                                                  },
+    "app.modal.install-to-play.invite-warning-with-creator":  {
+                                                                  "message":  "To zaproszenie zostaÅ‚o utworzone przez \u003ccreator\u003e{username}\u003c/creator\u003e, nie przez firmÄ™ Modrinth. Akceptuj zaproszenia tylko od osÃ³b, ktÃ³rym ufasz."
+                                                              },
     "app.modal.install-to-play.mod-count":  {
                                                 "message":  "{count, plural, one {# mod} few {# mody} other {# modÃ³w}}"
                                             },
@@ -677,6 +695,9 @@
     "app.modal.install-to-play.shared-instance-content":  {
                                                               "message":  "TreÅ›ci w przesÅ‚anej ci instalacji"
                                                           },
+    "app.modal.install-to-play.shared-instance-unknown-files-description":  {
+                                                                                "message":  "Ta udostÄ™pniona instancja zawiera pliki, ktÃ³re nie zostaÅ‚y opublikowane na Modrinth. Zalecamy instalowanie plikÃ³w tylko ze ÅºrÃ³deÅ‚, ktÃ³rym ufasz."
+                                                                            },
     "app.modal.install-to-play.unknown-files-description":  {
                                                                 "message":  "Ta serwerowa paczka modÃ³w zawiera pliki, ktÃ³re nie zostaÅ‚y opublikowane na Modrinth. Zalecamy instalowanie plikÃ³w tylko ze ÅºrÃ³deÅ‚, ktÃ³rym ufasz."
                                                             },
@@ -863,6 +884,9 @@
     "app.settings.tabs.appearance":  {
                                          "message":  "WyglÄ…d"
                                      },
+    "app.settings.tabs.behavior":  {
+                                       "message":  "Zachowanie"
+                                   },
     "app.settings.tabs.default-instance-options":  {
                                                        "message":  "DomyÅ›lne opcje gry"
                                                    },
@@ -1079,6 +1103,9 @@
     "app.update.complete-toast.title":  {
                                             "message":  "Wersja {version} zostaÅ‚a pomyÅ›lnie zainstalowana!"
                                         },
+    "app.user.project.install-to-instance":  {
+                                                 "message":  "Zainstaluj do instancji"
+                                             },
     "app.world.server-modal.placeholder-address":  {
                                                        "message":  "example.modrinth.gg"
                                                    },
@@ -1178,6 +1205,9 @@
     "installation-settings.shared-instance.linked-title":  {
                                                                "message":  "PowiÄ…zana udostÄ™pniona instancja"
                                                            },
+    "installation-settings.shared-instance.title":  {
+                                                        "message":  "Wycofaj instancjÄ™"
+                                                    },
     "installation-settings.shared-instance.unlink-button":  {
                                                                 "message":  "OdÅ‚Ä…cz udostÄ™pnionÄ… instancjÄ™"
                                                             },
@@ -1187,9 +1217,21 @@
     "installation-settings.shared-instance.unlinking-button":  {
                                                                    "message":  "OdÅ‚Ä…czanie..."
                                                                },
+    "installation-settings.shared-instance.unpublish-button":  {
+                                                                   "message":  "Wycofaj udostÄ™pnionÄ… instancjÄ™"
+                                                               },
+    "installation-settings.shared-instance.unpublish-description":  {
+                                                                        "message":  "UsuÅ„ tÄ™ udostÄ™pnionÄ… instancjÄ™ z Modrinth i przestaÅ„ wysyÅ‚aÄ‡ aktualizacje do uÅ¼ytkownikÃ³w, ktÃ³rym jest udostÄ™pniona. Nie wpÅ‚ynie to na twojÄ… lokalnÄ… instancjÄ™."
+                                                                    },
     "installation-settings.unpublish-shared-instance.modal.admonition-body":  {
                                                                                   "message":  "Spowoduje to usuniÄ™cie przesyÅ‚anej instalacji z serwerÃ³w Modrith. UÅ¼ytkownicy korzystajÄ…cy z niej na Modrinth App przestanÄ… otrzymywaÄ‡ aktualizacje, ale twoja lokalna instalacja zostanie na tym urzÄ…dzeniu."
                                                                               },
+    "installation-settings.unpublish-shared-instance.modal.admonition-header":  {
+                                                                                    "message":  "Wycofywanie udostÄ™pnionej instancji"
+                                                                                },
+    "installation-settings.unpublish-shared-instance.modal.header":  {
+                                                                         "message":  "Wycofaj udostÄ™pnionÄ… instancjÄ™"
+                                                                     },
     "instance.action.create-shortcut":  {
                                             "message":  "UtwÃ³rz skrÃ³t"
                                         },
@@ -1259,6 +1301,9 @@
     "instance.files.save-as":  {
                                    "message":  "Zapisz jako..."
                                },
+    "instance.locked.delete-button":  {
+                                          "message":  "UsuÅ„ instancjÄ™"
+                                      },
     "instance.playtime.never-played":  {
                                            "message":  "Nigdy nie grano"
                                        },

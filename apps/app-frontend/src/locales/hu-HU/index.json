@@ -1229,6 +1229,9 @@
     "app.update.complete-toast.title":  {
                                             "message":  "VerziÃ³ {version} sikeresen telepÃ­tve!"
                                         },
+    "app.user.project.install-to-instance":  {
+                                                 "message":  "TelepÃ­tÃ©s a pÃ©ldÃ¡nyba"
+                                             },
     "app.world.server-modal.placeholder-address":  {
                                                        "message":  "pelda.modrinth.gg"
                                                    },
@@ -1622,6 +1625,12 @@
     "instance.settings.tabs.hooks.title":  {
                                                "message":  "JÃ¡tÃ©k indÃ­tÃ¡si horgok"
                                            },
+    "instance.settings.tabs.hooks.variables.inst-mc-dir.description":  {
+                                                                           "message":  "$INST_MC_DIR: A(z) $INST_DIR Ã¡lneve"
+                                                                       },
+    "instance.settings.tabs.hooks.variables.inst-name.description":  {
+                                                                         "message":  "$INST_NAME: A pÃ©ldÃ¡ny neve"
+                                                                     },
     "instance.settings.tabs.hooks.wrapper":  {
                                                  "message":  "IndÃ­tÃ³parancs"
                                              },
@@ -1677,7 +1686,7 @@
                                                     "message":  "HozzÃ¡rendelt memÃ³ria"
                                                 },
     "instance.settings.tabs.java.java-path-placeholder":  {
-                                                              "message":  "/eleresi/ut/a/javahoz"
+                                                              "message":  "/path/to/java"
                                                           },
     "instance.settings.tabs.sharing":  {
                                            "message":  "MegosztÃ¡s"

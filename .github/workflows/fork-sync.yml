@@ -71,6 +71,15 @@ jobs:
               git rm -f -- "${du_file}" >/dev/null
             done < <(git status --porcelain | sed -n 's/^DU //p')
 
+            # CLAUDE.md is ByteLauncher's project-maintenance guide. Upstream
+            # moved its generic guidance to AGENTS.md, but the fork's detailed
+            # guide must stay in place even when upstream deletes its version.
+            while IFS= read -r fork_doc; do
+              if [ -z "${fork_doc}" ]; then continue; fi
+              echo "Keeping fork-owned maintenance guide: ${fork_doc}"
+              git add -- "${fork_doc}"
+            done < <(git status --porcelain | sed -n 's/^UD \(CLAUDE\.md\)$/\1/p')
+
             remaining=$(git diff --name-only --diff-filter=U)
             if [ -n "${remaining}" ]; then
               echo "Unresolved content conflicts remain:"
