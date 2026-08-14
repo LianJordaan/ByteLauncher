@@ -20,6 +20,7 @@ export const DEFAULT_FEATURE_FLAGS = {
 	friends_online_collapsed: false,
 	friends_offline_collapsed: true,
 	friends_pending_collapsed: true,
+	dismissed_photosensitivity_filter_warning: false,
 }
 
 export const THEME_OPTIONS = ['purple', 'light', 'dark', 'oled', 'retro'] as const

@@ -377,18 +377,9 @@
     "app.instance.admonitions.shared-instance.review-header":  {
                                                                    "message":  "ÐŸÑ€Ð¾Ð²ÐµÑ€ÑŒÑ‚Ðµ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ"
                                                                },
-    "app.instance.admonitions.shared-instance.review-update-button":  {
-                                                                          "message":  "ÐžÐ±Ð·Ð¾Ñ€ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ"
-                                                                      },
     "app.instance.admonitions.shared-instance.reviewing-button":  {
                                                                       "message":  "ÐŸÑ€Ð¾Ð²ÐµÑ€ÐºÐ°..."
                                                                   },
-    "app.instance.admonitions.shared-instance.update-available-body":  {
-                                                                           "message":  "ÐÐµÐ¾Ð±Ñ…Ð¾Ð´Ð¸Ð¼Ð¾ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ Ð´Ð»Ñ Ð¸Ð³Ñ€Ñ‹ Ð² {name}. ÐžÐ±Ð½Ð¾Ð²Ð¸Ñ‚ÐµÑÑŒ Ð´Ð¾ Ð¿Ð¾ÑÐ»ÐµÐ´Ð½ÐµÐ¹ Ð²ÐµÑ€ÑÐ¸Ð¸ Ð¸ Ð·Ð°Ð¿ÑƒÑÑ‚Ð¸Ñ‚Ðµ Ð¸Ð³Ñ€Ñƒ."
-                                                                       },
-    "app.instance.admonitions.shared-instance.update-available-header":  {
-                                                                             "message":  "Ð”Ð¾ÑÑ‚ÑƒÐ¿Ð½Ð¾ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ"
-                                                                         },
     "app.instance.confirm-delete.admonition-body":  {
                                                         "message":  "Ð’ÑÐµ Ð´Ð°Ð½Ð½Ñ‹Ðµ ÑÐ±Ð¾Ñ€ÐºÐ¸ Ð±ÑƒÐ´ÑƒÑ‚ ÑƒÐ´Ð°Ð»ÐµÐ½Ñ‹ Ð½Ð°Ð²ÑÐµÐ³Ð´Ð°, Ð²Â Ñ‚Ð¾Ð¼Â Ñ‡Ð¸ÑÐ»Ðµ Ð¼Ð¸Ñ€Ñ‹, Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ Ð¸Â Ð²ÐµÑÑŒ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð½Ñ‹Ð¹ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚."
                                                     },
@@ -695,15 +686,6 @@
     "app.modal.install-to-play.report-reason":  {
                                                     "message":  "ÐšÐ°ÐºÐ¾Ðµ Ð¿Ñ€Ð°Ð²Ð¸Ð»Ð¾ Ð½Ð°Ñ€ÑƒÑˆÐ°ÐµÑ‚ Ð´Ð°Ð½Ð½Ð°Ñ ÑÐ±Ð¾Ñ€ÐºÐ°?"
                                                 },
-    "app.modal.install-to-play.report-reason.inappropriate":  {
-                                                                  "message":  "ÐÐµÐ¿Ñ€Ð¸ÐµÐ¼Ð»ÐµÐ¼Ð¾Ðµ ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ð¼Ð¾Ðµ"
-                                                              },
-    "app.modal.install-to-play.report-reason.malicious":  {
-                                                              "message":  "Ð’Ñ€ÐµÐ´Ð¾Ð½Ð¾ÑÐ½Ð¾Ðµ ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ð¼Ð¾Ðµ"
-                                                          },
-    "app.modal.install-to-play.report-reason.spam":  {
-                                                         "message":  "Ð¡Ð¿Ð°Ð¼"
-                                                     },
     "app.modal.install-to-play.report-shared-instance-header":  {
                                                                     "message":  "Ð¡Ð¾Ð¾Ð±Ñ‰Ð¸Ñ‚ÑŒ Ð¾Ð± Ð¾Ð±Ñ‰ÐµÐ¼ ÑÐºÐ·ÐµÐ¼Ð¿Ð»ÑÑ€Ðµ"
                                                                 },
@@ -1910,22 +1892,40 @@
     "search.filter.locked.instance.sync":  {
                                                "message":  "Ð˜ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÑŒ Ð¸Ð· ÑÐ±Ð¾Ñ€ÐºÐ¸"
                                            },
-    "search.filter.locked.server":  {
-                                        "message":  "Ð£Ð¿Ñ€Ð°Ð²Ð»ÑÐµÑ‚ÑÑ ÑÐµÑ€Ð²ÐµÑ€Ð¾Ð¼"
-                                    },
     "search.filter.locked.server-environment.title":  {
                                                           "message":  "Ð’Â ÑÐµÑ€Ð²ÐµÑ€Ð½Ð¾Ð¹ ÑÐ±Ð¾Ñ€ÐºÐµ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ñ‹ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ ÐºÐ»Ð¸ÐµÐ½Ñ‚ÑÐºÐ¸Ðµ Ð¼Ð¾Ð´Ñ‹"
                                                       },
-    "search.filter.locked.server-game-version.title":  {
-                                                           "message":  "Ð’ÐµÑ€ÑÐ¸Ñ Ð¸Ð³Ñ€Ñ‹ ÑƒÐ¿Ñ€Ð°Ð²Ð»ÑÐµÑ‚ÑÑ ÑÐµÑ€Ð²ÐµÑ€Ð¾Ð¼"
-                                                       },
-    "search.filter.locked.server-loader.title":  {
-                                                     "message":  "Ð—Ð°Ð³Ñ€ÑƒÐ·Ñ‡Ð¸Ðº ÑƒÐ¿Ñ€Ð°Ð²Ð»ÑÐµÑ‚ÑÑ ÑÐµÑ€Ð²ÐµÑ€Ð¾Ð¼"
-                                                 },
     "settings.sidebar.label.account":  {
                                            "message":  "ÐÐºÐºÐ°ÑƒÐ½Ñ‚"
                                        },
     "settings.sidebar.label.display":  {
                                            "message":  "ÐžÑ‚Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ðµ"
-                                       }
+                                       },
+    "app.instance.admonitions.shared-instance.review-update-button":  {
+                                                                          "message":  "ÐžÐ±Ð·Ð¾Ñ€ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ"
+                                                                      },
+    "app.instance.admonitions.shared-instance.update-available-body":  {
+                                                                           "message":  "ÐÐµÐ¾Ð±Ñ…Ð¾Ð´Ð¸Ð¼Ð¾ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ Ð´Ð»Ñ Ð¸Ð³Ñ€Ñ‹ Ð² {name}. ÐžÐ±Ð½Ð¾Ð²Ð¸Ñ‚ÐµÑÑŒ Ð´Ð¾ Ð¿Ð¾ÑÐ»ÐµÐ´Ð½ÐµÐ¹ Ð²ÐµÑ€ÑÐ¸Ð¸ Ð¸ Ð·Ð°Ð¿ÑƒÑÑ‚Ð¸Ñ‚Ðµ Ð¸Ð³Ñ€Ñƒ."
+                                                                       },
+    "app.instance.admonitions.shared-instance.update-available-header":  {
+                                                                             "message":  "Ð”Ð¾ÑÑ‚ÑƒÐ¿Ð½Ð¾ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ"
+                                                                         },
+    "app.modal.install-to-play.report-reason.inappropriate":  {
+                                                                  "message":  "ÐÐµÐ¿Ñ€Ð¸ÐµÐ¼Ð»ÐµÐ¼Ð¾Ðµ ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ð¼Ð¾Ðµ"
+                                                              },
+    "app.modal.install-to-play.report-reason.malicious":  {
+                                                              "message":  "Ð’Ñ€ÐµÐ´Ð¾Ð½Ð¾ÑÐ½Ð¾Ðµ ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ð¼Ð¾Ðµ"
+                                                          },
+    "app.modal.install-to-play.report-reason.spam":  {
+                                                         "message":  "Ð¡Ð¿Ð°Ð¼"
+                                                     },
+    "search.filter.locked.server":  {
+                                        "message":  "Ð£Ð¿Ñ€Ð°Ð²Ð»ÑÐµÑ‚ÑÑ ÑÐµÑ€Ð²ÐµÑ€Ð¾Ð¼"
+                                    },
+    "search.filter.locked.server-game-version.title":  {
+                                                           "message":  "Ð’ÐµÑ€ÑÐ¸Ñ Ð¸Ð³Ñ€Ñ‹ ÑƒÐ¿Ñ€Ð°Ð²Ð»ÑÐµÑ‚ÑÑ ÑÐµÑ€Ð²ÐµÑ€Ð¾Ð¼"
+                                                       },
+    "search.filter.locked.server-loader.title":  {
+                                                     "message":  "Ð—Ð°Ð³Ñ€ÑƒÐ·Ñ‡Ð¸Ðº ÑƒÐ¿Ñ€Ð°Ð²Ð»ÑÐµÑ‚ÑÑ ÑÐµÑ€Ð²ÐµÑ€Ð¾Ð¼"
+                                                 }
 }

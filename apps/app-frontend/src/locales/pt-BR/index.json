@@ -377,18 +377,9 @@
     "app.instance.admonitions.shared-instance.review-header":  {
                                                                    "message":  "Revisar alteraÃ§Ãµes"
                                                                },
-    "app.instance.admonitions.shared-instance.review-update-button":  {
-                                                                          "message":  "Revisar atualizaÃ§Ã£o"
-                                                                      },
     "app.instance.admonitions.shared-instance.reviewing-button":  {
                                                                       "message":  "Revisando..."
                                                                   },
-    "app.instance.admonitions.shared-instance.update-available-body":  {
-                                                                           "message":  "Uma atualizaÃ§Ã£o Ã© necessÃ¡ria para jogar {name}. Atualize para a versÃ£o mais recente para iniciar o jogo."
-                                                                       },
-    "app.instance.admonitions.shared-instance.update-available-header":  {
-                                                                             "message":  "Uma atualizaÃ§Ã£o estÃ¡ disponÃ­vel"
-                                                                         },
     "app.instance.confirm-delete.admonition-body":  {
                                                         "message":  "Todos os dados para sua instÃ¢ncia serÃ£o excluÃ­dos permanentemente, incluindo seus mundos, configs e todo o conteÃºdo instalado."
                                                     },
@@ -704,15 +695,6 @@
     "app.modal.install-to-play.report-reason":  {
                                                     "message":  "Qual regra esta instÃ¢ncia viola?"
                                                 },
-    "app.modal.install-to-play.report-reason.inappropriate":  {
-                                                                  "message":  "Inapropriado"
-                                                              },
-    "app.modal.install-to-play.report-reason.malicious":  {
-                                                              "message":  "Malicioso"
-                                                          },
-    "app.modal.install-to-play.report-reason.spam":  {
-                                                         "message":  "Spam"
-                                                     },
     "app.modal.install-to-play.report-shared-instance-header":  {
                                                                     "message":  "Denunciar instÃ¢ncia compartilhada"
                                                                 },
@@ -1922,22 +1904,28 @@
     "search.filter.locked.instance.sync":  {
                                                "message":  "Sincronizar com a instÃ¢ncia"
                                            },
-    "search.filter.locked.server":  {
-                                        "message":  "Fornecido pelo servidor"
-                                    },
     "search.filter.locked.server-environment.title":  {
                                                           "message":  "Somente mods do cliente podem ser adicionados Ã  instÃ¢ncia do servidor"
                                                       },
-    "search.filter.locked.server-game-version.title":  {
-                                                           "message":  "A versÃ£o do jogo Ã© fornecida pelo servidor"
-                                                       },
-    "search.filter.locked.server-loader.title":  {
-                                                     "message":  "O loader Ã© fornecido pelo servidor"
-                                                 },
     "settings.sidebar.label.account":  {
                                            "message":  "Conta"
                                        },
     "settings.sidebar.label.display":  {
                                            "message":  "VisualizaÃ§Ã£o"
-                                       }
+                                       },
+    "app.instance.admonitions.shared-instance.review-update-button":  {
+                                                                          "message":  "Revisar atualizaÃ§Ã£o"
+                                                                      },
+    "app.instance.admonitions.shared-instance.update-available-body":  {
+                                                                           "message":  "Uma atualizaÃ§Ã£o Ã© necessÃ¡ria para jogar {name}. Atualize para a versÃ£o mais recente para iniciar o jogo."
+                                                                       },
+    "app.instance.admonitions.shared-instance.update-available-header":  {
+                                                                             "message":  "Uma atualizaÃ§Ã£o estÃ¡ disponÃ­vel"
+                                                                         },
+    "search.filter.locked.server-game-version.title":  {
+                                                           "message":  "A versÃ£o do jogo Ã© fornecida pelo servidor"
+                                                       },
+    "search.filter.locked.server-loader.title":  {
+                                                     "message":  "O loader Ã© fornecido pelo servidor"
+                                                 }
 }

@@ -377,18 +377,9 @@
     "app.instance.admonitions.shared-instance.review-header":  {
                                                                    "message":  "DeÄŸiÅŸimleri inceleniyor"
                                                                },
-    "app.instance.admonitions.shared-instance.review-update-button":  {
-                                                                          "message":  "GÃ¼ncellemeyi gÃ¶zden geÃ§ir"
-                                                                      },
     "app.instance.admonitions.shared-instance.reviewing-button":  {
                                                                       "message":  "Ä°nceleniyor..."
                                                                   },
-    "app.instance.admonitions.shared-instance.update-available-body":  {
-                                                                           "message":  "{name}\u0027i oynamak iÃ§in bir gÃ¼ncelleme gerekli. Oyunu aÃ§abilmek iÃ§in lÃ¼tfen son sÃ¼rÃ¼me gÃ¼ncelleyin."
-                                                                       },
-    "app.instance.admonitions.shared-instance.update-available-header":  {
-                                                                             "message":  "Bir gÃ¼ncelleme mevcut"
-                                                                         },
     "app.instance.confirm-delete.admonition-body":  {
                                                         "message":  "DÃ¼nyalarÄ±nÄ±z, yapÄ±landÄ±rmalarÄ±nÄ±z ve yÃ¼klÃ¼ tÃ¼m iÃ§erikler ve tÃ¼m veriler kalÄ±cÄ± olarak silinecek."
                                                     },
@@ -665,15 +656,6 @@
     "app.modal.install-to-play.report-image-too-large":  {
                                                              "message":  "Dosya 1 MiB boyut sÄ±nÄ±rÄ±nÄ± aÅŸÄ±yor"
                                                          },
-    "app.modal.install-to-play.report-reason.inappropriate":  {
-                                                                  "message":  "Uygunsuz"
-                                                              },
-    "app.modal.install-to-play.report-reason.malicious":  {
-                                                              "message":  "KÃ¶tÃ¼ niyetli"
-                                                          },
-    "app.modal.install-to-play.report-reason.spam":  {
-                                                         "message":  "Spam"
-                                                     },
     "app.modal.install-to-play.report-submitted":  {
                                                        "message":  "Rapor sunuldu"
                                                    },
@@ -1508,22 +1490,34 @@
     "search.filter.locked.instance.sync":  {
                                                "message":  "Kurulum ile eÅŸitle"
                                            },
-    "search.filter.locked.server":  {
-                                        "message":  "Sunucu tarafÄ±ndan saÄŸlanmÄ±ÅŸtÄ±r"
-                                    },
     "search.filter.locked.server-environment.title":  {
                                                           "message":  "Sunucu Ã¶rneÄŸine yalnÄ±zca istemci tarafÄ±nda Ã§alÄ±ÅŸan modlar eklenebilir"
                                                       },
-    "search.filter.locked.server-game-version.title":  {
-                                                           "message":  "Oyun sÃ¼rÃ¼mÃ¼ sunucu tarafÄ±ndan saÄŸlanÄ±yor"
-                                                       },
-    "search.filter.locked.server-loader.title":  {
-                                                     "message":  "YÃ¼kleyici sunucu tarafÄ±ndan saÄŸlanÄ±yor"
-                                                 },
     "settings.sidebar.label.account":  {
                                            "message":  "Hesap"
                                        },
     "settings.sidebar.label.display":  {
                                            "message":  "GÃ¶ster"
-                                       }
+                                       },
+    "app.instance.admonitions.shared-instance.review-update-button":  {
+                                                                          "message":  "GÃ¼ncellemeyi gÃ¶zden geÃ§ir"
+                                                                      },
+    "app.instance.admonitions.shared-instance.update-available-body":  {
+                                                                           "message":  "{name}\u0027i oynamak iÃ§in bir gÃ¼ncelleme gerekli. Oyunu aÃ§abilmek iÃ§in lÃ¼tfen son sÃ¼rÃ¼me gÃ¼ncelleyin."
+                                                                       },
+    "app.instance.admonitions.shared-instance.update-available-header":  {
+                                                                             "message":  "Bir gÃ¼ncelleme mevcut"
+                                                                         },
+    "app.modal.install-to-play.report-reason.malicious":  {
+                                                              "message":  "KÃ¶tÃ¼ niyetli"
+                                                          },
+    "search.filter.locked.server":  {
+                                        "message":  "Sunucu tarafÄ±ndan saÄŸlanmÄ±ÅŸtÄ±r"
+                                    },
+    "search.filter.locked.server-game-version.title":  {
+                                                           "message":  "Oyun sÃ¼rÃ¼mÃ¼ sunucu tarafÄ±ndan saÄŸlanÄ±yor"
+                                                       },
+    "search.filter.locked.server-loader.title":  {
+                                                     "message":  "YÃ¼kleyici sunucu tarafÄ±ndan saÄŸlanÄ±yor"
+                                                 }
 }

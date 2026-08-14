@@ -965,12 +965,12 @@
     "search.filter.locked.instance.sync":  {
                                                "message":  "SynchronizovÃ¡no s instancÃ­"
                                            },
-    "search.filter.locked.server":  {
-                                        "message":  "PoskytovÃ¡no serverem"
-                                    },
     "search.filter.locked.server-environment.title":  {
                                                           "message":  "Pouze mÃ³dy ze strany klientu mohou bÃ½t pÅ™idÃ¡ny na server"
                                                       },
+    "search.filter.locked.server":  {
+                                        "message":  "PoskytovÃ¡no serverem"
+                                    },
     "search.filter.locked.server-game-version.title":  {
                                                            "message":  "Verze hry je poskytovÃ¡na serverem"
                                                        },

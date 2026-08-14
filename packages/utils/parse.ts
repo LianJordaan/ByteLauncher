@@ -4,6 +4,39 @@ import xss from 'xss'
 // @ts-expect-error xss types don't reflect CJS default export shape
 const { escapeAttrValue, FilterXSS, safeAttrValue, whiteList } = xss
 
+// Imgur is blocked in UK and Indonesia
+const imgurProxyCountries = new Set(['GB', 'ID'])
+
+type MarkdownUserCountryResolver = () => string | null | undefined
+
+let resolveMarkdownUserCountry: MarkdownUserCountryResolver = () => undefined
+
+export const setMarkdownUserCountryResolver = (resolver: MarkdownUserCountryResolver) => {
+	resolveMarkdownUserCountry = resolver
+}
+
+const shouldProxyImgur = () => {
+	try {
+		const country = resolveMarkdownUserCountry()
+		return country ? imgurProxyCountries.has(country.toUpperCase()) : false
+	} catch {
+		return false
+	}
+}
+
+const getImgurProxyUrl = (value: string) => {
+	try {
+		const url = new URL(value.replaceAll('&amp;', '&'))
+		if (url.hostname !== 'imgur.com' && !url.hostname.endsWith('.imgur.com')) {
+			return undefined
+		}
+
+		return `https://external-content.duckduckgo.com/iu/?u=${encodeURIComponent(url.toString())}.png`
+	} catch {
+		return undefined
+	}
+}
+
 export const configuredXss = new FilterXSS({
 	whiteList: {
 		...whiteList,
@@ -84,6 +117,18 @@ export const configuredXss = new FilterXSS({
 		}
 	},
 	safeAttrValue(tag, name, value, cssFilter) {
+		if (
+			shouldProxyImgur() &&
+			((tag === 'a' && name === 'href') ||
+				((tag === 'img' || tag === 'video' || tag === 'audio' || tag === 'source') &&
+					(name === 'src' || name === 'srcset' || name === 'poster')))
+		) {
+			const proxiedUrl = getImgurProxyUrl(value)
+			if (proxiedUrl) {
+				return safeAttrValue(tag, name, proxiedUrl, cssFilter)
+			}
+		}
+
 		if (
 			(tag === 'img' || tag === 'video' || tag === 'audio' || tag === 'source') &&
 			(name === 'src' || name === 'srcset' || name === 'poster') &&
@@ -184,3 +229,54 @@ export const md = (options = {}) => {
 }
 
 export const renderString = (string: string) => configuredXss.process(md().render(string))
+
+const basicMarkdownXss = new FilterXSS({
+	whiteList: {
+		a: ['href', 'target', 'rel'],
+		strong: [],
+		em: [],
+		code: [],
+		br: [],
+	},
+	stripIgnoreTag: true,
+	stripIgnoreTagBody: ['script', 'style'],
+})
+
+export const renderBasicInlineMarkdown = (
+	string: string,
+	options: {
+		target?: string
+	} = {},
+) => {
+	const instance = new MarkdownIt({
+		html: false,
+		linkify: true,
+		breaks: true,
+	})
+
+	instance.disable(['image', 'strikethrough'])
+
+	instance.linkify.set({
+		fuzzyLink: false,
+		fuzzyIP: false,
+	})
+
+	const defaultLinkOpenRenderer =
+		instance.renderer.rules.link_open ||
+		function (tokens, idx, options, _env, self) {
+			return self.renderToken(tokens, idx, options)
+		}
+
+	instance.renderer.rules.link_open = function (tokens, idx, renderOptions, env, self) {
+		const token = tokens[idx]
+		token.attrSet('rel', 'noopener nofollow ugc')
+
+		if (options.target) {
+			token.attrSet('target', options.target)
+		}
+
+		return defaultLinkOpenRenderer(tokens, idx, renderOptions, env, self)
+	}
+
+	return basicMarkdownXss.process(instance.renderInline(string))
+}

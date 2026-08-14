@@ -959,18 +959,9 @@
     "search.filter.locked.instance.sync":  {
                                                "message":  "Synkronoi instanssin kanssa"
                                            },
-    "search.filter.locked.server":  {
-                                        "message":  "Palvelimen tarjoama"
-                                    },
     "search.filter.locked.server-environment.title":  {
                                                           "message":  "Voit lisÃ¤tÃ¤ vain paikallisia modeja palvelin instanssiin"
                                                       },
-    "search.filter.locked.server-game-version.title":  {
-                                                           "message":  "Peliversio on palvelimen tarjoama"
-                                                       },
-    "search.filter.locked.server-loader.title":  {
-                                                     "message":  "Modialusta on palvelimen tarjoama"
-                                                 },
     "app.appearance-settings.color-theme.description":  {
                                                             "message":  "Valitse haluamasi väriteema ByteLauncherille."
                                                         }

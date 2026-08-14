@@ -1100,12 +1100,12 @@
     "search.filter.locked.instance.sync":  {
                                                "message":  "Sinhroniziraj sa instancom"
                                            },
-    "search.filter.locked.server":  {
-                                        "message":  "ObezbeÄ‘eno od servera"
-                                    },
     "search.filter.locked.server-environment.title":  {
                                                           "message":  "Samo modovi za kliente mogu biti dodani na instancu servera"
                                                       },
+    "search.filter.locked.server":  {
+                                        "message":  "ObezbeÄ‘eno od servera"
+                                    },
     "search.filter.locked.server-game-version.title":  {
                                                            "message":  "Verzije igre je obezbeÄ‘ena od servera"
                                                        },

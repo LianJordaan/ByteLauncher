@@ -17,6 +17,7 @@ import {
 	LibraryIcon,
 	LogInIcon,
 	LogOutIcon,
+	NewspaperIcon,
 	PlusIcon,
 	RefreshCwIcon,
 	RightArrowIcon,
@@ -28,6 +29,7 @@ import {
 import {
 	Admonition,
 	Avatar,
+	ButtonLink,
 	commonMessages,
 	ContentInstallModal,
 	ContentUpdaterModal,
@@ -37,6 +39,7 @@ import {
 	IconButton,
 	IntlFormatted,
 	LoadingBar,
+	NewsArticleCard,
 	NotificationPanel,
 	PopupNotificationPanel,
 	provideModalBehavior,
@@ -45,6 +48,7 @@ import {
 	providePageContext,
 	providePopupNotificationManager,
 	TeleportOverflowMenu,
+	TextLogo,
 	useDebugLogger,
 	useFormatBytes,
 	useHostingIntercom,
@@ -62,12 +66,12 @@ import { saveWindowState, StateFlags } from '@tauri-apps/plugin-window-state'
 import { computed, onMounted, onUnmounted, provide, ref, watch } from 'vue'
 import { RouterView, useRoute, useRouter } from 'vue-router'
 
-import ByteLauncherLogo from '@/assets/bytelauncher_logo.svg?component'
 import AccountsCard from '@/components/ui/AccountsCard.vue'
 import AppActionBar from '@/components/ui/AppActionBar.vue'
 import Breadcrumbs from '@/components/ui/Breadcrumbs.vue'
 import ErrorModal from '@/components/ui/ErrorModal.vue'
 import FriendsList from '@/components/ui/friends/FriendsList.vue'
+import HostingUpdateRequired from '@/components/ui/HostingUpdateRequired.vue'
 import AddServerToInstanceModal from '@/components/ui/install_flow/AddServerToInstanceModal.vue'
 import UnknownPackWarningModal from '@/components/ui/install_flow/UnknownPackWarningModal.vue'
 import MinecraftAuthErrorModal from '@/components/ui/minecraft-auth-error-modal/MinecraftAuthErrorModal.vue'
@@ -78,7 +82,6 @@ import ModpackAlreadyInstalledModal from '@/components/ui/modal/ModpackAlreadyIn
 import ModrinthAccountRequiredModal from '@/components/ui/modal/ModrinthAccountRequiredModal.vue'
 import UpdateToPlayModal from '@/components/ui/modal/UpdateToPlayModal.vue'
 import NavButton from '@/components/ui/NavButton.vue'
-import NewsPanel from '@/components/ui/NewsPanel.vue'
 import PrideFundraiserBanner from '@/components/ui/PrideFundraiserBanner.vue'
 import PromotionWrapper from '@/components/ui/PromotionWrapper.vue'
 import QuickInstanceSwitcher from '@/components/ui/QuickInstanceSwitcher.vue'
@@ -87,19 +90,19 @@ import SplashScreen from '@/components/ui/SplashScreen.vue'
 import SurveyPopup from '@/components/ui/SurveyPopup.vue'
 import WindowControls from '@/components/ui/WindowControls.vue'
 import { useCheckDisableMouseover } from '@/composables/macCssFix.js'
+import { useAppEvent } from '@/composables/use-app-event'
 import { config } from '@/config'
 import {
-	ads_consent_listener,
 	hide_ads_window,
 	init_ads_window,
 	perform_ads_consent_action,
+	release_ads_window_hold,
 	should_show_ads_consent_popup,
-	show_ads_window,
+	take_ads_window_hold,
 } from '@/helpers/ads.js'
 import { debugAnalytics, initAnalytics, trackEvent } from '@/helpers/analytics'
 import { check_reachable } from '@/helpers/auth.js'
 import { get_user, get_version } from '@/helpers/cache.js'
-import { command_listener, notification_listener, warning_listener } from '@/helpers/events.js'
 import { install_create_modpack_instance, install_get_modpack_preview } from '@/helpers/install'
 import { can_current_user_use_shared_instances, get as getInstance, run } from '@/helpers/instance'
 import { get as getCreds, login, logout } from '@/helpers/mr_auth.ts'
@@ -138,6 +141,7 @@ import {
 } from '@/providers/download-progress.ts'
 import { createServerInstall, provideServerInstall } from '@/providers/server-install'
 import { setupProviders } from '@/providers/setup'
+import { setupAppEventsProvider } from '@/providers/setup/app-events'
 import { setupAuthProvider } from '@/providers/setup/auth'
 import { setupLoadingStateProvider } from '@/providers/setup/loading-state'
 import { useError } from '@/store/error.js'
@@ -153,6 +157,7 @@ import { appSettingsModalOpenProfileKey } from './providers/app-settings-modal'
 const themeStore = useTheming()
 const router = useRouter()
 const route = useRoute()
+const { channel: appEventChannel, events: appEvents } = setupAppEventsProvider()
 const breadcrumbManager = createBreadcrumbManager()
 provideBreadcrumbManager(breadcrumbManager)
 const canNavigateBack = ref(false)
@@ -162,6 +167,25 @@ function updateHistoryNavigationState() {
 	const historyState = window.history.state
 	canNavigateBack.value = historyState?.back != null
 	canNavigateForward.value = historyState?.forward != null
+}
+
+let fullscreenAdsWindowHold = false
+
+async function handleFullscreenChange() {
+	const fullscreen = document.fullscreenElement !== null
+	if (fullscreen === fullscreenAdsWindowHold) return
+
+	fullscreenAdsWindowHold = fullscreen
+	try {
+		if (fullscreen) {
+			await take_ads_window_hold()
+		} else {
+			await release_ads_window_hold()
+		}
+	} catch (error) {
+		fullscreenAdsWindowHold = !fullscreen
+		handleError(error)
+	}
 }
 
 updateHistoryNavigationState()
@@ -180,10 +204,19 @@ watch(
 	},
 )
 const forceSidebar = computed(
-	() => route.path.startsWith('/browse') || route.path.startsWith('/project'),
+	() =>
+		route.path.startsWith('/browse') ||
+		route.path.startsWith('/project') ||
+		route.path.startsWith('/user'),
 )
 const sidebarVisible = computed(() => sidebarToggled.value || forceSidebar.value)
 const hostingRouteActive = computed(() => route.path.startsWith('/hosting'))
+const hostingUpdateRequired = computed(
+	() =>
+		hostingRouteActive.value &&
+		!!appUpdateState.availableUpdate.value &&
+		appUpdateState.updatesEnabled.value,
+)
 const prideFundraiserEnabled = computed(
 	() => themeStore.getFeatureFlag('pride_fundraiser') && Date.now() < PRIDE_FUNDRAISER_END_DATE,
 )
@@ -209,11 +242,22 @@ const notificationManager = new AppNotificationManager()
 provideNotificationManager(notificationManager)
 const { handleError, addNotification } = notificationManager
 
+useAppEvent(
+	'warning',
+	(event) =>
+		addNotification({
+			title: 'Warning',
+			text: event.message,
+			type: 'warning',
+		}),
+	appEvents,
+)
+
 const popupNotificationManager = new AppPopupNotificationManager()
 providePopupNotificationManager(popupNotificationManager)
 const { addPopupNotification } = popupNotificationManager
 let adsConsentPopupId = null
-let unlistenAdsConsent
+useAppEvent('ads_consent_required', handleAdsConsentRequired, appEvents)
 
 const appVersion = getVersion()
 const tauriApiClient = new TauriModrinthClient({
@@ -282,8 +326,8 @@ providePageContext({
 })
 provideModalBehavior({
 	noblur: computed(() => !themeStore.advancedRendering),
-	onShow: () => hide_ads_window(),
-	onHide: () => show_ads_window(),
+	onShow: () => take_ads_window_hold(),
+	onHide: () => release_ads_window_hold(),
 })
 
 const {
@@ -298,7 +342,7 @@ const {
 	setModpackAlreadyInstalledModal,
 	handleModpackDuplicateCreateAnyway,
 	handleModpackDuplicateGoToInstance,
-} = setupProviders(notificationManager, popupNotificationManager)
+} = setupProviders(tauriApiClient, notificationManager, popupNotificationManager)
 
 const news = ref([])
 const displayedServerInviteNotifications = new Set()
@@ -350,7 +394,6 @@ const authUnreachable = computed(() => {
 onMounted(async () => {
 	await useCheckDisableMouseover()
 	try {
-		unlistenAdsConsent = await ads_consent_listener(handleAdsConsentRequired)
 		handleAdsConsentRequired(await should_show_ads_consent_popup())
 	} catch (error) {
 		handleError(error)
@@ -358,6 +401,7 @@ onMounted(async () => {
 
 	document.querySelector('body').addEventListener('click', handleClick)
 	document.querySelector('body').addEventListener('auxclick', handleAuxClick)
+	document.addEventListener('fullscreenchange', handleFullscreenChange)
 
 	checkUpdates()
 })
@@ -365,9 +409,13 @@ onMounted(async () => {
 onUnmounted(async () => {
 	document.querySelector('body').removeEventListener('click', handleClick)
 	document.querySelector('body').removeEventListener('auxclick', handleAuxClick)
+	document.removeEventListener('fullscreenchange', handleFullscreenChange)
 	clearDelayedUpdatePopup()
 
-	await unlistenAdsConsent?.()
+	if (fullscreenAdsWindowHold) {
+		fullscreenAdsWindowHold = false
+		await release_ads_window_hold().catch(handleError)
+	}
 	await unlistenUpdateDownload?.()
 })
 
@@ -546,31 +594,7 @@ async function setupApp() {
 	nativeDecorations.value = native_decorations
 	if (os.value !== 'MacOS') await getCurrentWindow().setDecorations(native_decorations)
 
-	// Default to the ByteLauncher purple theme the first time ByteLauncher runs
-	// (including when migrating from the Modrinth App), then remember it via a
-	// localStorage flag so we never override a theme the user later picks. Done
-	// here, not via a DB migration — app.db is shared with the real Modrinth App.
-	let effectiveTheme = theme
-	if (!localStorage.getItem('bytelauncher-theme-initialized')) {
-		localStorage.setItem('bytelauncher-theme-initialized', '1')
-		if (theme === 'dark') {
-			effectiveTheme = 'purple'
-			try {
-				const current = await getSettings()
-				await setSettings({ ...current, theme: 'purple' })
-			} catch (e) {
-				console.error('[theme] failed to persist default purple theme', e)
-			}
-		}
-	}
-
-	// A previously-selected plugin theme is stored client-side (the backend enum
-	// only knows the built-ins), so let it override the backend theme on startup.
-	// Its CSS loads a moment later via the plugin loader, which re-applies it.
-	const pluginTheme = themeStore.getPersistedPluginTheme()
-	if (pluginTheme) effectiveTheme = pluginTheme
-
-	themeStore.setThemeState(effectiveTheme)
+	themeStore.setThemeState(theme)
 	themeStore.collapsedNavigation = collapsed_navigation
 	themeStore.advancedRendering = advanced_rendering
 	themeStore.hideNametagSkinsPage = hide_nametag_skins_page
@@ -600,14 +624,6 @@ async function setupApp() {
 		document.getElementsByTagName('html')[0].classList.add('windows')
 	}
 
-	await warning_listener((e) =>
-		addNotification({
-			title: 'Warning',
-			text: e.message,
-			type: 'warning',
-		}),
-	)
-
 	fetch(`https://api.modrinth.com/appCriticalAnnouncement.json?version=${version}`)
 		.then((response) => response.json())
 		.then((res) => {
@@ -630,7 +646,7 @@ async function setupApp() {
 						...article,
 						path: article.link,
 					}))
-					.slice(0, 12)
+					.slice(0, 4)
 			}
 		})
 		.catch((error) => {
@@ -656,7 +672,7 @@ async function setupApp() {
 }
 
 const stateFailed = ref(false)
-initialize_state()
+initialize_state(appEventChannel)
 	.then(() => {
 		setupApp().catch((err) => {
 			stateFailed.value = true
@@ -786,7 +802,7 @@ const errorModal = ref()
 const minecraftAuthErrorModal = ref()
 const minecraftRequiredModal = ref()
 
-const contentInstall = createContentInstall({ router, handleError })
+const contentInstall = createContentInstall({ router, handleError, appEvents })
 provideContentInstall(contentInstall)
 const {
 	instances: contentInstallInstances,
@@ -819,7 +835,12 @@ const {
 	handleIncompatibilityWarningCancel: handleContentInstallIncompatibilityWarningCancel,
 } = contentInstall
 
-const serverInstall = createServerInstall({ router, handleError, popupNotificationManager })
+const serverInstall = createServerInstall({
+	router,
+	handleError,
+	popupNotificationManager,
+	appEvents,
+})
 provideServerInstall(serverInstall)
 const {
 	setInstallToPlayModal: setServerInstallToPlayModal,
@@ -995,8 +1016,8 @@ onMounted(() => {
 const accounts = ref(null)
 provide('accountsCard', accounts)
 
-command_listener(handleCommand)
-notification_listener(handleLiveNotification)
+useAppEvent('command', handleCommand, appEvents)
+useAppEvent('notification', handleLiveNotification, appEvents)
 
 async function markLiveNotificationRead(notification) {
 	try {
@@ -1177,16 +1198,16 @@ const updatePopupMessages = defineMessages({
 	},
 	meteredBody: {
 		id: 'app.update-popup.body.metered',
-		defaultMessage: `ByteLauncher v{version} is available now! Since you're on a metered network, we didn't automatically download it.`,
+		defaultMessage: `Modrinth App v{version} is available now! Since you're on a metered network, we didn't automatically download it.`,
 	},
 	downloadedBody: {
 		id: 'app.update-popup.body.download-complete',
-		defaultMessage: `ByteLauncher v{version} has finished downloading. Reload to update now, or automatically when you close ByteLauncher.`,
+		defaultMessage: `Modrinth App v{version} has finished downloading. Reload to update now, or automatically when you close Modrinth App.`,
 	},
 	linuxBody: {
 		id: 'app.update-popup.body.linux',
 		defaultMessage:
-			'ByteLauncher v{version} is available. Use your package manager to update for the latest features and fixes!',
+			'Modrinth App v{version} is available. Use your package manager to update for the latest features and fixes!',
 	},
 	reload: {
 		id: 'app.update-popup.reload',
@@ -1422,6 +1443,7 @@ async function downloadUpdate(versionToDownload) {
 				handleError(e)
 			})
 		unlistenUpdateDownload = await subscribeToDownloadProgress(
+			appEvents,
 			appUpdateDownload,
 			versionToDownload.version,
 		)
@@ -1595,7 +1617,7 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 				<LibraryIcon />
 			</NavButton>
 			<NavButton
-				v-tooltip.right="'ByteBuilders Hosting'"
+				v-tooltip.right="formatMessage(messages.modrinthHosting)"
 				to="/hosting/manage"
 				:is-primary="(r) => r.path === '/hosting/manage' || r.path === '/hosting/manage/'"
 				:is-subpage="
@@ -1679,7 +1701,7 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 		</div>
 		<div data-tauri-drag-region class="app-grid-statusbar bg-bg-raised h-[--top-bar-height] flex">
 			<div data-tauri-drag-region class="flex min-w-0 flex-1 items-center overflow-hidden p-2">
-				<ByteLauncherLogo class="app-brand-logo h-7 w-auto shrink-0 text-contrast pointer-events-none" />
+				<TextLogo class="h-7 w-auto shrink-0 text-contrast pointer-events-none" />
 				<div data-tauri-drag-region class="ml-2 flex shrink-0 items-center gap-2">
 					<IconButton
 						type="outlined"
@@ -1780,7 +1802,8 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 			>
 				{{ formatMessage(messages.authUnreachableBody) }}
 			</Admonition>
-			<RouterView v-slot="{ Component }">
+			<HostingUpdateRequired v-if="hostingUpdateRequired" />
+			<RouterView v-else v-slot="{ Component }">
 				<template v-if="Component">
 					<Suspense @pending="onSuspensePending" @resolve="onSuspenseResolve">
 						<component :is="Component"></component>
@@ -1817,7 +1840,29 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 						v-if="prideFundraiserEnabled"
 						class="p-4 border-0 border-b-[1px] border-[--brand-gradient-border] border-solid"
 					/>
-					<NewsPanel :news="news" />
+					<div v-if="news && news.length > 0" class="p-4 flex flex-col items-center">
+						<h3 class="text-base mb-4 text-primary font-medium m-0 text-left w-full">
+							{{ formatMessage(messages.news) }}
+						</h3>
+						<div class="space-y-4 flex flex-col items-center w-full">
+							<NewsArticleCard
+								v-for="(item, index) in news"
+								:key="`news-${index}`"
+								:article="item"
+							/>
+							<ButtonLink
+								type="colored"
+								color="brand"
+								size="xl"
+								href="https://modrinth.com/news"
+								target="_blank"
+								class="my-4"
+							>
+								<NewspaperIcon />
+								{{ formatMessage(messages.viewAllNews) }}
+							</ButtonLink>
+						</div>
+					</div>
 				</div>
 			</div>
 			<template v-if="showAd">

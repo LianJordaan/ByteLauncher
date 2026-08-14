@@ -506,9 +506,6 @@
     "search.filter.locked.instance.sync":  {
                                                "message":  "SincronizeazÄƒ cu instanÈ›a"
                                            },
-    "search.filter.locked.server":  {
-                                        "message":  "Furnizat de server"
-                                    },
     "search.filter.locked.server-environment.title":  {
                                                           "message":  "Numai modurile de pe partea clientului pot fi adÄƒugate la instanÈ›a serverului"
                                                       },

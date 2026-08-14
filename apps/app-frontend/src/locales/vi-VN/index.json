@@ -998,12 +998,12 @@
     "search.filter.locked.instance.sync":  {
                                                "message":  "Äá»“ng bá»™ vá»›i phiÃªn báº£n"
                                            },
-    "search.filter.locked.server":  {
-                                        "message":  "Do mÃ¡y chá»§ cung cáº¥p"
-                                    },
     "search.filter.locked.server-environment.title":  {
                                                           "message":  "Chá»‰ cÃ¡c mod cháº¡y phÃ­a client má»›i cÃ³ thá»ƒ thÃªm há»“ sÆ¡ mÃ¡y chá»§"
                                                       },
+    "search.filter.locked.server":  {
+                                        "message":  "Do mÃ¡y chá»§ cung cáº¥p"
+                                    },
     "search.filter.locked.server-game-version.title":  {
                                                            "message":  "PhiÃªn báº£n trÃ² chÆ¡i Ä‘Æ°á»£c cung cáº¥p bá»Ÿi mÃ¡y chá»§"
                                                        },

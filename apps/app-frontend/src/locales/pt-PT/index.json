@@ -872,9 +872,6 @@
     "search.filter.locked.instance.sync":  {
                                                "message":  "Sincronizar com a instÃ¢ncia"
                                            },
-    "search.filter.locked.server":  {
-                                        "message":  "Fornecido pelo servidor"
-                                    },
     "search.filter.locked.server-environment.title":  {
                                                           "message":  "Apenas mods no cliente podem ser adicionados Ã  instÃ¢ncia de servidor"
                                                       },

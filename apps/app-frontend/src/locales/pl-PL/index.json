@@ -371,15 +371,9 @@
     "app.instance.admonitions.shared-instance.review-header":  {
                                                                    "message":  "SprawdÅº zmiany"
                                                                },
-    "app.instance.admonitions.shared-instance.review-update-button":  {
-                                                                          "message":  "SprawdÅº aktualizacjÄ™"
-                                                                      },
     "app.instance.admonitions.shared-instance.reviewing-button":  {
                                                                       "message":  "Trwa przeglÄ…d..."
                                                                   },
-    "app.instance.admonitions.shared-instance.update-available-header":  {
-                                                                             "message":  "DostÄ™pna aktualizacja"
-                                                                         },
     "app.instance.confirm-delete.admonition-body":  {
                                                         "message":  "Wszystkie dane z Twojej instancji zostanÄ… trwale usuniÄ™te, w tym Twoje Å›wiaty, pliki konfiguracji i jakakolwiek dodana zawartoÅ›Ä‡."
                                                     },
@@ -668,15 +662,6 @@
     "app.modal.install-to-play.report-reason":  {
                                                     "message":  "KtÃ³rÄ… zasadÄ™ narusza ta instancja?"
                                                 },
-    "app.modal.install-to-play.report-reason.inappropriate":  {
-                                                                  "message":  "TreÅ›ci nieodpowiednie"
-                                                              },
-    "app.modal.install-to-play.report-reason.malicious":  {
-                                                              "message":  "Zawiera ZÅ‚oÅ›liwy kod"
-                                                          },
-    "app.modal.install-to-play.report-reason.spam":  {
-                                                         "message":  "Spam"
-                                                     },
     "app.modal.install-to-play.report-shared-instance-header":  {
                                                                     "message":  "ZgÅ‚oÅ› przesÅ‚anÄ… Instalacje"
                                                                 },
@@ -1703,22 +1688,25 @@
     "search.filter.locked.instance.sync":  {
                                                "message":  "Synchronizuj z instancjÄ…"
                                            },
-    "search.filter.locked.server":  {
-                                        "message":  "Dostarczone przez serwer"
-                                    },
     "search.filter.locked.server-environment.title":  {
                                                           "message":  "Tylko mody po stronie klienta mogÄ… byÄ‡ dodane do instancji serwera"
                                                       },
-    "search.filter.locked.server-game-version.title":  {
-                                                           "message":  "Wersja gry jest dostarczona przez serwer"
-                                                       },
-    "search.filter.locked.server-loader.title":  {
-                                                     "message":  "Loader jest dostarczony przez serwer"
-                                                 },
     "settings.sidebar.label.account":  {
                                            "message":  "Konto"
                                        },
     "settings.sidebar.label.display":  {
                                            "message":  "WyÅ›wietlanie"
-                                       }
+                                       },
+    "app.instance.admonitions.shared-instance.review-update-button":  {
+                                                                          "message":  "SprawdÅº aktualizacjÄ™"
+                                                                      },
+    "app.instance.admonitions.shared-instance.update-available-header":  {
+                                                                             "message":  "DostÄ™pna aktualizacja"
+                                                                         },
+    "app.modal.install-to-play.report-reason.inappropriate":  {
+                                                                  "message":  "TreÅ›ci nieodpowiednie"
+                                                              },
+    "app.modal.install-to-play.report-reason.malicious":  {
+                                                              "message":  "Zawiera ZÅ‚oÅ›liwy kod"
+                                                          }
 }

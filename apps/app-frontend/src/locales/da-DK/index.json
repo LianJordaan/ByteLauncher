@@ -296,18 +296,9 @@
     "app.instance.admonitions.shared-instance.review-header":  {
                                                                    "message":  "GennemsÃ¥ Ã¦ndringer"
                                                                },
-    "app.instance.admonitions.shared-instance.review-update-button":  {
-                                                                          "message":  "GennemgÃ¥ opdatering"
-                                                                      },
     "app.instance.admonitions.shared-instance.reviewing-button":  {
                                                                       "message":  "GennemgÃ¥r..."
                                                                   },
-    "app.instance.admonitions.shared-instance.update-available-body":  {
-                                                                           "message":  "En opdatering er krÃ¦vet for at spille {name}. Venligst opdater til den seneste version for at kÃ¸re spillet."
-                                                                       },
-    "app.instance.admonitions.shared-instance.update-available-header":  {
-                                                                             "message":  "En opdatering er tilgÃ¦ngelig"
-                                                                         },
     "app.instance.confirm-delete.admonition-body":  {
                                                         "message":  "Al\u0027 data for din instance vil blive permanent slettet, dette inkludere dine verdener, konfigurationer, og alt installeret indhold."
                                                     },
@@ -470,9 +461,6 @@
     "app.modal.install-to-play.report-image-too-large":  {
                                                              "message":  "Filen overskrider 1MiB stÃ¸rrelse begrÃ¦nsning"
                                                          },
-    "app.modal.install-to-play.report-reason.spam":  {
-                                                         "message":  "Spam"
-                                                     },
     "app.modal.install-to-play.shared-instance":  {
                                                       "message":  "Delt instance"
                                                   },
@@ -1181,18 +1169,18 @@
     "search.filter.locked.instance.sync":  {
                                                "message":  "Synkroniser med instance"
                                            },
-    "search.filter.locked.server":  {
-                                        "message":  "Givet af serveren"
-                                    },
     "search.filter.locked.server-environment.title":  {
                                                           "message":  "Kun klient-sided mods kan blive tilfÃ¸jet til denne server instance"
                                                       },
-    "search.filter.locked.server-game-version.title":  {
-                                                           "message":  "Spille version er givet af serveren"
-                                                       },
-    "search.filter.locked.server-loader.title":  {
-                                                     "message":  "Loader er givet af serveren"
-                                                 },
+    "app.instance.admonitions.shared-instance.review-update-button":  {
+                                                                          "message":  "GennemgÃ¥ opdatering"
+                                                                      },
+    "app.instance.admonitions.shared-instance.update-available-body":  {
+                                                                           "message":  "En opdatering er krÃ¦vet for at spille {name}. Venligst opdater til den seneste version for at kÃ¸re spillet."
+                                                                       },
+    "app.instance.admonitions.shared-instance.update-available-header":  {
+                                                                             "message":  "En opdatering er tilgÃ¦ngelig"
+                                                                         },
     "app.appearance-settings.color-theme.description":  {
                                                             "message":  "Vælg dit foretrukne farvetema til ByteLauncher."
                                                         }

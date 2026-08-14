@@ -377,18 +377,9 @@
     "app.instance.admonitions.shared-instance.review-header":  {
                                                                    "message":  "æª¢è¦–è®Šæ›´"
                                                                },
-    "app.instance.admonitions.shared-instance.review-update-button":  {
-                                                                          "message":  "æª¢è¦–æ›´æ–°"
-                                                                      },
     "app.instance.admonitions.shared-instance.reviewing-button":  {
                                                                       "message":  "æ­£åœ¨æª¢è¦–..."
                                                                   },
-    "app.instance.admonitions.shared-instance.update-available-body":  {
-                                                                           "message":  "éœ€è¦æ›´æ–°æ‰èƒ½éŠçŽ©ã€Œ{name}ã€ã€‚è«‹æ›´æ–°è‡³æœ€æ–°ç‰ˆæœ¬ä»¥å•Ÿå‹•éŠæˆ²ã€‚"
-                                                                       },
-    "app.instance.admonitions.shared-instance.update-available-header":  {
-                                                                             "message":  "æœ‰å¯ç”¨çš„æ›´æ–°"
-                                                                         },
     "app.instance.confirm-delete.admonition-body":  {
                                                         "message":  "ä½ å¯¦ä¾‹ä¸­çš„æ‰€æœ‰è³‡æ–™å°‡è¢«æ°¸ä¹…åˆªé™¤ï¼ŒåŒ…å«ä½ çš„ä¸–ç•Œã€è¨­å®šæª”ä»¥åŠæ‰€æœ‰å·²å®‰è£çš„å…§å®¹ã€‚"
                                                     },
@@ -704,15 +695,6 @@
     "app.modal.install-to-play.report-reason":  {
                                                     "message":  "é€™å€‹å¯¦ä¾‹é•åäº†å“ªä¸€æ¢è¦å‰‡ï¼Ÿ"
                                                 },
-    "app.modal.install-to-play.report-reason.inappropriate":  {
-                                                                  "message":  "ä¸ç•¶å…§å®¹"
-                                                              },
-    "app.modal.install-to-play.report-reason.malicious":  {
-                                                              "message":  "æƒ¡æ„å…§å®¹"
-                                                          },
-    "app.modal.install-to-play.report-reason.spam":  {
-                                                         "message":  "åžƒåœ¾å…§å®¹"
-                                                     },
     "app.modal.install-to-play.report-shared-instance-header":  {
                                                                     "message":  "æª¢èˆ‰å…±ç”¨å¯¦ä¾‹"
                                                                 },
@@ -1922,22 +1904,40 @@
     "search.filter.locked.instance.sync":  {
                                                "message":  "èˆ‡å¯¦ä¾‹åŒæ­¥"
                                            },
-    "search.filter.locked.server":  {
-                                        "message":  "ç”±ä¼ºæœå™¨æä¾›"
-                                    },
     "search.filter.locked.server-environment.title":  {
                                                           "message":  "åªæœ‰ç”¨æˆ¶ç«¯æ¨¡çµ„å¯ä»¥è¢«åŠ åˆ°ä¼ºæœå™¨å¯¦ä¾‹"
                                                       },
-    "search.filter.locked.server-game-version.title":  {
-                                                           "message":  "éŠæˆ²ç‰ˆæœ¬ç”±ä¼ºæœå™¨æä¾›"
-                                                       },
-    "search.filter.locked.server-loader.title":  {
-                                                     "message":  "è¼‰å…¥å™¨ç”±ä¼ºæœå™¨æä¾›"
-                                                 },
     "settings.sidebar.label.account":  {
                                            "message":  "å¸³è™Ÿ"
                                        },
     "settings.sidebar.label.display":  {
                                            "message":  "é¡¯ç¤º"
-                                       }
+                                       },
+    "app.instance.admonitions.shared-instance.review-update-button":  {
+                                                                          "message":  "æª¢è¦–æ›´æ–°"
+                                                                      },
+    "app.instance.admonitions.shared-instance.update-available-body":  {
+                                                                           "message":  "éœ€è¦æ›´æ–°æ‰èƒ½éŠçŽ©ã€Œ{name}ã€ã€‚è«‹æ›´æ–°è‡³æœ€æ–°ç‰ˆæœ¬ä»¥å•Ÿå‹•éŠæˆ²ã€‚"
+                                                                       },
+    "app.instance.admonitions.shared-instance.update-available-header":  {
+                                                                             "message":  "æœ‰å¯ç”¨çš„æ›´æ–°"
+                                                                         },
+    "app.modal.install-to-play.report-reason.inappropriate":  {
+                                                                  "message":  "ä¸ç•¶å…§å®¹"
+                                                              },
+    "app.modal.install-to-play.report-reason.malicious":  {
+                                                              "message":  "æƒ¡æ„å…§å®¹"
+                                                          },
+    "app.modal.install-to-play.report-reason.spam":  {
+                                                         "message":  "åžƒåœ¾å…§å®¹"
+                                                     },
+    "search.filter.locked.server":  {
+                                        "message":  "ç”±ä¼ºæœå™¨æä¾›"
+                                    },
+    "search.filter.locked.server-game-version.title":  {
+                                                           "message":  "éŠæˆ²ç‰ˆæœ¬ç”±ä¼ºæœå™¨æä¾›"
+                                                       },
+    "search.filter.locked.server-loader.title":  {
+                                                     "message":  "è¼‰å…¥å™¨ç”±ä¼ºæœå™¨æä¾›"
+                                                 }
 }

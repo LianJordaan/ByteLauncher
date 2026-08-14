@@ -377,18 +377,9 @@
     "app.instance.admonitions.shared-instance.review-header":  {
                                                                    "message":  "VÃ¡ltoztatÃ¡sok Ã¡ttekintÃ©se"
                                                                },
-    "app.instance.admonitions.shared-instance.review-update-button":  {
-                                                                          "message":  "FrissÃ­tÃ©s Ã¡ttekintÃ©se"
-                                                                      },
     "app.instance.admonitions.shared-instance.reviewing-button":  {
                                                                       "message":  "ÃttekintÃ©s..."
                                                                   },
-    "app.instance.admonitions.shared-instance.update-available-body":  {
-                                                                           "message":  "Egy frssÃ­tÃ©s szÃ¼ksÃ©ges a(z) {name} jÃ¡tÃ©kprofilhoz. KÃ©rjÃ¼k, frissÃ­tsd a jÃ¡tÃ©kot a legÃºjabb verziÃ³ra az indÃ­tÃ¡shoz."
-                                                                       },
-    "app.instance.admonitions.shared-instance.update-available-header":  {
-                                                                             "message":  "FrissÃ­tÃ©s Ã©rhetÅ‘ el"
-                                                                         },
     "app.instance.confirm-delete.admonition-body":  {
                                                         "message":  "A jÃ¡tÃ©kprofilhoz tartozÃ³ Ã¶sszes adat vÃ©glegesen tÃ¶rlÅ‘dik, beleÃ©rtve a vilÃ¡gokat, a beÃ¡llÃ­tÃ¡sokat Ã©s az Ã¶sszes telepÃ­tett tartalmat."
                                                     },
@@ -704,15 +695,6 @@
     "app.modal.install-to-play.report-reason":  {
                                                     "message":  "Melyik szabÃ¡lyt sÃ©rti meg ez az adott jÃ¡tÃ©kprofil?"
                                                 },
-    "app.modal.install-to-play.report-reason.inappropriate":  {
-                                                                  "message":  "Nem megfelelÅ‘"
-                                                              },
-    "app.modal.install-to-play.report-reason.malicious":  {
-                                                              "message":  "KÃ¡ros"
-                                                          },
-    "app.modal.install-to-play.report-reason.spam":  {
-                                                         "message":  "Spam"
-                                                     },
     "app.modal.install-to-play.report-shared-instance-header":  {
                                                                     "message":  "Megosztott jÃ¡tÃ©kprofil jelentÃ©se"
                                                                 },
@@ -1907,22 +1889,37 @@
     "search.filter.locked.instance.sync":  {
                                                "message":  "SzinkronizÃ¡lÃ¡s a jÃ¡tÃ©kpÃ©ldÃ¡nnyal"
                                            },
-    "search.filter.locked.server":  {
-                                        "message":  "A szerver Ã¡ltal van megadva"
-                                    },
     "search.filter.locked.server-environment.title":  {
                                                           "message":  "Csak kliensoldali modok adhatÃ³k hozzÃ¡ a szerverprofilhoz"
                                                       },
-    "search.filter.locked.server-game-version.title":  {
-                                                           "message":  "A jÃ¡tÃ©kverziÃ³t az adott szerver biztosÃ­tja"
-                                                       },
-    "search.filter.locked.server-loader.title":  {
-                                                     "message":  "A betÃ¶ltÅ‘t az adott szerver biztosÃ­tja"
-                                                 },
     "settings.sidebar.label.account":  {
                                            "message":  "FiÃ³k"
                                        },
     "settings.sidebar.label.display":  {
                                            "message":  "KijelzÅ‘"
-                                       }
+                                       },
+    "app.instance.admonitions.shared-instance.review-update-button":  {
+                                                                          "message":  "FrissÃ­tÃ©s Ã¡ttekintÃ©se"
+                                                                      },
+    "app.instance.admonitions.shared-instance.update-available-body":  {
+                                                                           "message":  "Egy frssÃ­tÃ©s szÃ¼ksÃ©ges a(z) {name} jÃ¡tÃ©kprofilhoz. KÃ©rjÃ¼k, frissÃ­tsd a jÃ¡tÃ©kot a legÃºjabb verziÃ³ra az indÃ­tÃ¡shoz."
+                                                                       },
+    "app.instance.admonitions.shared-instance.update-available-header":  {
+                                                                             "message":  "FrissÃ­tÃ©s Ã©rhetÅ‘ el"
+                                                                         },
+    "app.modal.install-to-play.report-reason.inappropriate":  {
+                                                                  "message":  "Nem megfelelÅ‘"
+                                                              },
+    "app.modal.install-to-play.report-reason.malicious":  {
+                                                              "message":  "KÃ¡ros"
+                                                          },
+    "search.filter.locked.server":  {
+                                        "message":  "A szerver Ã¡ltal van megadva"
+                                    },
+    "search.filter.locked.server-game-version.title":  {
+                                                           "message":  "A jÃ¡tÃ©kverziÃ³t az adott szerver biztosÃ­tja"
+                                                       },
+    "search.filter.locked.server-loader.title":  {
+                                                     "message":  "A betÃ¶ltÅ‘t az adott szerver biztosÃ­tja"
+                                                 }
 }

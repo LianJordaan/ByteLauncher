@@ -533,12 +533,12 @@
     "search.filter.locked.instance.sync":  {
                                                "message":  "×¡× ×›×¨×Ÿ ×¢× ×”×ª×§× ×”"
                                            },
-    "search.filter.locked.server":  {
-                                        "message":  "×ž×¡×•×¤×§ ×¢×œ ×™×“×™ ×”×©×¨×ª"
-                                    },
     "search.filter.locked.server-environment.title":  {
                                                           "message":  "× ×™×ª×Ÿ ×œ×”×•×¡×™×£ ×¨×§ ×ž×•×“×™× ×‘×¦×“ ×”×œ×§×•×— ×œ×©×¨×ª"
                                                       },
+    "search.filter.locked.server":  {
+                                        "message":  "×ž×¡×•×¤×§ ×¢×œ ×™×“×™ ×”×©×¨×ª"
+                                    },
     "search.filter.locked.server-game-version.title":  {
                                                            "message":  "×’×¨×¡×ª ×”×ž×©×—×§ ×ž×¡×•×¤×§×ª ×¢×œ ×™×“×™ ×”×©×¨×ª"
                                                        },
