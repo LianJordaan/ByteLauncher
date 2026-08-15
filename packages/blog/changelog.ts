@@ -11,6 +11,44 @@ export type VersionEntry = {
 
 const VERSIONS: VersionEntry[] = [
 	{
+		date: `2026-08-14T17:47:21+00:00`,
+		product: 'app',
+		version: '0.17.9',
+		body: `## Fixed
+- Reverted server panel change that wasn't meant to go out yet.`,
+	},
+	{
+		date: `2026-08-14T17:47:21+00:00`,
+		product: 'hosting',
+		body: `## Fixed
+- Reverted server panel change that wasn't meant to go out yet.`,
+	},
+	{
+		date: `2026-08-14T17:47:21+00:00`,
+		product: 'web',
+		body: `## Fixed
+- Fixed project pages failing to load when user is not logged in.`,
+	},
+	{
+		date: `2026-08-14T17:04:48+00:00`,
+		product: 'hosting',
+		body: `## Changed
+- The server panel will no longer be locked while individual content is being installed when using the Browse content button.
+- Better stability when content is being installed
+
+## Fixed
+- Fixed issue when trying to upgrade a medal server from the manage servers page.`,
+	},
+	{
+		date: `2026-08-14T17:04:48+00:00`,
+		product: 'app',
+		version: '0.17.8',
+		body: `## Fixed
+- Fixed some issues rendering Ears skins
+- Fixed mrpack exports setting the wrong environment inclusion values.
+- Fixed issue where if your instance was linked to a modpack version that has been deleted from Modrinth the Managed content card on the content tab would not show up`,
+	},
+	{
 		date: `2026-08-13T17:59:06+00:00`,
 		product: 'app',
 		version: '0.17.7',
