@@ -1,6 +1,6 @@
 import { invoke } from '@tauri-apps/api/core'
 
-import { setEnabledPluginIds } from '@/plugins/plugin-state'
+import { markPluginsReady, setEnabledPluginIds } from '@/plugins/plugin-state'
 import { useTheming } from '@/store/theme.ts'
 
 // Loads user/built-in plugins on startup. Plugins live in
@@ -37,12 +37,17 @@ export async function loadPlugins() {
 		plugins = await invoke('plugin:addons|read_plugins')
 	} catch (e) {
 		console.error('[plugins] failed to read plugins', e)
+		markPluginsReady()
 		return
 	}
 
-	if (!Array.isArray(plugins)) return
+	if (!Array.isArray(plugins)) {
+		markPluginsReady()
+		return
+	}
 
 	setEnabledPluginIds(plugins.filter((plugin) => plugin.enabled).map((plugin) => plugin.id))
+	markPluginsReady()
 
 	for (const plugin of plugins) {
 		if (!plugin.enabled) continue

@@ -79,7 +79,7 @@ const filteredPlugins = computed(() => {
 async function toggle(plugin: PluginData) {
 	const next = !plugin.enabled
 	plugin.enabled = next
-	restartNeeded.value = true
+	if (plugin.js || plugin.css) restartNeeded.value = true
 	setPluginEnabledState(plugin.id, next)
 	try {
 		await invoke('plugin:addons|set_plugin_enabled', { id: plugin.id, enabled: next })
@@ -138,8 +138,7 @@ async function checkForUpdates() {
 		const latest = String(data.tag_name || '').replace(/^v/, '')
 		// The standalone app binary, never an installer.
 		const asset = (data.assets || []).find(
-			(a: GithubAsset) =>
-				/\.exe$/i.test(a?.name ?? '') && !/setup|installer/i.test(a?.name ?? ''),
+			(a: GithubAsset) => /\.exe$/i.test(a?.name ?? '') && !/setup|installer/i.test(a?.name ?? ''),
 		)
 		if (latest && asset?.browser_download_url && isNewer(latest, currentVersion.value)) {
 			updateInfo.value = {
@@ -194,7 +193,10 @@ async function uninstall() {
 			<div>
 				<h2 class="m-0 text-lg font-semibold text-contrast">App updates</h2>
 				<p class="m-0 mt-1 text-sm">
-					<span>You're on ByteLauncher v{{ currentVersion }} (based on Modrinth {{ currentVersion.split('-fork')[0] }}). </span>
+					<span
+						>You're on ByteLauncher v{{ currentVersion }} (based on Modrinth
+						{{ currentVersion.split('-fork')[0] }}).
+					</span>
 					<span v-if="updateState === 'current'">You're up to date.</span>
 					<span v-else-if="updateState === 'available'"
 						>Update available: v{{ updateInfo?.version }}.</span
@@ -228,7 +230,8 @@ async function uninstall() {
 				<h2 class="m-0 text-lg font-semibold text-contrast">Plugins</h2>
 				<p class="m-0 mt-1 text-sm">
 					Toggle plugins on or off. Plugins live in your plugins folder — add your own by dropping
-					in a folder containing a <code>manifest.json</code> with its <code>.js</code>/<code>.css</code>.
+					in a folder containing a <code>manifest.json</code> with its
+					<code>.js</code>/<code>.css</code>.
 				</p>
 			</div>
 			<Button @click="openFolder">Open plugins folder</Button>

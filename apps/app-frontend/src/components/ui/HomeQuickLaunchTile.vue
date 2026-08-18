@@ -13,11 +13,11 @@ import dayjs from 'dayjs'
 import { computed, onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 
+import { useAppEvent } from '@/composables/use-app-event'
 import { trackEvent } from '@/helpers/analytics'
 import { install_existing_instance, install_pack_to_existing_instance } from '@/helpers/install'
 import { kill, run } from '@/helpers/instance'
 import { get_by_instance_id } from '@/helpers/process'
-import { useAppEvent } from '@/composables/use-app-event'
 import { handleSevereError } from '@/store/error.js'
 
 const { handleError } = injectNotificationManager()
@@ -139,16 +139,46 @@ onMounted(checkProcess)
 			</div>
 		</div>
 		<div class="shrink-0" @click.stop>
-			<IconButton v-if="playing" v-tooltip="'Stop'" type="colored" color="red" size="xl" label="Stop" @click="stop">
+			<IconButton
+				v-if="playing"
+				v-tooltip="'Stop'"
+				type="colored"
+				color="red"
+				size="xl"
+				label="Stop"
+				@click="stop"
+			>
 				<StopCircleIcon />
 			</IconButton>
-			<IconButton v-else-if="modLoading || installing" v-tooltip="'Loading…'" size="xl" label="Loading" disabled>
+			<IconButton
+				v-else-if="modLoading || installing"
+				v-tooltip="'Loading…'"
+				size="xl"
+				label="Loading"
+				disabled
+			>
 				<SpinnerIcon class="animate-spin" />
 			</IconButton>
-			<IconButton v-else-if="!installed" v-tooltip="'Repair'" type="colored" color="brand" size="xl" label="Repair" @click="repair">
+			<IconButton
+				v-else-if="!installed"
+				v-tooltip="'Repair'"
+				type="colored"
+				color="brand"
+				size="xl"
+				label="Repair"
+				@click="repair"
+			>
 				<DownloadIcon />
 			</IconButton>
-			<IconButton v-else v-tooltip="'Play'" type="colored" color="brand" size="xl" label="Play" @click="play">
+			<IconButton
+				v-else
+				v-tooltip="'Play'"
+				type="colored"
+				color="brand"
+				size="xl"
+				label="Play"
+				@click="play"
+			>
 				<PlayIcon class="translate-x-[2px]" />
 			</IconButton>
 		</div>

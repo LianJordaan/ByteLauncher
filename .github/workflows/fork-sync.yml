@@ -1,27 +1,27 @@
 name: Sync with upstream Modrinth
 
-# Runs on a schedule and only acts when Modrinth publishes a NEW release.
-# When it finds one it merges that release tag into `main` and pushes a fork
-# tag (v<upstream>-fork), which triggers fork-release.yml to build & publish.
-#
-# For the tag push to trigger fork-release.yml, add a repo secret RELEASE_PAT
-# (a fine-grained PAT with Contents: read & write). Without it the merge still
-# happens but you must run fork-release.yml manually (the default GITHUB_TOKEN
-# cannot trigger another workflow).
-
 on:
   schedule:
     - cron: '0 6 * * *'
   workflow_dispatch: {}
+
+concurrency:
+  group: upstream-release-sync
+  cancel-in-progress: false
 
 permissions:
   contents: write
   issues: write
 
 jobs:
-  sync:
-    name: Check upstream & merge
+  prepare:
+    name: Prepare candidate
     runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.prepare.outputs.changed }}
+      upstream_tag: ${{ steps.prepare.outputs.upstream_tag }}
+      candidate_sha: ${{ steps.prepare.outputs.candidate_sha }}
+      base_sha: ${{ steps.prepare.outputs.base_sha }}
     steps:
       - name: Check out fork
         uses: actions/checkout@v4
@@ -34,81 +34,216 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
 
-      - name: Merge upstream release if newer
+      - name: Merge latest upstream release
+        id: prepare
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
 
+          report_failure() {
+            local details="$1"
+            local issue
+            issue=$(gh issue list --state open --search 'Upstream sync blocked in:title' --json number --jq '.[0].number // empty')
+            if [ -n "${issue}" ]; then
+              gh issue comment "${issue}" --body "${details}"
+            else
+              gh issue create --title 'Upstream sync blocked' --body "${details}"
+            fi
+          }
+
           git remote add upstream https://github.com/modrinth/code.git
           git fetch upstream --tags --quiet
 
-          UPSTREAM_TAG=$(curl -s -H "Accept: application/vnd.github+json" \
-            https://api.github.com/repos/modrinth/code/releases/latest | jq -r '.tag_name')
-          echo "Upstream latest release: ${UPSTREAM_TAG}"
-          if [ -z "${UPSTREAM_TAG}" ] || [ "${UPSTREAM_TAG}" = "null" ]; then
-            echo "Could not determine upstream release; skipping."
-            exit 0
-          fi
+          UPSTREAM_TAG=$(gh api repos/modrinth/code/releases/latest --jq '.tag_name')
+          BASE_SHA=$(git rev-parse HEAD)
+          FORK_TAG="${UPSTREAM_TAG}-fork"
+          echo "upstream_tag=${UPSTREAM_TAG}" >> "${GITHUB_OUTPUT}"
+          echo "base_sha=${BASE_SHA}" >> "${GITHUB_OUTPUT}"
 
           MARKER=.github/last-upstream-release
-          LAST=""
+          LAST=''
           [ -f "${MARKER}" ] && LAST=$(cat "${MARKER}")
-          if [ "${UPSTREAM_TAG}" = "${LAST}" ]; then
-            echo "Already synced to ${UPSTREAM_TAG}; nothing to do."
+          if [ "${UPSTREAM_TAG}" = "${LAST}" ] && git ls-remote --exit-code --tags origin "refs/tags/${FORK_TAG}" >/dev/null 2>&1; then
+            echo 'changed=false' >> "${GITHUB_OUTPUT}"
             exit 0
           fi
 
-          echo "Merging upstream ${UPSTREAM_TAG} into main..."
-          if ! git merge --no-edit "${UPSTREAM_TAG}"; then
-            # The fork deletes all inherited Modrinth workflows, so whenever
-            # upstream edits one it surfaces as a "deleted by us" (DU) conflict.
-            # Those are never wanted back — auto-resolve by keeping them deleted,
-            # so only genuine content conflicts ever need a human.
-            while IFS= read -r du_file; do
-              if [ -z "${du_file}" ]; then continue; fi
-              echo "Auto-resolving deleted-by-us conflict: ${du_file}"
-              git rm -f -- "${du_file}" >/dev/null
-            done < <(git status --porcelain | sed -n 's/^DU //p')
+          if [ "${UPSTREAM_TAG}" != "${LAST}" ]; then
+            if ! git merge --no-edit "${UPSTREAM_TAG}"; then
+              while IFS= read -r conflicted; do
+                [ -z "${conflicted}" ] && continue
+                status=$(git status --short -- "${conflicted}" | cut -c1-2)
+                case "${status}:${conflicted}" in
+                  DU:.github/workflows/*)
+                    case "${conflicted}" in
+                      .github/workflows/fork-*.yml|.github/workflows/fork-*.yaml) ;;
+                      *) git rm -f -- "${conflicted}" ;;
+                    esac
+                    ;;
+                  UD:CLAUDE.md)
+                    git add -- CLAUDE.md
+                    ;;
+                esac
+              done < <(git diff --name-only --diff-filter=U)
 
-            # CLAUDE.md is ByteLauncher's project-maintenance guide. Upstream
-            # moved its generic guidance to AGENTS.md, but the fork's detailed
-            # guide must stay in place even when upstream deletes its version.
-            while IFS= read -r fork_doc; do
-              if [ -z "${fork_doc}" ]; then continue; fi
-              echo "Keeping fork-owned maintenance guide: ${fork_doc}"
-              git add -- "${fork_doc}"
-            done < <(git status --porcelain | sed -n 's/^UD \(CLAUDE\.md\)$/\1/p')
-
-            remaining=$(git diff --name-only --diff-filter=U)
-            if [ -n "${remaining}" ]; then
-              echo "Unresolved content conflicts remain:"
-              echo "${remaining}"
-              git merge --abort || true
-              gh issue create \
-                --title "Upstream sync conflict: ${UPSTREAM_TAG}" \
-                --body "$(printf 'Automatic merge of upstream `%s` into `main` had content conflicts needing manual resolution:\n\n%s' "${UPSTREAM_TAG}" "${remaining}")" \
-                || true
-              exit 1
+              remaining=$(git diff --name-only --diff-filter=U)
+              if [ -n "${remaining}" ]; then
+                git merge --abort || true
+                report_failure "Automatic merge of upstream \`${UPSTREAM_TAG}\` has unknown conflicts:\n\n\`\`\`\n${remaining}\n\`\`\`\n\n[Workflow run](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})"
+                exit 1
+              fi
+              git commit --no-edit
             fi
 
-            echo "All conflicts were deleted-by-us files; completing the merge."
-            git commit --no-edit
+            find .github/workflows -maxdepth 1 -type f \! -name 'fork-*.yml' \! -name 'fork-*.yaml' -delete
+            git add -A -- .github/workflows
+            git commit -m 'ci: remove inherited upstream workflows' || true
+
+            printf '%s\n' "${UPSTREAM_TAG}" > "${MARKER}"
+            git add "${MARKER}"
+            git commit -m "chore: sync with upstream ${UPSTREAM_TAG}"
           fi
 
-          mkdir -p .github
-          echo "${UPSTREAM_TAG}" > "${MARKER}"
-          git add "${MARKER}"
-          git commit -m "chore: sync with upstream ${UPSTREAM_TAG}" || true
+          CANDIDATE_SHA=$(git rev-parse HEAD)
+          echo "candidate_sha=${CANDIDATE_SHA}" >> "${GITHUB_OUTPUT}"
+          echo 'changed=true' >> "${GITHUB_OUTPUT}"
+          git update-ref refs/bytelauncher/sync-candidate "${CANDIDATE_SHA}"
+          git bundle create sync-candidate.bundle refs/bytelauncher/sync-candidate
 
-          # Push the fork tag FIRST so fork-release.yml fires even if the main
-          # push is interrupted; only then advance the sentinel on main, so an
-          # earlier failure leaves the marker unchanged and the next run retries.
+      - name: Upload candidate
+        if: steps.prepare.outputs.changed == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: upstream-sync-candidate
+          path: sync-candidate.bundle
+          if-no-files-found: error
+          retention-days: 2
+
+  validate:
+    name: Validate Windows build
+    needs: prepare
+    if: needs.prepare.outputs.changed == 'true'
+    runs-on: windows-latest
+    steps:
+      - name: Check out fork
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download candidate
+        uses: actions/download-artifact@v4
+        with:
+          name: upstream-sync-candidate
+
+      - name: Check out candidate
+        shell: bash
+        run: |
+          git fetch sync-candidate.bundle refs/bytelauncher/sync-candidate:refs/remotes/sync/candidate
+          git checkout --detach refs/remotes/sync/candidate
+
+      - name: Setup Rust toolchain
+        uses: actions-rust-lang/setup-rust-toolchain@v1
+        with:
+          rustflags: ''
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - name: Prepare app-lib environment
+        shell: bash
+        run: cp packages/app-lib/.env.prod packages/app-lib/.env
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build app without bundling
+        run: pnpm --filter=@modrinth/app run tauri build --no-bundle
+
+      - name: Report validation failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          UPSTREAM_TAG: ${{ needs.prepare.outputs.upstream_tag }}
+        shell: bash
+        run: |
+          details="Windows validation failed for upstream \`${UPSTREAM_TAG}\`. No branch or tag was published. [Workflow run](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})"
+          issue=$(gh issue list --state open --search 'Upstream sync blocked in:title' --json number --jq '.[0].number // empty')
+          if [ -n "${issue}" ]; then
+            gh issue comment "${issue}" --body "${details}"
+          else
+            gh issue create --title 'Upstream sync blocked' --body "${details}"
+          fi
+
+  publish:
+    name: Publish validated sync
+    needs: [prepare, validate]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out fork
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.RELEASE_PAT || secrets.GITHUB_TOKEN }}
+
+      - name: Download candidate
+        uses: actions/download-artifact@v4
+        with:
+          name: upstream-sync-candidate
+
+      - name: Publish main and release tag atomically
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BASE_SHA: ${{ needs.prepare.outputs.base_sha }}
+          CANDIDATE_SHA: ${{ needs.prepare.outputs.candidate_sha }}
+          UPSTREAM_TAG: ${{ needs.prepare.outputs.upstream_tag }}
+        run: |
+          set -euo pipefail
+          git fetch origin main --tags
+          git fetch sync-candidate.bundle refs/bytelauncher/sync-candidate:refs/remotes/sync/candidate
+
+          CURRENT_SHA=$(git rev-parse origin/main)
+          if [ "${CURRENT_SHA}" != "${BASE_SHA}" ]; then
+            echo "origin/main moved from ${BASE_SHA} to ${CURRENT_SHA}; a later run will retry." >&2
+            exit 1
+          fi
+
+          ACTUAL_CANDIDATE=$(git rev-parse refs/remotes/sync/candidate)
+          if [ "${ACTUAL_CANDIDATE}" != "${CANDIDATE_SHA}" ]; then
+            echo 'Candidate artifact does not match the prepared commit.' >&2
+            exit 1
+          fi
+
           FORK_TAG="${UPSTREAM_TAG}-fork"
-          echo "Tagging fork release ${FORK_TAG}"
-          if ! git rev-parse -q --verify "refs/tags/${FORK_TAG}" >/dev/null; then
-            git tag "${FORK_TAG}"
-          fi
-          git push origin "${FORK_TAG}"
+          git tag "${FORK_TAG}" "${CANDIDATE_SHA}"
+          git push --atomic origin "${CANDIDATE_SHA}:refs/heads/main" "refs/tags/${FORK_TAG}"
 
-          git push origin HEAD:main
+      - name: Report publish failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          UPSTREAM_TAG: ${{ needs.prepare.outputs.upstream_tag }}
+        run: |
+          details="Publishing validated upstream \`${UPSTREAM_TAG}\` failed. The branch, marker, and release tag were not changed. [Workflow run](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})"
+          issue=$(gh issue list --state open --search 'Upstream sync blocked in:title' --json number --jq '.[0].number // empty')
+          if [ -n "${issue}" ]; then
+            gh issue comment "${issue}" --body "${details}"
+          else
+            gh issue create --title 'Upstream sync blocked' --body "${details}"
+          fi
+
+      - name: Close sync issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          UPSTREAM_TAG: ${{ needs.prepare.outputs.upstream_tag }}
+        run: |
+          issue=$(gh issue list --state open --search 'Upstream sync blocked in:title' --json number --jq '.[0].number // empty')
+          if [ -n "${issue}" ]; then
+            gh issue close "${issue}" --comment "Upstream ${UPSTREAM_TAG} synced and validated successfully."
+          fi

@@ -84,12 +84,16 @@ async fn read_enabled_map() -> crate::api::Result<HashMap<String, bool>> {
     let path = plugins_dir().await?.join("enabled.json");
     match tokio::fs::read_to_string(&path).await {
         Ok(contents) => Ok(serde_json::from_str(&contents).unwrap_or_default()),
-        Err(e) if e.kind() == std::io::ErrorKind::NotFound => Ok(HashMap::new()),
+        Err(e) if e.kind() == std::io::ErrorKind::NotFound => {
+            Ok(HashMap::new())
+        }
         Err(e) => Err(e.into()),
     }
 }
 
-async fn write_enabled_map(map: &HashMap<String, bool>) -> crate::api::Result<()> {
+async fn write_enabled_map(
+    map: &HashMap<String, bool>,
+) -> crate::api::Result<()> {
     let path = plugins_dir().await?.join("enabled.json");
     let json = serde_json::to_string_pretty(map)
         .map_err(|e| std::io::Error::new(std::io::ErrorKind::InvalidData, e))?;
@@ -124,14 +128,17 @@ pub async fn read_plugins() -> crate::api::Result<Vec<PluginData>> {
             continue;
         }
         let path = entry.path();
-        let manifest_str = match tokio::fs::read_to_string(path.join("manifest.json")).await {
-            Ok(contents) => contents,
-            Err(_) => continue,
-        };
+        let manifest_str =
+            match tokio::fs::read_to_string(path.join("manifest.json")).await {
+                Ok(contents) => contents,
+                Err(_) => continue,
+            };
         let manifest: Manifest = match serde_json::from_str(&manifest_str) {
             Ok(manifest) => manifest,
             Err(e) => {
-                tracing::warn!("Skipping invalid plugin manifest in {path:?}: {e}");
+                tracing::warn!(
+                    "Skipping invalid plugin manifest in {path:?}: {e}"
+                );
                 continue;
             }
         };
@@ -154,13 +161,15 @@ pub async fn read_plugins() -> crate::api::Result<Vec<PluginData>> {
             .copied()
             .unwrap_or(manifest.enabled_by_default);
 
-        let mut updated_at = file_modified_millis(&path.join("manifest.json")).await;
+        let mut updated_at =
+            file_modified_millis(&path.join("manifest.json")).await;
         for file in [manifest.js.as_deref(), manifest.css.as_deref()]
             .into_iter()
             .flatten()
             .filter(|f| !f.is_empty())
         {
-            updated_at = updated_at.max(file_modified_millis(&path.join(file)).await);
+            updated_at =
+                updated_at.max(file_modified_millis(&path.join(file)).await);
         }
 
         out.push(PluginData {
@@ -187,7 +196,10 @@ pub async fn read_plugins() -> crate::api::Result<Vec<PluginData>> {
 }
 
 #[tauri::command]
-pub async fn set_plugin_enabled(id: String, enabled: bool) -> crate::api::Result<()> {
+pub async fn set_plugin_enabled(
+    id: String,
+    enabled: bool,
+) -> crate::api::Result<()> {
     let mut map = read_enabled_map().await?;
     map.insert(id, enabled);
     write_enabled_map(&map).await
@@ -252,7 +264,10 @@ pub async fn fork_apply_update<R: tauri::Runtime>(
 
     // Must be a Windows executable ("MZ") of a plausible size.
     if bytes.len() < 5_000_000 || !bytes.starts_with(b"MZ") {
-        return Err(io_other("downloaded file is not a valid Windows executable").into());
+        return Err(io_other(
+            "downloaded file is not a valid Windows executable",
+        )
+        .into());
     }
 
     // Verify the GitHub-published SHA-256 digest when we have one.
@@ -297,7 +312,8 @@ pub async fn fork_apply_update<R: tauri::Runtime>(
 async fn cleanup_stale_update_files() {
     if let Ok(exe) = std::env::current_exe() {
         if let Some(dir) = exe.parent() {
-            let _ = tokio::fs::remove_file(dir.join("ByteLauncher.old.exe")).await;
+            let _ =
+                tokio::fs::remove_file(dir.join("ByteLauncher.old.exe")).await;
         }
     }
 }
@@ -484,7 +500,19 @@ const BUILTINS: &[Builtin] = &[
         id: "experimental-home",
         files: &[BuiltinFile {
             name: "manifest.json",
-            content: include_str!("builtin_plugins/experimental-home/manifest.json"),
+            content: include_str!(
+                "builtin_plugins/experimental-home/manifest.json"
+            ),
+            preserve: false,
+        }],
+    },
+    Builtin {
+        id: "classic-library",
+        files: &[BuiltinFile {
+            name: "manifest.json",
+            content: include_str!(
+                "builtin_plugins/classic-library/manifest.json"
+            ),
             preserve: false,
         }],
     },
@@ -501,12 +529,16 @@ const BUILTINS: &[Builtin] = &[
         files: &[
             BuiltinFile {
                 name: "manifest.json",
-                content: include_str!("builtin_plugins/rebrand-template/manifest.json"),
+                content: include_str!(
+                    "builtin_plugins/rebrand-template/manifest.json"
+                ),
                 preserve: false,
             },
             BuiltinFile {
                 name: "theme.css",
-                content: include_str!("builtin_plugins/rebrand-template/theme.css"),
+                content: include_str!(
+                    "builtin_plugins/rebrand-template/theme.css"
+                ),
                 // Never overwrite the user's edited colors on update.
                 preserve: true,
             },
@@ -517,7 +549,9 @@ const BUILTINS: &[Builtin] = &[
         files: &[
             BuiltinFile {
                 name: "manifest.json",
-                content: include_str!("builtin_plugins/custom-css/manifest.json"),
+                content: include_str!(
+                    "builtin_plugins/custom-css/manifest.json"
+                ),
                 preserve: false,
             },
             BuiltinFile {
@@ -550,13 +584,16 @@ async fn seed_builtin_plugins() -> crate::api::Result<()> {
         tokio::fs::create_dir_all(&plugin_dir).await?;
         for file in builtin.files {
             let file_path = plugin_dir.join(file.name);
-            if file.preserve && tokio::fs::try_exists(&file_path).await.unwrap_or(false) {
+            if file.preserve
+                && tokio::fs::try_exists(&file_path).await.unwrap_or(false)
+            {
                 continue;
             }
             tokio::fs::write(&file_path, file.content).await?;
         }
     }
     // multi-launch v1.x seeded an index.js; it is a native feature now.
-    let _ = tokio::fs::remove_file(dir.join("multi-launch").join("index.js")).await;
+    let _ =
+        tokio::fs::remove_file(dir.join("multi-launch").join("index.js")).await;
     Ok(())
 }

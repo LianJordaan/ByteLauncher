@@ -1,0 +1,9 @@
+{
+	"id": "classic-library",
+	"name": "Classic Library",
+	"description": "Restores the separate v0.17 Library tabs and the classic ByteLauncher Home page. Applies live.",
+	"version": "1.0.0",
+	"author": "ByteLauncher",
+	"enabledByDefault": false,
+	"builtin": true
+}

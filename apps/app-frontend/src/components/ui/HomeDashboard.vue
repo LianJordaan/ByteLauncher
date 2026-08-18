@@ -2,7 +2,7 @@
 import { PlayIcon } from '@modrinth/assets'
 import { computed } from 'vue'
 
-import RowDisplay from '@/components/RowDisplay.vue'
+import LegacyRowDisplay from '@/bytelauncher/classic-library/LegacyRowDisplay.vue'
 import HomeQuickLaunchTile from '@/components/ui/HomeQuickLaunchTile.vue'
 import RecentWorldsList from '@/components/ui/world/RecentWorldsList.vue'
 
@@ -48,23 +48,20 @@ const hasFeatured = computed(
 
 		<RecentWorldsList :recent-instances="recentInstances" />
 
-		<RowDisplay
+		<LegacyRowDisplay
 			v-if="hasFeatured"
-			:instances="[
+			:rows="[
 				{
 					label: 'Discover a modpack',
 					route: '/browse/modpack',
-					instances: featuredModpacks,
-					downloaded: false,
+					projects: featuredModpacks,
 				},
 				{
 					label: 'Discover mods',
 					route: '/browse/mod',
-					instances: featuredMods,
-					downloaded: false,
+					projects: featuredMods,
 				},
 			]"
-			:can-paginate="true"
 		/>
 	</div>
 </template>

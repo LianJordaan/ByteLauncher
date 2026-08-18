@@ -250,7 +250,9 @@ fn main() {
                     let core_webview2 =
                         unsafe { platform_webview.controller().CoreWebView2() };
                     if let Ok(core_webview2) = core_webview2 {
-                        crate::api::ads::disable_tracking_prevention(&core_webview2);
+                        crate::api::ads::disable_tracking_prevention(
+                            &core_webview2,
+                        );
                     }
                 });
             }

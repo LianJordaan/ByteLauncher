@@ -6,6 +6,25 @@ const localeModules = import.meta.glob<{ default: CrowdinMessages }>('./locales/
 	eager: true,
 })
 
+function applyByteLauncherBranding(value: unknown): unknown {
+	if (typeof value === 'string') {
+		return value.replaceAll('Modrinth App', 'ByteLauncher')
+	}
+	if (Array.isArray(value)) {
+		return value.map(applyByteLauncherBranding)
+	}
+	if (value && typeof value === 'object') {
+		for (const [key, child] of Object.entries(value)) {
+			;(value as Record<string, unknown>)[key] = applyByteLauncherBranding(child)
+		}
+	}
+	return value
+}
+
+const messages = applyByteLauncherBranding(
+	buildLocaleMessages(localeModules, uiLocaleModulesEager),
+) as ReturnType<typeof buildLocaleMessages>
+
 const i18n = createI18n({
 	legacy: false,
 	locale: 'en-US',
@@ -13,7 +32,7 @@ const i18n = createI18n({
 	messageCompiler: createMessageCompiler(),
 	missingWarn: false,
 	fallbackWarn: false,
-	messages: buildLocaleMessages(localeModules, uiLocaleModulesEager),
+	messages,
 })
 
 export default i18n

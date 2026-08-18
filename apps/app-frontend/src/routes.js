@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
+import { HomeRoute, nativePluginRoutes } from '@/bytelauncher/native-plugins'
 import * as Pages from '@/pages'
 import * as Hosting from '@/pages/hosting/manage'
 import * as Instance from '@/pages/instance'
@@ -14,8 +15,9 @@ export default new createRouter({
 		{
 			path: '/',
 			name: 'Home',
-			component: Pages.Index,
+			component: HomeRoute,
 		},
+		...nativePluginRoutes,
 		{
 			path: '/hosting/manage/',
 			name: 'Servers',
