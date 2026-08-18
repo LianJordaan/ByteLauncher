@@ -1,1943 +1,1883 @@
 {
-    "app.action-bar.downloading-java":  {
-                                            "message":  "æ­£åœ¨ä¸‹è¼‰ Java {version}"
-                                        },
-    "app.action-bar.downloading-update":  {
-                                              "message":  "æ­£åœ¨ä¸‹è¼‰æ›´æ–°"
-                                          },
-    "app.action-bar.downloads":  {
-                                     "message":  "ä¸‹è¼‰"
-                                 },
-    "app.action-bar.hide-more-running-instances":  {
-                                                       "message":  "éš±è—æ›´å¤šåŸ·è¡Œä¸­çš„å¯¦ä¾‹"
-                                                   },
-    "app.action-bar.install.copied-details":  {
-                                                  "message":  "å·²è¤‡è£½"
-                                              },
-    "app.action-bar.install.copy-details":  {
-                                                "message":  "è¤‡è£½è©³ç´°è³‡è¨Š"
-                                            },
-    "app.action-bar.install.dismiss":  {
-                                           "message":  "å¿½ç•¥"
-                                       },
-    "app.action-bar.install.open-instance":  {
-                                                 "message":  "é–‹å•Ÿå¯¦ä¾‹"
-                                             },
-    "app.action-bar.install.retry":  {
-                                         "message":  "é‡è©¦"
-                                     },
-    "app.action-bar.install.summary.app-closing":  {
-                                                       "message":  "ç”±æ–¼æ‡‰ç”¨ç¨‹å¼é—œé–‰è€Œå–æ¶ˆ"
-                                                   },
-    "app.action-bar.install.summary.bad-modpack-file":  {
-                                                            "message":  "ç„¡æ³•è®€å–æ¨¡çµ„åŒ…"
-                                                        },
-    "app.action-bar.install.summary.canceled":  {
-                                                    "message":  "å·²å–æ¶ˆ"
-                                                },
-    "app.action-bar.install.summary.cleanup-incomplete":  {
-                                                              "message":  "æœªå®Œæˆæ¸…ç†"
-                                                          },
-    "app.action-bar.install.summary.content-download-failed":  {
-                                                                   "message":  "ç„¡æ³•ä¸‹è¼‰æª”æ¡ˆ"
-                                                               },
-    "app.action-bar.install.summary.corrupt-download":  {
-                                                            "message":  "ä¸‹è¼‰çš„æª”æ¡ˆå·²ææ¯€"
-                                                        },
-    "app.action-bar.install.summary.could-not-save-files":  {
-                                                                "message":  "ç„¡æ³•å„²å­˜æª”æ¡ˆ"
-                                                            },
-    "app.action-bar.install.summary.download-failed":  {
-                                                           "message":  "ç„¡æ³•å®Œæˆä¸‹è¼‰"
-                                                       },
-    "app.action-bar.install.summary.instance-not-found":  {
-                                                              "message":  "æ‰¾ä¸åˆ°å¯¦ä¾‹"
-                                                          },
-    "app.action-bar.install.summary.invalid-file-path":  {
-                                                             "message":  "æª”æ¡ˆè·¯å¾‘ç„¡æ•ˆ"
-                                                         },
-    "app.action-bar.install.summary.invalid-modpack":  {
-                                                           "message":  "æ¨¡çµ„åŒ…è³‡æ–™ç„¡æ•ˆ"
-                                                       },
-    "app.action-bar.install.summary.invalid-modpack-files":  {
-                                                                 "message":  "æ¨¡çµ„åŒ…æª”æ¡ˆçš„è©®é‡‹è³‡æ–™ç„¡æ•ˆ"
-                                                             },
-    "app.action-bar.install.summary.java-setup-failed":  {
-                                                             "message":  "ç„¡æ³•å®Œæˆ Java è¨­å®š"
-                                                         },
-    "app.action-bar.install.summary.loader-setup-failed":  {
-                                                               "message":  "ç„¡æ³•è¨­å®šè¼‰å…¥å™¨"
-                                                           },
-    "app.action-bar.install.summary.local-data-error":  {
-                                                            "message":  "ç„¡æ³•æ›´æ–°æœ¬æ©Ÿè³‡æ–™"
-                                                        },
-    "app.action-bar.install.summary.minecraft-setup-failed":  {
-                                                                  "message":  "ç„¡æ³•è¨­å®š Minecraft"
-                                                              },
-    "app.action-bar.install.summary.modrinth-unreachable":  {
-                                                                "message":  "ç„¡æ³•é€£ç·šåˆ° Modrinth"
-                                                            },
-    "app.action-bar.install.summary.no-write-permission":  {
-                                                               "message":  "æ²’æœ‰å¯«å…¥æ¬Šé™"
-                                                           },
-    "app.action-bar.install.summary.pack-download-failed":  {
-                                                                "message":  "ç„¡æ³•ä¸‹è¼‰æ¨¡çµ„åŒ…"
-                                                            },
-    "app.action-bar.install.summary.unexpected-error":  {
-                                                            "message":  "å‡ºäº†é»žç‹€æ³"
-                                                        },
-    "app.action-bar.install.unknown-instance":  {
-                                                    "message":  "æœªçŸ¥çš„å¯¦ä¾‹"
-                                                },
-    "app.action-bar.install.updating-shared-content":  {
-                                                           "message":  "æ­£åœ¨æ›´æ–°å…±ç”¨å…§å®¹"
-                                                       },
-    "app.action-bar.installs":  {
-                                    "message":  "å®‰è£"
-                                },
-    "app.action-bar.make-primary-instance":  {
-                                                 "message":  "è¨­ç‚ºä¸»è¦å¯¦ä¾‹"
-                                             },
-    "app.action-bar.no-instances-running":  {
-                                                "message":  "æ²’æœ‰åŸ·è¡Œä¸­çš„å¯¦ä¾‹"
-                                            },
-    "app.action-bar.offline":  {
-                                   "message":  "é›¢ç·š"
-                               },
-    "app.action-bar.primary-instance":  {
-                                            "message":  "ä¸»è¦å¯¦ä¾‹"
-                                        },
-    "app.action-bar.reload-to-update":  {
-                                            "message":  "é‡æ–°è¼‰å…¥å³å¯æ›´æ–°"
-                                        },
-    "app.action-bar.show-more-running-instances":  {
-                                                       "message":  "é¡¯ç¤ºæ›´å¤šåŸ·è¡Œä¸­çš„å¯¦ä¾‹"
-                                                   },
-    "app.action-bar.stop-instance":  {
-                                         "message":  "åœæ­¢å¯¦ä¾‹"
-                                     },
-    "app.action-bar.update":  {
-                                  "message":  "æ›´æ–°"
-                              },
-    "app.action-bar.view-active-downloads":  {
-                                                 "message":  "æŸ¥çœ‹æ­£åœ¨ä¸‹è¼‰çš„é …ç›®"
-                                             },
-    "app.action-bar.view-instance":  {
-                                         "message":  "æŸ¥çœ‹å¯¦ä¾‹"
-                                     },
-    "app.action-bar.view-logs":  {
-                                     "message":  "æŸ¥çœ‹ç´€éŒ„"
-                                 },
-    "app.ads-consent.accept":  {
-                                   "message":  "å…¨éƒ¨æŽ¥å—"
-                               },
-    "app.ads-consent.body":  {
-                                 "message":  "å»£å‘Šä½¿ Modrinth å¾—ä»¥ç‡Ÿé‹ï¼Œä¸¦ç‚ºå‰µä½œè€…æä¾›æ”¶ç›Šã€‚æˆ‘å€‘çš„åˆä½œå¤¥ä¼´å¯èƒ½æœƒåœ¨æ‡‰ç”¨ç¨‹å¼ä¸­å„²å­˜æˆ–å­˜å– Cookieï¼Œä»¥å¯¦ç¾å€‹äººåŒ–å»£å‘Šä¸¦è¡¡é‡å»£å‘Šæˆæ•ˆã€‚"
-                             },
-    "app.ads-consent.manage":  {
-                                   "message":  "ç®¡ç†åå¥½è¨­å®š"
-                               },
-    "app.ads-consent.reject":  {
-                                   "message":  "å…¨éƒ¨æ‹’çµ•"
-                               },
-    "app.ads-consent.title":  {
-                                  "message":  "é—œæ–¼ä½ çš„éš±ç§ï¼Œä»¥åŠå»£å‘Šå¦‚ä½•å¹«åŠ© Modrinth"
-                              },
-    "app.appearance-settings.advanced-rendering.description":  {
-                                                                   "message":  "å•Ÿç”¨è¦–è¦ºæ•ˆæžœï¼ˆå¦‚èƒŒæ™¯æ¨¡ç³Šï¼‰ï¼Œè‹¥ç„¡ç¡¬é«”åŠ é€Ÿå¯èƒ½æœƒé™ä½Žæ•ˆèƒ½ã€‚"
-                                                               },
-    "app.appearance-settings.advanced-rendering.title":  {
-                                                             "message":  "é€²éšŽç¹ªè£½"
-                                                         },
-    "app.appearance-settings.color-theme.description":  {
-                                                            "message":  "請選擇你偏好的 ByteLauncher 色彩主題。"
-                                                        },
-    "app.appearance-settings.color-theme.title":  {
-                                                      "message":  "è‰²å½©ä¸»é¡Œ"
-                                                  },
-    "app.appearance-settings.default-landing-page.description":  {
-                                                                     "message":  "é¸æ“‡ Modrinth App é–‹å•Ÿæ™‚é¡¯ç¤ºçš„é é¢ã€‚"
-                                                                 },
-    "app.appearance-settings.default-landing-page.home":  {
-                                                              "message":  "é¦–é "
-                                                          },
-    "app.appearance-settings.default-landing-page.library":  {
-                                                                 "message":  "éŠæˆ²åº«"
-                                                             },
-    "app.appearance-settings.default-landing-page.title":  {
-                                                               "message":  "é è¨­èµ·å§‹é é¢"
-                                                           },
-    "app.appearance-settings.hide-nametag.description":  {
-                                                             "message":  "åœ¨å¤–è§€é¸æ“‡å·¥å…·é é¢ä¸­éš±è—çŽ©å®¶é è¦½ä¸Šæ–¹çš„ä½¿ç”¨è€…åç¨±ã€‚"
-                                                         },
-    "app.appearance-settings.hide-nametag.title":  {
-                                                       "message":  "éš±è—åç‰Œ"
-                                                   },
-    "app.appearance-settings.jump-back-into-worlds.description":  {
-                                                                      "message":  "åœ¨é¦–é çš„ã€Œç¹¼çºŒéŠçŽ©ã€å€å¡Šä¸­é¡¯ç¤ºæœ€è¿‘éŠçŽ©çš„ä¸–ç•Œã€‚"
-                                                                  },
-    "app.appearance-settings.jump-back-into-worlds.title":  {
-                                                                "message":  "ç¹¼çºŒéŠçŽ©ä¸–ç•Œ"
-                                                            },
-    "app.appearance-settings.minimize-launcher.description":  {
-                                                                  "message":  "ç•¶ Minecraft å•Ÿå‹•æ™‚å°‡ Modrinth App æœ€å°åŒ–ã€‚"
-                                                              },
-    "app.appearance-settings.minimize-launcher.title":  {
-                                                            "message":  "æœ€å°åŒ–æ‡‰ç”¨ç¨‹å¼"
-                                                        },
-    "app.appearance-settings.native-decorations.description":  {
-                                                                   "message":  "ä½¿ç”¨ä½œæ¥­ç³»çµ±çš„æ¨™é¡Œåˆ—å’Œè¦–çª—æŽ§åˆ¶é …ã€‚éœ€è¦é‡æ–°å•Ÿå‹•æ‡‰ç”¨ç¨‹å¼ã€‚"
-                                                               },
-    "app.appearance-settings.native-decorations.title":  {
-                                                             "message":  "ç³»çµ±è¦–çª—å¤–æ¡†"
-                                                         },
-    "app.appearance-settings.show-play-time.description":  {
-                                                               "message":  "é¡¯ç¤ºä½ åœ¨å„å€‹å¯¦ä¾‹çš„éŠçŽ©æ™‚æ•¸ã€‚"
-                                                           },
-    "app.appearance-settings.show-play-time.title":  {
-                                                         "message":  "é¡¯ç¤ºéŠçŽ©æ™‚æ•¸"
-                                                     },
-    "app.appearance-settings.skip-non-essential-warnings.description":  {
-                                                                            "message":  "è·³éŽä½Žé¢¨éšªå‹•ä½œçš„ç¢ºèªæç¤ºï¼Œä¾‹å¦‚é‡è¤‡å®‰è£ã€å¸¸è¦å…§å®¹åˆªé™¤ã€æ‰¹æ¬¡æ›´æ–°ã€å–æ¶ˆé€£çµä»¥åŠä¿®å¾©ã€‚é«˜é¢¨éšªå‹•ä½œçš„è­¦å‘Šä»æœƒé¡¯ç¤ºã€‚"
-                                                                        },
-    "app.appearance-settings.skip-non-essential-warnings.title":  {
-                                                                      "message":  "è·³éŽéžå¿…è¦çš„è­¦å‘Š"
-                                                                  },
-    "app.appearance-settings.toggle-sidebar.description":  {
-                                                               "message":  "é è¨­éš±è—å³å´é‚Šæ¬„ï¼Œä¸¦æ–°å¢žé¡¯ç¤ºæˆ–éš±è—æŒ‰éˆ•ã€‚"
-                                                           },
-    "app.appearance-settings.toggle-sidebar.title":  {
-                                                         "message":  "éš±è—å³å´é‚Šæ¬„"
-                                                     },
-    "app.appearance-settings.unknown-pack-warning.description":  {
-                                                                     "message":  "åœ¨å®‰è£éžè¨—ç®¡æ–¼ Modrinth çš„ Modrinth Packï¼ˆ.mrpackï¼‰ä¹‹å‰ï¼Œé¡¯ç¤ºå®‰å…¨è­¦å‘Šã€‚"
-                                                                 },
-    "app.appearance-settings.unknown-pack-warning.title":  {
-                                                               "message":  "åœ¨å®‰è£æœªçŸ¥æ¨¡çµ„åŒ…å‰ç™¼å‡ºè­¦å‘Š"
-                                                           },
-    "app.auth-servers.unreachable.body":  {
-                                              "message":  "Minecraft é©—è­‰ä¼ºæœå™¨ç¾åœ¨å¯èƒ½ç„¡æ³•ä½¿ç”¨ã€‚è«‹æª¢æŸ¥ç¶²éš›ç¶²è·¯é€£ç·šï¼Œç„¶å¾Œå†è©¦ä¸€æ¬¡ã€‚"
-                                          },
-    "app.auth-servers.unreachable.header":  {
-                                                "message":  "ç„¡æ³•é€£ç·šåˆ°é©—è­‰ä¼ºæœå™¨"
-                                            },
-    "app.behavior-settings.confirmations.title":  {
-                                                      "message":  "ç¢ºèªæç¤º"
-                                                  },
-    "app.behavior-settings.content.title":  {
-                                                "message":  "é¦–é èˆ‡å…§å®¹"
-                                            },
-    "app.behavior-settings.startup-and-navigation.title":  {
-                                                               "message":  "å•Ÿå‹•èˆ‡ç€è¦½"
-                                                           },
-    "app.browse.add-servers-to-instance":  {
-                                               "message":  "å°‡ä¼ºæœå™¨æ–°å¢žè‡³å¯¦ä¾‹"
-                                           },
-    "app.browse.add-to-an-instance":  {
-                                          "message":  "æ–°å¢žè‡³å¯¦ä¾‹"
-                                      },
-    "app.browse.add-to-instance":  {
-                                       "message":  "æ–°å¢žè‡³å¯¦ä¾‹"
-                                   },
-    "app.browse.add-to-instance-name":  {
-                                            "message":  "æ–°å¢žè‡³ã€Œ{instanceName}ã€"
-                                        },
-    "app.browse.added":  {
-                             "message":  "å·²æ–°å¢ž"
-                         },
-    "app.browse.already-added":  {
-                                     "message":  "å·²ç¶“æ–°å¢ž"
-                                 },
-    "app.browse.back-to-instance":  {
-                                        "message":  "å›žåˆ°å¯¦ä¾‹"
-                                    },
-    "app.browse.discover-project-type":  {
-                                             "message":  "æŽ¢ç´¢{projectType}"
-                                         },
-    "app.browse.discover-servers":  {
-                                        "message":  "æŽ¢ç´¢ä¼ºæœå™¨"
-                                    },
-    "app.browse.hide-added-servers":  {
-                                          "message":  "éš±è—å·²æ–°å¢žçš„ä¼ºæœå™¨"
-                                      },
-    "app.browse.hide-installed-modpacks":  {
-                                               "message":  "éš±è—å·²å®‰è£çš„å…§å®¹"
-                                           },
-    "app.browse.project-type.modpacks":  {
-                                             "message":  "æ¨¡çµ„åŒ…"
-                                         },
-    "app.browse.server-instance-content-warning":  {
-                                                       "message":  "åŠ å…¥å…§å®¹å¯èƒ½æœƒå°Žè‡´åŠ å…¥ä¼ºæœå™¨æ™‚ç™¼ç”Ÿç›¸å®¹æ€§å•é¡Œã€‚ç•¶ä½ æ›´æ–°ä¼ºæœå™¨å¯¦ä¾‹å…§å®¹æ™‚ï¼Œä»»ä½•æ–°å¢žçš„å…§å®¹ä¹Ÿæœƒéºå¤±ã€‚"
-                                                   },
-    "app.browse.server.installing":  {
-                                         "message":  "å®‰è£ä¸­"
-                                     },
-    "app.content-install.no-compatible-versions":  {
-                                                       "message":  "æ²’æœ‰ç¬¦åˆ {compatibilityLabel} çš„å¯ç”¨ç‰ˆæœ¬ã€‚è«‹é¸æ“‡ä¸€å€‹ç‰ˆæœ¬å¼·åˆ¶å®‰è£ã€‚ä¸æœƒè‡ªå‹•å®‰è£ç›¸ä¾æ¨¡çµ„ã€‚"
-                                                   },
-    "app.export-modal.description-placeholder":  {
-                                                     "message":  "è¼¸å…¥æ¨¡çµ„åŒ…æè¿°..."
-                                                 },
-    "app.export-modal.export-button":  {
-                                           "message":  "åŒ¯å‡º"
-                                       },
-    "app.export-modal.header":  {
-                                    "message":  "åŒ¯å‡ºæ¨¡çµ„åŒ…"
-                                },
-    "app.export-modal.modpack-name-label":  {
-                                                "message":  "æ¨¡çµ„åŒ…åç¨±"
-                                            },
-    "app.export-modal.modpack-name-placeholder":  {
-                                                      "message":  "æ¨¡çµ„åŒ…åç¨±"
-                                                  },
-    "app.export-modal.version-number-label":  {
-                                                  "message":  "ç‰ˆæœ¬è™Ÿç¢¼"
-                                              },
-    "app.export-modal.version-number-placeholder":  {
-                                                        "message":  "1.0.0"
-                                                    },
-    "app.install.phase.downloading_content":  {
-                                                  "message":  "æ­£åœ¨ä¸‹è¼‰å…§å®¹"
-                                              },
-    "app.install.phase.downloading_minecraft":  {
-                                                    "message":  "æ­£åœ¨ä¸‹è¼‰ Minecraft"
-                                                },
-    "app.install.phase.downloading_pack_file":  {
-                                                    "message":  "æ­£åœ¨ä¸‹è¼‰æ¨¡çµ„åŒ…æª”æ¡ˆ"
-                                                },
-    "app.install.phase.extracting_overrides":  {
-                                                   "message":  "æ­£åœ¨è§£å£“ç¸®è¦†å¯«æª”æ¡ˆ"
-                                               },
-    "app.install.phase.finalizing":  {
-                                         "message":  "å³å°‡å®Œæˆ"
-                                     },
-    "app.install.phase.preparing_instance":  {
-                                                 "message":  "å·²æŽ’å…¥å®‰è£ä½‡åˆ—"
-                                             },
-    "app.install.phase.preparing_java":  {
-                                             "message":  "æ­£åœ¨æº–å‚™ Java"
-                                         },
-    "app.install.phase.preparing_java.downloading":  {
-                                                         "message":  "æ­£åœ¨ä¸‹è¼‰ Java {version}"
-                                                     },
-    "app.install.phase.preparing_java.extracting":  {
-                                                        "message":  "æ­£åœ¨è§£å£“ç¸® Java {version}"
-                                                    },
-    "app.install.phase.preparing_java.fetching-metadata":  {
-                                                               "message":  "æ­£åœ¨æ“·å– Java {version}"
-                                                           },
-    "app.install.phase.preparing_java.resolving":  {
-                                                       "message":  "æ­£åœ¨æº–å‚™ Java {version}"
-                                                   },
-    "app.install.phase.preparing_java.validating":  {
-                                                        "message":  "æ­£åœ¨é©—è­‰ Java {version}"
-                                                    },
-    "app.install.phase.reading_pack_manifest":  {
-                                                    "message":  "æ­£åœ¨è®€å–æ¨¡çµ„åŒ…æ¸…å–®"
-                                                },
-    "app.install.phase.resolving_loader":  {
-                                               "message":  "æ­£åœ¨è§£æžè¼‰å…¥å™¨"
-                                           },
-    "app.install.phase.resolving_minecraft":  {
-                                                  "message":  "æ­£åœ¨è§£æž Minecraft"
-                                              },
-    "app.install.phase.resolving_pack":  {
-                                             "message":  "æ­£åœ¨è§£æžå…§å®¹"
-                                         },
-    "app.install.phase.rolling_back":  {
-                                           "message":  "æ­£åœ¨å¾©åŽŸ"
-                                       },
-    "app.install.phase.running_loader_processors":  {
-                                                        "message":  "æ­£åœ¨åŸ·è¡Œè¼‰å…¥å™¨è™•ç†ç¨‹å¼"
-                                                    },
-    "app.instance.admonitions.shared-instance.added-label":  {
-                                                                 "message":  "å·²æ–°å¢ž"
-                                                             },
-    "app.instance.admonitions.shared-instance.changes-body":  {
-                                                                  "message":  "ä½ çš„æœ¬æ©Ÿå¯¦ä¾‹æœ‰å°šæœªåŒæ­¥çµ¦å…¶ä»–ä½¿ç”¨è€…çš„è®Šæ›´ã€‚"
-                                                              },
-    "app.instance.admonitions.shared-instance.changes-header":  {
-                                                                    "message":  "è®Šæ›´å°šæœªå…±ç”¨"
-                                                                },
-    "app.instance.admonitions.shared-instance.publish-button":  {
-                                                                    "message":  "æŽ¨é€æ›´æ–°"
-                                                                },
-    "app.instance.admonitions.shared-instance.publishing-button":  {
-                                                                       "message":  "æ­£åœ¨æŽ¨é€..."
-                                                                   },
-    "app.instance.admonitions.shared-instance.removed-label":  {
-                                                                   "message":  "å·²ç§»é™¤"
-                                                               },
-    "app.instance.admonitions.shared-instance.review-admonition-header":  {
-                                                                              "message":  "æŽ¨é€æ›´æ–°"
-                                                                          },
-    "app.instance.admonitions.shared-instance.review-description":  {
-                                                                        "message":  "å¯©æŸ¥å³å°‡èˆ‡é€™å€‹å¯¦ä¾‹çš„æ‰€æœ‰ä½¿ç”¨è€…å…±ç”¨çš„å…§å®¹è®Šæ›´ã€‚"
-                                                                    },
-    "app.instance.admonitions.shared-instance.review-header":  {
-                                                                   "message":  "æª¢è¦–è®Šæ›´"
-                                                               },
-    "app.instance.admonitions.shared-instance.reviewing-button":  {
-                                                                      "message":  "æ­£åœ¨æª¢è¦–..."
-                                                                  },
-    "app.instance.confirm-delete.admonition-body":  {
-                                                        "message":  "ä½ å¯¦ä¾‹ä¸­çš„æ‰€æœ‰è³‡æ–™å°‡è¢«æ°¸ä¹…åˆªé™¤ï¼ŒåŒ…å«ä½ çš„ä¸–ç•Œã€è¨­å®šæª”ä»¥åŠæ‰€æœ‰å·²å®‰è£çš„å…§å®¹ã€‚"
-                                                    },
-    "app.instance.confirm-delete.admonition-header":  {
-                                                          "message":  "é€™é …å‹•ä½œç„¡æ³•å¾©åŽŸ"
-                                                      },
-    "app.instance.confirm-delete.delete-button":  {
-                                                      "message":  "åˆªé™¤å¯¦ä¾‹"
-                                                  },
-    "app.instance.confirm-delete.header":  {
-                                               "message":  "åˆªé™¤å¯¦ä¾‹"
-                                           },
-    "app.instance.modpack-already-installed.body":  {
-                                                        "message":  "é€™å€‹æ¨¡çµ„åŒ…å·²ç¶“å®‰è£åœ¨å¯¦ä¾‹ã€Œ\u003cbold\u003e{instanceName}\u003c/bold\u003eã€ä¸­äº†ï¼Œç¢ºå®šè¦å†æ¬¡å®‰è£å—Žï¼Ÿ"
-                                                    },
-    "app.instance.modpack-already-installed.create":  {
-                                                          "message":  "å»ºç«‹"
-                                                      },
-    "app.instance.modpack-already-installed.header":  {
-                                                          "message":  "æ¨¡çµ„åŒ…å·²å®‰è£"
-                                                      },
-    "app.instance.modpack-already-installed.instance":  {
-                                                            "message":  "å¯¦ä¾‹"
-                                                        },
-    "app.instance.mods.bulk-update.downloading-projects":  {
-                                                               "message":  "æ­£åœ¨ä¸‹è¼‰å°ˆæ¡ˆ {current, number}/{total, number}..."
-                                                           },
-    "app.instance.mods.bulk-update.finishing":  {
-                                                    "message":  "æ­£åœ¨çµæŸæ›´æ–°..."
-                                                },
-    "app.instance.mods.bulk-update.resolving-versions":  {
-                                                             "message":  "æ­£åœ¨è§£æžç‰ˆæœ¬..."
-                                                         },
-    "app.instance.mods.content-type-project":  {
-                                                   "message":  "å°ˆæ¡ˆ"
-                                               },
-    "app.instance.mods.locked-content":  {
-                                             "message":  "å·²éŽ–å®šå¯¦ä¾‹ä¸­çš„å…§å®¹ç„¡æ³•è®Šæ›´ã€‚"
-                                         },
-    "app.instance.mods.project-was-added":  {
-                                                "message":  "å·²æ–°å¢žã€Œ{name}ã€"
-                                            },
-    "app.instance.mods.projects-were-added":  {
-                                                  "message":  "å·²æ–°å¢ž {count} å€‹å°ˆæ¡ˆ"
-                                              },
-    "app.instance.mods.share-text":  {
-                                         "message":  "å¿«ä¾†çœ‹çœ‹æˆ‘åœ¨æ¨¡çµ„åŒ…ä¸­ä½¿ç”¨çš„å°ˆæ¡ˆï¼"
-                                     },
-    "app.instance.mods.share-title":  {
-                                          "message":  "åˆ†äº«æ¨¡çµ„åŒ…å…§å®¹"
-                                      },
-    "app.instance.mods.successfully-uploaded":  {
-                                                    "message":  "å·²æˆåŠŸä¸Šå‚³"
-                                                },
-    "app.instance.share.empty.description":  {
-                                                 "message":  "ä½ å¯ä»¥èˆ‡å¥½å‹å…±ç”¨é€™å€‹å¯¦ä¾‹ï¼"
-                                             },
-    "app.instance.share.empty.heading":  {
-                                             "message":  "æœªé‚€è«‹ä»»ä½•å¥½å‹"
-                                         },
-    "app.instance.share.empty.invite-friends-button":  {
-                                                           "message":  "é‚€è«‹å¥½å‹"
-                                                       },
-    "app.instance.share.invite-modal.heading":  {
-                                                    "message":  "å…±ç”¨ã€Œ{name}ã€"
-                                                },
-    "app.instance.share.invite-modal.user-limit-reached":  {
-                                                               "message":  "é€™å€‹å¯¦ä¾‹å·²é”åˆ° {limit} ä½ä½¿ç”¨è€…çš„ä¸Šé™ã€‚"
-                                                           },
-    "app.instance.share.locked.empty-description-prefix":  {
-                                                               "message":  "ä½ éœ€è¦ä»¥"
-                                                           },
-    "app.instance.share.locked.empty-description-suffix":  {
-                                                               "message":  "ç™»å…¥æ‰èƒ½å­˜å–é€™å€‹é é¢ã€‚"
-                                                           },
-    "app.instance.share.locked.linked-account-fallback":  {
-                                                              "message":  "å·²é€£çµçš„å¸³è™Ÿ"
-                                                          },
-    "app.instance.share.locked.signed-out-heading":  {
-                                                         "message":  "æœªç™»å…¥"
-                                                     },
-    "app.instance.share.locked.switch-account-button":  {
-                                                            "message":  "åˆ‡æ›å¸³è™Ÿ"
-                                                        },
-    "app.instance.share.locked.wrong-account-heading":  {
-                                                            "message":  "å¸³è™ŸéŒ¯èª¤"
-                                                        },
-    "app.instance.share.members.empty":  {
-                                             "message":  "é‚„æ²’æœ‰ä½¿ç”¨è€…åŠ å…¥"
-                                         },
-    "app.instance.share.members.no-filter-results":  {
-                                                         "message":  "æ²’æœ‰æ‰¾åˆ°ä½¿ç”¨è€…ã€‚"
-                                                     },
-    "app.instance.share.remove-user-modal.effect-access":  {
-                                                               "message":  "ä»–ä¸æœƒå†æ”¶åˆ°é€™å€‹å…±ç”¨å¯¦ä¾‹çš„æ›´æ–°"
-                                                           },
-    "app.instance.share.remove-user-modal.effect-installed-copy":  {
-                                                                       "message":  "ä»–å·²ç¶“å®‰è£çš„å‰¯æœ¬ä»æœƒä¿ç•™åœ¨ä»–çš„è£ç½®ä¸Š"
-                                                                   },
-    "app.instance.share.remove-user-modal.effect-invite-again":  {
-                                                                     "message":  "ä½ å¯ä»¥ç¨å¾Œå†æ¬¡é‚€è«‹ä»–"
-                                                                 },
-    "app.instance.share.remove-user-modal.effect-last-user":  {
-                                                                  "message":  "é€™æ˜¯æœ€å¾Œä¸€ä½å…±ç”¨ä½¿ç”¨è€…ï¼Œé€™å€‹å¯¦ä¾‹çš„å…±ç”¨åŠŸèƒ½å°‡è¢«é—œé–‰"
-                                                              },
-    "app.instance.share.remove-user-modal.effects-label":  {
-                                                               "message":  "æœƒç™¼ç”Ÿä»€éº¼äº‹ï¼Ÿ"
-                                                           },
-    "app.instance.share.remove-user-modal.header":  {
-                                                        "message":  "æ’¤éŠ·å­˜å–æ¬Š"
-                                                    },
-    "app.instance.share.remove-user-modal.remove-button":  {
-                                                               "message":  "æ’¤éŠ·å­˜å–æ¬Š"
-                                                           },
-    "app.instance.share.remove-user-modal.user-avatar-alt":  {
-                                                                 "message":  "{username} çš„é¡¯ç¤ºåœ–ç‰‡"
-                                                             },
-    "app.instance.share.remove-user-modal.warning-body":  {
-                                                              "message":  "å¦‚æžœä½ æ’¤éŠ·äº† {username} å°é€™å€‹å…±ç”¨å¯¦ä¾‹çš„å­˜å–æ¬Šï¼Œä½ éœ€è¦é‡æ–°é‚€è«‹ä»–ï¼Œä»–æ‰æœƒæ”¶åˆ°æ›´æ–°ã€‚"
-                                                          },
-    "app.instance.share.sign-in.button":  {
-                                              "message":  "ç™»å…¥"
-                                          },
-    "app.instance.share.unable-to-connect.description":  {
-                                                             "message":  "ç›®å‰ç„¡æ³•å­˜å–å…±ç”¨å¯¦ä¾‹æœå‹™ï¼Œè«‹ç¨å¾Œå†è©¦"
-                                                         },
-    "app.instance.share.unable-to-connect.heading":  {
-                                                         "message":  "ç„¡æ³•é€£ç·š"
-                                                     },
-    "app.instance.share.unlink.body":  {
-                                           "message":  "ä½ å¿…é ˆå…ˆèˆ‡æ¨¡çµ„åŒ…å–æ¶ˆé€£çµæ‰èƒ½å…±ç”¨å¯¦ä¾‹"
-                                       },
-    "app.instance.share.unlink.header":  {
-                                             "message":  "å…±ç”¨å‰éœ€è¦å–æ¶ˆé€£çµ"
-                                         },
-    "app.instance.shared-instance-already-installed.body":  {
-                                                                "message":  "é€™å€‹å…±ç”¨å¯¦ä¾‹å·²ç¶“åœ¨æœ¬æ©Ÿå®‰è£ï¼Œåç¨±ç‚ºã€Œ\u003cbold\u003e{instanceName}\u003c/bold\u003eã€ã€‚ç¢ºå®šè¦å†å®‰è£ä¸€å€‹å‰¯æœ¬å—Žï¼Ÿ"
-                                                            },
-    "app.instance.shared-instance-already-installed.header":  {
-                                                                  "message":  "å…±ç”¨å¯¦ä¾‹å·²ç¶“å®‰è£"
-                                                              },
-    "app.instance.shared-instance-already-installed.install-anyway":  {
-                                                                          "message":  "ä»è¦å®‰è£"
-                                                                      },
-    "app.instance.shared-instance-already-installed.instance":  {
-                                                                    "message":  "å¯¦ä¾‹"
-                                                                },
-    "app.instance.shared-instance-wrong-account.fallback-username":  {
-                                                                         "message":  "å·²é€£çµçš„å¸³è™Ÿ"
-                                                                     },
-    "app.instance.shared-instance-wrong-account.owner-admonition-body-v2":  {
-                                                                                "message":  "ç™»å…¥æ‰èƒ½ç®¡ç†é€™å€‹å…±ç”¨å¯¦ä¾‹ï¼Œå¦å‰‡ä½ å°‡ç„¡æ³•å‘ä½¿ç”¨è€…æŽ¨é€æ›´æ–°ã€‚"
-                                                                            },
-    "app.instance.shared-instance-wrong-account.sign-in-as-label":  {
-                                                                        "message":  "ä½ éœ€è¦ä»¥"
-                                                                    },
-    "app.instance.shared-instance-wrong-account.signed-out-header":  {
-                                                                         "message":  "ä½ éœ€è¦ç™»å…¥ Modrinth"
-                                                                     },
-    "app.instance.shared-instance-wrong-account.user-admonition-body-v2":  {
-                                                                               "message":  "ç™»å…¥æ‰èƒ½æ”¶åˆ°é€™å€‹å…±ç”¨å¯¦ä¾‹çš„æ›´æ–°ã€‚"
-                                                                           },
-    "app.instance.shared-instance-wrong-account.warning-header":  {
-                                                                      "message":  "ä½ ç›®å‰ä½¿ç”¨çš„ Modrinth å¸³è™Ÿä¸æ­£ç¢º"
-                                                                  },
-    "app.instance.worlds.add-server":  {
-                                           "message":  "æ–°å¢žä¼ºæœå™¨"
-                                       },
-    "app.instance.worlds.browse-servers":  {
-                                               "message":  "ç€è¦½ä¼ºæœå™¨"
-                                           },
-    "app.instance.worlds.delete-world-modal.delete-button":  {
-                                                                 "message":  "åˆªé™¤ä¸–ç•Œ"
-                                                             },
-    "app.instance.worlds.delete-world-modal.title":  {
-                                                         "message":  "åˆªé™¤ä¸–ç•Œ"
-                                                     },
-    "app.instance.worlds.delete-world-modal.warning-body":  {
-                                                                "message":  "é€™å€‹ä¸–ç•Œå°‡å¾žé€™å€‹å¯¦ä¾‹æ°¸ä¹…åˆªé™¤ï¼Œé€™é …å‹•ä½œç„¡æ³•å¾©åŽŸã€‚"
-                                                            },
-    "app.instance.worlds.delete-world-modal.warning-header":  {
-                                                                  "message":  "å³å°‡åˆªé™¤ã€Œ{name}ã€"
-                                                              },
-    "app.instance.worlds.filter-modded":  {
-                                              "message":  "å«æ¨¡çµ„"
-                                          },
-    "app.instance.worlds.filter-offline":  {
-                                               "message":  "é›¢ç·š"
-                                           },
-    "app.instance.worlds.filter-online":  {
-                                              "message":  "ç·šä¸Š"
-                                          },
-    "app.instance.worlds.filter-vanilla":  {
-                                               "message":  "åŽŸç‰ˆ"
-                                           },
-    "app.instance.worlds.no-worlds-description":  {
-                                                      "message":  "æ–°å¢žä¼ºæœå™¨æˆ–ç€è¦½ä»¥é–‹å§‹ä½¿ç”¨"
-                                                  },
-    "app.instance.worlds.no-worlds-heading":  {
-                                                  "message":  "æœªæ–°å¢žä»»ä½•ä¼ºæœå™¨æˆ–ä¸–ç•Œ"
-                                              },
-    "app.instance.worlds.refreshing":  {
-                                           "message":  "æ­£åœ¨é‡æ–°æ•´ç†..."
-                                       },
-    "app.instance.worlds.remove-server-modal.remove-button":  {
-                                                                  "message":  "ç§»é™¤ä¼ºæœå™¨"
-                                                              },
-    "app.instance.worlds.remove-server-modal.title":  {
-                                                          "message":  "ç§»é™¤ä¼ºæœå™¨"
-                                                      },
-    "app.instance.worlds.remove-server-modal.warning-body":  {
-                                                                 "message":  "é€™å€‹ä¼ºæœå™¨å°‡å¾žä½ çš„ä¼ºæœå™¨æ¸…å–®ä¸­ç§»é™¤ã€‚å¦‚æžœä½ è¨˜å¾—ä¼ºæœå™¨ä½å€ï¼Œç¨å¾Œå¯ä»¥å°‡å…¶é‡æ–°æ–°å¢žå›žä¾†ã€‚"
-                                                             },
-    "app.instance.worlds.remove-server-modal.warning-header":  {
-                                                                   "message":  "å³å°‡ç§»é™¤ {name}"
-                                                               },
-    "app.instance.worlds.search-worlds-placeholder":  {
-                                                          "message":  "æœå°‹ {count} å€‹ä¸–ç•Œ..."
-                                                      },
-    "app.java-detection.cancel":  {
-                                      "message":  "å–æ¶ˆ"
-                                  },
-    "app.java-detection.columns.actions":  {
-                                               "message":  "å‹•ä½œ"
-                                           },
-    "app.java-detection.columns.path":  {
-                                            "message":  "è·¯å¾‘"
-                                        },
-    "app.java-detection.columns.version":  {
-                                               "message":  "ç‰ˆæœ¬"
-                                           },
-    "app.java-detection.no-installations-found":  {
-                                                      "message":  "æ‰¾ä¸åˆ° Java å®‰è£ã€‚"
-                                                  },
-    "app.java-detection.select":  {
-                                      "message":  "é¸æ“‡"
-                                  },
-    "app.java-detection.selected":  {
-                                        "message":  "å·²é¸æ“‡"
-                                    },
-    "app.java-detection.title":  {
-                                     "message":  "é¸æ“‡ Java å®‰è£"
-                                 },
-    "app.java-selector.already-installed":  {
-                                                "message":  "å·²å®‰è£"
-                                            },
-    "app.java-selector.browse":  {
-                                     "message":  "ç€è¦½"
-                                 },
-    "app.java-selector.detect":  {
-                                     "message":  "åµæ¸¬"
-                                 },
-    "app.java-selector.install-recommended":  {
-                                                  "message":  "å»ºè­°å®‰è£"
-                                              },
-    "app.java-selector.installing":  {
-                                         "message":  "æ­£åœ¨å®‰è£..."
-                                     },
-    "app.java-selector.path.placeholder":  {
-                                               "message":  "/path/to/java"
-                                           },
-    "app.java-selector.test-installation":  {
-                                                "message":  "æ¸¬è©¦ Java å®‰è£"
-                                            },
-    "app.modal.install-to-play.additional-context":  {
-                                                         "message":  "è£œå……èªªæ˜Ž"
-                                                     },
-    "app.modal.install-to-play.additional-context-placeholder":  {
-                                                                     "message":  "è‹¥å¯è¡Œä¸”ç›¸é—œï¼Œè«‹ä¸€ä½µé™„ä¸Šé€£çµèˆ‡åœ–ç‰‡"
-                                                                 },
-    "app.modal.install-to-play.block-user":  {
-                                                 "message":  "å°éŽ–ä½¿ç”¨è€…"
-                                             },
-    "app.modal.install-to-play.content-you-are-reporting":  {
-                                                                "message":  "ä½ è¦æª¢èˆ‰çš„å¯¦ä¾‹"
-                                                            },
-    "app.modal.install-to-play.delete-instance":  {
-                                                      "message":  "åˆªé™¤å¯¦ä¾‹"
-                                                  },
-    "app.modal.install-to-play.external-files-dont-install":  {
-                                                                  "message":  "ä¸è¦å®‰è£"
-                                                              },
-    "app.modal.install-to-play.header":  {
-                                             "message":  "å®‰è£ä»¥éŠçŽ©"
-                                         },
-    "app.modal.install-to-play.install-anyway":  {
-                                                     "message":  "ä»è¦å®‰è£"
-                                                 },
-    "app.modal.install-to-play.install-button":  {
-                                                     "message":  "å®‰è£"
-                                                 },
-    "app.modal.install-to-play.invite-warning":  {
-                                                     "message":  "é€™ä»½é‚€è«‹æ˜¯ç”±å¦ä¸€ä½ Modrinth ä½¿ç”¨è€…å»ºç«‹ï¼Œä¸¦éžç”± Modrinth å®˜æ–¹å»ºç«‹ã€‚è«‹åƒ…æŽ¥å—ä¾†è‡ªä½ ä¿¡ä»»çš„äººçš„é‚€è«‹ã€‚"
-                                                 },
-    "app.modal.install-to-play.invite-warning-with-creator":  {
-                                                                  "message":  "é€™ä»½é‚€è«‹æ˜¯ç”± \u003ccreator\u003e{username}\u003c/creator\u003e å»ºç«‹ï¼Œä¸¦éžç”± Modrinth å®˜æ–¹å»ºç«‹ã€‚è«‹åƒ…æŽ¥å—ä¾†è‡ªä½ ä¿¡ä»»çš„äººçš„é‚€è«‹ã€‚"
-                                                              },
-    "app.modal.install-to-play.mod-count":  {
-                                                "message":  "{count, plural, other {# å€‹æ¨¡çµ„}}"
-                                            },
-    "app.modal.install-to-play.report-description":  {
-                                                         "message":  "ç”¨é€™å€‹è¡¨å–®æª¢èˆ‰å¯èƒ½é•åæˆ‘å€‘çš„ã€Š\u003crules-link\u003eå…§å®¹è¦ç¯„\u003c/rules-link\u003eã€‹æˆ–ã€Š\u003cterms-link\u003eä½¿ç”¨æ¢æ¬¾\u003c/terms-link\u003eã€‹çš„å¯¦ä¾‹ã€‚"
-                                                     },
-    "app.modal.install-to-play.report-image-invalid-type":  {
-                                                                "message":  "ä¸æ”¯æ´çš„åœ–ç‰‡æ ¼å¼"
-                                                            },
-    "app.modal.install-to-play.report-image-too-large":  {
-                                                             "message":  "æª”æ¡ˆå¤§å°è¶…éŽ 1 MiB é™åˆ¶"
-                                                         },
-    "app.modal.install-to-play.report-legal-claims":  {
-                                                          "message":  "é—œæ–¼ DMCA é€šçŸ¥æˆ–å…¶ä»–æ³•å¾‹è¨´æ±‚ï¼Œè«‹åƒé–±æˆ‘å€‘çš„ã€Š\u003ccopyright-link\u003eè‘—ä½œæ¬Šæ”¿ç­–\u003c/copyright-link\u003eã€‹ã€‚"
-                                                      },
-    "app.modal.install-to-play.report-reason":  {
-                                                    "message":  "é€™å€‹å¯¦ä¾‹é•åäº†å“ªä¸€æ¢è¦å‰‡ï¼Ÿ"
-                                                },
-    "app.modal.install-to-play.report-shared-instance-header":  {
-                                                                    "message":  "æª¢èˆ‰å…±ç”¨å¯¦ä¾‹"
-                                                                },
-    "app.modal.install-to-play.report-submitted":  {
-                                                       "message":  "æª¢èˆ‰å·²æäº¤"
-                                                   },
-    "app.modal.install-to-play.report-support-and-bugs":  {
-                                                              "message":  "å¦‚éœ€å®¢æœæ”¯æ´ï¼Œè«‹è¯çµ¡æˆ‘å€‘çš„\u003csupport-link\u003eå®¢æœåœ˜éšŠ\u003c/support-link\u003eã€‚å¦‚éœ€å›žå ±éŒ¯èª¤ï¼Œè«‹\u003cgithub-link\u003eåœ¨ GitHub ä¸Šæäº¤ issue\u003c/github-link\u003eã€‚"
-                                                          },
-    "app.modal.install-to-play.reviewed-files":  {
-                                                     "message":  "åªæœ‰åœ¨ Modrinth ä¸Šç™¼å¸ƒçš„æª”æ¡ˆæ‰æœƒç¶“éŽå¯©æŸ¥ï¼Œç„¡è«–å…¶æª”æ¡ˆæ ¼å¼ç‚ºä½•ï¼ˆåŒ…å« .mrpackï¼‰ã€‚"
-                                                 },
-    "app.modal.install-to-play.shared-instance":  {
-                                                      "message":  "å…±ç”¨å¯¦ä¾‹"
-                                                  },
-    "app.modal.install-to-play.shared-instance-content":  {
-                                                              "message":  "å…±ç”¨å¯¦ä¾‹çš„å…§å®¹"
-                                                          },
-    "app.modal.install-to-play.shared-instance-unknown-files-description":  {
-                                                                                "message":  "é€™å€‹å…±ç”¨å¯¦ä¾‹åŒ…å«æœªåœ¨ Modrinth ä¸Šç™¼å¸ƒçš„æª”æ¡ˆã€‚å¼·çƒˆå»ºè­°ä½ åƒ…å®‰è£ä¾†è‡ªä¿¡ä»»ä¾†æºçš„æª”æ¡ˆã€‚"
-                                                                            },
-    "app.modal.install-to-play.unknown-files-description":  {
-                                                                "message":  "é€™å€‹ä¼ºæœå™¨æ¨¡çµ„åŒ…ä¸­åŒ…å«æœªåœ¨ Modrinth ä¸Šç™¼å¸ƒçš„æª”æ¡ˆã€‚å¼·çƒˆå»ºè­°ä½ åƒ…å®‰è£ä¾†è‡ªä¿¡ä»»ä¾†æºçš„æª”æ¡ˆã€‚"
-                                                            },
-    "app.modal.install-to-play.unknown-files-warning":  {
-                                                            "message":  "æœªçŸ¥æª”æ¡ˆè­¦å‘Š"
-                                                        },
-    "app.modal.install-to-play.unrecognized-files":  {
-                                                         "message":  "ç„¡æ³•è¾¨è­˜çš„æª”æ¡ˆ"
-                                                     },
-    "app.modal.install-to-play.user-blocked":  {
-                                                   "message":  "ä½¿ç”¨è€…å·²å°éŽ–"
-                                               },
-    "app.modal.install-to-play.view-contents":  {
-                                                    "message":  "æŸ¥çœ‹å…§å®¹"
-                                                },
-    "app.modal.update-to-play.header":  {
-                                            "message":  "æ›´æ–°ä»¥éŠçŽ©"
-                                        },
-    "app.modal.update-to-play.removed":  {
-                                             "message":  "å·²ç§»é™¤"
-                                         },
-    "app.modal.update-to-play.server-modpack-unknown-files-description":  {
-                                                                              "message":  "é€™å€‹ä¼ºæœå™¨æ¨¡çµ„åŒ…æ›´æ–°åŒ…å«æœªåœ¨ Modrinth ä¸Šç™¼å¸ƒçš„æª”æ¡ˆã€‚å¼·çƒˆå»ºè­°ä½ åƒ…å®‰è£ä¾†è‡ªä¿¡ä»»ä¾†æºçš„æª”æ¡ˆã€‚"
-                                                                          },
-    "app.modal.update-to-play.shared-instance-added-label":  {
-                                                                 "message":  "å·²æ–°å¢ž"
-                                                             },
-    "app.modal.update-to-play.shared-instance-removed-label":  {
-                                                                   "message":  "å·²ç§»é™¤"
-                                                               },
-    "app.modal.update-to-play.shared-instance-unknown-files-description":  {
-                                                                               "message":  "é€™å€‹å…±ç”¨å¯¦ä¾‹æ›´æ–°åŒ…å«æœªåœ¨ Modrinth ä¸Šç™¼å¸ƒçš„æª”æ¡ˆã€‚å¼·çƒˆå»ºè­°ä½ åƒ…å®‰è£ä¾†è‡ªä¿¡ä»»ä¾†æºçš„æª”æ¡ˆã€‚"
-                                                                           },
-    "app.modal.update-to-play.update-required":  {
-                                                     "message":  "éœ€è¦æ›´æ–°"
-                                                 },
-    "app.modal.update-to-play.update-required-description":  {
-                                                                 "message":  "éœ€è¦æ›´æ–°æ‰èƒ½éŠçŽ©ã€Œ{name}ã€ã€‚è«‹æ›´æ–°è‡³æœ€æ–°ç‰ˆæœ¬ä»¥å•Ÿå‹•éŠæˆ²ã€‚"
-                                                             },
-    "app.nav.create-new-instance":  {
-                                        "message":  "å»ºç«‹æ–°å¯¦ä¾‹"
-                                    },
-    "app.nav.home":  {
-                         "message":  "é¦–é "
-                     },
-    "app.nav.library":  {
-                            "message":  "éŠæˆ²åº«"
-                        },
-    "app.nav.modrinth-account":  {
-                                     "message":  "Modrinth å¸³è™Ÿ"
-                                 },
-    "app.nav.modrinth-hosting":  {
-                                     "message":  "Modrinth Hosting"
-                                 },
-    "app.nav.sign-in-to-modrinth-account":  {
-                                                "message":  "ç™»å…¥ Modrinth å¸³è™Ÿ"
-                                            },
-    "app.nav.signed-in-as":  {
-                                 "message":  "ä»¥ \u003cuser\u003e{username}\u003c/user\u003e ç™»å…¥"
-                             },
-    "app.nav.upgrade-to-modrinth-plus":  {
-                                             "message":  "å‡ç´šè‡³ Modrinth+"
-                                         },
-    "app.news.title":  {
-                           "message":  "æ–°èž"
-                       },
-    "app.news.view-all":  {
-                              "message":  "æŸ¥çœ‹æ‰€æœ‰æ–°èž"
-                          },
-    "app.project.install-button.already-installed":  {
-                                                         "message":  "é€™å€‹å°ˆæ¡ˆå·²å®‰è£"
-                                                     },
-    "app.project.install-button.switch-version":  {
-                                                      "message":  "åˆ‡æ›ç‰ˆæœ¬"
-                                                  },
-    "app.project.install-context.back-to-browse":  {
-                                                       "message":  "è¿”å›žç€è¦½"
-                                                   },
-    "app.project.install-context.back-to-instance":  {
-                                                         "message":  "å›žåˆ°å¯¦ä¾‹"
-                                                     },
-    "app.project.version.all-versions":  {
-                                             "message":  "æ‰€æœ‰ç‰ˆæœ¬"
-                                         },
-    "app.project.version.download-in-browser":  {
-                                                    "message":  "åœ¨ç€è¦½å™¨ä¸­ä¸‹è¼‰"
-                                                },
-    "app.project.version.installing":  {
-                                           "message":  "æ­£åœ¨å®‰è£"
-                                       },
-    "app.project.versions.already-installed":  {
-                                                   "message":  "å·²å®‰è£"
-                                               },
-    "app.quick-instance-switcher.drag-show-tooltip":  {
-                                                          "message":  "æ‹–æ›³é¡¯ç¤ºæœ€è¿‘éŠçŽ©çš„å¯¦ä¾‹"
-                                                      },
-    "app.quick-instance-switcher.drag-tooltip":  {
-                                                     "message":  "æ‹–æ›³èª¿æ•´å¤§å°"
-                                                 },
-    "app.restarting":  {
-                           "message":  "æ­£åœ¨é‡æ–°å•Ÿå‹•..."
-                       },
-    "app.settings.app-version":  {
-                                     "message":  "Modrinth App {version}"
-                                 },
-    "app.settings.default-instance-options.environment-variables.description":  {
-                                                                                    "message":  "å•Ÿå‹•å¯¦ä¾‹æ™‚è¨­å®šçš„ç’°å¢ƒè®Šæ•¸ã€‚"
-                                                                                },
-    "app.settings.default-instance-options.environment-variables.placeholder":  {
-                                                                                    "message":  "è¼¸å…¥ç’°å¢ƒè®Šæ•¸..."
-                                                                                },
-    "app.settings.default-instance-options.environment-variables.title":  {
-                                                                              "message":  "ç’°å¢ƒè®Šæ•¸"
-                                                                          },
-    "app.settings.default-instance-options.fullscreen.description":  {
-                                                                         "message":  "å¯¦ä¾‹å•Ÿå‹•æ™‚é€²å…¥å…¨èž¢å¹•æ¨¡å¼ï¼ˆé€éŽæ›´æ–° options.txt æª”æ¡ˆï¼‰ã€‚"
-                                                                     },
-    "app.settings.default-instance-options.fullscreen.title":  {
-                                                                   "message":  "å…¨èž¢å¹•"
-                                                               },
-    "app.settings.default-instance-options.height.description":  {
-                                                                     "message":  "éŠæˆ²å•Ÿå‹•æ™‚çš„è¦–çª—é«˜åº¦ã€‚"
-                                                                 },
-    "app.settings.default-instance-options.height.placeholder":  {
-                                                                     "message":  "è¼¸å…¥é«˜åº¦..."
-                                                                 },
-    "app.settings.default-instance-options.height.title":  {
-                                                               "message":  "é«˜åº¦"
-                                                           },
-    "app.settings.default-instance-options.java-arguments.description":  {
-                                                                             "message":  "å•Ÿå‹•å¯¦ä¾‹æ™‚å‚³éžçµ¦ Java çš„åƒæ•¸ã€‚"
-                                                                         },
-    "app.settings.default-instance-options.java-arguments.placeholder":  {
-                                                                             "message":  "è¼¸å…¥ Java åƒæ•¸..."
-                                                                         },
-    "app.settings.default-instance-options.java-arguments.title":  {
-                                                                       "message":  "Java åƒæ•¸"
-                                                                   },
-    "app.settings.default-instance-options.memory-allocation.description":  {
-                                                                                "message":  "å„å€‹å¯¦ä¾‹å¯ä½¿ç”¨çš„è¨˜æ†¶é«”ä¸Šé™ã€‚"
-                                                                            },
-    "app.settings.default-instance-options.memory-allocation.title":  {
-                                                                          "message":  "è¨˜æ†¶é«”é…ç½®"
-                                                                      },
-    "app.settings.default-instance-options.post-exit-hook.description":  {
-                                                                             "message":  "éŠæˆ²é—œé–‰å¾ŒåŸ·è¡Œã€‚"
-                                                                         },
-    "app.settings.default-instance-options.post-exit-hook.placeholder":  {
-                                                                             "message":  "è¼¸å…¥çµæŸå¾ŒæŒ‡ä»¤..."
-                                                                         },
-    "app.settings.default-instance-options.post-exit-hook.title":  {
-                                                                       "message":  "çµæŸå¾ŒæŽ›å‹¾"
-                                                                   },
-    "app.settings.default-instance-options.pre-launch-hook.description":  {
-                                                                              "message":  "å¯¦ä¾‹å•Ÿå‹•å‰åŸ·è¡Œã€‚"
-                                                                          },
-    "app.settings.default-instance-options.pre-launch-hook.placeholder":  {
-                                                                              "message":  "è¼¸å…¥å•Ÿå‹•å‰æŒ‡ä»¤..."
-                                                                          },
-    "app.settings.default-instance-options.pre-launch-hook.title":  {
-                                                                        "message":  "å•Ÿå‹•å‰æŽ›å‹¾"
-                                                                    },
-    "app.settings.default-instance-options.width.description":  {
-                                                                    "message":  "éŠæˆ²å•Ÿå‹•æ™‚çš„è¦–çª—å¯¬åº¦ã€‚"
-                                                                },
-    "app.settings.default-instance-options.width.placeholder":  {
-                                                                    "message":  "è¼¸å…¥å¯¬åº¦..."
-                                                                },
-    "app.settings.default-instance-options.width.title":  {
-                                                              "message":  "å¯¬åº¦"
-                                                          },
-    "app.settings.default-instance-options.wrapper-hook.description":  {
-                                                                           "message":  "ç”¨æ–¼åŒ…è£ Minecraft å•Ÿå‹•è™•ç†ç¨‹åºçš„æŒ‡ä»¤ã€‚"
-                                                                       },
-    "app.settings.default-instance-options.wrapper-hook.placeholder":  {
-                                                                           "message":  "è¼¸å…¥åŒ…è£æŒ‡ä»¤..."
-                                                                       },
-    "app.settings.default-instance-options.wrapper-hook.title":  {
-                                                                     "message":  "åŒ…è£æŽ›å‹¾"
-                                                                 },
-    "app.settings.developer-mode-button.label":  {
-                                                     "message":  "åˆ‡æ›é–‹ç™¼äººå“¡æ¨¡å¼"
-                                                 },
-    "app.settings.developer-mode-enabled":  {
-                                                "message":  "é–‹ç™¼äººå“¡æ¨¡å¼å·²å•Ÿç”¨ã€‚"
-                                            },
-    "app.settings.downloading":  {
-                                     "message":  "æ­£åœ¨ä¸‹è¼‰ v{version}"
-                                 },
-    "app.settings.java-installations.location.title":  {
-                                                           "message":  "Java {version, number} å®‰è£ä½ç½®"
-                                                       },
-    "app.settings.operating-system.macos":  {
-                                                "message":  "macOS"
-                                            },
-    "app.settings.privacy.ads-consent.intro":  {
-                                                   "message":  "å»£å‘Šä½¿ Modrinth å¾—ä»¥ç‡Ÿé‹ï¼Œä¸¦ç‚ºå‰µä½œè€…æä¾›æ”¶ç›Šã€‚æˆ‘å€‘çš„åˆä½œå¤¥ä¼´å¯èƒ½æœƒåœ¨æ‡‰ç”¨ç¨‹å¼ä¸­å„²å­˜æˆ–å­˜å– Cookieï¼Œä»¥å¯¦ç¾å€‹äººåŒ–å»£å‘Šä¸¦è¡¡é‡å»£å‘Šæˆæ•ˆã€‚ä½ å¯ä»¥åœ¨ä¸‹æ–¹é¸æ“‡é€€å‡ºæˆ–ç®¡ç†åå¥½è¨­å®šã€‚"
-                                               },
-    "app.settings.privacy.discord-rich-presence.description":  {
-                                                                   "message":  "åœ¨ Discord ä¸Šå°‡ Modrinth App é¡¯ç¤ºç‚ºç›®å‰æ´»å‹•ã€‚é€™ä¸æœƒå½±éŸ¿æ¨¡çµ„ç‚ºå¯¦ä¾‹æ–°å¢žçš„è±å¯Œç‹€æ…‹ã€‚éœ€è¦é‡æ–°å•Ÿå‹•æ‡‰ç”¨ç¨‹å¼ã€‚"
-                                                               },
-    "app.settings.privacy.discord-rich-presence.title":  {
-                                                             "message":  "Discord è±å¯Œç‹€æ…‹"
-                                                         },
-    "app.settings.privacy.telemetry.description":  {
-                                                       "message":  "Modrinth æœƒæ”¶é›†åŒ¿ååŒ–çš„åˆ†æžèˆ‡ä½¿ç”¨è³‡æ–™ï¼Œä»¥æå‡ä½¿ç”¨è€…é«”é©—ä¸¦æä¾›å®¢è£½åŒ–æœå‹™ã€‚è‹¥åœç”¨æ­¤é¸é …ï¼Œå³è¡¨ç¤ºä½ é¸æ“‡é€€å‡ºï¼Œä½ çš„è³‡æ–™å°‡ä¸å†è¢«æ”¶é›†ã€‚"
-                                                   },
-    "app.settings.privacy.telemetry.title":  {
-                                                 "message":  "é™æ¸¬"
-                                             },
-    "app.settings.resource-management.always-show-copy-details.description":  {
-                                                                                  "message":  "ç•¶å®‰è£å·²æŽ’å…¥ä½‡åˆ—æˆ–æ­£åœ¨åŸ·è¡Œæ™‚ï¼Œé¡¯ç¤ºã€Œè¤‡è£½è©³ç´°è³‡è¨Šã€æŒ‰éˆ•ã€‚é€™é …è¨­å®šåƒ…é©ç”¨æ–¼å‰è¿°å®‰è£æƒ…å½¢ï¼Œå®‰è£å¤±æ•—æˆ–ä¸­æ–·æ™‚ä¸€å¾‹é¡¯ç¤ºè©²æŒ‰éˆ•ã€‚"
-                                                                              },
-    "app.settings.resource-management.always-show-copy-details.title":  {
-                                                                            "message":  "ä¸€å¾‹é¡¯ç¤ºè¤‡è£½è©³ç´°è³‡è¨Š"
-                                                                        },
-    "app.settings.resource-management.app-cache.confirm.description":  {
-                                                                           "message":  "åœ¨å¿«å–å®Œæˆé‡å»ºå‰ï¼Œæ‡‰ç”¨ç¨‹å¼çš„è¼‰å…¥é€Ÿåº¦å¯èƒ½æœƒæ¯”è¼ƒæ…¢ã€‚"
-                                                                       },
-    "app.settings.resource-management.app-cache.confirm.title":  {
-                                                                     "message":  "è¦æ¸…é™¤æ‡‰ç”¨ç¨‹å¼å¿«å–å—Žï¼Ÿ"
-                                                                 },
-    "app.settings.resource-management.app-cache.description":  {
-                                                                   "message":  "æ¸…é™¤å¿«å–è³‡æ–™ï¼Œä¸¦å¾ž Modrinth é‡æ–°ä¸‹è¼‰ã€‚åœ¨å¿«å–å®Œæˆé‡å»ºå‰ï¼Œæ‡‰ç”¨ç¨‹å¼çš„è¼‰å…¥é€Ÿåº¦å¯èƒ½æœƒæ¯”è¼ƒæ…¢ã€‚"
-                                                               },
-    "app.settings.resource-management.app-cache.purge":  {
-                                                             "message":  "æ¸…é™¤å¿«å–"
-                                                         },
-    "app.settings.resource-management.app-cache.title":  {
-                                                             "message":  "æ‡‰ç”¨ç¨‹å¼å¿«å–"
-                                                         },
-    "app.settings.resource-management.app-database-backups.description":  {
-                                                                              "message":  "é‡è¦æ‡‰ç”¨ç¨‹å¼è³‡æ–™çš„å‚™ä»½æœƒå„²å­˜æ–¼æ­¤ï¼Œä»¥å‚™æ—¥å¾Œéœ€è¦é‚„åŽŸæ™‚ä½¿ç”¨ã€‚"
-                                                                          },
-    "app.settings.resource-management.app-database-backups.open-folder":  {
-                                                                              "message":  "é–‹å•Ÿå‚™ä»½è³‡æ–™å¤¾"
-                                                                          },
-    "app.settings.resource-management.app-database-backups.title":  {
-                                                                        "message":  "æ‡‰ç”¨ç¨‹å¼è³‡æ–™åº«å‚™ä»½"
-                                                                    },
-    "app.settings.resource-management.app-directory.browse":  {
-                                                                  "message":  "ç€è¦½æ‡‰ç”¨ç¨‹å¼è³‡æ–™å¤¾"
-                                                              },
-    "app.settings.resource-management.app-directory.description":  {
-                                                                       "message":  "Modrinth App å„²å­˜å¯¦ä¾‹åŠå…¶ä»–æª”æ¡ˆçš„ä½ç½®ã€‚è®Šæ›´å°‡æ–¼é‡æ–°å•Ÿå‹•æ‡‰ç”¨ç¨‹å¼å¾Œç”Ÿæ•ˆã€‚"
-                                                                   },
-    "app.settings.resource-management.app-directory.select":  {
-                                                                  "message":  "é¸æ“‡æ–°çš„æ‡‰ç”¨ç¨‹å¼è³‡æ–™å¤¾"
-                                                              },
-    "app.settings.resource-management.app-directory.title":  {
-                                                                 "message":  "æ‡‰ç”¨ç¨‹å¼è³‡æ–™å¤¾"
-                                                             },
-    "app.settings.resource-management.maximum-concurrent-downloads.description":  {
-                                                                                      "message":  "æ‡‰ç”¨ç¨‹å¼ä¸€æ¬¡å¯ä¸‹è¼‰çš„æª”æ¡ˆæ•¸é‡ã€‚è‹¥ä½ çš„ç¶²è·¯é€£ç·šå°Žè‡´ä¸‹è¼‰ä¸ç©©å®šï¼Œè«‹é™ä½Žæ­¤æ•¸å€¼ã€‚éœ€è¦é‡æ–°å•Ÿå‹•æ‡‰ç”¨ç¨‹å¼ã€‚"
-                                                                                  },
-    "app.settings.resource-management.maximum-concurrent-downloads.title":  {
-                                                                                "message":  "ä¸¦è¡Œä¸‹è¼‰ä¸Šé™"
-                                                                            },
-    "app.settings.resource-management.maximum-concurrent-writes.description":  {
-                                                                                   "message":  "æ‡‰ç”¨ç¨‹å¼ä¸€æ¬¡å¯å¯«å…¥ç¡¬ç¢Ÿçš„æª”æ¡ˆæ•¸é‡ã€‚è‹¥ä½ ç¶“å¸¸é‡åˆ° I/O éŒ¯èª¤ï¼Œè«‹é™ä½Žæ­¤æ•¸å€¼ã€‚éœ€è¦é‡æ–°å•Ÿå‹•æ‡‰ç”¨ç¨‹å¼ã€‚"
-                                                                               },
-    "app.settings.resource-management.maximum-concurrent-writes.title":  {
-                                                                             "message":  "ä¸¦è¡Œå¯«å…¥ä¸Šé™"
-                                                                         },
-    "app.settings.sidebar.label.instances":  {
-                                                 "message":  "å¯¦ä¾‹"
-                                             },
-    "app.settings.tabs.appearance":  {
-                                         "message":  "å¤–è§€"
-                                     },
-    "app.settings.tabs.behavior":  {
-                                       "message":  "è¡Œç‚º"
-                                   },
-    "app.settings.tabs.default-instance-options":  {
-                                                       "message":  "é è¨­éŠæˆ²é¸é …"
-                                                   },
-    "app.settings.tabs.java-installations":  {
-                                                 "message":  "Java å®‰è£"
-                                             },
-    "app.settings.tabs.language":  {
-                                       "message":  "èªžè¨€"
-                                   },
-    "app.settings.tabs.privacy":  {
-                                      "message":  "éš±ç§"
-                                  },
-    "app.settings.tabs.resource-management":  {
-                                                  "message":  "è³‡æºç®¡ç†"
-                                              },
-    "app.sidebar.playing-as":  {
-                                   "message":  "ç›®å‰éŠçŽ©å¸³è™Ÿ"
-                               },
-    "app.skins.add-button":  {
-                                 "message":  "æ–°å¢žå¤–è§€"
-                             },
-    "app.skins.add-button.drag-and-drop":  {
-                                               "message":  "æ‹–æ›³"
-                                           },
-    "app.skins.apply-button":  {
-                                   "message":  "å¥—ç”¨"
-                               },
-    "app.skins.delete-button":  {
-                                    "message":  "åˆªé™¤å¤–è§€"
-                                },
-    "app.skins.delete-modal.description":  {
-                                               "message":  "é€™æœƒæ°¸ä¹…åˆªé™¤æ‰€é¸çš„å¤–è§€ï¼Œé€™é …å‹•ä½œç„¡æ³•å¾©åŽŸã€‚"
-                                           },
-    "app.skins.delete-modal.title":  {
-                                         "message":  "ç¢ºå®šè¦åˆªé™¤é€™å€‹å¤–è§€å—Žï¼Ÿ"
-                                     },
-    "app.skins.dropped-file-error.text":  {
-                                              "message":  "ç„¡æ³•è®€å–æ‹–æ›³çš„æª”æ¡ˆã€‚"
-                                          },
-    "app.skins.dropped-file-error.title":  {
-                                               "message":  "è™•ç†æª”æ¡ˆæ™‚ç™¼ç”ŸéŒ¯èª¤"
-                                           },
-    "app.skins.ears-feature-notice":  {
-                                          "message":  "é€™å€‹å¤–è§€ä½¿ç”¨äº† {ears} æ¨¡çµ„çš„åŠŸèƒ½"
-                                      },
-    "app.skins.edit-button":  {
-                                  "message":  "ç·¨è¼¯å¤–è§€"
-                              },
-    "app.skins.modal.add-skin-button":  {
-                                            "message":  "æ–°å¢žå¤–è§€"
-                                        },
-    "app.skins.modal.add-title":  {
-                                      "message":  "æ–°å¢žå¤–è§€"
-                                  },
-    "app.skins.modal.arm-style-section":  {
-                                              "message":  "æ‰‹è‡‚èº«å½¢"
-                                          },
-    "app.skins.modal.arm-style-slim":  {
-                                           "message":  "è‹—æ¢"
-                                       },
-    "app.skins.modal.arm-style-wide":  {
-                                           "message":  "å¯¬"
-                                       },
-    "app.skins.modal.cape-fallback-name":  {
-                                               "message":  "æŠ«é¢¨"
-                                           },
-    "app.skins.modal.cape-section":  {
-                                         "message":  "æŠ«é¢¨"
-                                     },
-    "app.skins.modal.edit-title":  {
-                                       "message":  "ç·¨è¼¯å¤–è§€"
-                                   },
-    "app.skins.modal.make-edit-first-tooltip":  {
-                                                    "message":  "è«‹å…ˆå°å¤–è§€é€²è¡Œç·¨è¼¯ï¼"
-                                                },
-    "app.skins.modal.no-cape-tooltip":  {
-                                            "message":  "ç„¡æŠ«é¢¨"
-                                        },
-    "app.skins.modal.none-cape-option":  {
-                                             "message":  "ç„¡"
-                                         },
-    "app.skins.modal.replace-texture-button":  {
-                                                   "message":  "å–ä»£æè³ª"
-                                               },
-    "app.skins.modal.save-skin-button":  {
-                                             "message":  "å„²å­˜å¤–è§€"
-                                         },
-    "app.skins.modal.saving-tooltip":  {
-                                           "message":  "æ­£åœ¨å„²å­˜..."
-                                       },
-    "app.skins.modal.texture-section":  {
-                                            "message":  "æè³ª"
-                                        },
-    "app.skins.modal.upload-skin-first-tooltip":  {
-                                                      "message":  "è«‹å…ˆä¸Šå‚³å¤–è§€æª”æ¡ˆï¼"
-                                                  },
-    "app.skins.preview.edit-button":  {
-                                          "message":  "ç·¨è¼¯å¤–è§€"
-                                      },
-    "app.skins.previewing-badge":  {
-                                       "message":  "é è¦½"
-                                   },
-    "app.skins.rate-limit.text":  {
-                                      "message":  "ä½ è®Šæ›´å¤–è§€çš„é »çŽ‡å¤ªéŽé »ç¹ã€‚Mojang ä¼ºæœå™¨å·²æš«æ™‚å°éŽ–å¾ŒçºŒè«‹æ±‚ï¼Œè«‹ç¨ç­‰ç‰‡åˆ»ï¼Œç„¶å¾Œå†è©¦ä¸€æ¬¡ã€‚"
-                                  },
-    "app.skins.rate-limit.title":  {
-                                       "message":  "æ…¢ä¸€é»žï¼"
-                                   },
-    "app.skins.reorder-error.text":  {
-                                         "message":  "ç„¡æ³•å„²å­˜ä½ çš„å¤–è§€æŽ’åºã€‚"
-                                     },
-    "app.skins.reorder-error.title":  {
-                                          "message":  "é‡æ–°æŽ’åºå¤–è§€å¤±æ•—"
-                                      },
-    "app.skins.section.builders-and-biomes":  {
-                                                  "message":  "å»ºé€ è€…ï¼†ç”Ÿæ…‹åŸŸ"
-                                              },
-    "app.skins.section.chaos-cubed":  {
-                                          "message":  "æ··æ²Œç«‹æ–¹"
-                                      },
-    "app.skins.section.chase-the-skies":  {
-                                              "message":  "è¿½é€å¤©ç©º"
-                                          },
-    "app.skins.section.default-skins":  {
-                                            "message":  "é è¨­å¤–è§€"
-                                        },
-    "app.skins.section.minecon-earth-2017":  {
-                                                 "message":  "MINECON Earth 2017"
-                                             },
-    "app.skins.section.modrinth":  {
-                                       "message":  "Modrinth"
-                                   },
-    "app.skins.section.modrinth-pride":  {
-                                             "message":  "Modrinth é©•å‚²"
-                                         },
-    "app.skins.section.modrinth-pride.tooltip":  {
-                                                     "message":  "é€™äº›å¤–è§€æ˜¯ä½ åœ¨é©•å‚²æœˆæœŸé–“ææ¬¾çµ¦ Modrinth é©•å‚²æœˆç±Œæ¬¾æ´»å‹•æ‰€ç²å¾—çš„ã€‚"
-                                                 },
-    "app.skins.section.mounts-of-mayhem":  {
-                                               "message":  "ç¾¤é¨Žç´›çˆ­"
-                                           },
-    "app.skins.section.saved-skins":  {
-                                          "message":  "å·²å„²å­˜å¤–è§€"
-                                      },
-    "app.skins.section.striding-hero":  {
-                                            "message":  "Striding Hero"
-                                        },
-    "app.skins.section.the-copper-age":  {
-                                             "message":  "éŠ…å™¨æ™‚ä»£"
-                                         },
-    "app.skins.section.the-garden-awakens":  {
-                                                 "message":  "è’¼åœ’è¦ºé†’"
-                                             },
-    "app.skins.section.tiny-takeover":  {
-                                            "message":  "å°é¬¼ç•¶å®¶"
-                                        },
-    "app.skins.sign-in.button":  {
-                                     "message":  "ç™»å…¥"
-                                 },
-    "app.skins.sign-in.description":  {
-                                          "message":  "請登入你的 Minecraft 帳號以使用 ByteLauncher 的外觀管理功能。"
-                                      },
-    "app.skins.sign-in.rinthbot-alt":  {
-                                           "message":  "èˆˆå¥®çš„ Modrinth æ©Ÿå™¨äºº"
-                                       },
-    "app.skins.sign-in.title":  {
-                                    "message":  "è«‹ç™»å…¥"
-                                },
-    "app.skins.title":  {
-                            "message":  "å¤–è§€é¸æ“‡å·¥å…·"
-                        },
-    "app.skins.toggle-ears-features-off":  {
-                                               "message":  "é—œé–‰"
-                                           },
-    "app.skins.toggle-ears-features-on":  {
-                                              "message":  "é–‹å•Ÿ"
-                                          },
-    "app.survey.body":  {
-                            "message":  "ä½ æ–¹ä¾¿å›žç­”å¹¾å€‹é—œæ–¼ Modrinth App ä½¿ç”¨é«”é©—çš„å•é¡Œå—Žï¼Ÿ"
-                        },
-    "app.survey.footer":  {
-                              "message":  "ä½ çš„å›žè¦†å°‡ç›´æŽ¥å‚³é€çµ¦ Modrinth åœ˜éšŠï¼Œä½œç‚ºæœªä¾†æ›´æ–°æ–¹å‘çš„æŒ‡å¼•ï¼"
-                          },
-    "app.survey.no-thanks":  {
-                                 "message":  "ä¸ç”¨äº†ï¼Œè¬è¬"
-                             },
-    "app.survey.take-survey":  {
-                                   "message":  "å¡«å¯«å•å·èª¿æŸ¥"
-                               },
-    "app.survey.title":  {
-                             "message":  "ä½ å¥½å•Šï¼ŒModrinth ä½¿ç”¨è€…ï¼"
-                         },
-    "app.update-popup.body.download-complete":  {
-                                                    "message":  "ByteLauncher v{version} 已完成下載！立即重新載入以更新，或在關閉 ByteLauncher 時自動更新。"
-                                                },
-    "app.update-popup.body.linux":  {
-                                        "message":  "ByteLauncher v{version} 現已推出。請使用軟體包管理員進行更新，以取得最新的功能與修正！"
-                                    },
-    "app.update-popup.body.metered":  {
-                                          "message":  "ByteLauncher v{version} 現已推出！由於你目前使用的是計量付費網路，我們並未自動下載更新。"
-                                      },
-    "app.update-popup.changelog":  {
-                                       "message":  "æ›´æ–°æ—¥èªŒ"
-                                   },
-    "app.update-popup.download":  {
-                                      "message":  "ä¸‹è¼‰ ({size})"
-                                  },
-    "app.update-popup.download-complete":  {
-                                               "message":  "ä¸‹è¼‰å®Œæˆ"
-                                           },
-    "app.update-popup.reload":  {
-                                    "message":  "é‡æ–°è¼‰å…¥å³å¯æ›´æ–°"
-                                },
-    "app.update-popup.title":  {
-                                   "message":  "æœ‰å¯ç”¨çš„æ›´æ–°"
-                               },
-    "app.update.complete-toast.text":  {
-                                           "message":  "æŒ‰é€™è£¡æŸ¥çœ‹æ›´æ–°æ—¥èªŒã€‚"
-                                       },
-    "app.update.complete-toast.title":  {
-                                            "message":  "ç‰ˆæœ¬ {version} å·²æˆåŠŸå®‰è£ï¼"
-                                        },
-    "app.user.project.install-to-instance":  {
-                                                 "message":  "å®‰è£è‡³å¯¦ä¾‹"
-                                             },
-    "app.world.server-modal.placeholder-address":  {
-                                                       "message":  "example.modrinth.gg"
-                                                   },
-    "app.world.server-modal.select-an-option":  {
-                                                    "message":  "é¸æ“‡é¸é …"
-                                                },
-    "app.world.world-item.incompatible-version":  {
-                                                      "message":  "ä¸ç›¸å®¹çš„ç‰ˆæœ¬ {version}"
-                                                  },
-    "app.world.world-item.not-played-yet":  {
-                                                "message":  "å°šæœªéŠçŽ©"
-                                            },
-    "app.world.world-item.offline":  {
-                                         "message":  "é›¢ç·š"
-                                     },
-    "app.world.world-item.players-online":  {
-                                                "message":  "{count} äººåœ¨ç·šä¸Š"
-                                            },
-    "content.shared-instance.change-version-body":  {
-                                                        "message":  "è®Šæ›´ç‰ˆæœ¬åªæœƒå½±éŸ¿æœ¬æ©Ÿå‰¯æœ¬ã€‚æœªä¾†å…±ç”¨å¯¦ä¾‹æ›´æ–°æ™‚å¯èƒ½æœƒå†æ¬¡å¾©åŽŸæˆ–è®Šæ›´é€™å€‹å°ˆæ¡ˆã€‚"
-                                                    },
-    "content.shared-instance.delete-bulk-body":  {
-                                                     "message":  "éƒ¨åˆ†é¸å–çš„å°ˆæ¡ˆæ˜¯å…±ç”¨å¯¦ä¾‹çš„ä¸€éƒ¨åˆ†ã€‚åˆªé™¤é€™äº›å°ˆæ¡ˆåªæœƒå½±éŸ¿ä½ çš„æœ¬æ©Ÿå‰¯æœ¬ï¼Œè€Œæœªä¾†å…±ç”¨å¯¦ä¾‹æ›´æ–°æ™‚å¯èƒ½æœƒé‚„åŽŸæˆ–å†æ¬¡è®Šæ›´é€™äº›å°ˆæ¡ˆã€‚"
-                                                 },
-    "content.shared-instance.delete-button":  {
-                                                  "message":  "ä»è¦åˆªé™¤"
-                                              },
-    "content.shared-instance.delete-many-button":  {
-                                                       "message":  "ä»è¦åˆªé™¤ {count, number} å€‹å°ˆæ¡ˆ"
-                                                   },
-    "content.shared-instance.delete-single-body":  {
-                                                       "message":  "åˆªé™¤é€™å€‹å°ˆæ¡ˆåªæœƒå½±éŸ¿æœ¬æ©Ÿå‰¯æœ¬ã€‚æœªä¾†å…±ç”¨å¯¦ä¾‹æ›´æ–°æ™‚å¯èƒ½æœƒå†æ¬¡å¾©åŽŸæˆ–è®Šæ›´é€™å€‹å°ˆæ¡ˆã€‚"
-                                                   },
-    "content.shared-instance.disable-bulk-body":  {
-                                                      "message":  "éƒ¨åˆ†é¸å–çš„å°ˆæ¡ˆæ˜¯å…±ç”¨å¯¦ä¾‹çš„ä¸€éƒ¨åˆ†ã€‚åœç”¨é€™äº›å°ˆæ¡ˆåªæœƒå½±éŸ¿ä½ çš„æœ¬æ©Ÿå‰¯æœ¬ï¼Œè€Œæœªä¾†å…±ç”¨å¯¦ä¾‹æ›´æ–°æ™‚å¯èƒ½æœƒé‡æ–°å•Ÿç”¨ã€é‚„åŽŸæˆ–å†æ¬¡è®Šæ›´é€™äº›å°ˆæ¡ˆã€‚"
-                                                  },
-    "content.shared-instance.disable-button":  {
-                                                   "message":  "ä»è¦åœç”¨"
-                                               },
-    "content.shared-instance.disable-many-button":  {
-                                                        "message":  "ä»è¦åœç”¨ {count, number} å€‹å°ˆæ¡ˆ"
-                                                    },
-    "content.shared-instance.disable-single-body":  {
-                                                        "message":  "åœç”¨é€™å€‹å°ˆæ¡ˆåªæœƒå½±éŸ¿æœ¬æ©Ÿå‰¯æœ¬ã€‚æœªä¾†å…±ç”¨å¯¦ä¾‹æ›´æ–°æ™‚ï¼Œå¯èƒ½æœƒé‡æ–°å•Ÿç”¨ã€é‚„åŽŸæˆ–å†æ¬¡è®Šæ›´é€™å€‹å°ˆæ¡ˆã€‚"
-                                                    },
-    "content.shared-instance.unlink-body":  {
-                                                "message":  "è§£é™¤é€£çµåªæœƒå½±éŸ¿æœ¬æ©Ÿå‰¯æœ¬ã€‚æœªä¾†å…±ç”¨å¯¦ä¾‹æ›´æ–°æ™‚å¯èƒ½æœƒå¾©åŽŸæˆ–å†æ¬¡è®Šæ›´ã€‚"
-                                            },
-    "content.shared-instance.warning-header":  {
-                                                   "message":  "é€™æ˜¯å…±ç”¨å¯¦ä¾‹çš„ä¸€éƒ¨åˆ†"
-                                               },
-    "friends.action.add-friend":  {
-                                      "message":  "æ–°å¢žå¥½å‹"
-                                  },
-    "friends.action.view-friend-requests":  {
-                                                "message":  "{count} å€‹å¥½å‹{count, plural, other {é‚€è«‹}}"
-                                            },
-    "friends.add-friend.submit":  {
-                                      "message":  "é€å‡ºå¥½å‹é‚€è«‹"
-                                  },
-    "friends.add-friend.title":  {
-                                     "message":  "æ–°å¢žå¥½å‹"
-                                 },
-    "friends.add-friend.username.description":  {
-                                                    "message":  "é€™å¯èƒ½èˆ‡å°æ–¹çš„ Minecraft ä½¿ç”¨è€…åç¨±ä¸åŒï¼"
-                                                },
-    "friends.add-friend.username.placeholder":  {
-                                                    "message":  "è¼¸å…¥ Modrinth ä½¿ç”¨è€…åç¨±..."
-                                                },
-    "friends.add-friend.username.title":  {
-                                              "message":  "ä½ å¥½å‹çš„ Modrinth ä½¿ç”¨è€…åç¨±æ˜¯ä»€éº¼ï¼Ÿ"
-                                          },
-    "friends.add-friends-to-share":  {
-                                         "message":  "\u003clink\u003eæ–°å¢žå¥½å‹\u003c/link\u003eå³å¯æŸ¥çœ‹ä»–å€‘æ­£åœ¨çŽ©ä»€éº¼ï¼"
-                                     },
-    "friends.friend.cancel-request":  {
-                                          "message":  "å–æ¶ˆè«‹æ±‚"
-                                      },
-    "friends.friend.remove-friend":  {
-                                         "message":  "ç§»é™¤å¥½å‹"
-                                     },
-    "friends.friend.request-sent":  {
-                                        "message":  "å·²é€å‡ºå¥½å‹é‚€è«‹"
-                                    },
-    "friends.friend.view-profile":  {
-                                        "message":  "æŸ¥çœ‹å€‹äººæª”æ¡ˆ"
-                                    },
-    "friends.heading":  {
-                            "message":  "å¥½å‹"
-                        },
-    "friends.heading.active":  {
-                                   "message":  "æ´»èºä¸­"
-                               },
-    "friends.heading.offline":  {
-                                    "message":  "é›¢ç·š"
-                                },
-    "friends.heading.online":  {
-                                   "message":  "ç·šä¸Š"
-                               },
-    "friends.heading.pending":  {
-                                    "message":  "å¾…è™•ç†"
-                                },
-    "friends.no-friends-match":  {
-                                     "message":  "æ‰¾ä¸åˆ°ç›¸ç¬¦ã€Œ{query}ã€çš„å¥½å‹"
-                                 },
-    "friends.search-friends-placeholder":  {
-                                               "message":  "æœå°‹å¥½å‹..."
-                                           },
-    "friends.section.heading":  {
-                                    "message":  "{title} - {count}"
-                                },
-    "friends.sign-in-to-add-friends":  {
-                                           "message":  "\u003clink\u003eç™»å…¥ Modrinth å¸³è™Ÿ\u003c/link\u003eå³å¯æ–°å¢žå¥½å‹ä¸¦æŸ¥çœ‹ä»–å€‘æ­£åœ¨çŽ©ä»€éº¼ï¼"
-                                       },
-    "installation-settings.shared-instance.linked-title":  {
-                                                               "message":  "å·²é€£çµçš„å…±ç”¨å¯¦ä¾‹"
-                                                           },
-    "installation-settings.shared-instance.title":  {
-                                                        "message":  "å–æ¶ˆç™¼å¸ƒå¯¦ä¾‹"
-                                                    },
-    "installation-settings.shared-instance.unlink-button":  {
-                                                                "message":  "å–æ¶ˆé€£çµå…±ç”¨å¯¦ä¾‹"
-                                                            },
-    "installation-settings.shared-instance.unlink-description":  {
-                                                                     "message":  "è§£é™¤é€™å€‹æœ¬æ©Ÿå¯¦ä¾‹èˆ‡å¾ŒçºŒå…±ç”¨æ›´æ–°çš„é€£çµã€‚"
-                                                                 },
-    "installation-settings.shared-instance.unlinking-button":  {
-                                                                   "message":  "æ­£åœ¨å–æ¶ˆé€£çµ..."
-                                                               },
-    "installation-settings.shared-instance.unpublish-button":  {
-                                                                   "message":  "å–æ¶ˆç™¼å¸ƒå…±ç”¨å¯¦ä¾‹"
-                                                               },
-    "installation-settings.shared-instance.unpublish-description":  {
-                                                                        "message":  "åœ¨ Modrinth ä¸Šç§»é™¤é€™å€‹å…±ç”¨å¯¦ä¾‹ï¼Œä¸¦åœæ­¢å‘ä»»ä½•ä½¿ç”¨è€…æŽ¨é€æ›´æ–°ã€‚ä½ çš„æœ¬æ©Ÿå¯¦ä¾‹ä¸æœƒå—åˆ°å½±éŸ¿ã€‚"
-                                                                    },
-    "installation-settings.shared-instance.unpublishing-button":  {
-                                                                      "message":  "æ­£åœ¨å–æ¶ˆç™¼å¸ƒ..."
-                                                                  },
-    "installation-settings.unlink-shared-instance.modal.admonition-body":  {
-                                                                               "message":  "é€™åªæœƒå½±éŸ¿ä½ çš„æœ¬æ©Ÿå¯¦ä¾‹ã€‚ä½ å·²å®‰è£çš„å…§å®¹ä»æœƒä¿ç•™åœ¨æ­¤è£ç½®ä¸Šï¼Œå…±ç”¨å¯¦ä¾‹åŠå…¶ä»–ä½¿ç”¨è€…éƒ½ä¸æœƒå—åˆ°å½±éŸ¿ã€‚"
-                                                                           },
-    "installation-settings.unlink-shared-instance.modal.admonition-header":  {
-                                                                                 "message":  "å³å°‡å–æ¶ˆé€£çµå…±ç”¨å¯¦ä¾‹"
-                                                                             },
-    "installation-settings.unlink-shared-instance.modal.header":  {
-                                                                      "message":  "å–æ¶ˆé€£çµå…±ç”¨å¯¦ä¾‹"
-                                                                  },
-    "installation-settings.unpublish-shared-instance.modal.admonition-body":  {
-                                                                                  "message":  "é€™æœƒå¾ž Modrinth çš„ä¼ºæœå™¨åˆªé™¤å…±ç”¨å¯¦ä¾‹ã€‚åœ¨ Modrinth App ä½¿ç”¨è©²å¯¦ä¾‹çš„ä½¿ç”¨è€…å°‡ä¸å†æ”¶åˆ°æ›´æ–°ï¼Œä½†æœ¬æ©Ÿå¯¦ä¾‹åŠå…¶å…§å®¹ä»æœƒä¿ç•™åœ¨æ­¤è£ç½®ä¸Šã€‚"
-                                                                              },
-    "installation-settings.unpublish-shared-instance.modal.admonition-header":  {
-                                                                                    "message":  "å³å°‡å–æ¶ˆç™¼å¸ƒå…±ç”¨å¯¦ä¾‹"
-                                                                                },
-    "installation-settings.unpublish-shared-instance.modal.header":  {
-                                                                         "message":  "å–æ¶ˆç™¼å¸ƒå…±ç”¨å¯¦ä¾‹"
-                                                                     },
-    "instance.action.create-shortcut":  {
-                                            "message":  "å»ºç«‹æ·å¾‘"
-                                        },
-    "instance.action.export-modpack":  {
-                                           "message":  "åŒ¯å‡ºæ¨¡çµ„åŒ…"
-                                       },
-    "instance.action.launch-instance":  {
-                                            "message":  "å•Ÿå‹•å¯¦ä¾‹"
-                                        },
-    "instance.action.more-actions":  {
-                                         "message":  "æ›´å¤šå‹•ä½œ"
-                                     },
-    "instance.action.open-folder":  {
-                                        "message":  "é–‹å•Ÿè³‡æ–™å¤¾"
-                                    },
-    "instance.action.repair":  {
-                                   "message":  "ä¿®å¾©"
-                               },
-    "instance.action.settings":  {
-                                     "message":  "å¯¦ä¾‹è¨­å®š"
-                                 },
-    "instance.action.starting":  {
-                                     "message":  "æ­£åœ¨å•Ÿå‹•..."
-                                 },
-    "instance.action.stopping":  {
-                                     "message":  "æ­£åœ¨åœæ­¢..."
-                                 },
-    "instance.add-server.add-and-play":  {
-                                             "message":  "æ–°å¢žä¸¦éŠçŽ©"
-                                         },
-    "instance.add-server.add-server":  {
-                                           "message":  "æ–°å¢žä¼ºæœå™¨"
-                                       },
-    "instance.add-server.resource-pack.disabled":  {
-                                                       "message":  "å·²åœç”¨"
-                                                   },
-    "instance.add-server.resource-pack.enabled":  {
-                                                      "message":  "å·²å•Ÿç”¨"
-                                                  },
-    "instance.add-server.resource-pack.prompt":  {
-                                                     "message":  "æç¤º"
-                                                 },
-    "instance.add-server.title":  {
-                                      "message":  "æ–°å¢žä¼ºæœå™¨"
-                                  },
-    "instance.edit-server.title":  {
-                                       "message":  "ç·¨è¼¯ä¼ºæœå™¨"
-                                   },
-    "instance.edit-world.hide-from-home":  {
-                                               "message":  "å¾žé¦–é éš±è—"
-                                           },
-    "instance.edit-world.name":  {
-                                     "message":  "åç¨±"
-                                 },
-    "instance.edit-world.placeholder-name":  {
-                                                 "message":  "Minecraft ä¸–ç•Œ"
-                                             },
-    "instance.edit-world.reset-icon":  {
-                                           "message":  "é‡è¨­åœ–ç¤º"
-                                       },
-    "instance.edit-world.title":  {
-                                      "message":  "ç·¨è¼¯ä¸–ç•Œ"
-                                  },
-    "instance.files.adding-files":  {
-                                        "message":  "æ­£åœ¨æ–°å¢žæª”æ¡ˆ ({completed}/{total})"
-                                    },
-    "instance.files.save-as":  {
-                                   "message":  "å¦å­˜æ–°æª”..."
-                               },
-    "instance.locked.delete-button":  {
-                                          "message":  "åˆªé™¤å¯¦ä¾‹"
-                                      },
-    "instance.locked.play-tooltip":  {
-                                         "message":  "é€™å€‹å¯¦ä¾‹å·²è¢«éŽ–å®š"
-                                     },
-    "instance.playtime.never-played":  {
-                                           "message":  "å¾žæœªéŠçŽ©"
-                                       },
-    "instance.server-modal.address":  {
-                                          "message":  "ä½å€"
-                                      },
-    "instance.server-modal.name":  {
-                                       "message":  "åç¨±"
-                                   },
-    "instance.server-modal.placeholder-name":  {
-                                                   "message":  "Minecraft ä¼ºæœå™¨"
-                                               },
-    "instance.server-modal.resource-pack":  {
-                                                "message":  "è³‡æºåŒ…"
-                                            },
-    "instance.settings.sharing.active-invites.actions":  {
-                                                             "message":  "å‹•ä½œ"
-                                                         },
-    "instance.settings.sharing.active-invites.code":  {
-                                                          "message":  "é‚€è«‹é€£çµ"
-                                                      },
-    "instance.settings.sharing.active-invites.description":  {
-                                                                 "message":  "ä»»ä½•ä½¿ç”¨è€…éƒ½å¯é€éŽä¸‹åˆ—ä»»ä½•ä¸€å€‹æœ‰æ•ˆé‚€è«‹é€£çµåŠ å…¥ã€‚"
-                                                             },
-    "instance.settings.sharing.active-invites.empty":  {
-                                                           "message":  "ç›®å‰æ²’æœ‰æœ‰æ•ˆçš„é‚€è«‹ã€‚"
-                                                       },
-    "instance.settings.sharing.active-invites.expires":  {
-                                                             "message":  "æœ‰æ•ˆæœŸé™"
-                                                         },
-    "instance.settings.sharing.active-invites.revoke":  {
-                                                            "message":  "æ’¤éŠ·é‚€è«‹"
-                                                        },
-    "instance.settings.sharing.active-invites.revoke-with-code":  {
-                                                                      "message":  "æ’¤éŠ·é‚€è«‹ {code}"
-                                                                  },
-    "instance.settings.sharing.active-invites.title":  {
-                                                           "message":  "æœ‰æ•ˆé‚€è«‹"
-                                                       },
-    "instance.settings.sharing.active-invites.uses":  {
-                                                          "message":  "ä½¿ç”¨æ¬¡æ•¸"
-                                                      },
-    "instance.settings.sharing.revoke-invite.admonition-body":  {
-                                                                    "message":  "é‚€è«‹é€£çµ \u003cmonospace\u003e{code}\u003c/monospace\u003e å°‡ç«‹å³å¤±æ•ˆã€‚å·²åŠ å…¥çš„ä½¿ç”¨è€…ä¸å—å½±éŸ¿ã€‚"
-                                                                },
-    "instance.settings.sharing.revoke-invite.admonition-header":  {
-                                                                      "message":  "é€™é …å‹•ä½œç„¡æ³•å¾©åŽŸ"
-                                                                  },
-    "instance.settings.sharing.revoke-invite.confirm":  {
-                                                            "message":  "æ’¤éŠ·é‚€è«‹"
-                                                        },
-    "instance.settings.sharing.revoke-invite.header":  {
-                                                           "message":  "æ’¤éŠ·é‚€è«‹"
-                                                       },
-    "instance.settings.tabs.general":  {
-                                           "message":  "ä¸€èˆ¬"
-                                       },
-    "instance.settings.tabs.general.delete":  {
-                                                  "message":  "åˆªé™¤å¯¦ä¾‹"
-                                              },
-    "instance.settings.tabs.general.delete.button":  {
-                                                         "message":  "åˆªé™¤å¯¦ä¾‹"
-                                                     },
-    "instance.settings.tabs.general.delete.description":  {
-                                                              "message":  "é€™å°‡å¾žè£ç½®ä¸Šæ°¸ä¹…åˆªé™¤å¯¦ä¾‹ï¼ŒåŒ…å«ä½ çš„ä¸–ç•Œã€è¨­å®šèˆ‡æ‰€æœ‰å·²å®‰è£å…§å®¹ã€‚è«‹æ³¨æ„ï¼Œä¸€æ—¦åˆªé™¤ï¼Œå°‡ç„¡æ³•å¾©åŽŸã€‚"
-                                                          },
-    "instance.settings.tabs.general.deleting.button":  {
-                                                           "message":  "åˆªé™¤ä¸­..."
-                                                       },
-    "instance.settings.tabs.general.duplicate-button":  {
-                                                            "message":  "è¤‡è£½"
-                                                        },
-    "instance.settings.tabs.general.duplicate-button.tooltip.installing":  {
-                                                                               "message":  "å®‰è£æ™‚ç„¡æ³•è¤‡è£½ã€‚"
-                                                                           },
-    "instance.settings.tabs.general.duplicate-instance":  {
-                                                              "message":  "è¤‡è£½å¯¦ä¾‹"
-                                                          },
-    "instance.settings.tabs.general.duplicate-instance.description":  {
-                                                                          "message":  "å»ºç«‹é€™å€‹å¯¦ä¾‹çš„å‰¯æœ¬ï¼ŒåŒ…å«ä¸–ç•Œã€è¨­å®šã€æ¨¡çµ„ç­‰ã€‚"
-                                                                      },
-    "instance.settings.tabs.general.edit-icon":  {
-                                                     "message":  "ç·¨è¼¯åœ–ç¤º"
-                                                 },
-    "instance.settings.tabs.general.edit-icon.remove":  {
-                                                            "message":  "ç§»é™¤åœ–ç¤º"
-                                                        },
-    "instance.settings.tabs.general.edit-icon.replace":  {
-                                                             "message":  "å–ä»£åœ–ç¤º"
-                                                         },
-    "instance.settings.tabs.general.edit-icon.select":  {
-                                                            "message":  "é¸æ“‡åœ–ç¤º"
-                                                        },
-    "instance.settings.tabs.general.library-groups":  {
-                                                          "message":  "éŠæˆ²åº«ç¾¤çµ„"
-                                                      },
-    "instance.settings.tabs.general.library-groups.create":  {
-                                                                 "message":  "å»ºç«‹æ–°çš„ç¾¤çµ„"
-                                                             },
-    "instance.settings.tabs.general.library-groups.description":  {
-                                                                      "message":  "éŠæˆ²åº«ç¾¤çµ„è®“ä½ å¯ä»¥å°‡å¯¦ä¾‹æ•´ç†åˆ°éŠæˆ²åº«ä¸­çš„ä¸åŒåˆ†é¡žã€‚"
-                                                                  },
-    "instance.settings.tabs.general.library-groups.enter-name":  {
-                                                                     "message":  "è¼¸å…¥ç¾¤çµ„åç¨±"
-                                                                 },
-    "instance.settings.tabs.general.name":  {
-                                                "message":  "åç¨±"
-                                            },
-    "instance.settings.tabs.general.update-channel":  {
-                                                          "message":  "æ›´æ–°é€šé“"
-                                                      },
-    "instance.settings.tabs.general.update-channel.alpha":  {
-                                                                "message":  "Alpha ç‰ˆ"
-                                                            },
-    "instance.settings.tabs.general.update-channel.alpha.description":  {
-                                                                            "message":  "ç›¸å®¹çš„æ­£å¼ç‰ˆã€Beta ç‰ˆå’Œ Alpha ç‰ˆæœ¬éƒ½æœƒé¡¯ç¤ºåœ¨å¯ç”¨æ›´æ–°ä¸­ã€‚"
-                                                                        },
-    "instance.settings.tabs.general.update-channel.beta":  {
-                                                               "message":  "Beta ç‰ˆ"
-                                                           },
-    "instance.settings.tabs.general.update-channel.beta.description":  {
-                                                                           "message":  "ç›¸å®¹çš„æ­£å¼ç‰ˆå’Œ Beta ç‰ˆæœ¬éƒ½æœƒé¡¯ç¤ºåœ¨å¯ç”¨æ›´æ–°ä¸­ã€‚"
-                                                                       },
-    "instance.settings.tabs.general.update-channel.release":  {
-                                                                  "message":  "æ­£å¼ç‰ˆ"
-                                                              },
-    "instance.settings.tabs.general.update-channel.release.description":  {
-                                                                              "message":  "åƒ…æœ‰æ­£å¼ç‰ˆæœƒé¡¯ç¤ºåœ¨å¯ç”¨æ›´æ–°ä¸­ã€‚"
-                                                                          },
-    "instance.settings.tabs.general.update-channel.select":  {
-                                                                 "message":  "é¸æ“‡æ›´æ–°é€šé“"
-                                                             },
-    "instance.settings.tabs.hooks":  {
-                                         "message":  "å•Ÿå‹•æŽ›å‹¾"
-                                     },
-    "instance.settings.tabs.hooks.custom-hooks":  {
-                                                      "message":  "è‡ªè¨‚å•Ÿå‹•æŽ›å‹¾"
-                                                  },
-    "instance.settings.tabs.hooks.description":  {
-                                                     "message":  "æŽ›å‹¾è®“é€²éšŽä½¿ç”¨è€…èƒ½åœ¨éŠæˆ²å•Ÿå‹•å‰å’Œå•Ÿå‹•å¾ŒåŸ·è¡Œç‰¹å®šçš„ç³»çµ±æŒ‡ä»¤ã€‚"
-                                                 },
-    "instance.settings.tabs.hooks.post-exit":  {
-                                                   "message":  "çµæŸå¾Œ"
-                                               },
-    "instance.settings.tabs.hooks.post-exit.description":  {
-                                                               "message":  "éŠæˆ²é—œé–‰å¾ŒåŸ·è¡Œã€‚"
-                                                           },
-    "instance.settings.tabs.hooks.post-exit.enter":  {
-                                                         "message":  "è¼¸å…¥çµæŸå¾ŒæŒ‡ä»¤..."
-                                                     },
-    "instance.settings.tabs.hooks.pre-launch":  {
-                                                    "message":  "å•Ÿå‹•å‰"
-                                                },
-    "instance.settings.tabs.hooks.pre-launch.description":  {
-                                                                "message":  "å¯¦ä¾‹å•Ÿå‹•å‰åŸ·è¡Œã€‚"
-                                                            },
-    "instance.settings.tabs.hooks.pre-launch.enter":  {
-                                                          "message":  "è¼¸å…¥å•Ÿå‹•å‰æŒ‡ä»¤..."
-                                                      },
-    "instance.settings.tabs.hooks.title":  {
-                                               "message":  "éŠæˆ²å•Ÿå‹•æŽ›å‹¾"
-                                           },
-    "instance.settings.tabs.hooks.variables.description":  {
-                                                               "message":  "æŽ›å‹¾æœƒåœ¨å¯¦ä¾‹çš„å·¥ä½œç›®éŒ„ä¸­åŸ·è¡Œï¼Œä¸¦å…·å‚™ä»¥ä¸‹è®Šæ•¸ï¼š"
-                                                           },
-    "instance.settings.tabs.hooks.variables.inst-dir.description":  {
-                                                                        "message":  "$INST_DIRï¼šå¯¦ä¾‹è³‡æ–™å¤¾çš„çµ•å°è·¯å¾‘"
-                                                                    },
-    "instance.settings.tabs.hooks.variables.inst-id.description":  {
-                                                                       "message":  "$INST_IDï¼šå¯¦ä¾‹è³‡æ–™å¤¾çš„åç¨±"
-                                                                   },
-    "instance.settings.tabs.hooks.variables.inst-java-args.description":  {
-                                                                              "message":  "$INST_JAVA_ARGSï¼šæä¾›çµ¦éŠæˆ²çš„ JVM åƒæ•¸"
-                                                                          },
-    "instance.settings.tabs.hooks.variables.inst-java.description":  {
-                                                                         "message":  "$INST_JAVAï¼šJava äºŒé€²ä½æª”æ¡ˆçš„çµ•å°è·¯å¾‘"
-                                                                     },
-    "instance.settings.tabs.hooks.variables.inst-mc-dir.description":  {
-                                                                           "message":  "$INST_MC_DIRï¼š$INST_DIR çš„åˆ¥å"
-                                                                       },
-    "instance.settings.tabs.hooks.variables.inst-name.description":  {
-                                                                         "message":  "$INST_NAMEï¼šå¯¦ä¾‹çš„åç¨±"
-                                                                     },
-    "instance.settings.tabs.hooks.wrapper":  {
-                                                 "message":  "åŒ…è£æŒ‡ä»¤"
-                                             },
-    "instance.settings.tabs.hooks.wrapper.description":  {
-                                                             "message":  "ç”¨æ–¼å•Ÿå‹• Minecraft çš„åŒ…è£æŒ‡ä»¤ã€‚"
-                                                         },
-    "instance.settings.tabs.hooks.wrapper.enter":  {
-                                                       "message":  "è¼¸å…¥åŒ…è£æŒ‡ä»¤..."
-                                                   },
-    "instance.settings.tabs.installation":  {
-                                                "message":  "å®‰è£"
-                                            },
-    "instance.settings.tabs.installation.loader-version":  {
-                                                               "message":  "{loader} ç‰ˆæœ¬"
-                                                           },
-    "instance.settings.tabs.installation.locked":  {
-                                                       "message":  "å¯¦ä¾‹è¢«éŽ–å®šæ™‚ç„¡æ³•ä½¿ç”¨å®‰è£è¨­å®šé¸é …ã€‚"
-                                                   },
-    "instance.settings.tabs.java":  {
-                                        "message":  "Java å’Œè¨˜æ†¶é«”"
-                                    },
-    "instance.settings.tabs.java.custom-environment-variables":  {
-                                                                     "message":  "è‡ªè¨‚ç’°å¢ƒè®Šæ•¸"
-                                                                 },
-    "instance.settings.tabs.java.custom-java-arguments":  {
-                                                              "message":  "è‡ªè¨‚ Java åƒæ•¸"
-                                                          },
-    "instance.settings.tabs.java.custom-java-installation":  {
-                                                                 "message":  "è‡ªè¨‚ Java å®‰è£"
-                                                             },
-    "instance.settings.tabs.java.custom-memory-allocation":  {
-                                                                 "message":  "è‡ªè¨‚è¨˜æ†¶é«”åˆ†é…"
-                                                             },
-    "instance.settings.tabs.java.enter-environment-variables":  {
-                                                                    "message":  "è¼¸å…¥ç’°å¢ƒè®Šæ•¸..."
-                                                                },
-    "instance.settings.tabs.java.enter-java-arguments":  {
-                                                             "message":  "è¼¸å…¥ Java åƒæ•¸..."
-                                                         },
-    "instance.settings.tabs.java.environment-variables":  {
-                                                              "message":  "ç’°å¢ƒè®Šæ•¸"
-                                                          },
-    "instance.settings.tabs.java.hooks":  {
-                                              "message":  "æŽ›å‹¾"
-                                          },
-    "instance.settings.tabs.java.java-arguments":  {
-                                                       "message":  "Java åƒæ•¸"
-                                                   },
-    "instance.settings.tabs.java.java-installation":  {
-                                                          "message":  "Java å®‰è£"
-                                                      },
-    "instance.settings.tabs.java.java-memory":  {
-                                                    "message":  "è¨˜æ†¶é«”é…ç½®"
-                                                },
-    "instance.settings.tabs.java.java-path-placeholder":  {
-                                                              "message":  "/path/to/java"
-                                                          },
-    "instance.settings.tabs.sharing":  {
-                                           "message":  "å…±ç”¨"
-                                       },
-    "instance.settings.tabs.window":  {
-                                          "message":  "è¦–çª—"
-                                      },
-    "instance.settings.tabs.window.custom-window-settings":  {
-                                                                 "message":  "è‡ªè¨‚è¦–çª—è¨­å®š"
-                                                             },
-    "instance.settings.tabs.window.fullscreen":  {
-                                                     "message":  "å…¨èž¢å¹•"
-                                                 },
-    "instance.settings.tabs.window.fullscreen.description":  {
-                                                                 "message":  "ä½¿éŠæˆ²å•Ÿå‹•æ™‚é€²å…¥å…¨èž¢å¹•æ¨¡å¼ï¼ˆé€éŽ options.txtï¼‰ã€‚"
-                                                             },
-    "instance.settings.tabs.window.height":  {
-                                                 "message":  "é«˜åº¦"
-                                             },
-    "instance.settings.tabs.window.height.description":  {
-                                                             "message":  "éŠæˆ²å•Ÿå‹•æ™‚çš„è¦–çª—é«˜åº¦ã€‚"
-                                                         },
-    "instance.settings.tabs.window.height.enter":  {
-                                                       "message":  "è¼¸å…¥é«˜åº¦..."
-                                                   },
-    "instance.settings.tabs.window.width":  {
-                                                "message":  "å¯¬åº¦"
-                                            },
-    "instance.settings.tabs.window.width.description":  {
-                                                            "message":  "éŠæˆ²å•Ÿå‹•æ™‚çš„è¦–çª—å¯¬åº¦ã€‚"
-                                                        },
-    "instance.settings.tabs.window.width.enter":  {
-                                                      "message":  "è¼¸å…¥å¯¬åº¦..."
-                                                  },
-    "instance.shared-instance.error.title":  {
-                                                 "message":  "å‡ºäº†é»žç‹€æ³"
-                                             },
-    "instance.shared-instance.network-error.text":  {
-                                                        "message":  "ç„¡æ³•é€£ç·šåˆ°å…±ç”¨å¯¦ä¾‹ API"
-                                                    },
-    "instance.shared-instance.network-error.title":  {
-                                                         "message":  "ç¶²è·¯éŒ¯èª¤"
-                                                     },
-    "instance.shared-instance.owner-tooltip":  {
-                                                   "message":  "é€™å€‹å¯¦ä¾‹çš„å…§å®¹æ­£åœ¨èˆ‡å…¶ä»–ä½¿ç”¨è€…å…±ç”¨ã€‚"
-                                               },
-    "instance.shared-instance.publish-review.added-label":  {
-                                                                "message":  "å·²æ–°å¢ž"
-                                                            },
-    "instance.shared-instance.publish-review.admonition-header":  {
-                                                                      "message":  "å‘çŽ©å®¶æŽ¨é€æ›´æ–°"
-                                                                  },
-    "instance.shared-instance.publish-review.config-title-v2":  {
-                                                                    "message":  "é¸æ“‡è¨­å®šæª”"
-                                                                },
-    "instance.shared-instance.publish-review.description":  {
-                                                                "message":  "å¯©æŸ¥å…§å®¹è®Šæ›´ï¼Œä¸¦é¸æ“‡è¦åŒ…å«åœ¨æœ¬æ¬¡æ›´æ–°çš„è¨­å®šæª”ã€‚"
-                                                            },
-    "instance.shared-instance.publish-review.header":  {
-                                                           "message":  "æª¢è¦–è®Šæ›´"
-                                                       },
-    "instance.shared-instance.publish-review.publish-button":  {
-                                                                   "message":  "æŽ¨é€æ›´æ–°"
-                                                               },
-    "instance.shared-instance.publish-review.removed-label":  {
-                                                                  "message":  "å·²ç§»é™¤"
-                                                              },
-    "instance.shared-instance.tooltip":  {
-                                             "message":  "é€™å€‹å¯¦ä¾‹çš„å…§å®¹ç”±å…¶ä»–ä½¿ç”¨è€…è² è²¬ç®¡ç†ã€‚"
-                                         },
-    "instance.shared-instance.unavailable.access-revoked-text":  {
-                                                                     "message":  "ä½ å°å…±ç”¨å¯¦ä¾‹çš„å­˜å–æ¬Šå·²è¢«æ’¤éŠ·ã€‚é€™å€‹å¯¦ä¾‹ä»å¯æ­£å¸¸ä½¿ç”¨ï¼Œä½†å·²ä¸å†èˆ‡å…±ç”¨å¯¦ä¾‹é€£çµï¼Œä¸”ä¸å†æŽ¥æ”¶æ›´æ–°ã€‚"
-                                                                 },
-    "instance.shared-instance.unavailable.deleted-text":  {
-                                                              "message":  "ä¸»è¦å¯¦ä¾‹å·²è¢«åˆªé™¤ã€‚é€™å€‹å¯¦ä¾‹ä»å¯æ­£å¸¸ä½¿ç”¨ï¼Œä½†å·²ä¸å†èˆ‡å…±ç”¨å¯¦ä¾‹é€£çµï¼Œä¸”ä¸å†æŽ¥æ”¶æ›´æ–°ã€‚"
-                                                          },
-    "instance.shared-instance.unavailable.locked-text":  {
-                                                             "message":  "é€™å€‹å…±ç”¨å¯¦ä¾‹å·²è¢«å…§å®¹ç®¡ç†åœ˜éšŠéŽ–å®šï¼Œä¸æœƒå†æŽ¥æ”¶ä¾†è‡ªä¸»è¦å¯¦ä¾‹çš„æ›´æ–°ï¼Œä¸”ç„¡æ³•éŠçŽ©ã€‚"
-                                                         },
-    "instance.shared-instance.unavailable.locked-title":  {
-                                                              "message":  "å¯¦ä¾‹å·²éŽ–å®š"
-                                                          },
-    "instance.shared-instance.unavailable.manager-fallback":  {
-                                                                  "message":  "å¯¦ä¾‹ç®¡ç†è€…"
-                                                              },
-    "instance.shared-instance.unavailable.text":  {
-                                                      "message":  "ä½ çš„æœ¬æ©Ÿå¯¦ä¾‹ä»å¯æ­£å¸¸ä½¿ç”¨ï¼Œä½†å·²ä¸å†èˆ‡å…±ç”¨å¯¦ä¾‹é€£çµï¼Œä¸”ä¸å†æŽ¥æ”¶æ›´æ–°ã€‚"
-                                                  },
-    "instance.shared-instance.unavailable.title":  {
-                                                       "message":  "ä½ ç„¡æ³•ä½¿ç”¨é€™å€‹å…±ç”¨å¯¦ä¾‹"
-                                                   },
-    "instance.worlds.a_minecraft_server":  {
-                                               "message":  "Minecraft ä¼ºæœå™¨"
-                                           },
-    "instance.worlds.cant_connect":  {
-                                         "message":  "ç„¡æ³•é€£ç·šåˆ°ä¼ºæœå™¨"
-                                     },
-    "instance.worlds.copy_address":  {
-                                         "message":  "è¤‡è£½ä½å€"
-                                     },
-    "instance.worlds.create_shortcut":  {
-                                            "message":  "å»ºç«‹æ·å¾‘"
-                                        },
-    "instance.worlds.dont_show_on_home":  {
-                                              "message":  "ä¸è¦åœ¨é¦–é é¡¯ç¤º"
-                                          },
-    "instance.worlds.game_already_open":  {
-                                              "message":  "å¯¦ä¾‹å·²ç¶“é–‹å•Ÿ"
-                                          },
-    "instance.worlds.hardcore":  {
-                                     "message":  "æ¥µé™æ¨¡å¼"
-                                 },
-    "instance.worlds.incompatible_server":  {
-                                                "message":  "ä¼ºæœå™¨ä¸ç›¸å®¹"
-                                            },
-    "instance.worlds.linked_server":  {
-                                          "message":  "ç”±ä¼ºæœå™¨å°ˆæ¡ˆç®¡ç†"
-                                      },
-    "instance.worlds.no_contact":  {
-                                       "message":  "ä¼ºæœå™¨æ²’æœ‰å›žæ‡‰"
-                                   },
-    "instance.worlds.no_server_quick_play":  {
-                                                 "message":  "ä½ åªèƒ½åœ¨ Minecraft Alpha 1.0.5 ä»¥ä¸Šç‰ˆæœ¬ç›´æŽ¥åŠ å…¥ä¼ºæœå™¨"
-                                             },
-    "instance.worlds.no_singleplayer_quick_play":  {
-                                                       "message":  "ä½ åªèƒ½åœ¨ Minecraft 1.20 ä»¥ä¸Šç‰ˆæœ¬ç›´æŽ¥é€²å…¥å–®äººéŠæˆ²ä¸–ç•Œ"
-                                                   },
-    "instance.worlds.play_instance":  {
-                                          "message":  "éŠçŽ©å¯¦ä¾‹"
-                                      },
-    "instance.worlds.view_instance":  {
-                                          "message":  "æŸ¥çœ‹å¯¦ä¾‹"
-                                      },
-    "instance.worlds.world_in_use":  {
-                                         "message":  "ä¸–ç•Œæ­£åœ¨ä½¿ç”¨ä¸­"
-                                     },
-    "minecraft-account.add-account":  {
-                                          "message":  "æ–°å¢žå¸³è™Ÿ"
-                                      },
-    "minecraft-account.label":  {
-                                    "message":  "Minecraft å¸³è™Ÿ"
-                                },
-    "minecraft-account.not-signed-in":  {
-                                            "message":  "æœªç™»å…¥"
-                                        },
-    "minecraft-account.remove-account":  {
-                                             "message":  "ç§»é™¤å¸³è™Ÿ"
-                                         },
-    "minecraft-account.select-account":  {
-                                             "message":  "é¸æ“‡å¸³è™Ÿ"
-                                         },
-    "minecraft-account.sign-in":  {
-                                      "message":  "ç™»å…¥ Minecraft"
-                                  },
-    "minecraft-required.description":  {
-                                           "message":  "ä½ éœ€è¦ç™»å…¥æ“æœ‰ Minecraft çš„ Microsoft å¸³è™Ÿæ‰èƒ½å•Ÿå‹•éŠæˆ²ã€‚"
-                                       },
-    "minecraft-required.description-header":  {
-                                                  "message":  "ç™»å…¥ Microsoft å¸³è™Ÿ"
-                                              },
-    "minecraft-required.dont-have-account":  {
-                                                 "message":  "é‚„æ²’æœ‰å¸³è™Ÿå—Žï¼Ÿ"
-                                             },
-    "minecraft-required.get-minecraft":  {
-                                             "message":  "å–å¾— Minecraft"
-                                         },
-    "minecraft-required.get-support":  {
-                                           "message":  "å–å¾—æ”¯æ´"
-                                       },
-    "minecraft-required.header":  {
-                                      "message":  "éœ€è¦ Minecraft"
-                                  },
-    "minecraft-required.sign-in":  {
-                                       "message":  "ç™»å…¥ Microsoft"
-                                   },
-    "modal.modrinth-account-required.browser-description":  {
-                                                                "message":  "ä¸€å€‹æ–°åˆ†é å·²é–‹å•Ÿä¾›ä½ ç™»å…¥ã€‚è«‹åœ¨è©²åˆ†é å®Œæˆç™»å…¥ï¼Œç„¶å¾Œè¿”å›žæ‡‰ç”¨ç¨‹å¼ã€‚"
-                                                            },
-    "modal.modrinth-account-required.continue-in-browser-heading":  {
-                                                                        "message":  "åœ¨ç€è¦½å™¨ä¸­ç¹¼çºŒ"
-                                                                    },
-    "modal.modrinth-account-required.create-account-button":  {
-                                                                  "message":  "å»ºç«‹å¸³è™Ÿ"
-                                                              },
-    "modal.modrinth-account-required.description":  {
-                                                        "message":  "ä½ å¿…é ˆç™»å…¥ Modrinth å¸³è™Ÿæ‰èƒ½ä½¿ç”¨é€™å€‹åŠŸèƒ½ã€‚"
-                                                    },
-    "modal.modrinth-account-required.header":  {
-                                                   "message":  "éœ€è¦å¸³è™Ÿ"
-                                               },
-    "modal.modrinth-account-required.open-browser-again-button":  {
-                                                                      "message":  "å†æ¬¡é–‹å•Ÿç€è¦½å™¨"
-                                                                  },
-    "modal.modrinth-account-required.sign-in-button":  {
-                                                           "message":  "ç™»å…¥ Modrinth"
-                                                       },
-    "modal.modrinth-account-required.sign-in-heading":  {
-                                                            "message":  "ç™»å…¥ Modrinth å¸³è™Ÿ"
-                                                        },
-    "modal.modrinth-account-required.signing-in-header":  {
-                                                              "message":  "ç™»å…¥"
-                                                          },
-    "modal.modrinth-account-required.support-prompt":  {
-                                                           "message":  "ç™»å…¥æ™‚é‡åˆ°å•é¡Œå—Žï¼Ÿ\u003csupport\u003eå–å¾—æ”¯æ´\u003c/support\u003e"
-                                                       },
-    "modal.modrinth-account-required.waiting-for-browser":  {
-                                                                "message":  "ç­‰å¾…ç€è¦½å™¨ç¢ºèª..."
-                                                            },
-    "search.filter.locked.instance":  {
-                                          "message":  "ç”±è©²å¯¦ä¾‹æä¾›"
-                                      },
-    "search.filter.locked.instance-game-version.title":  {
-                                                             "message":  "éŠæˆ²ç‰ˆæœ¬ç”±å¯¦ä¾‹æä¾›"
-                                                         },
-    "search.filter.locked.instance-loader.title":  {
-                                                       "message":  "è¼‰å…¥å™¨ç‰ˆæœ¬ç”±å¯¦ä¾‹æä¾›"
-                                                   },
-    "search.filter.locked.instance.sync":  {
-                                               "message":  "èˆ‡å¯¦ä¾‹åŒæ­¥"
-                                           },
-    "search.filter.locked.server-environment.title":  {
-                                                          "message":  "åªæœ‰ç”¨æˆ¶ç«¯æ¨¡çµ„å¯ä»¥è¢«åŠ åˆ°ä¼ºæœå™¨å¯¦ä¾‹"
-                                                      },
-    "settings.sidebar.label.account":  {
-                                           "message":  "å¸³è™Ÿ"
-                                       },
-    "settings.sidebar.label.display":  {
-                                           "message":  "é¡¯ç¤º"
-                                       },
-    "app.instance.admonitions.shared-instance.review-update-button":  {
-                                                                          "message":  "æª¢è¦–æ›´æ–°"
-                                                                      },
-    "app.instance.admonitions.shared-instance.update-available-body":  {
-                                                                           "message":  "éœ€è¦æ›´æ–°æ‰èƒ½éŠçŽ©ã€Œ{name}ã€ã€‚è«‹æ›´æ–°è‡³æœ€æ–°ç‰ˆæœ¬ä»¥å•Ÿå‹•éŠæˆ²ã€‚"
-                                                                       },
-    "app.instance.admonitions.shared-instance.update-available-header":  {
-                                                                             "message":  "æœ‰å¯ç”¨çš„æ›´æ–°"
-                                                                         },
-    "app.modal.install-to-play.report-reason.inappropriate":  {
-                                                                  "message":  "ä¸ç•¶å…§å®¹"
-                                                              },
-    "app.modal.install-to-play.report-reason.malicious":  {
-                                                              "message":  "æƒ¡æ„å…§å®¹"
-                                                          },
-    "app.modal.install-to-play.report-reason.spam":  {
-                                                         "message":  "åžƒåœ¾å…§å®¹"
-                                                     },
-    "search.filter.locked.server":  {
-                                        "message":  "ç”±ä¼ºæœå™¨æä¾›"
-                                    },
-    "search.filter.locked.server-game-version.title":  {
-                                                           "message":  "éŠæˆ²ç‰ˆæœ¬ç”±ä¼ºæœå™¨æä¾›"
-                                                       },
-    "search.filter.locked.server-loader.title":  {
-                                                     "message":  "è¼‰å…¥å™¨ç”±ä¼ºæœå™¨æä¾›"
-                                                 }
+  "app.action-bar.downloading-java": {
+    "message": "正在下載 Java {version}"
+  },
+  "app.action-bar.downloading-update": {
+    "message": "正在下載更新"
+  },
+  "app.action-bar.downloads": {
+    "message": "下載"
+  },
+  "app.action-bar.hide-more-running-instances": {
+    "message": "隱藏更多執行中的實例"
+  },
+  "app.action-bar.install.copied-details": {
+    "message": "已複製"
+  },
+  "app.action-bar.install.copy-details": {
+    "message": "複製詳細資訊"
+  },
+  "app.action-bar.install.dismiss": {
+    "message": "忽略"
+  },
+  "app.action-bar.install.open-instance": {
+    "message": "開啟實例"
+  },
+  "app.action-bar.install.retry": {
+    "message": "重試"
+  },
+  "app.action-bar.install.summary.app-closing": {
+    "message": "由於應用程式關閉而取消"
+  },
+  "app.action-bar.install.summary.bad-modpack-file": {
+    "message": "無法讀取模組包"
+  },
+  "app.action-bar.install.summary.canceled": {
+    "message": "已取消"
+  },
+  "app.action-bar.install.summary.cleanup-incomplete": {
+    "message": "未完成清理"
+  },
+  "app.action-bar.install.summary.content-download-failed": {
+    "message": "無法下載檔案"
+  },
+  "app.action-bar.install.summary.corrupt-download": {
+    "message": "下載的檔案已損毀"
+  },
+  "app.action-bar.install.summary.could-not-save-files": {
+    "message": "無法儲存檔案"
+  },
+  "app.action-bar.install.summary.download-failed": {
+    "message": "無法完成下載"
+  },
+  "app.action-bar.install.summary.instance-not-found": {
+    "message": "找不到實例"
+  },
+  "app.action-bar.install.summary.invalid-file-path": {
+    "message": "檔案路徑無效"
+  },
+  "app.action-bar.install.summary.invalid-modpack": {
+    "message": "模組包資料無效"
+  },
+  "app.action-bar.install.summary.invalid-modpack-files": {
+    "message": "模組包檔案的詮釋資料無效"
+  },
+  "app.action-bar.install.summary.java-setup-failed": {
+    "message": "無法完成 Java 設定"
+  },
+  "app.action-bar.install.summary.loader-setup-failed": {
+    "message": "無法設定載入器"
+  },
+  "app.action-bar.install.summary.local-data-error": {
+    "message": "無法更新本機資料"
+  },
+  "app.action-bar.install.summary.minecraft-setup-failed": {
+    "message": "無法設定 Minecraft"
+  },
+  "app.action-bar.install.summary.modrinth-unreachable": {
+    "message": "無法連線到 Modrinth"
+  },
+  "app.action-bar.install.summary.no-write-permission": {
+    "message": "沒有寫入權限"
+  },
+  "app.action-bar.install.summary.pack-download-failed": {
+    "message": "無法下載模組包"
+  },
+  "app.action-bar.install.summary.unexpected-error": {
+    "message": "出了點狀況"
+  },
+  "app.action-bar.install.unknown-instance": {
+    "message": "未知的實例"
+  },
+  "app.action-bar.install.updating-shared-content": {
+    "message": "正在更新共用內容"
+  },
+  "app.action-bar.installs": {
+    "message": "安裝"
+  },
+  "app.action-bar.make-primary-instance": {
+    "message": "設為主要實例"
+  },
+  "app.action-bar.no-instances-running": {
+    "message": "沒有執行中的實例"
+  },
+  "app.action-bar.offline": {
+    "message": "離線"
+  },
+  "app.action-bar.primary-instance": {
+    "message": "主要實例"
+  },
+  "app.action-bar.reload-to-update": {
+    "message": "重新載入即可更新"
+  },
+  "app.action-bar.show-more-running-instances": {
+    "message": "顯示更多執行中的實例"
+  },
+  "app.action-bar.stop-instance": {
+    "message": "停止實例"
+  },
+  "app.action-bar.update": {
+    "message": "更新"
+  },
+  "app.action-bar.view-active-downloads": {
+    "message": "查看正在下載的項目"
+  },
+  "app.action-bar.view-instance": {
+    "message": "查看實例"
+  },
+  "app.action-bar.view-logs": {
+    "message": "查看紀錄"
+  },
+  "app.ads-consent.accept": {
+    "message": "全部接受"
+  },
+  "app.ads-consent.body": {
+    "message": "廣告使 Modrinth 得以營運，並為創作者提供收益。我們的合作夥伴可能會在應用程式中儲存或存取 Cookie，以實現個人化廣告並衡量廣告成效。"
+  },
+  "app.ads-consent.manage": {
+    "message": "管理偏好設定"
+  },
+  "app.ads-consent.reject": {
+    "message": "全部拒絕"
+  },
+  "app.ads-consent.title": {
+    "message": "關於你的隱私，以及廣告如何幫助 Modrinth"
+  },
+  "app.appearance-settings.advanced-rendering.description": {
+    "message": "啟用視覺效果（如背景模糊），若無硬體加速可能會降低效能。"
+  },
+  "app.appearance-settings.advanced-rendering.title": {
+    "message": "進階繪製"
+  },
+  "app.appearance-settings.color-theme.description": {
+    "message": "選擇 Modrinth App 使用的色彩主題。"
+  },
+  "app.appearance-settings.color-theme.title": {
+    "message": "色彩主題"
+  },
+  "app.appearance-settings.default-landing-page.home": {
+    "message": "首頁"
+  },
+  "app.appearance-settings.default-landing-page.library": {
+    "message": "遊戲庫"
+  },
+  "app.appearance-settings.hide-nametag.description": {
+    "message": "在外觀選擇工具頁面中隱藏玩家預覽上方的使用者名稱。"
+  },
+  "app.appearance-settings.hide-nametag.title": {
+    "message": "隱藏名牌"
+  },
+  "app.appearance-settings.jump-back-into-worlds.description": {
+    "message": "在首頁的「繼續遊玩」區塊中顯示最近遊玩的世界。"
+  },
+  "app.appearance-settings.jump-back-into-worlds.title": {
+    "message": "繼續遊玩世界"
+  },
+  "app.appearance-settings.minimize-launcher.description": {
+    "message": "當 Minecraft 啟動時將 Modrinth App 最小化。"
+  },
+  "app.appearance-settings.minimize-launcher.title": {
+    "message": "最小化應用程式"
+  },
+  "app.appearance-settings.native-decorations.description": {
+    "message": "使用作業系統的標題列和視窗控制項。需要重新啟動應用程式。"
+  },
+  "app.appearance-settings.native-decorations.title": {
+    "message": "系統視窗外框"
+  },
+  "app.appearance-settings.show-play-time.description": {
+    "message": "顯示你在各個實例的遊玩時數。"
+  },
+  "app.appearance-settings.show-play-time.title": {
+    "message": "顯示遊玩時數"
+  },
+  "app.appearance-settings.skip-non-essential-warnings.description": {
+    "message": "跳過低風險動作的確認提示，例如重複安裝、常規內容刪除、批次更新、取消連結以及修復。高風險動作的警告仍會顯示。"
+  },
+  "app.appearance-settings.skip-non-essential-warnings.title": {
+    "message": "跳過非必要的警告"
+  },
+  "app.appearance-settings.toggle-sidebar.description": {
+    "message": "預設隱藏右側邊欄，並新增顯示或隱藏按鈕。"
+  },
+  "app.appearance-settings.toggle-sidebar.title": {
+    "message": "隱藏右側邊欄"
+  },
+  "app.appearance-settings.unknown-pack-warning.description": {
+    "message": "在安裝非託管於 Modrinth 的 Modrinth Pack（.mrpack）之前，顯示安全警告。"
+  },
+  "app.appearance-settings.unknown-pack-warning.title": {
+    "message": "在安裝未知模組包前發出警告"
+  },
+  "app.auth-servers.unreachable.body": {
+    "message": "Minecraft 驗證伺服器現在可能無法使用。請檢查網際網路連線，然後再試一次。"
+  },
+  "app.auth-servers.unreachable.header": {
+    "message": "無法連線到驗證伺服器"
+  },
+  "app.behavior-settings.confirmations.title": {
+    "message": "確認提示"
+  },
+  "app.behavior-settings.content.title": {
+    "message": "首頁與內容"
+  },
+  "app.behavior-settings.startup-and-navigation.title": {
+    "message": "啟動與瀏覽"
+  },
+  "app.browse.add-servers-to-instance": {
+    "message": "將伺服器新增至實例"
+  },
+  "app.browse.add-to-an-instance": {
+    "message": "新增至實例"
+  },
+  "app.browse.add-to-instance": {
+    "message": "新增至實例"
+  },
+  "app.browse.add-to-instance-name": {
+    "message": "新增至「{instanceName}」"
+  },
+  "app.browse.added": {
+    "message": "已新增"
+  },
+  "app.browse.already-added": {
+    "message": "已經新增"
+  },
+  "app.browse.back-to-instance": {
+    "message": "回到實例"
+  },
+  "app.browse.discover-project-type": {
+    "message": "探索{projectType}"
+  },
+  "app.browse.discover-servers": {
+    "message": "探索伺服器"
+  },
+  "app.browse.hide-added-servers": {
+    "message": "隱藏已新增的伺服器"
+  },
+  "app.browse.hide-installed-modpacks": {
+    "message": "隱藏已安裝的內容"
+  },
+  "app.browse.project-type.modpacks": {
+    "message": "模組包"
+  },
+  "app.browse.server-instance-content-warning": {
+    "message": "加入內容可能會導致加入伺服器時發生相容性問題。當你更新伺服器實例內容時，任何新增的內容也會遺失。"
+  },
+  "app.browse.server.installing": {
+    "message": "安裝中"
+  },
+  "app.content-install.no-compatible-versions": {
+    "message": "沒有符合 {compatibilityLabel} 的可用版本。請選擇一個版本強制安裝。不會自動安裝相依模組。"
+  },
+  "app.export-modal.description-placeholder": {
+    "message": "輸入模組包描述..."
+  },
+  "app.export-modal.export-button": {
+    "message": "匯出"
+  },
+  "app.export-modal.header": {
+    "message": "匯出模組包"
+  },
+  "app.export-modal.modpack-name-label": {
+    "message": "模組包名稱"
+  },
+  "app.export-modal.modpack-name-placeholder": {
+    "message": "模組包名稱"
+  },
+  "app.export-modal.version-number-label": {
+    "message": "版本號碼"
+  },
+  "app.export-modal.version-number-placeholder": {
+    "message": "1.0.0"
+  },
+  "app.install.phase.downloading_content": {
+    "message": "正在下載內容"
+  },
+  "app.install.phase.downloading_minecraft": {
+    "message": "正在下載 Minecraft"
+  },
+  "app.install.phase.downloading_pack_file": {
+    "message": "正在下載模組包檔案"
+  },
+  "app.install.phase.extracting_overrides": {
+    "message": "正在解壓縮覆寫檔案"
+  },
+  "app.install.phase.finalizing": {
+    "message": "即將完成"
+  },
+  "app.install.phase.preparing_instance": {
+    "message": "已排入安裝佇列"
+  },
+  "app.install.phase.preparing_java": {
+    "message": "正在準備 Java"
+  },
+  "app.install.phase.preparing_java.downloading": {
+    "message": "正在下載 Java {version}"
+  },
+  "app.install.phase.preparing_java.extracting": {
+    "message": "正在解壓縮 Java {version}"
+  },
+  "app.install.phase.preparing_java.fetching-metadata": {
+    "message": "正在擷取 Java {version}"
+  },
+  "app.install.phase.preparing_java.resolving": {
+    "message": "正在準備 Java {version}"
+  },
+  "app.install.phase.preparing_java.validating": {
+    "message": "正在驗證 Java {version}"
+  },
+  "app.install.phase.reading_pack_manifest": {
+    "message": "正在讀取模組包清單"
+  },
+  "app.install.phase.resolving_loader": {
+    "message": "正在解析載入器"
+  },
+  "app.install.phase.resolving_minecraft": {
+    "message": "正在解析 Minecraft"
+  },
+  "app.install.phase.resolving_pack": {
+    "message": "正在解析內容"
+  },
+  "app.install.phase.rolling_back": {
+    "message": "正在復原"
+  },
+  "app.install.phase.running_loader_processors": {
+    "message": "正在執行載入器處理程式"
+  },
+  "app.instance.admonitions.shared-instance.added-label": {
+    "message": "已新增"
+  },
+  "app.instance.admonitions.shared-instance.changes-body": {
+    "message": "你的本機實例有尚未同步給其他使用者的變更。"
+  },
+  "app.instance.admonitions.shared-instance.changes-header": {
+    "message": "變更尚未共用"
+  },
+  "app.instance.admonitions.shared-instance.publish-button": {
+    "message": "推送更新"
+  },
+  "app.instance.admonitions.shared-instance.publishing-button": {
+    "message": "正在推送..."
+  },
+  "app.instance.admonitions.shared-instance.removed-label": {
+    "message": "已移除"
+  },
+  "app.instance.admonitions.shared-instance.review-admonition-header": {
+    "message": "推送更新"
+  },
+  "app.instance.admonitions.shared-instance.review-description": {
+    "message": "審查即將與這個實例的所有使用者共用的內容變更。"
+  },
+  "app.instance.admonitions.shared-instance.review-header": {
+    "message": "檢視變更"
+  },
+  "app.instance.admonitions.shared-instance.reviewing-button": {
+    "message": "正在檢視..."
+  },
+  "app.instance.confirm-delete.admonition-body": {
+    "message": "你實例中的所有資料將被永久刪除，包含你的世界、設定檔以及所有已安裝的內容。"
+  },
+  "app.instance.confirm-delete.admonition-header": {
+    "message": "這項動作無法復原"
+  },
+  "app.instance.confirm-delete.delete-button": {
+    "message": "刪除實例"
+  },
+  "app.instance.confirm-delete.header": {
+    "message": "刪除實例"
+  },
+  "app.instance.modpack-already-installed.body": {
+    "message": "這個模組包已經安裝在實例「<bold>{instanceName}</bold>」中了，確定要再次安裝嗎？"
+  },
+  "app.instance.modpack-already-installed.create": {
+    "message": "建立"
+  },
+  "app.instance.modpack-already-installed.header": {
+    "message": "模組包已安裝"
+  },
+  "app.instance.modpack-already-installed.instance": {
+    "message": "實例"
+  },
+  "app.instance.mods.bulk-update.downloading-projects": {
+    "message": "正在下載專案 {current, number}/{total, number}..."
+  },
+  "app.instance.mods.bulk-update.finishing": {
+    "message": "正在結束更新..."
+  },
+  "app.instance.mods.bulk-update.resolving-versions": {
+    "message": "正在解析版本..."
+  },
+  "app.instance.mods.content-type-project": {
+    "message": "專案"
+  },
+  "app.instance.mods.locked-content": {
+    "message": "已鎖定實例中的內容無法變更。"
+  },
+  "app.instance.mods.project-was-added": {
+    "message": "已新增「{name}」"
+  },
+  "app.instance.mods.projects-were-added": {
+    "message": "已新增 {count} 個專案"
+  },
+  "app.instance.mods.share-text": {
+    "message": "快來看看我在模組包中使用的專案！"
+  },
+  "app.instance.mods.share-title": {
+    "message": "分享模組包內容"
+  },
+  "app.instance.mods.successfully-uploaded": {
+    "message": "已成功上傳"
+  },
+  "app.instance.share.empty.description": {
+    "message": "你可以與好友共用這個實例！"
+  },
+  "app.instance.share.empty.heading": {
+    "message": "未邀請任何好友"
+  },
+  "app.instance.share.empty.invite-friends-button": {
+    "message": "邀請好友"
+  },
+  "app.instance.share.invite-modal.heading": {
+    "message": "共用「{name}」"
+  },
+  "app.instance.share.invite-modal.user-limit-reached": {
+    "message": "這個實例已達到 {limit} 位使用者的上限。"
+  },
+  "app.instance.share.locked.empty-description-prefix": {
+    "message": "你需要以"
+  },
+  "app.instance.share.locked.empty-description-suffix": {
+    "message": "登入才能存取這個頁面。"
+  },
+  "app.instance.share.locked.linked-account-fallback": {
+    "message": "已連結的帳號"
+  },
+  "app.instance.share.locked.signed-out-heading": {
+    "message": "未登入"
+  },
+  "app.instance.share.locked.switch-account-button": {
+    "message": "切換帳號"
+  },
+  "app.instance.share.locked.wrong-account-heading": {
+    "message": "帳號錯誤"
+  },
+  "app.instance.share.members.empty": {
+    "message": "還沒有使用者加入"
+  },
+  "app.instance.share.members.no-filter-results": {
+    "message": "沒有找到使用者。"
+  },
+  "app.instance.share.remove-user-modal.effect-access": {
+    "message": "他不會再收到這個共用實例的更新"
+  },
+  "app.instance.share.remove-user-modal.effect-installed-copy": {
+    "message": "他已經安裝的副本仍會保留在他的裝置上"
+  },
+  "app.instance.share.remove-user-modal.effect-invite-again": {
+    "message": "你可以稍後再次邀請他"
+  },
+  "app.instance.share.remove-user-modal.effect-last-user": {
+    "message": "這是最後一位共用使用者，這個實例的共用功能將被關閉"
+  },
+  "app.instance.share.remove-user-modal.effects-label": {
+    "message": "會發生什麼事？"
+  },
+  "app.instance.share.remove-user-modal.header": {
+    "message": "撤銷存取權"
+  },
+  "app.instance.share.remove-user-modal.remove-button": {
+    "message": "撤銷存取權"
+  },
+  "app.instance.share.remove-user-modal.user-avatar-alt": {
+    "message": "{username} 的顯示圖片"
+  },
+  "app.instance.share.remove-user-modal.warning-body": {
+    "message": "如果你撤銷了 {username} 對這個共用實例的存取權，你需要重新邀請他，他才會收到更新。"
+  },
+  "app.instance.share.sign-in.button": {
+    "message": "登入"
+  },
+  "app.instance.share.unable-to-connect.description": {
+    "message": "目前無法存取共用實例服務，請稍後再試"
+  },
+  "app.instance.share.unable-to-connect.heading": {
+    "message": "無法連線"
+  },
+  "app.instance.share.unlink.body": {
+    "message": "你必須先與模組包取消連結才能共用實例"
+  },
+  "app.instance.share.unlink.header": {
+    "message": "共用前需要取消連結"
+  },
+  "app.instance.shared-instance-already-installed.body": {
+    "message": "這個共用實例已經在本機安裝，名稱為「<bold>{instanceName}</bold>」。確定要再安裝一個副本嗎？"
+  },
+  "app.instance.shared-instance-already-installed.header": {
+    "message": "共用實例已經安裝"
+  },
+  "app.instance.shared-instance-already-installed.install-anyway": {
+    "message": "仍要安裝"
+  },
+  "app.instance.shared-instance-already-installed.instance": {
+    "message": "實例"
+  },
+  "app.instance.shared-instance-wrong-account.fallback-username": {
+    "message": "已連結的帳號"
+  },
+  "app.instance.shared-instance-wrong-account.owner-admonition-body-v2": {
+    "message": "登入才能管理這個共用實例，否則你將無法向使用者推送更新。"
+  },
+  "app.instance.shared-instance-wrong-account.sign-in-as-label": {
+    "message": "你需要以"
+  },
+  "app.instance.shared-instance-wrong-account.signed-out-header": {
+    "message": "你需要登入 Modrinth"
+  },
+  "app.instance.shared-instance-wrong-account.user-admonition-body-v2": {
+    "message": "登入才能收到這個共用實例的更新。"
+  },
+  "app.instance.shared-instance-wrong-account.warning-header": {
+    "message": "你目前使用的 Modrinth 帳號不正確"
+  },
+  "app.instance.worlds.add-server": {
+    "message": "新增伺服器"
+  },
+  "app.instance.worlds.browse-servers": {
+    "message": "瀏覽伺服器"
+  },
+  "app.instance.worlds.delete-world-modal.delete-button": {
+    "message": "刪除世界"
+  },
+  "app.instance.worlds.delete-world-modal.title": {
+    "message": "刪除世界"
+  },
+  "app.instance.worlds.delete-world-modal.warning-body": {
+    "message": "這個世界將從這個實例永久刪除，這項動作無法復原。"
+  },
+  "app.instance.worlds.delete-world-modal.warning-header": {
+    "message": "即將刪除「{name}」"
+  },
+  "app.instance.worlds.filter-modded": {
+    "message": "含模組"
+  },
+  "app.instance.worlds.filter-offline": {
+    "message": "離線"
+  },
+  "app.instance.worlds.filter-online": {
+    "message": "線上"
+  },
+  "app.instance.worlds.filter-vanilla": {
+    "message": "原版"
+  },
+  "app.instance.worlds.no-worlds-description": {
+    "message": "新增伺服器或瀏覽以開始使用"
+  },
+  "app.instance.worlds.no-worlds-heading": {
+    "message": "未新增任何伺服器或世界"
+  },
+  "app.instance.worlds.refreshing": {
+    "message": "正在重新整理..."
+  },
+  "app.instance.worlds.remove-server-modal.remove-button": {
+    "message": "移除伺服器"
+  },
+  "app.instance.worlds.remove-server-modal.title": {
+    "message": "移除伺服器"
+  },
+  "app.instance.worlds.remove-server-modal.warning-body": {
+    "message": "這個伺服器將從你的伺服器清單中移除。如果你記得伺服器位址，稍後可以將其重新新增回來。"
+  },
+  "app.instance.worlds.remove-server-modal.warning-header": {
+    "message": "即將移除 {name}"
+  },
+  "app.instance.worlds.search-worlds-placeholder": {
+    "message": "搜尋 {count} 個世界..."
+  },
+  "app.java-detection.cancel": {
+    "message": "取消"
+  },
+  "app.java-detection.columns.actions": {
+    "message": "動作"
+  },
+  "app.java-detection.columns.path": {
+    "message": "路徑"
+  },
+  "app.java-detection.columns.version": {
+    "message": "版本"
+  },
+  "app.java-detection.no-installations-found": {
+    "message": "找不到 Java 安裝。"
+  },
+  "app.java-detection.select": {
+    "message": "選擇"
+  },
+  "app.java-detection.selected": {
+    "message": "已選擇"
+  },
+  "app.java-detection.title": {
+    "message": "選擇 Java 安裝"
+  },
+  "app.java-selector.already-installed": {
+    "message": "已安裝"
+  },
+  "app.java-selector.browse": {
+    "message": "瀏覽"
+  },
+  "app.java-selector.detect": {
+    "message": "偵測"
+  },
+  "app.java-selector.install-recommended": {
+    "message": "建議安裝"
+  },
+  "app.java-selector.installing": {
+    "message": "正在安裝..."
+  },
+  "app.java-selector.path.placeholder": {
+    "message": "/path/to/java"
+  },
+  "app.java-selector.test-installation": {
+    "message": "測試 Java 安裝"
+  },
+  "app.modal.install-to-play.additional-context": {
+    "message": "補充說明"
+  },
+  "app.modal.install-to-play.additional-context-placeholder": {
+    "message": "若可行且相關，請一併附上連結與圖片"
+  },
+  "app.modal.install-to-play.block-user": {
+    "message": "封鎖使用者"
+  },
+  "app.modal.install-to-play.content-you-are-reporting": {
+    "message": "你要檢舉的實例"
+  },
+  "app.modal.install-to-play.delete-instance": {
+    "message": "刪除實例"
+  },
+  "app.modal.install-to-play.external-files-dont-install": {
+    "message": "不要安裝"
+  },
+  "app.modal.install-to-play.header": {
+    "message": "安裝以遊玩"
+  },
+  "app.modal.install-to-play.install-anyway": {
+    "message": "仍要安裝"
+  },
+  "app.modal.install-to-play.install-button": {
+    "message": "安裝"
+  },
+  "app.modal.install-to-play.invite-warning": {
+    "message": "這份邀請是由另一位 Modrinth 使用者建立，並非由 Modrinth 官方建立。請僅接受來自你信任的人的邀請。"
+  },
+  "app.modal.install-to-play.invite-warning-with-creator": {
+    "message": "這份邀請是由 <creator>{username}</creator> 建立，並非由 Modrinth 官方建立。請僅接受來自你信任的人的邀請。"
+  },
+  "app.modal.install-to-play.mod-count": {
+    "message": "{count, plural, other {# 個模組}}"
+  },
+  "app.modal.install-to-play.report-description": {
+    "message": "用這個表單檢舉可能違反我們的《<rules-link>內容規範</rules-link>》或《<terms-link>使用條款</terms-link>》的實例。"
+  },
+  "app.modal.install-to-play.report-image-invalid-type": {
+    "message": "不支援的圖片格式"
+  },
+  "app.modal.install-to-play.report-image-too-large": {
+    "message": "檔案大小超過 1 MiB 限制"
+  },
+  "app.modal.install-to-play.report-legal-claims": {
+    "message": "關於 DMCA 通知或其他法律訴求，請參閱我們的《<copyright-link>著作權政策</copyright-link>》。"
+  },
+  "app.modal.install-to-play.report-reason": {
+    "message": "這個實例違反了哪一條規則？"
+  },
+  "app.modal.install-to-play.report-shared-instance-header": {
+    "message": "檢舉共用實例"
+  },
+  "app.modal.install-to-play.report-submitted": {
+    "message": "檢舉已提交"
+  },
+  "app.modal.install-to-play.report-support-and-bugs": {
+    "message": "如需客服支援，請聯絡我們的<support-link>客服團隊</support-link>。如需回報錯誤，請<github-link>在 GitHub 上提交 issue</github-link>。"
+  },
+  "app.modal.install-to-play.reviewed-files": {
+    "message": "只有在 Modrinth 上發布的檔案才會經過審查，無論其檔案格式為何（包含 .mrpack）。"
+  },
+  "app.modal.install-to-play.shared-instance": {
+    "message": "共用實例"
+  },
+  "app.modal.install-to-play.shared-instance-content": {
+    "message": "共用實例的內容"
+  },
+  "app.modal.install-to-play.shared-instance-unknown-files-description": {
+    "message": "這個共用實例包含未在 Modrinth 上發布的檔案。強烈建議你僅安裝來自信任來源的檔案。"
+  },
+  "app.modal.install-to-play.unknown-files-description": {
+    "message": "這個伺服器模組包中包含未在 Modrinth 上發布的檔案。強烈建議你僅安裝來自信任來源的檔案。"
+  },
+  "app.modal.install-to-play.unknown-files-warning": {
+    "message": "未知檔案警告"
+  },
+  "app.modal.install-to-play.unrecognized-files": {
+    "message": "無法辨識的檔案"
+  },
+  "app.modal.install-to-play.user-blocked": {
+    "message": "使用者已封鎖"
+  },
+  "app.modal.install-to-play.view-contents": {
+    "message": "查看內容"
+  },
+  "app.modal.update-to-play.header": {
+    "message": "更新以遊玩"
+  },
+  "app.modal.update-to-play.removed": {
+    "message": "已移除"
+  },
+  "app.modal.update-to-play.server-modpack-unknown-files-description": {
+    "message": "這個伺服器模組包更新包含未在 Modrinth 上發布的檔案。強烈建議你僅安裝來自信任來源的檔案。"
+  },
+  "app.modal.update-to-play.shared-instance-added-label": {
+    "message": "已新增"
+  },
+  "app.modal.update-to-play.shared-instance-removed-label": {
+    "message": "已移除"
+  },
+  "app.modal.update-to-play.shared-instance-unknown-files-description": {
+    "message": "這個共用實例更新包含未在 Modrinth 上發布的檔案。強烈建議你僅安裝來自信任來源的檔案。"
+  },
+  "app.modal.update-to-play.update-required": {
+    "message": "需要更新"
+  },
+  "app.modal.update-to-play.update-required-description": {
+    "message": "需要更新才能遊玩「{name}」。請更新至最新版本以啟動遊戲。"
+  },
+  "app.nav.create-new-instance": {
+    "message": "建立新實例"
+  },
+  "app.nav.home": {
+    "message": "首頁"
+  },
+  "app.nav.modrinth-account": {
+    "message": "Modrinth 帳號"
+  },
+  "app.nav.modrinth-hosting": {
+    "message": "Modrinth Hosting"
+  },
+  "app.nav.sign-in-to-modrinth-account": {
+    "message": "登入 Modrinth 帳號"
+  },
+  "app.nav.signed-in-as": {
+    "message": "以 <user>{username}</user> 登入"
+  },
+  "app.nav.upgrade-to-modrinth-plus": {
+    "message": "升級至 Modrinth+"
+  },
+  "app.news.title": {
+    "message": "新聞"
+  },
+  "app.news.view-all": {
+    "message": "查看所有新聞"
+  },
+  "app.project.install-button.already-installed": {
+    "message": "這個專案已安裝"
+  },
+  "app.project.install-button.switch-version": {
+    "message": "切換版本"
+  },
+  "app.project.install-context.back-to-browse": {
+    "message": "返回瀏覽"
+  },
+  "app.project.install-context.back-to-instance": {
+    "message": "回到實例"
+  },
+  "app.project.version.all-versions": {
+    "message": "所有版本"
+  },
+  "app.project.version.download-in-browser": {
+    "message": "在瀏覽器中下載"
+  },
+  "app.project.version.installing": {
+    "message": "正在安裝"
+  },
+  "app.project.versions.already-installed": {
+    "message": "已安裝"
+  },
+  "app.quick-instance-switcher.drag-show-tooltip": {
+    "message": "拖曳顯示最近遊玩的實例"
+  },
+  "app.quick-instance-switcher.drag-tooltip": {
+    "message": "拖曳調整大小"
+  },
+  "app.restarting": {
+    "message": "正在重新啟動..."
+  },
+  "app.settings.app-version": {
+    "message": "Modrinth App {version}"
+  },
+  "app.settings.default-instance-options.environment-variables.description": {
+    "message": "啟動實例時設定的環境變數。"
+  },
+  "app.settings.default-instance-options.environment-variables.placeholder": {
+    "message": "輸入環境變數..."
+  },
+  "app.settings.default-instance-options.environment-variables.title": {
+    "message": "環境變數"
+  },
+  "app.settings.default-instance-options.fullscreen.description": {
+    "message": "實例啟動時進入全螢幕模式（透過更新 options.txt 檔案）。"
+  },
+  "app.settings.default-instance-options.fullscreen.title": {
+    "message": "全螢幕"
+  },
+  "app.settings.default-instance-options.height.description": {
+    "message": "遊戲啟動時的視窗高度。"
+  },
+  "app.settings.default-instance-options.height.placeholder": {
+    "message": "輸入高度..."
+  },
+  "app.settings.default-instance-options.height.title": {
+    "message": "高度"
+  },
+  "app.settings.default-instance-options.java-arguments.description": {
+    "message": "啟動實例時傳遞給 Java 的參數。"
+  },
+  "app.settings.default-instance-options.java-arguments.placeholder": {
+    "message": "輸入 Java 參數..."
+  },
+  "app.settings.default-instance-options.java-arguments.title": {
+    "message": "Java 參數"
+  },
+  "app.settings.default-instance-options.memory-allocation.description": {
+    "message": "各個實例可使用的記憶體上限。"
+  },
+  "app.settings.default-instance-options.memory-allocation.title": {
+    "message": "記憶體配置"
+  },
+  "app.settings.default-instance-options.post-exit-hook.description": {
+    "message": "遊戲關閉後執行。"
+  },
+  "app.settings.default-instance-options.post-exit-hook.placeholder": {
+    "message": "輸入結束後指令..."
+  },
+  "app.settings.default-instance-options.post-exit-hook.title": {
+    "message": "結束後掛勾"
+  },
+  "app.settings.default-instance-options.pre-launch-hook.description": {
+    "message": "實例啟動前執行。"
+  },
+  "app.settings.default-instance-options.pre-launch-hook.placeholder": {
+    "message": "輸入啟動前指令..."
+  },
+  "app.settings.default-instance-options.pre-launch-hook.title": {
+    "message": "啟動前掛勾"
+  },
+  "app.settings.default-instance-options.width.description": {
+    "message": "遊戲啟動時的視窗寬度。"
+  },
+  "app.settings.default-instance-options.width.placeholder": {
+    "message": "輸入寬度..."
+  },
+  "app.settings.default-instance-options.width.title": {
+    "message": "寬度"
+  },
+  "app.settings.default-instance-options.wrapper-hook.description": {
+    "message": "用於包裝 Minecraft 啟動處理程序的指令。"
+  },
+  "app.settings.default-instance-options.wrapper-hook.placeholder": {
+    "message": "輸入包裝指令..."
+  },
+  "app.settings.default-instance-options.wrapper-hook.title": {
+    "message": "包裝掛勾"
+  },
+  "app.settings.developer-mode-button.label": {
+    "message": "切換開發人員模式"
+  },
+  "app.settings.developer-mode-enabled": {
+    "message": "開發人員模式已啟用。"
+  },
+  "app.settings.downloading": {
+    "message": "正在下載 v{version}"
+  },
+  "app.settings.java-installations.location.title": {
+    "message": "Java {version, number} 安裝位置"
+  },
+  "app.settings.operating-system.macos": {
+    "message": "macOS"
+  },
+  "app.settings.privacy.ads-consent.intro": {
+    "message": "廣告使 Modrinth 得以營運，並為創作者提供收益。我們的合作夥伴可能會在應用程式中儲存或存取 Cookie，以實現個人化廣告並衡量廣告成效。你可以在下方選擇退出或管理偏好設定。"
+  },
+  "app.settings.privacy.discord-rich-presence.description": {
+    "message": "在 Discord 上將 Modrinth App 顯示為目前活動。這不會影響模組為實例新增的豐富狀態。需要重新啟動應用程式。"
+  },
+  "app.settings.privacy.discord-rich-presence.title": {
+    "message": "Discord 豐富狀態"
+  },
+  "app.settings.privacy.telemetry.description": {
+    "message": "Modrinth 會收集匿名化的分析與使用資料，以提升使用者體驗並提供客製化服務。若停用此選項，即表示你選擇退出，你的資料將不再被收集。"
+  },
+  "app.settings.privacy.telemetry.title": {
+    "message": "遙測"
+  },
+  "app.settings.resource-management.always-show-copy-details.description": {
+    "message": "當安裝已排入佇列或正在執行時，顯示「複製詳細資訊」按鈕。這項設定僅適用於前述安裝情形，安裝失敗或中斷時一律顯示該按鈕。"
+  },
+  "app.settings.resource-management.always-show-copy-details.title": {
+    "message": "一律顯示複製詳細資訊"
+  },
+  "app.settings.resource-management.app-cache.confirm.description": {
+    "message": "在快取完成重建前，應用程式的載入速度可能會比較慢。"
+  },
+  "app.settings.resource-management.app-cache.confirm.title": {
+    "message": "要清除應用程式快取嗎？"
+  },
+  "app.settings.resource-management.app-cache.description": {
+    "message": "清除快取資料，並從 Modrinth 重新下載。在快取完成重建前，應用程式的載入速度可能會比較慢。"
+  },
+  "app.settings.resource-management.app-cache.purge": {
+    "message": "清除快取"
+  },
+  "app.settings.resource-management.app-cache.title": {
+    "message": "應用程式快取"
+  },
+  "app.settings.resource-management.app-database-backups.description": {
+    "message": "重要應用程式資料的備份會儲存於此，以備日後需要還原時使用。"
+  },
+  "app.settings.resource-management.app-database-backups.open-folder": {
+    "message": "開啟備份資料夾"
+  },
+  "app.settings.resource-management.app-database-backups.title": {
+    "message": "應用程式資料庫備份"
+  },
+  "app.settings.resource-management.app-directory.browse": {
+    "message": "瀏覽應用程式資料夾"
+  },
+  "app.settings.resource-management.app-directory.description": {
+    "message": "Modrinth App 儲存實例及其他檔案的位置。變更將於重新啟動應用程式後生效。"
+  },
+  "app.settings.resource-management.app-directory.select": {
+    "message": "選擇新的應用程式資料夾"
+  },
+  "app.settings.resource-management.app-directory.title": {
+    "message": "應用程式資料夾"
+  },
+  "app.settings.resource-management.maximum-concurrent-downloads.description": {
+    "message": "應用程式一次可下載的檔案數量。若你的網路連線導致下載不穩定，請降低此數值。需要重新啟動應用程式。"
+  },
+  "app.settings.resource-management.maximum-concurrent-downloads.title": {
+    "message": "並行下載上限"
+  },
+  "app.settings.resource-management.maximum-concurrent-writes.description": {
+    "message": "應用程式一次可寫入硬碟的檔案數量。若你經常遇到 I/O 錯誤，請降低此數值。需要重新啟動應用程式。"
+  },
+  "app.settings.resource-management.maximum-concurrent-writes.title": {
+    "message": "並行寫入上限"
+  },
+  "app.settings.sidebar.label.instances": {
+    "message": "實例"
+  },
+  "app.settings.tabs.appearance": {
+    "message": "外觀"
+  },
+  "app.settings.tabs.behavior": {
+    "message": "行為"
+  },
+  "app.settings.tabs.default-instance-options": {
+    "message": "預設遊戲選項"
+  },
+  "app.settings.tabs.java-installations": {
+    "message": "Java 安裝"
+  },
+  "app.settings.tabs.language": {
+    "message": "語言"
+  },
+  "app.settings.tabs.privacy": {
+    "message": "隱私"
+  },
+  "app.settings.tabs.resource-management": {
+    "message": "資源管理"
+  },
+  "app.sidebar.playing-as": {
+    "message": "目前遊玩帳號"
+  },
+  "app.skins.add-button": {
+    "message": "新增外觀"
+  },
+  "app.skins.add-button.drag-and-drop": {
+    "message": "拖曳"
+  },
+  "app.skins.apply-button": {
+    "message": "套用"
+  },
+  "app.skins.delete-button": {
+    "message": "刪除外觀"
+  },
+  "app.skins.delete-modal.description": {
+    "message": "這會永久刪除所選的外觀，這項動作無法復原。"
+  },
+  "app.skins.delete-modal.title": {
+    "message": "確定要刪除這個外觀嗎？"
+  },
+  "app.skins.dropped-file-error.text": {
+    "message": "無法讀取拖曳的檔案。"
+  },
+  "app.skins.dropped-file-error.title": {
+    "message": "處理檔案時發生錯誤"
+  },
+  "app.skins.ears-feature-notice": {
+    "message": "這個外觀使用了 {ears} 模組的功能"
+  },
+  "app.skins.edit-button": {
+    "message": "編輯外觀"
+  },
+  "app.skins.modal.add-skin-button": {
+    "message": "新增外觀"
+  },
+  "app.skins.modal.add-title": {
+    "message": "新增外觀"
+  },
+  "app.skins.modal.arm-style-section": {
+    "message": "手臂身形"
+  },
+  "app.skins.modal.arm-style-slim": {
+    "message": "苗條"
+  },
+  "app.skins.modal.arm-style-wide": {
+    "message": "寬"
+  },
+  "app.skins.modal.cape-fallback-name": {
+    "message": "披風"
+  },
+  "app.skins.modal.cape-section": {
+    "message": "披風"
+  },
+  "app.skins.modal.edit-title": {
+    "message": "編輯外觀"
+  },
+  "app.skins.modal.make-edit-first-tooltip": {
+    "message": "請先對外觀進行編輯！"
+  },
+  "app.skins.modal.no-cape-tooltip": {
+    "message": "無披風"
+  },
+  "app.skins.modal.none-cape-option": {
+    "message": "無"
+  },
+  "app.skins.modal.replace-texture-button": {
+    "message": "取代紋理"
+  },
+  "app.skins.modal.save-skin-button": {
+    "message": "儲存外觀"
+  },
+  "app.skins.modal.saving-tooltip": {
+    "message": "正在儲存..."
+  },
+  "app.skins.modal.texture-section": {
+    "message": "紋理"
+  },
+  "app.skins.modal.upload-skin-first-tooltip": {
+    "message": "請先上傳外觀檔案！"
+  },
+  "app.skins.preview.edit-button": {
+    "message": "編輯外觀"
+  },
+  "app.skins.previewing-badge": {
+    "message": "預覽"
+  },
+  "app.skins.rate-limit.text": {
+    "message": "你變更外觀的頻率太過頻繁。Mojang 伺服器已暫時封鎖後續請求，請稍等片刻，然後再試一次。"
+  },
+  "app.skins.rate-limit.title": {
+    "message": "慢一點！"
+  },
+  "app.skins.reorder-error.text": {
+    "message": "無法儲存你的外觀排序。"
+  },
+  "app.skins.reorder-error.title": {
+    "message": "重新排序外觀失敗"
+  },
+  "app.skins.section.builders-and-biomes": {
+    "message": "建造者＆生態域"
+  },
+  "app.skins.section.chaos-cubed": {
+    "message": "混沌立方"
+  },
+  "app.skins.section.chase-the-skies": {
+    "message": "追逐天空"
+  },
+  "app.skins.section.default-skins": {
+    "message": "預設外觀"
+  },
+  "app.skins.section.minecon-earth-2017": {
+    "message": "MINECON Earth 2017"
+  },
+  "app.skins.section.modrinth": {
+    "message": "Modrinth"
+  },
+  "app.skins.section.modrinth-pride": {
+    "message": "Modrinth 驕傲"
+  },
+  "app.skins.section.modrinth-pride.tooltip": {
+    "message": "這些外觀是你在驕傲月期間捐款給 Modrinth 驕傲月籌款活動所獲得的。"
+  },
+  "app.skins.section.mounts-of-mayhem": {
+    "message": "群騎紛爭"
+  },
+  "app.skins.section.saved-skins": {
+    "message": "已儲存外觀"
+  },
+  "app.skins.section.striding-hero": {
+    "message": "Striding Hero"
+  },
+  "app.skins.section.the-copper-age": {
+    "message": "銅器時代"
+  },
+  "app.skins.section.the-garden-awakens": {
+    "message": "蒼園覺醒"
+  },
+  "app.skins.section.tiny-takeover": {
+    "message": "小鬼當家"
+  },
+  "app.skins.sign-in.button": {
+    "message": "登入"
+  },
+  "app.skins.title": {
+    "message": "外觀選擇工具"
+  },
+  "app.skins.toggle-ears-features-off": {
+    "message": "關閉"
+  },
+  "app.skins.toggle-ears-features-on": {
+    "message": "開啟"
+  },
+  "app.survey.body": {
+    "message": "你方便回答幾個關於 Modrinth App 使用體驗的問題嗎？"
+  },
+  "app.survey.footer": {
+    "message": "你的回覆將直接傳送給 Modrinth 團隊，作為未來更新方向的指引！"
+  },
+  "app.survey.no-thanks": {
+    "message": "不用了，謝謝"
+  },
+  "app.survey.take-survey": {
+    "message": "填寫問卷調查"
+  },
+  "app.survey.title": {
+    "message": "你好啊，Modrinth 使用者！"
+  },
+  "app.update-popup.body.download-complete": {
+    "message": "Modrinth App v{version} 已完成下載！立即重新載入以更新，或在關閉 Modrinth App 時自動更新。"
+  },
+  "app.update-popup.body.linux": {
+    "message": "Modrinth App v{version} 現已推出。請使用軟體包管理員進行更新，以取得最新的功能與修正！"
+  },
+  "app.update-popup.body.metered": {
+    "message": "Modrinth App v{version} 現已推出！由於你目前使用的是計量付費網路，我們並未自動下載更新。"
+  },
+  "app.update-popup.changelog": {
+    "message": "更新日誌"
+  },
+  "app.update-popup.download": {
+    "message": "下載 ({size})"
+  },
+  "app.update-popup.download-complete": {
+    "message": "下載完成"
+  },
+  "app.update-popup.reload": {
+    "message": "重新載入即可更新"
+  },
+  "app.update-popup.title": {
+    "message": "有可用的更新"
+  },
+  "app.update.complete-toast.text": {
+    "message": "按這裡查看更新日誌。"
+  },
+  "app.update.complete-toast.title": {
+    "message": "版本 {version} 已成功安裝！"
+  },
+  "app.user.project.install-to-instance": {
+    "message": "安裝至實例"
+  },
+  "app.world.server-modal.placeholder-address": {
+    "message": "example.modrinth.gg"
+  },
+  "app.world.server-modal.select-an-option": {
+    "message": "選擇選項"
+  },
+  "app.world.world-item.incompatible-version": {
+    "message": "不相容的版本 {version}"
+  },
+  "app.world.world-item.not-played-yet": {
+    "message": "尚未遊玩"
+  },
+  "app.world.world-item.offline": {
+    "message": "離線"
+  },
+  "content.shared-instance.change-version-body": {
+    "message": "變更版本只會影響本機副本。未來共用實例更新時可能會再次復原或變更這個專案。"
+  },
+  "content.shared-instance.delete-bulk-body": {
+    "message": "部分選取的專案是共用實例的一部分。刪除這些專案只會影響你的本機副本，而未來共用實例更新時可能會還原或再次變更這些專案。"
+  },
+  "content.shared-instance.delete-button": {
+    "message": "仍要刪除"
+  },
+  "content.shared-instance.delete-many-button": {
+    "message": "仍要刪除 {count, number} 個專案"
+  },
+  "content.shared-instance.delete-single-body": {
+    "message": "刪除這個專案只會影響本機副本。未來共用實例更新時可能會再次復原或變更這個專案。"
+  },
+  "content.shared-instance.disable-bulk-body": {
+    "message": "部分選取的專案是共用實例的一部分。停用這些專案只會影響你的本機副本，而未來共用實例更新時可能會重新啟用、還原或再次變更這些專案。"
+  },
+  "content.shared-instance.disable-button": {
+    "message": "仍要停用"
+  },
+  "content.shared-instance.disable-many-button": {
+    "message": "仍要停用 {count, number} 個專案"
+  },
+  "content.shared-instance.disable-single-body": {
+    "message": "停用這個專案只會影響本機副本。未來共用實例更新時，可能會重新啟用、還原或再次變更這個專案。"
+  },
+  "content.shared-instance.unlink-body": {
+    "message": "解除連結只會影響本機副本。未來共用實例更新時可能會復原或再次變更。"
+  },
+  "content.shared-instance.warning-header": {
+    "message": "這是共用實例的一部分"
+  },
+  "friends.action.add-friend": {
+    "message": "新增好友"
+  },
+  "friends.action.view-friend-requests": {
+    "message": "{count} 個好友{count, plural, other {邀請}}"
+  },
+  "friends.add-friend.submit": {
+    "message": "送出好友邀請"
+  },
+  "friends.add-friend.title": {
+    "message": "新增好友"
+  },
+  "friends.add-friend.username.description": {
+    "message": "這可能與對方的 Minecraft 使用者名稱不同！"
+  },
+  "friends.add-friend.username.placeholder": {
+    "message": "輸入 Modrinth 使用者名稱..."
+  },
+  "friends.add-friend.username.title": {
+    "message": "你好友的 Modrinth 使用者名稱是什麼？"
+  },
+  "friends.add-friends-to-share": {
+    "message": "<link>新增好友</link>即可查看他們正在玩什麼！"
+  },
+  "friends.friend.cancel-request": {
+    "message": "取消請求"
+  },
+  "friends.friend.remove-friend": {
+    "message": "移除好友"
+  },
+  "friends.friend.request-sent": {
+    "message": "已送出好友邀請"
+  },
+  "friends.friend.view-profile": {
+    "message": "查看個人檔案"
+  },
+  "friends.heading": {
+    "message": "好友"
+  },
+  "friends.heading.active": {
+    "message": "活躍中"
+  },
+  "friends.heading.offline": {
+    "message": "離線"
+  },
+  "friends.heading.online": {
+    "message": "線上"
+  },
+  "friends.heading.pending": {
+    "message": "待處理"
+  },
+  "friends.no-friends-match": {
+    "message": "找不到相符「{query}」的好友"
+  },
+  "friends.search-friends-placeholder": {
+    "message": "搜尋好友..."
+  },
+  "friends.section.heading": {
+    "message": "{title} - {count}"
+  },
+  "friends.sign-in-to-add-friends": {
+    "message": "<link>登入 Modrinth 帳號</link>即可新增好友並查看他們正在玩什麼！"
+  },
+  "installation-settings.shared-instance.linked-title": {
+    "message": "已連結的共用實例"
+  },
+  "installation-settings.shared-instance.title": {
+    "message": "取消發布實例"
+  },
+  "installation-settings.shared-instance.unlink-button": {
+    "message": "取消連結共用實例"
+  },
+  "installation-settings.shared-instance.unlink-description": {
+    "message": "解除這個本機實例與後續共用更新的連結。"
+  },
+  "installation-settings.shared-instance.unlinking-button": {
+    "message": "正在取消連結..."
+  },
+  "installation-settings.shared-instance.unpublish-button": {
+    "message": "取消發布共用實例"
+  },
+  "installation-settings.shared-instance.unpublish-description": {
+    "message": "在 Modrinth 上移除這個共用實例，並停止向任何使用者推送更新。你的本機實例不會受到影響。"
+  },
+  "installation-settings.shared-instance.unpublishing-button": {
+    "message": "正在取消發布..."
+  },
+  "installation-settings.unlink-shared-instance.modal.admonition-body": {
+    "message": "這只會影響你的本機實例。你已安裝的內容仍會保留在此裝置上，共用實例及其他使用者都不會受到影響。"
+  },
+  "installation-settings.unlink-shared-instance.modal.admonition-header": {
+    "message": "即將取消連結共用實例"
+  },
+  "installation-settings.unlink-shared-instance.modal.header": {
+    "message": "取消連結共用實例"
+  },
+  "installation-settings.unpublish-shared-instance.modal.admonition-body": {
+    "message": "這會從 Modrinth 的伺服器刪除共用實例。在 Modrinth App 使用該實例的使用者將不再收到更新，但本機實例及其內容仍會保留在此裝置上。"
+  },
+  "installation-settings.unpublish-shared-instance.modal.admonition-header": {
+    "message": "即將取消發布共用實例"
+  },
+  "installation-settings.unpublish-shared-instance.modal.header": {
+    "message": "取消發布共用實例"
+  },
+  "instance.action.create-shortcut": {
+    "message": "建立捷徑"
+  },
+  "instance.action.export-modpack": {
+    "message": "匯出模組包"
+  },
+  "instance.action.launch-instance": {
+    "message": "啟動實例"
+  },
+  "instance.action.more-actions": {
+    "message": "更多動作"
+  },
+  "instance.action.open-folder": {
+    "message": "開啟資料夾"
+  },
+  "instance.action.repair": {
+    "message": "修復"
+  },
+  "instance.action.settings": {
+    "message": "實例設定"
+  },
+  "instance.action.starting": {
+    "message": "正在啟動..."
+  },
+  "instance.action.stopping": {
+    "message": "正在停止..."
+  },
+  "instance.add-server.add-and-play": {
+    "message": "新增並遊玩"
+  },
+  "instance.add-server.add-server": {
+    "message": "新增伺服器"
+  },
+  "instance.add-server.resource-pack.disabled": {
+    "message": "已停用"
+  },
+  "instance.add-server.resource-pack.enabled": {
+    "message": "已啟用"
+  },
+  "instance.add-server.resource-pack.prompt": {
+    "message": "提示"
+  },
+  "instance.add-server.title": {
+    "message": "新增伺服器"
+  },
+  "instance.edit-server.title": {
+    "message": "編輯伺服器"
+  },
+  "instance.edit-world.hide-from-home": {
+    "message": "從首頁隱藏"
+  },
+  "instance.edit-world.name": {
+    "message": "名稱"
+  },
+  "instance.edit-world.placeholder-name": {
+    "message": "Minecraft 世界"
+  },
+  "instance.edit-world.reset-icon": {
+    "message": "重設圖示"
+  },
+  "instance.edit-world.title": {
+    "message": "編輯世界"
+  },
+  "instance.files.adding-files": {
+    "message": "正在新增檔案 ({completed}/{total})"
+  },
+  "instance.files.save-as": {
+    "message": "另存新檔..."
+  },
+  "instance.locked.delete-button": {
+    "message": "刪除實例"
+  },
+  "instance.locked.play-tooltip": {
+    "message": "這個實例已被鎖定"
+  },
+  "instance.playtime.never-played": {
+    "message": "從未遊玩"
+  },
+  "instance.server-modal.address": {
+    "message": "位址"
+  },
+  "instance.server-modal.name": {
+    "message": "名稱"
+  },
+  "instance.server-modal.placeholder-name": {
+    "message": "Minecraft 伺服器"
+  },
+  "instance.server-modal.resource-pack": {
+    "message": "資源包"
+  },
+  "instance.settings.sharing.active-invites.actions": {
+    "message": "動作"
+  },
+  "instance.settings.sharing.active-invites.code": {
+    "message": "邀請連結"
+  },
+  "instance.settings.sharing.active-invites.description": {
+    "message": "任何使用者都可透過下列任何一個有效邀請連結加入。"
+  },
+  "instance.settings.sharing.active-invites.empty": {
+    "message": "目前沒有有效的邀請。"
+  },
+  "instance.settings.sharing.active-invites.expires": {
+    "message": "有效期限"
+  },
+  "instance.settings.sharing.active-invites.revoke": {
+    "message": "撤銷邀請"
+  },
+  "instance.settings.sharing.active-invites.revoke-with-code": {
+    "message": "撤銷邀請 {code}"
+  },
+  "instance.settings.sharing.active-invites.title": {
+    "message": "有效邀請"
+  },
+  "instance.settings.sharing.active-invites.uses": {
+    "message": "使用次數"
+  },
+  "instance.settings.sharing.revoke-invite.admonition-body": {
+    "message": "邀請連結 <monospace>{code}</monospace> 將立即失效。已加入的使用者不受影響。"
+  },
+  "instance.settings.sharing.revoke-invite.admonition-header": {
+    "message": "這項動作無法復原"
+  },
+  "instance.settings.sharing.revoke-invite.confirm": {
+    "message": "撤銷邀請"
+  },
+  "instance.settings.sharing.revoke-invite.header": {
+    "message": "撤銷邀請"
+  },
+  "instance.settings.tabs.general": {
+    "message": "一般"
+  },
+  "instance.settings.tabs.general.delete": {
+    "message": "刪除實例"
+  },
+  "instance.settings.tabs.general.delete.button": {
+    "message": "刪除實例"
+  },
+  "instance.settings.tabs.general.delete.description": {
+    "message": "這將從裝置上永久刪除實例，包含你的世界、設定與所有已安裝內容。請注意，一旦刪除，將無法復原。"
+  },
+  "instance.settings.tabs.general.deleting.button": {
+    "message": "刪除中..."
+  },
+  "instance.settings.tabs.general.duplicate-button": {
+    "message": "複製"
+  },
+  "instance.settings.tabs.general.duplicate-button.tooltip.installing": {
+    "message": "安裝時無法複製。"
+  },
+  "instance.settings.tabs.general.duplicate-instance": {
+    "message": "複製實例"
+  },
+  "instance.settings.tabs.general.duplicate-instance.description": {
+    "message": "建立這個實例的副本，包含世界、設定、模組等。"
+  },
+  "instance.settings.tabs.general.edit-icon": {
+    "message": "編輯圖示"
+  },
+  "instance.settings.tabs.general.edit-icon.remove": {
+    "message": "移除圖示"
+  },
+  "instance.settings.tabs.general.edit-icon.replace": {
+    "message": "取代圖示"
+  },
+  "instance.settings.tabs.general.edit-icon.select": {
+    "message": "選擇圖示"
+  },
+  "instance.settings.tabs.general.name": {
+    "message": "名稱"
+  },
+  "instance.settings.tabs.general.update-channel": {
+    "message": "更新通道"
+  },
+  "instance.settings.tabs.general.update-channel.alpha": {
+    "message": "Alpha 版"
+  },
+  "instance.settings.tabs.general.update-channel.alpha.description": {
+    "message": "相容的正式版、Beta 版和 Alpha 版本都會顯示在可用更新中。"
+  },
+  "instance.settings.tabs.general.update-channel.beta": {
+    "message": "Beta 版"
+  },
+  "instance.settings.tabs.general.update-channel.beta.description": {
+    "message": "相容的正式版和 Beta 版本都會顯示在可用更新中。"
+  },
+  "instance.settings.tabs.general.update-channel.release": {
+    "message": "正式版"
+  },
+  "instance.settings.tabs.general.update-channel.release.description": {
+    "message": "僅有正式版會顯示在可用更新中。"
+  },
+  "instance.settings.tabs.general.update-channel.select": {
+    "message": "選擇更新通道"
+  },
+  "instance.settings.tabs.hooks": {
+    "message": "啟動掛勾"
+  },
+  "instance.settings.tabs.hooks.custom-hooks": {
+    "message": "自訂啟動掛勾"
+  },
+  "instance.settings.tabs.hooks.description": {
+    "message": "掛勾讓進階使用者能在遊戲啟動前和啟動後執行特定的系統指令。"
+  },
+  "instance.settings.tabs.hooks.post-exit": {
+    "message": "結束後"
+  },
+  "instance.settings.tabs.hooks.post-exit.description": {
+    "message": "遊戲關閉後執行。"
+  },
+  "instance.settings.tabs.hooks.post-exit.enter": {
+    "message": "輸入結束後指令..."
+  },
+  "instance.settings.tabs.hooks.pre-launch": {
+    "message": "啟動前"
+  },
+  "instance.settings.tabs.hooks.pre-launch.description": {
+    "message": "實例啟動前執行。"
+  },
+  "instance.settings.tabs.hooks.pre-launch.enter": {
+    "message": "輸入啟動前指令..."
+  },
+  "instance.settings.tabs.hooks.title": {
+    "message": "遊戲啟動掛勾"
+  },
+  "instance.settings.tabs.hooks.variables.description": {
+    "message": "掛勾會在實例的工作目錄中執行，並具備以下變數："
+  },
+  "instance.settings.tabs.hooks.variables.inst-dir.description": {
+    "message": "$INST_DIR：實例資料夾的絕對路徑"
+  },
+  "instance.settings.tabs.hooks.variables.inst-id.description": {
+    "message": "$INST_ID：實例資料夾的名稱"
+  },
+  "instance.settings.tabs.hooks.variables.inst-java-args.description": {
+    "message": "$INST_JAVA_ARGS：提供給遊戲的 JVM 參數"
+  },
+  "instance.settings.tabs.hooks.variables.inst-java.description": {
+    "message": "$INST_JAVA：Java 二進位檔案的絕對路徑"
+  },
+  "instance.settings.tabs.hooks.variables.inst-mc-dir.description": {
+    "message": "$INST_MC_DIR：$INST_DIR 的別名"
+  },
+  "instance.settings.tabs.hooks.variables.inst-name.description": {
+    "message": "$INST_NAME：實例的名稱"
+  },
+  "instance.settings.tabs.hooks.wrapper": {
+    "message": "包裝指令"
+  },
+  "instance.settings.tabs.hooks.wrapper.description": {
+    "message": "用於啟動 Minecraft 的包裝指令。"
+  },
+  "instance.settings.tabs.hooks.wrapper.enter": {
+    "message": "輸入包裝指令..."
+  },
+  "instance.settings.tabs.installation": {
+    "message": "安裝"
+  },
+  "instance.settings.tabs.installation.loader-version": {
+    "message": "{loader} 版本"
+  },
+  "instance.settings.tabs.installation.locked": {
+    "message": "實例被鎖定時無法使用安裝設定選項。"
+  },
+  "instance.settings.tabs.java": {
+    "message": "Java 和記憶體"
+  },
+  "instance.settings.tabs.java.custom-environment-variables": {
+    "message": "自訂環境變數"
+  },
+  "instance.settings.tabs.java.custom-java-arguments": {
+    "message": "自訂 Java 參數"
+  },
+  "instance.settings.tabs.java.custom-java-installation": {
+    "message": "自訂 Java 安裝"
+  },
+  "instance.settings.tabs.java.custom-memory-allocation": {
+    "message": "自訂記憶體分配"
+  },
+  "instance.settings.tabs.java.enter-environment-variables": {
+    "message": "輸入環境變數..."
+  },
+  "instance.settings.tabs.java.enter-java-arguments": {
+    "message": "輸入 Java 參數..."
+  },
+  "instance.settings.tabs.java.environment-variables": {
+    "message": "環境變數"
+  },
+  "instance.settings.tabs.java.hooks": {
+    "message": "掛勾"
+  },
+  "instance.settings.tabs.java.java-arguments": {
+    "message": "Java 參數"
+  },
+  "instance.settings.tabs.java.java-installation": {
+    "message": "Java 安裝"
+  },
+  "instance.settings.tabs.java.java-memory": {
+    "message": "記憶體配置"
+  },
+  "instance.settings.tabs.java.java-path-placeholder": {
+    "message": "/path/to/java"
+  },
+  "instance.settings.tabs.sharing": {
+    "message": "共用"
+  },
+  "instance.settings.tabs.window": {
+    "message": "視窗"
+  },
+  "instance.settings.tabs.window.custom-window-settings": {
+    "message": "自訂視窗設定"
+  },
+  "instance.settings.tabs.window.fullscreen": {
+    "message": "全螢幕"
+  },
+  "instance.settings.tabs.window.fullscreen.description": {
+    "message": "使遊戲啟動時進入全螢幕模式（透過 options.txt）。"
+  },
+  "instance.settings.tabs.window.height": {
+    "message": "高度"
+  },
+  "instance.settings.tabs.window.height.description": {
+    "message": "遊戲啟動時的視窗高度。"
+  },
+  "instance.settings.tabs.window.height.enter": {
+    "message": "輸入高度..."
+  },
+  "instance.settings.tabs.window.width": {
+    "message": "寬度"
+  },
+  "instance.settings.tabs.window.width.description": {
+    "message": "遊戲啟動時的視窗寬度。"
+  },
+  "instance.settings.tabs.window.width.enter": {
+    "message": "輸入寬度..."
+  },
+  "instance.shared-instance.error.title": {
+    "message": "出了點狀況"
+  },
+  "instance.shared-instance.network-error.text": {
+    "message": "無法連線到共用實例 API"
+  },
+  "instance.shared-instance.network-error.title": {
+    "message": "網路錯誤"
+  },
+  "instance.shared-instance.owner-tooltip": {
+    "message": "這個實例的內容正在與其他使用者共用。"
+  },
+  "instance.shared-instance.publish-review.added-label": {
+    "message": "已新增"
+  },
+  "instance.shared-instance.publish-review.admonition-header": {
+    "message": "向玩家推送更新"
+  },
+  "instance.shared-instance.publish-review.config-title-v2": {
+    "message": "選擇設定檔"
+  },
+  "instance.shared-instance.publish-review.description": {
+    "message": "審查內容變更，並選擇要包含在本次更新的設定檔。"
+  },
+  "instance.shared-instance.publish-review.header": {
+    "message": "檢視變更"
+  },
+  "instance.shared-instance.publish-review.publish-button": {
+    "message": "推送更新"
+  },
+  "instance.shared-instance.publish-review.removed-label": {
+    "message": "已移除"
+  },
+  "instance.shared-instance.tooltip": {
+    "message": "這個實例的內容由其他使用者負責管理。"
+  },
+  "instance.shared-instance.unavailable.access-revoked-text": {
+    "message": "你對共用實例的存取權已被撤銷。這個實例仍可正常使用，但已不再與共用實例連結，且不再接收更新。"
+  },
+  "instance.shared-instance.unavailable.deleted-text": {
+    "message": "主要實例已被刪除。這個實例仍可正常使用，但已不再與共用實例連結，且不再接收更新。"
+  },
+  "instance.shared-instance.unavailable.locked-text": {
+    "message": "這個共用實例已被內容管理團隊鎖定，不會再接收來自主要實例的更新，且無法遊玩。"
+  },
+  "instance.shared-instance.unavailable.locked-title": {
+    "message": "實例已鎖定"
+  },
+  "instance.shared-instance.unavailable.manager-fallback": {
+    "message": "實例管理者"
+  },
+  "instance.shared-instance.unavailable.text": {
+    "message": "你的本機實例仍可正常使用，但已不再與共用實例連結，且不再接收更新。"
+  },
+  "instance.shared-instance.unavailable.title": {
+    "message": "你無法使用這個共用實例"
+  },
+  "instance.worlds.a_minecraft_server": {
+    "message": "Minecraft 伺服器"
+  },
+  "instance.worlds.cant_connect": {
+    "message": "無法連線到伺服器"
+  },
+  "instance.worlds.copy_address": {
+    "message": "複製位址"
+  },
+  "instance.worlds.create_shortcut": {
+    "message": "建立捷徑"
+  },
+  "instance.worlds.dont_show_on_home": {
+    "message": "不要在首頁顯示"
+  },
+  "instance.worlds.game_already_open": {
+    "message": "實例已經開啟"
+  },
+  "instance.worlds.hardcore": {
+    "message": "極限模式"
+  },
+  "instance.worlds.incompatible_server": {
+    "message": "伺服器不相容"
+  },
+  "instance.worlds.linked_server": {
+    "message": "由伺服器專案管理"
+  },
+  "instance.worlds.no_contact": {
+    "message": "伺服器沒有回應"
+  },
+  "instance.worlds.no_server_quick_play": {
+    "message": "你只能在 Minecraft Alpha 1.0.5 以上版本直接加入伺服器"
+  },
+  "instance.worlds.no_singleplayer_quick_play": {
+    "message": "你只能在 Minecraft 1.20 以上版本直接進入單人遊戲世界"
+  },
+  "instance.worlds.play_instance": {
+    "message": "遊玩實例"
+  },
+  "instance.worlds.view_instance": {
+    "message": "查看實例"
+  },
+  "instance.worlds.world_in_use": {
+    "message": "世界正在使用中"
+  },
+  "minecraft-account.add-account": {
+    "message": "新增帳號"
+  },
+  "minecraft-account.label": {
+    "message": "Minecraft 帳號"
+  },
+  "minecraft-account.not-signed-in": {
+    "message": "未登入"
+  },
+  "minecraft-account.remove-account": {
+    "message": "移除帳號"
+  },
+  "minecraft-account.select-account": {
+    "message": "選擇帳號"
+  },
+  "minecraft-account.sign-in": {
+    "message": "登入 Minecraft"
+  },
+  "minecraft-required.description": {
+    "message": "你需要登入擁有 Minecraft 的 Microsoft 帳號才能啟動遊戲。"
+  },
+  "minecraft-required.description-header": {
+    "message": "登入 Microsoft 帳號"
+  },
+  "minecraft-required.dont-have-account": {
+    "message": "還沒有帳號嗎？"
+  },
+  "minecraft-required.get-minecraft": {
+    "message": "取得 Minecraft"
+  },
+  "minecraft-required.get-support": {
+    "message": "取得支援"
+  },
+  "minecraft-required.header": {
+    "message": "需要 Minecraft"
+  },
+  "minecraft-required.sign-in": {
+    "message": "登入 Microsoft"
+  },
+  "modal.modrinth-account-required.browser-description": {
+    "message": "一個新分頁已開啟供你登入。請在該分頁完成登入，然後返回應用程式。"
+  },
+  "modal.modrinth-account-required.continue-in-browser-heading": {
+    "message": "在瀏覽器中繼續"
+  },
+  "modal.modrinth-account-required.create-account-button": {
+    "message": "建立帳號"
+  },
+  "modal.modrinth-account-required.description": {
+    "message": "你必須登入 Modrinth 帳號才能使用這個功能。"
+  },
+  "modal.modrinth-account-required.header": {
+    "message": "需要帳號"
+  },
+  "modal.modrinth-account-required.open-browser-again-button": {
+    "message": "再次開啟瀏覽器"
+  },
+  "modal.modrinth-account-required.sign-in-button": {
+    "message": "登入 Modrinth"
+  },
+  "modal.modrinth-account-required.sign-in-heading": {
+    "message": "登入 Modrinth 帳號"
+  },
+  "modal.modrinth-account-required.signing-in-header": {
+    "message": "登入"
+  },
+  "modal.modrinth-account-required.support-prompt": {
+    "message": "登入時遇到問題嗎？<support>取得支援</support>"
+  },
+  "modal.modrinth-account-required.waiting-for-browser": {
+    "message": "等待瀏覽器確認..."
+  },
+  "search.filter.locked.instance": {
+    "message": "由該實例提供"
+  },
+  "search.filter.locked.instance-game-version.title": {
+    "message": "遊戲版本由實例提供"
+  },
+  "search.filter.locked.instance-loader.title": {
+    "message": "載入器版本由實例提供"
+  },
+  "search.filter.locked.instance.sync": {
+    "message": "與實例同步"
+  },
+  "search.filter.locked.server-environment.title": {
+    "message": "只有用戶端模組可以被加到伺服器實例"
+  },
+  "settings.sidebar.label.account": {
+    "message": "帳號"
+  },
+  "settings.sidebar.label.display": {
+    "message": "顯示"
+  }
 }
