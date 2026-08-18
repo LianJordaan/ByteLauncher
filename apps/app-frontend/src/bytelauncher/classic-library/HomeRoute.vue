@@ -8,11 +8,7 @@ import { enabledPluginIds, pluginsReady } from '@/plugins/plugin-state'
 
 defineOptions({ name: 'LibraryPage' })
 
-const useLegacyHome = computed(
-	() =>
-		enabledPluginIds.value.has(CLASSIC_LIBRARY_PLUGIN_ID) ||
-		enabledPluginIds.value.has('experimental-home'),
-)
+const useLegacyHome = computed(() => enabledPluginIds.value.has(CLASSIC_LIBRARY_PLUGIN_ID))
 </script>
 
 <template>

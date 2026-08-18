@@ -47,7 +47,6 @@ import {
 	providePageContext,
 	providePopupNotificationManager,
 	TeleportOverflowMenu,
-	TextLogo,
 	useDebugLogger,
 	useFormatBytes,
 	useHostingIntercom,
@@ -65,6 +64,7 @@ import { saveWindowState, StateFlags } from '@tauri-apps/plugin-window-state'
 import { computed, onMounted, onUnmounted, provide, ref, watch } from 'vue'
 import { RouterView, useRoute, useRouter } from 'vue-router'
 
+import ByteLauncherMark from '@/assets/bytelauncher_mark.svg?component'
 import NativePluginNavItems from '@/bytelauncher/NativePluginNavItems.vue'
 import AccountsCard from '@/components/ui/AccountsCard.vue'
 import AppActionBar from '@/components/ui/AppActionBar.vue'
@@ -1797,7 +1797,13 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 		</div>
 		<div data-tauri-drag-region class="app-grid-statusbar bg-bg-raised h-[--top-bar-height] flex">
 			<div data-tauri-drag-region class="flex min-w-0 flex-1 items-center overflow-hidden p-2">
-				<TextLogo class="h-7 w-auto shrink-0 text-contrast pointer-events-none" />
+				<div
+					data-app-brand-logo
+					class="flex shrink-0 pointer-events-none items-center gap-1.5 text-contrast"
+				>
+					<ByteLauncherMark class="size-7" />
+					<span class="text-xl font-extrabold tracking-tight">ByteLauncher</span>
+				</div>
 				<div data-tauri-drag-region class="ml-2 flex shrink-0 items-center gap-2">
 					<IconButton
 						type="outlined"
