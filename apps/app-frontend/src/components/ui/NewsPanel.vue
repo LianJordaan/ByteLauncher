@@ -3,7 +3,7 @@ import { EyeIcon, EyeOffIcon, HistoryIcon, NewspaperIcon } from '@modrinth/asset
 import { ButtonLink, NewsArticleCard } from '@modrinth/ui'
 import { computed, ref } from 'vue'
 
-import ContextMenu from '@/components/ui/ContextMenu.vue'
+import ContextMenu from '@/components/ui/context-menu/index.vue'
 import {
 	articleId,
 	hiddenNewsCount,

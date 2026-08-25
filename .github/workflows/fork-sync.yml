@@ -46,9 +46,9 @@ jobs:
             local issue
             issue=$(gh issue list --state open --search 'Upstream sync blocked in:title' --json number --jq '.[0].number // empty')
             if [ -n "${issue}" ]; then
-              gh issue comment "${issue}" --body "${details}"
+              gh issue comment "${issue}" --body "${details}" || true
             else
-              gh issue create --title 'Upstream sync blocked' --body "${details}"
+              gh issue create --title 'Upstream sync blocked' --body "${details}" || true
             fi
           }
 
@@ -71,6 +71,11 @@ jobs:
 
           if [ "${UPSTREAM_TAG}" != "${LAST}" ]; then
             if ! git merge --no-edit "${UPSTREAM_TAG}"; then
+              if ! git rev-parse -q --verify MERGE_HEAD >/dev/null; then
+                report_failure "Git could not start the merge of upstream \`${UPSTREAM_TAG}\`. No branch or tag was changed. [Workflow run](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})"
+                exit 1
+              fi
+
               while IFS= read -r conflicted; do
                 [ -z "${conflicted}" ] && continue
                 status=$(git status --short -- "${conflicted}" | cut -c1-2)

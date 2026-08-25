@@ -1,7 +1,7 @@
 import { invoke } from '@tauri-apps/api/core'
 
+import { registerPluginThemes } from '@/bytelauncher/plugin-themes'
 import { markPluginsReady, setEnabledPluginIds } from '@/plugins/plugin-state'
-import { useTheming } from '@/store/theme.ts'
 
 // Loads user/built-in plugins on startup. Plugins live in
 // <app data>/plugins/<id>/ and are read by the Rust `addons` plugin. Each
@@ -68,7 +68,7 @@ export async function loadPlugins() {
 		const themes = plugins
 			.filter((plugin) => plugin.enabled && plugin.theme)
 			.map((plugin) => plugin.theme)
-		useTheming().setPluginThemes(themes)
+		registerPluginThemes(themes)
 	} catch (e) {
 		console.error('[plugins] failed to register plugin themes', e)
 	}

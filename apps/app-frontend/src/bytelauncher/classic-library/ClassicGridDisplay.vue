@@ -23,7 +23,7 @@ import dayjs from 'dayjs'
 import { computed, ref } from 'vue'
 
 import { NewInstanceImage } from '@/assets/icons'
-import ContextMenu from '@/components/ui/ContextMenu.vue'
+import ContextMenu from '@/components/ui/context-menu/index.vue'
 import Instance from '@/components/ui/Instance.vue'
 import ConfirmDeleteInstanceModal from '@/components/ui/modal/ConfirmDeleteInstanceModal.vue'
 import { useAppEvent } from '@/composables/use-app-event'

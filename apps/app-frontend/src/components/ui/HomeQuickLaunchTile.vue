@@ -18,7 +18,7 @@ import { trackEvent } from '@/helpers/analytics'
 import { install_existing_instance, install_pack_to_existing_instance } from '@/helpers/install'
 import { kill, run } from '@/helpers/instance'
 import { get_by_instance_id } from '@/helpers/process'
-import { handleSevereError } from '@/store/error.js'
+import { handleSevereError } from '@/composables/use-error.js'
 
 const { handleError } = injectNotificationManager()
 const formatRelativeTime = useRelativeTime()

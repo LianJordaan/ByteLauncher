@@ -5,7 +5,6 @@ import * as Sentry from '@sentry/vue'
 import { VueScanPlugin } from '@taijased/vue-render-tracker'
 import { VueQueryPlugin } from '@tanstack/vue-query'
 import FloatingVue from 'floating-vue'
-import { createPinia } from 'pinia'
 import { createApp } from 'vue'
 
 import App from '@/App.vue'
@@ -23,8 +22,6 @@ const vueScan = new VueScanPlugin({
 	playSound: false, // Play sound on each render
 })
 
-const pinia = createPinia()
-
 let app = createApp(App)
 
 Sentry.init({
@@ -37,7 +34,6 @@ Sentry.init({
 app.use(VueQueryPlugin)
 app.use(vueScan)
 app.use(router)
-app.use(pinia)
 app.use(FloatingVue, {
 	themes: {
 		'ribbit-popout': {
