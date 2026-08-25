@@ -7,8 +7,10 @@ import {
 } from '@/bytelauncher/plugin-themes'
 
 export const THEME_OPTIONS = ['dark', 'light', 'purple', 'oled', 'retro', 'system'] as const
+export const ACCOUNT_THEME_OPTIONS = ['dark', 'light', 'oled', 'retro', 'system'] as const
 
 export type BuiltinColorTheme = (typeof THEME_OPTIONS)[number]
+export type AccountColorTheme = (typeof ACCOUNT_THEME_OPTIONS)[number]
 export type ColorTheme = string
 type Theme = string
 
@@ -33,16 +35,29 @@ export function isBuiltinTheme(theme: string): theme is BuiltinColorTheme {
 	return (THEME_OPTIONS as readonly string[]).includes(theme)
 }
 
+export function isAccountTheme(theme: string): theme is AccountColorTheme {
+	return (ACCOUNT_THEME_OPTIONS as readonly string[]).includes(theme)
+}
+
 watch(
 	[active, pluginThemeNames],
 	([theme]) => {
 		const html = document.documentElement
-		for (const className of appliedThemeClasses) {
+		const knownThemeClasses = new Set([
+			...appliedThemeClasses,
+			...THEME_OPTIONS.map((option) => `${option}-mode`),
+			...pluginThemeNames.value.map((option) => `${option}-mode`),
+		])
+		for (const className of knownThemeClasses) {
 			html.classList.remove(className)
 		}
 		appliedThemeClasses.clear()
 
-		const themes = isPluginTheme(theme) ? ['dark', theme] : [isBuiltinTheme(theme) ? theme : 'dark']
+		const themes = isBuiltinTheme(theme)
+			? [theme]
+			: isPluginTheme(theme)
+				? ['dark', theme]
+				: ['dark']
 		for (const selectedTheme of themes) {
 			const className = `${selectedTheme}-mode`
 			html.classList.add(className)

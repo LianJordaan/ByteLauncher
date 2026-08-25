@@ -9,7 +9,12 @@ import {
 import { computed, inject, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 
 import { isPluginTheme, persistPluginTheme } from '@/bytelauncher/plugin-themes'
-import { type ColorTheme, isBuiltinTheme, useTheme } from '@/composables/use-theme.ts'
+import {
+	type ColorTheme,
+	isAccountTheme,
+	isBuiltinTheme,
+	useTheme,
+} from '@/composables/use-theme.ts'
 import { type AppSettings, get, set } from '@/helpers/settings.ts'
 import { getOS } from '@/helpers/utils'
 import { appSettingsModalContextKey } from '@/providers/app-settings-modal'
@@ -31,7 +36,7 @@ type AppearanceSettingsState = {
 function getAppearanceSettingsState(settings: AppSettings): AppearanceSettingsState {
 	return {
 		theme: theme.preferred,
-		syncAcrossDevices: settings.sync_theme_across_devices,
+		syncAcrossDevices: settings.sync_theme_across_devices && isAccountTheme(theme.preferred),
 		advancedRendering: settings.advanced_rendering,
 		nativeDecorations: settings.native_decorations,
 	}
@@ -42,20 +47,21 @@ const { saved, current, changes, saving, hasChanges, reset, save } = useSavable(
 	async (appearanceChanges) => {
 		const value = current.value
 		const savedTheme = isBuiltinTheme(value.theme) ? value.theme : settings.value.theme
+		const syncAcrossDevices = value.syncAcrossDevices && isAccountTheme(value.theme)
 		if (
-			value.syncAcrossDevices &&
+			syncAcrossDevices &&
 			auth.user.value &&
 			(appearanceChanges.theme !== undefined || appearanceChanges.syncAcrossDevices !== undefined)
 		) {
 			await updatePreferences({
-				appearance: savedTheme === 'system' ? { auto: true } : { auto: false, theme: savedTheme },
+				appearance: value.theme === 'system' ? { auto: true } : { auto: false, theme: value.theme },
 			})
 		}
 
 		const nextSettings: AppSettings = {
 			...settings.value,
 			theme: savedTheme,
-			sync_theme_across_devices: value.syncAcrossDevices,
+			sync_theme_across_devices: syncAcrossDevices,
 			advanced_rendering: value.advancedRendering,
 			native_decorations: value.nativeDecorations,
 		}
@@ -64,7 +70,7 @@ const { saved, current, changes, saving, hasChanges, reset, save } = useSavable(
 		settings.value = nextSettings
 		persistPluginTheme(isPluginTheme(value.theme) ? value.theme : null)
 		theme.preferred = value.theme
-		theme.syncAcrossDevices = value.syncAcrossDevices
+		theme.syncAcrossDevices = syncAcrossDevices
 		theme.advancedRendering = value.advancedRendering
 	},
 )
@@ -78,6 +84,9 @@ const themeOptions = computed(() =>
 
 function setTheme(value: ColorTheme): void {
 	current.value.theme = value
+	if (!isAccountTheme(value)) {
+		current.value.syncAcrossDevices = false
+	}
 }
 
 function setSyncAcrossDevices(enabled: boolean): void {
@@ -135,7 +144,7 @@ provideAppearanceSettings({
 			value: computed(() => current.value.syncAcrossDevices),
 			set: setSyncAcrossDevices,
 		},
-		syncDisabled: computed(() => !auth.user.value),
+		syncDisabled: computed(() => !auth.user.value || !isAccountTheme(current.value.theme)),
 	},
 	advancedRendering: {
 		value: computed(() => current.value.advancedRendering),

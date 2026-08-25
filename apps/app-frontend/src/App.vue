@@ -97,7 +97,7 @@ import { useCheckDisableMouseover } from '@/composables/macCssFix.js'
 import { useAppEvent } from '@/composables/use-app-event'
 import { useAppSettings } from '@/composables/use-app-settings.ts'
 import { useError } from '@/composables/use-error.js'
-import { useTheme } from '@/composables/use-theme.ts'
+import { isAccountTheme, useTheme } from '@/composables/use-theme.ts'
 import { config } from '@/config'
 import {
 	hide_ads_window,
@@ -660,7 +660,7 @@ async function setupApp() {
 
 	appTheme.preferred = theme
 	appTheme.advancedRendering = advanced_rendering
-	appTheme.syncAcrossDevices = sync_theme_across_devices
+	appTheme.syncAcrossDevices = sync_theme_across_devices && isAccountTheme(theme)
 	appSettings.syncBehaviorAcrossDevices = sync_behavior_across_devices
 	appSettings.hideNametagSkinsPage = hide_nametag_skins_page
 	appSettings.toggleSidebar = toggle_sidebar
