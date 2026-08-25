@@ -6,7 +6,7 @@ import {
 	pluginThemeNames,
 } from '@/bytelauncher/plugin-themes'
 
-export const THEME_OPTIONS = ['dark', 'light', 'oled', 'retro', 'system'] as const
+export const THEME_OPTIONS = ['dark', 'light', 'purple', 'oled', 'retro', 'system'] as const
 
 export type BuiltinColorTheme = (typeof THEME_OPTIONS)[number]
 export type ColorTheme = string

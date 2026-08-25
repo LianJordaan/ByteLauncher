@@ -59,6 +59,10 @@ function tabLabelTooltip(index: number, label: string) {
 	return truncatedTooltip(tabLabelRefs.value[index], label)
 }
 
+function formatTabLabel(message: MessageDescriptor): string {
+	return formatMessage(message).trim() || message.defaultMessage || message.id
+}
+
 const scrollContainer = ref<HTMLElement | null>(null)
 const { showTopFade, showBottomFade, checkScrollState, forceCheck } =
 	useScrollIndicator(scrollContainer)
@@ -136,9 +140,9 @@ defineExpose({ show, hide, selectedTab, setTab })
 						<template v-for="(tab, index) in visibleTabs" :key="index">
 							<div
 								v-if="startsCategory(index) && tab.category"
-								class="truncate px-4 pb-1 pt-2 text-xs font-bold uppercase tracking-wide text-secondary"
+								class="px-4 pb-1 pt-2 text-sm font-semibold text-secondary"
 							>
-								{{ formatMessage(tab.category) }}
+								{{ formatTabLabel(tab.category) }}
 							</div>
 							<component
 								:is="tab.href ? 'a' : 'button'"
@@ -151,10 +155,10 @@ defineExpose({ show, hide, selectedTab, setTab })
 								<component :is="tab.icon" class="w-4 h-4 flex-shrink-0" />
 								<span
 									:ref="(element) => setTabLabelRef(index, element)"
-									v-tooltip="tabLabelTooltip(index, formatMessage(tab.name))"
+									v-tooltip="tabLabelTooltip(index, formatTabLabel(tab.name))"
 									class="min-w-0 flex-1 truncate"
 								>
-									{{ formatMessage(tab.name) }}
+									{{ formatTabLabel(tab.name) }}
 								</span>
 								<span
 									v-if="tab.badge"
