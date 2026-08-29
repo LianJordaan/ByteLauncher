@@ -24,7 +24,7 @@ jobs:
       base_sha: ${{ steps.prepare.outputs.base_sha }}
     steps:
       - name: Check out fork
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
           token: ${{ secrets.RELEASE_PAT || secrets.GITHUB_TOKEN }}
@@ -46,7 +46,10 @@ jobs:
             local issue
             issue=$(gh issue list --state open --search 'Upstream sync blocked in:title' --json number --jq '.[0].number // empty')
             if [ -n "${issue}" ]; then
-              gh issue comment "${issue}" --body "${details}" || true
+              current=$(gh issue view "${issue}" --json body --jq '.body')
+              if [ "${current}" != "${details}" ]; then
+                gh issue edit "${issue}" --body "${details}" || true
+              fi
             else
               gh issue create --title 'Upstream sync blocked' --body "${details}" || true
             fi
@@ -132,7 +135,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Check out fork
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
@@ -181,7 +184,10 @@ jobs:
           details="Windows validation failed for upstream \`${UPSTREAM_TAG}\`. No branch or tag was published. [Workflow run](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})"
           issue=$(gh issue list --state open --search 'Upstream sync blocked in:title' --json number --jq '.[0].number // empty')
           if [ -n "${issue}" ]; then
-            gh issue comment "${issue}" --body "${details}"
+            current=$(gh issue view "${issue}" --json body --jq '.body')
+            if [ "${current}" != "${details}" ]; then
+              gh issue edit "${issue}" --body "${details}"
+            fi
           else
             gh issue create --title 'Upstream sync blocked' --body "${details}"
           fi
@@ -192,7 +198,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out fork
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
           token: ${{ secrets.RELEASE_PAT || secrets.GITHUB_TOKEN }}
@@ -238,7 +244,10 @@ jobs:
           details="Publishing validated upstream \`${UPSTREAM_TAG}\` failed. The branch, marker, and release tag were not changed. [Workflow run](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})"
           issue=$(gh issue list --state open --search 'Upstream sync blocked in:title' --json number --jq '.[0].number // empty')
           if [ -n "${issue}" ]; then
-            gh issue comment "${issue}" --body "${details}"
+            current=$(gh issue view "${issue}" --json body --jq '.body')
+            if [ "${current}" != "${details}" ]; then
+              gh issue edit "${issue}" --body "${details}"
+            fi
           else
             gh issue create --title 'Upstream sync blocked' --body "${details}"
           fi

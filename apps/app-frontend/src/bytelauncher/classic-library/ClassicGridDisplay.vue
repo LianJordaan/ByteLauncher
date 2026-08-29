@@ -11,11 +11,13 @@ import {
 } from '@modrinth/assets'
 import {
 	Accordion,
+	type ButtonMenuOption,
+	ContextMenu,
 	defineMessages,
 	DropdownSelect,
 	formatLoader,
 	injectNotificationManager,
-	StyledInput,
+	Input,
 	useVIntl,
 } from '@modrinth/ui'
 import { useStorage } from '@vueuse/core'
@@ -23,7 +25,6 @@ import dayjs from 'dayjs'
 import { computed, ref } from 'vue'
 
 import { NewInstanceImage } from '@/assets/icons'
-import ContextMenu from '@/components/ui/context-menu/index.vue'
 import Instance from '@/components/ui/Instance.vue'
 import ConfirmDeleteInstanceModal from '@/components/ui/modal/ConfirmDeleteInstanceModal.vue'
 import { useAppEvent } from '@/composables/use-app-event'
@@ -54,6 +55,10 @@ const messages = defineMessages({
 	delete: { id: 'bytelauncher.classic-library.action.delete', defaultMessage: 'Delete' },
 	open: { id: 'bytelauncher.classic-library.action.open', defaultMessage: 'Open folder' },
 	copy: { id: 'bytelauncher.classic-library.action.copy', defaultMessage: 'Copy path' },
+	actions: {
+		id: 'bytelauncher.classic-library.instance-actions',
+		defaultMessage: 'Instance actions',
+	},
 	empty: { id: 'bytelauncher.classic-library.empty', defaultMessage: 'No instances found' },
 })
 
@@ -188,28 +193,83 @@ async function showInstanceMenu(event: MouseEvent, instanceId: string) {
 		handleError(error)
 		return []
 	})
-	const baseOptions = [
-		...(item.instance.quarantined ? [] : [{ name: 'add_content' }, { type: 'divider' }]),
-		{ name: 'edit' },
-		{ name: 'duplicate' },
-		{ name: 'open' },
-		{ name: 'copy' },
-		{ type: 'divider' },
-		{ name: 'delete', color: 'danger' },
-	]
-	instanceOptions.value?.showMenu(
-		event,
-		item,
-		runningProcesses.length > 0
-			? [{ name: 'stop', color: 'danger' }, ...baseOptions]
+	const action = (option: string) => () => void handleOption(option, item).catch(handleError)
+	const baseOptions: ButtonMenuOption[] = [
+		...(item.instance.quarantined
+			? []
 			: [
-					...(item.instance.quarantined ? [] : [{ name: 'play', color: 'primary' }]),
+					{
+						id: 'add_content',
+						label: formatMessage(messages.addContent),
+						icon: PlusIcon,
+						action: action('add_content'),
+					},
+					{ type: 'divider' as const },
+				]),
+		{
+			id: 'edit',
+			label: formatMessage(messages.view),
+			icon: EyeIcon,
+			action: action('edit'),
+		},
+		{
+			id: 'duplicate',
+			label: formatMessage(messages.duplicate),
+			icon: ClipboardCopyIcon,
+			action: action('duplicate'),
+		},
+		{
+			id: 'open',
+			label: formatMessage(messages.open),
+			icon: FolderOpenIcon,
+			action: action('open'),
+		},
+		{
+			id: 'copy',
+			label: formatMessage(messages.copy),
+			icon: ClipboardCopyIcon,
+			action: action('copy'),
+		},
+		{ type: 'divider' },
+		{
+			id: 'delete',
+			label: formatMessage(messages.delete),
+			icon: TrashIcon,
+			tone: 'red',
+			action: action('delete'),
+		},
+	]
+	instanceOptions.value?.open(
+		event,
+		runningProcesses.length > 0
+			? [
+					{
+						id: 'stop',
+						label: formatMessage(messages.stop),
+						icon: StopCircleIcon,
+						tone: 'red',
+						action: action('stop'),
+					},
+					...baseOptions,
+				]
+			: [
+					...(item.instance.quarantined
+						? []
+						: [
+								{
+									id: 'play',
+									label: formatMessage(messages.play),
+									icon: PlayIcon,
+									tone: 'brand' as const,
+									action: action('play'),
+								},
+							]),
 					...baseOptions,
 				],
 	)
 }
 
-async function handleOption({ option, item }: { option: string; item: InstanceCard }) {
+async function handleOption(option: string, item: InstanceCard) {
 	switch (option) {
 		case 'play':
 			await item.play(null, 'ClassicLibraryContextMenu')
@@ -251,7 +311,7 @@ async function deleteInstance() {
 
 <template>
 	<div class="flex gap-2">
-		<StyledInput
+		<Input
 			v-model="search"
 			:icon="SearchIcon"
 			type="text"
@@ -311,16 +371,7 @@ async function deleteInstance() {
 		:instances="currentDeleteInstances"
 		@delete="deleteInstance"
 	/>
-	<ContextMenu ref="instanceOptions" @option-clicked="handleOption">
-		<template #play><PlayIcon /> {{ formatMessage(messages.play) }}</template>
-		<template #stop><StopCircleIcon /> {{ formatMessage(messages.stop) }}</template>
-		<template #add_content><PlusIcon /> {{ formatMessage(messages.addContent) }}</template>
-		<template #edit><EyeIcon /> {{ formatMessage(messages.view) }}</template>
-		<template #duplicate><ClipboardCopyIcon /> {{ formatMessage(messages.duplicate) }}</template>
-		<template #delete><TrashIcon /> {{ formatMessage(messages.delete) }}</template>
-		<template #open><FolderOpenIcon /> {{ formatMessage(messages.open) }}</template>
-		<template #copy><ClipboardCopyIcon /> {{ formatMessage(messages.copy) }}</template>
-	</ContextMenu>
+	<ContextMenu ref="instanceOptions" :label="formatMessage(messages.actions)" />
 </template>
 
 <style scoped>

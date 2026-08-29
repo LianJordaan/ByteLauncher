@@ -924,6 +924,9 @@ pub async fn launch_minecraft(
 
     let env_args = Vec::from(env_args);
 
+    let _instance_content_lock =
+        state.lock_instance_content(&instance.id).await;
+
     // ByteLauncher: the "already running" guard is removed so the multi-launch
     // plugin can run the same instance more than once. Accidental double-launches
     // are prevented in the UI (Play is disabled while a launch is in flight).
