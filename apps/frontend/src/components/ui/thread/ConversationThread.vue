@@ -41,7 +41,7 @@
 					<Button
 						type="colored"
 						color="orange"
-						:disabled="!submissionConfirmation || isLoading"
+						:disabled="!submissionConfirmation || isLoading || reviewSubmissionDisabled"
 						@click="runBlockingAction('resubmit-modal', resubmit)"
 					>
 						<SpinnerIcon
@@ -188,7 +188,7 @@
 								class="animate-spin"
 								aria-hidden="true"
 							/>
-							<ScaleIcon v-else aria-hidden="true" />
+							<StickyNotePlusIcon v-else aria-hidden="true" />
 							{{ formatMessage(messages.actionAddPrivateNote) }}
 						</Button>
 						<template v-if="currentMember && !currentMember.staffOnly">
@@ -197,13 +197,17 @@
 									v-if="replyBody"
 									type="colored"
 									color="orange"
-									:disabled="isLoading"
+									:disabled="isLoading || reviewSubmissionDisabled"
 									@click="openResubmitModal(true)"
 								>
 									<ScaleIcon aria-hidden="true" />
 									{{ formatMessage(messages.actionResubmitForReviewWithReply) }}
 								</Button>
-								<Button v-else :disabled="isLoading" @click="openResubmitModal(false)">
+								<Button
+									v-else
+									:disabled="isLoading || reviewSubmissionDisabled"
+									@click="openResubmitModal(false)"
+								>
 									<ScaleIcon aria-hidden="true" />
 									{{ formatMessage(messages.actionResubmitForReview) }}
 								</Button>
@@ -309,7 +313,10 @@
 															runBlockingAction('send-to-review-reply', () =>
 																sendReply('processing', true),
 															),
-														disabled: project.status === 'processing' || isLoading,
+														disabled:
+															project.status === 'processing' ||
+															isLoading ||
+															reviewSubmissionDisabled,
 													},
 												]
 											: [
@@ -338,7 +345,10 @@
 														hoverFilled: true,
 														action: () =>
 															runBlockingAction('send-to-review', () => setStatus('processing')),
-														disabled: project.status === 'processing' || isLoading,
+														disabled:
+															project.status === 'processing' ||
+															isLoading ||
+															reviewSubmissionDisabled,
 													},
 												]
 									"
@@ -403,6 +413,7 @@ import {
 	ScaleIcon,
 	SendIcon,
 	SpinnerIcon,
+	StickyNotePlusIcon,
 	XIcon,
 } from '@modrinth/assets'
 import {
@@ -583,6 +594,10 @@ const messages = defineMessages({
 })
 
 const props = defineProps({
+	reviewSubmissionDisabled: {
+		type: Boolean,
+		default: false,
+	},
 	thread: {
 		type: Object,
 		required: true,
@@ -688,6 +703,7 @@ async function sendReplyFromModal(status = null, privateMessage = false) {
 }
 
 async function sendReply(status = null, privateMessage = false) {
+	if (status === 'processing' && props.reviewSubmissionDisabled) return
 	try {
 		const body = {
 			body: {
@@ -780,6 +796,7 @@ function openReplyModal() {
 }
 
 async function resubmit() {
+	if (props.reviewSubmissionDisabled) return
 	if (replyWithSubmission.value) {
 		await sendReply('processing')
 	} else {

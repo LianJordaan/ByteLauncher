@@ -14,7 +14,6 @@ use xredis::RedisPool;
 
 pub mod facets;
 mod metrics;
-pub mod old;
 
 use std::{
     collections::{HashMap, HashSet},
@@ -61,7 +60,6 @@ pub use metrics::*;
 pub fn config(cfg: &mut actix_web::web::ServiceConfig) {
     cfg.service(fetch_analytics);
     cfg.configure(facets::config);
-    cfg.configure(old::config);
 }
 
 // request
@@ -176,7 +174,7 @@ pub enum ProjectAnalyticsEventKind {
 
 // logic
 
-/// Fetch analytics data.  
+/// Fetch analytics data.
 #[utoipa::path(
 	context_path = "/analytics",
 	tag = "analytics",
@@ -556,7 +554,7 @@ async fn fetch_response_projects(
     let project_ids = project_ids.into_iter().collect::<Vec<_>>();
     let projects = DBProject::get_many_ids(&project_ids, pool, redis)
         .await
-        .wrap_api_err("fetching analytics projects")?;
+        .wrap_internal_err("fetching analytics projects")?;
     let visible_project_ids = filter_visible_project_ids(
         projects.iter().map(|project| &project.inner).collect(),
         &Some(user.clone()),
@@ -878,7 +876,7 @@ async fn filter_allowed_project_ids(
 ) -> Result<Vec<DBProjectId>, ApiError> {
     let projects = DBProject::get_many_ids(project_ids, pool, redis)
         .await
-        .wrap_api_err("fetching projects for analytics authorization")?;
+        .wrap_internal_err("fetching projects for analytics authorization")?;
 
     let team_ids = projects
         .iter()

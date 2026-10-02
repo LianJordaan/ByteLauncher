@@ -53,14 +53,15 @@ async function fetchInstances() {
 }
 
 async function fetchFeaturedProjects() {
-	const [modpacks, mods] = await Promise.all([
+	const [modpacks, mods] = await Promise.allSettled([
 		get_search_results(
 			`?facets=[[\"project_type:modpack\"]]&limit=10&index=follows&filters=${installedModpacksFilter.value}`,
 		),
 		get_search_results('?facets=[[\"project_type:mod\"]]&limit=10&index=follows'),
 	])
-	featuredModpacks.value = modpacks?.result.hits ?? []
-	featuredMods.value = mods?.result.hits ?? []
+	featuredModpacks.value =
+		modpacks.status === 'fulfilled' ? (modpacks.value?.result.hits ?? []) : []
+	featuredMods.value = mods.status === 'fulfilled' ? (mods.value?.result.hits ?? []) : []
 }
 
 await fetchInstances()

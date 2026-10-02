@@ -37,21 +37,23 @@ jobs:
       - name: Merge latest upstream release
         id: prepare
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.RELEASE_PAT || secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
 
           report_failure() {
-            local details="$1"
+            local details
             local issue
-            issue=$(gh issue list --state open --search 'Upstream sync blocked in:title' --json number --jq '.[0].number // empty')
+            details=$(printf '%b' "$1")
+            printf '%s\n' "${details}" >> "${GITHUB_STEP_SUMMARY}"
+            issue=$(gh issue list --state open --search 'Upstream sync blocked in:title' --json number --jq '.[0].number // empty' || true)
             if [ -n "${issue}" ]; then
-              current=$(gh issue view "${issue}" --json body --jq '.body')
+              current=$(gh issue view "${issue}" --json body --jq '.body' || true)
               if [ "${current}" != "${details}" ]; then
-                gh issue edit "${issue}" --body "${details}" || true
+                gh issue edit "${issue}" --body "${details}" || echo '::warning::Could not update the upstream sync issue; details are in this run summary.'
               fi
             else
-              gh issue create --title 'Upstream sync blocked' --body "${details}" || true
+              gh issue create --title 'Upstream sync blocked' --body "${details}" || echo '::warning::Could not create the upstream sync issue; details are in this run summary.'
             fi
           }
 
@@ -177,19 +179,20 @@ jobs:
       - name: Report validation failure
         if: failure()
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.RELEASE_PAT || secrets.GITHUB_TOKEN }}
           UPSTREAM_TAG: ${{ needs.prepare.outputs.upstream_tag }}
         shell: bash
         run: |
           details="Windows validation failed for upstream \`${UPSTREAM_TAG}\`. No branch or tag was published. [Workflow run](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})"
-          issue=$(gh issue list --state open --search 'Upstream sync blocked in:title' --json number --jq '.[0].number // empty')
+          printf '%s\n' "${details}" >> "${GITHUB_STEP_SUMMARY}"
+          issue=$(gh issue list --state open --search 'Upstream sync blocked in:title' --json number --jq '.[0].number // empty' || true)
           if [ -n "${issue}" ]; then
-            current=$(gh issue view "${issue}" --json body --jq '.body')
+            current=$(gh issue view "${issue}" --json body --jq '.body' || true)
             if [ "${current}" != "${details}" ]; then
-              gh issue edit "${issue}" --body "${details}"
+              gh issue edit "${issue}" --body "${details}" || echo '::warning::Could not update the upstream sync issue; details are in this run summary.'
             fi
           else
-            gh issue create --title 'Upstream sync blocked' --body "${details}"
+            gh issue create --title 'Upstream sync blocked' --body "${details}" || echo '::warning::Could not create the upstream sync issue; details are in this run summary.'
           fi
 
   publish:
@@ -210,7 +213,7 @@ jobs:
 
       - name: Publish main and release tag atomically
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.RELEASE_PAT || secrets.GITHUB_TOKEN }}
           BASE_SHA: ${{ needs.prepare.outputs.base_sha }}
           CANDIDATE_SHA: ${{ needs.prepare.outputs.candidate_sha }}
           UPSTREAM_TAG: ${{ needs.prepare.outputs.upstream_tag }}
@@ -238,26 +241,27 @@ jobs:
       - name: Report publish failure
         if: failure()
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.RELEASE_PAT || secrets.GITHUB_TOKEN }}
           UPSTREAM_TAG: ${{ needs.prepare.outputs.upstream_tag }}
         run: |
           details="Publishing validated upstream \`${UPSTREAM_TAG}\` failed. The branch, marker, and release tag were not changed. [Workflow run](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})"
-          issue=$(gh issue list --state open --search 'Upstream sync blocked in:title' --json number --jq '.[0].number // empty')
+          printf '%s\n' "${details}" >> "${GITHUB_STEP_SUMMARY}"
+          issue=$(gh issue list --state open --search 'Upstream sync blocked in:title' --json number --jq '.[0].number // empty' || true)
           if [ -n "${issue}" ]; then
-            current=$(gh issue view "${issue}" --json body --jq '.body')
+            current=$(gh issue view "${issue}" --json body --jq '.body' || true)
             if [ "${current}" != "${details}" ]; then
-              gh issue edit "${issue}" --body "${details}"
+              gh issue edit "${issue}" --body "${details}" || echo '::warning::Could not update the upstream sync issue; details are in this run summary.'
             fi
           else
-            gh issue create --title 'Upstream sync blocked' --body "${details}"
+            gh issue create --title 'Upstream sync blocked' --body "${details}" || echo '::warning::Could not create the upstream sync issue; details are in this run summary.'
           fi
 
       - name: Close sync issue
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.RELEASE_PAT || secrets.GITHUB_TOKEN }}
           UPSTREAM_TAG: ${{ needs.prepare.outputs.upstream_tag }}
         run: |
-          issue=$(gh issue list --state open --search 'Upstream sync blocked in:title' --json number --jq '.[0].number // empty')
+          issue=$(gh issue list --state open --search 'Upstream sync blocked in:title' --json number --jq '.[0].number // empty' || true)
           if [ -n "${issue}" ]; then
-            gh issue close "${issue}" --comment "Upstream ${UPSTREAM_TAG} synced and validated successfully."
+            gh issue close "${issue}" --comment "Upstream ${UPSTREAM_TAG} synced and validated successfully." || echo '::warning::Could not close the upstream sync issue.'
           fi

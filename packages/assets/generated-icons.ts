@@ -63,6 +63,8 @@ import _BoxImportIcon from './icons/box-import.svg?component'
 import _BoxPlusIcon from './icons/box-plus.svg?component'
 import _BoxesIcon from './icons/boxes.svg?component'
 import _BracesIcon from './icons/braces.svg?component'
+import _BrainCircuitIcon from './icons/brain-circuit.svg?component'
+import _BrainCogIcon from './icons/brain-cog.svg?component'
 import _BrushCleaningIcon from './icons/brush-cleaning.svg?component'
 import _BugIcon from './icons/bug.svg?component'
 import _CalendarIcon from './icons/calendar.svg?component'
@@ -182,6 +184,7 @@ import _LeftArrowIcon from './icons/left-arrow.svg?component'
 import _LibraryIcon from './icons/library.svg?component'
 import _LightBulbIcon from './icons/light-bulb.svg?component'
 import _LinkIcon from './icons/link.svg?component'
+import _Link2Icon from './icons/link-2.svg?component'
 import _ListIcon from './icons/list.svg?component'
 import _ListBulletedIcon from './icons/list-bulleted.svg?component'
 import _ListEndIcon from './icons/list-end.svg?component'
@@ -190,6 +193,7 @@ import _ListOrderedIcon from './icons/list-ordered.svg?component'
 import _ListPlusIcon from './icons/list-plus.svg?component'
 import _LoaderIcon from './icons/loader.svg?component'
 import _LoaderCircleIcon from './icons/loader-circle.svg?component'
+import _LoaderSpinnerIcon from './icons/loader-spinner.svg?component'
 import _LockIcon from './icons/lock.svg?component'
 import _LockOpenIcon from './icons/lock-open.svg?component'
 import _LogInIcon from './icons/log-in.svg?component'
@@ -202,10 +206,12 @@ import _MegaphoneIcon from './icons/megaphone.svg?component'
 import _MemoryStickIcon from './icons/memory-stick.svg?component'
 import _MessageIcon from './icons/message.svg?component'
 import _MessagesSquareIcon from './icons/messages-square.svg?component'
+import _MicrochipIcon from './icons/microchip.svg?component'
 import _MicrophoneIcon from './icons/microphone.svg?component'
 import _MinimizeIcon from './icons/minimize.svg?component'
 import _MinusIcon from './icons/minus.svg?component'
 import _MonitorIcon from './icons/monitor.svg?component'
+import _MonitorCogIcon from './icons/monitor-cog.svg?component'
 import _MonitorSmartphoneIcon from './icons/monitor-smartphone.svg?component'
 import _MoonIcon from './icons/moon.svg?component'
 import _MoreHorizontalIcon from './icons/more-horizontal.svg?component'
@@ -228,6 +234,8 @@ import _PackageSearchIcon from './icons/package-search.svg?component'
 import _PageRoundIcon from './icons/page-round.svg?component'
 import _PaintbrushIcon from './icons/paintbrush.svg?component'
 import _PaletteIcon from './icons/palette.svg?component'
+import _PanelRightCloseIcon from './icons/panel-right-close.svg?component'
+import _PanelRightOpenIcon from './icons/panel-right-open.svg?component'
 import _PauseIcon from './icons/pause.svg?component'
 import _PencilIcon from './icons/pencil.svg?component'
 import _PickaxeIcon from './icons/pickaxe.svg?component'
@@ -267,6 +275,7 @@ import _ShieldIcon from './icons/shield.svg?component'
 import _ShieldAlertIcon from './icons/shield-alert.svg?component'
 import _ShieldCheckIcon from './icons/shield-check.svg?component'
 import _ShirtIcon from './icons/shirt.svg?component'
+import _ShredderIcon from './icons/shredder.svg?component'
 import _SignalIcon from './icons/signal.svg?component'
 import _SignatureIcon from './icons/signature.svg?component'
 import _SkullIcon from './icons/skull.svg?component'
@@ -279,6 +288,7 @@ import _SplitIcon from './icons/split.svg?component'
 import _SquareIcon from './icons/square.svg?component'
 import _SquarePlusIcon from './icons/square-plus.svg?component'
 import _StarIcon from './icons/star.svg?component'
+import _StickyNotePlusIcon from './icons/sticky-note-plus.svg?component'
 import _StopCircleIcon from './icons/stop-circle.svg?component'
 import _StoreIcon from './icons/store.svg?component'
 import _StrikethroughIcon from './icons/strikethrough.svg?component'
@@ -521,6 +531,8 @@ export const BoxImportIcon = _BoxImportIcon
 export const BoxPlusIcon = _BoxPlusIcon
 export const BoxesIcon = _BoxesIcon
 export const BracesIcon = _BracesIcon
+export const BrainCircuitIcon = _BrainCircuitIcon
+export const BrainCogIcon = _BrainCogIcon
 export const BrushCleaningIcon = _BrushCleaningIcon
 export const BugIcon = _BugIcon
 export const CalendarIcon = _CalendarIcon
@@ -640,6 +652,7 @@ export const LeftArrowIcon = _LeftArrowIcon
 export const LibraryIcon = _LibraryIcon
 export const LightBulbIcon = _LightBulbIcon
 export const LinkIcon = _LinkIcon
+export const Link2Icon = _Link2Icon
 export const ListIcon = _ListIcon
 export const ListBulletedIcon = _ListBulletedIcon
 export const ListEndIcon = _ListEndIcon
@@ -648,6 +661,7 @@ export const ListOrderedIcon = _ListOrderedIcon
 export const ListPlusIcon = _ListPlusIcon
 export const LoaderIcon = _LoaderIcon
 export const LoaderCircleIcon = _LoaderCircleIcon
+export const LoaderSpinnerIcon = _LoaderSpinnerIcon
 export const LockIcon = _LockIcon
 export const LockOpenIcon = _LockOpenIcon
 export const LogInIcon = _LogInIcon
@@ -660,10 +674,12 @@ export const MegaphoneIcon = _MegaphoneIcon
 export const MemoryStickIcon = _MemoryStickIcon
 export const MessageIcon = _MessageIcon
 export const MessagesSquareIcon = _MessagesSquareIcon
+export const MicrochipIcon = _MicrochipIcon
 export const MicrophoneIcon = _MicrophoneIcon
 export const MinimizeIcon = _MinimizeIcon
 export const MinusIcon = _MinusIcon
 export const MonitorIcon = _MonitorIcon
+export const MonitorCogIcon = _MonitorCogIcon
 export const MonitorSmartphoneIcon = _MonitorSmartphoneIcon
 export const MoonIcon = _MoonIcon
 export const MoreHorizontalIcon = _MoreHorizontalIcon
@@ -686,6 +702,8 @@ export const PackageSearchIcon = _PackageSearchIcon
 export const PageRoundIcon = _PageRoundIcon
 export const PaintbrushIcon = _PaintbrushIcon
 export const PaletteIcon = _PaletteIcon
+export const PanelRightCloseIcon = _PanelRightCloseIcon
+export const PanelRightOpenIcon = _PanelRightOpenIcon
 export const PauseIcon = _PauseIcon
 export const PencilIcon = _PencilIcon
 export const PickaxeIcon = _PickaxeIcon
@@ -725,6 +743,7 @@ export const ShieldIcon = _ShieldIcon
 export const ShieldAlertIcon = _ShieldAlertIcon
 export const ShieldCheckIcon = _ShieldCheckIcon
 export const ShirtIcon = _ShirtIcon
+export const ShredderIcon = _ShredderIcon
 export const SignalIcon = _SignalIcon
 export const SignatureIcon = _SignatureIcon
 export const SkullIcon = _SkullIcon
@@ -737,6 +756,7 @@ export const SplitIcon = _SplitIcon
 export const SquareIcon = _SquareIcon
 export const SquarePlusIcon = _SquarePlusIcon
 export const StarIcon = _StarIcon
+export const StickyNotePlusIcon = _StickyNotePlusIcon
 export const StopCircleIcon = _StopCircleIcon
 export const StoreIcon = _StoreIcon
 export const StrikethroughIcon = _StrikethroughIcon

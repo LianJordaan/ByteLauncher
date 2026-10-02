@@ -206,6 +206,9 @@
   "button.download": {
     "defaultMessage": "Download"
   },
+  "button.download-files": {
+    "defaultMessage": "Download files"
+  },
   "button.downloading": {
     "defaultMessage": "Downloading"
   },
@@ -365,6 +368,15 @@
   "collections.label.private": {
     "defaultMessage": "Private"
   },
+  "console.actions.collapse": {
+    "defaultMessage": "Collapse"
+  },
+  "console.actions.expand": {
+    "defaultMessage": "Expand"
+  },
+  "console.actions.share": {
+    "defaultMessage": "Share"
+  },
   "content-type.content.lowercase": {
     "defaultMessage": "content"
   },
@@ -376,6 +388,12 @@
   },
   "content.card.select-project": {
     "defaultMessage": "Select {project}"
+  },
+  "content.card.sync-update-pending": {
+    "defaultMessage": "Some synced copies are waiting for changes. An instance may be running, have a frozen or incompatible version, or already contain its own copy."
+  },
+  "content.card.synced": {
+    "defaultMessage": "Synced across instances"
   },
   "content.card.uploaded": {
     "defaultMessage": "Uploaded"
@@ -703,6 +721,12 @@
   },
   "content.page-layout.failed-to-load": {
     "defaultMessage": "Failed to load content"
+  },
+  "content.page-layout.failed-to-load-changelog": {
+    "defaultMessage": "Failed to load changelog"
+  },
+  "content.page-layout.failed-to-load-updates": {
+    "defaultMessage": "Failed to load available updates"
   },
   "content.page-layout.filter.add": {
     "defaultMessage": "Filter"
@@ -1382,6 +1406,12 @@
   "external-project-license-status.yes": {
     "defaultMessage": "Yes"
   },
+  "file-button.file-too-large.description": {
+    "defaultMessage": "File {filename} is too big. The maximum file size is {maxSize}."
+  },
+  "file-button.file-too-large.title": {
+    "defaultMessage": "File too large"
+  },
   "files.conflict-modal.header": {
     "defaultMessage": "Extract summary"
   },
@@ -1414,6 +1444,27 @@
   },
   "files.create-modal.placeholder-file": {
     "defaultMessage": "e.g. config.yml"
+  },
+  "files.create-zip-modal.already-exists": {
+    "defaultMessage": "A file with this name already exists."
+  },
+  "files.create-zip-modal.check-failed": {
+    "defaultMessage": "Could not check whether this file already exists."
+  },
+  "files.create-zip-modal.create-button": {
+    "defaultMessage": "Create ZIP"
+  },
+  "files.create-zip-modal.header": {
+    "defaultMessage": "Create ZIP"
+  },
+  "files.create-zip-modal.invalid": {
+    "defaultMessage": "The archive name must be a single file name."
+  },
+  "files.create-zip-modal.name-label": {
+    "defaultMessage": "Archive name"
+  },
+  "files.create-zip-modal.required": {
+    "defaultMessage": "Enter an archive name."
   },
   "files.delete-modal.deleting-name": {
     "defaultMessage": "Deleting \"{name}\""
@@ -1526,6 +1577,9 @@
   "files.layout.busy-warning": {
     "defaultMessage": "File operations are disabled while the operation is in progress."
   },
+  "files.layout.create-zip": {
+    "defaultMessage": "Create ZIP"
+  },
   "files.layout.dry-run-failed-text": {
     "defaultMessage": "Error running dry run"
   },
@@ -1607,6 +1661,18 @@
   "files.navbar.upload-from-zip-url": {
     "defaultMessage": "Upload from .zip URL"
   },
+  "files.operations.compressed": {
+    "defaultMessage": "{progress}% compressed"
+  },
+  "files.operations.compressing": {
+    "defaultMessage": "Creating {source}"
+  },
+  "files.operations.compressing-completed": {
+    "defaultMessage": "Creating {source} finished"
+  },
+  "files.operations.compressing-failed": {
+    "defaultMessage": "Creating {source} failed"
+  },
   "files.operations.current-file": {
     "defaultMessage": "Current file: {file}"
   },
@@ -1630,6 +1696,9 @@
   },
   "files.rename-modal.new-name-label": {
     "defaultMessage": "New name"
+  },
+  "files.row.create-zip": {
+    "defaultMessage": "Create ZIP"
   },
   "files.row.item-count": {
     "defaultMessage": "{count, plural, one {# item} other {# items}}"
@@ -2027,15 +2096,6 @@
   "image-viewer.edit": {
     "defaultMessage": "Edit"
   },
-  "image-viewer.editor.censor.blur": {
-    "defaultMessage": "Blur"
-  },
-  "image-viewer.editor.censor.mode": {
-    "defaultMessage": "Censor type"
-  },
-  "image-viewer.editor.censor.solid": {
-    "defaultMessage": "Solid"
-  },
   "image-viewer.editor.colour": {
     "defaultMessage": "Colour"
   },
@@ -2360,6 +2420,9 @@
   "instances.content-install.show-unavailable": {
     "defaultMessage": "Show unavailable"
   },
+  "instances.managed-content-modal.disabled": {
+    "defaultMessage": "Disabled"
+  },
   "instances.managed-content-modal.download-file": {
     "defaultMessage": "Download File"
   },
@@ -2368,6 +2431,9 @@
   },
   "instances.managed-content-modal.empty-title": {
     "defaultMessage": "No content found"
+  },
+  "instances.managed-content-modal.enabled": {
+    "defaultMessage": "Enabled"
   },
   "instances.managed-content-modal.external-content": {
     "defaultMessage": "External"
@@ -2389,6 +2455,9 @@
   },
   "instances.managed-content-modal.search-placeholder": {
     "defaultMessage": "Search {count, number} {count, plural, one {project} other {projects}}"
+  },
+  "instances.managed-content-modal.warnings": {
+    "defaultMessage": "Warnings"
   },
   "instances.updater-modal.badge.current": {
     "defaultMessage": "Current"
@@ -3566,6 +3635,9 @@
   "project.disclosure.advertising.title": {
     "defaultMessage": "Contains advertising"
   },
+  "project.disclosure.ai-functionality.title": {
+    "defaultMessage": "Generative AI functionality"
+  },
   "project.disclosure.ai-generated-content.title": {
     "defaultMessage": "Contains AI-generated {types}"
   },
@@ -3577,9 +3649,6 @@
   },
   "project.disclosure.ai-generated-content.use.content": {
     "defaultMessage": "content"
-  },
-  "project.disclosure.ai-generated-content.use.functionality": {
-    "defaultMessage": "functionality"
   },
   "project.disclosure.ai-generated-content.use.text": {
     "defaultMessage": "text"
@@ -3974,9 +4043,6 @@
   "project.settings.disclosures.ai.types-code": {
     "defaultMessage": "Code"
   },
-  "project.settings.disclosures.ai.types-functionality": {
-    "defaultMessage": "Functionality"
-  },
   "project.settings.disclosures.ai.types-text": {
     "defaultMessage": "Text"
   },
@@ -4324,6 +4390,9 @@
   },
   "search.filter_type.advanced.disclosure.ai_content.usage": {
     "defaultMessage": "AI {usage}"
+  },
+  "search.filter_type.advanced.disclosure.ai_functionality": {
+    "defaultMessage": "Generative AI functionality"
   },
   "search.filter_type.advanced.disclosure.archived": {
     "defaultMessage": "Archived"
@@ -5132,6 +5201,24 @@
   "servers.busy.installing": {
     "defaultMessage": "Server is installing"
   },
+  "servers.download.failed.description": {
+    "defaultMessage": "An error occurred while trying to download the world's files."
+  },
+  "servers.download.failed.title": {
+    "defaultMessage": "Download failed"
+  },
+  "servers.download.unavailable.description": {
+    "defaultMessage": "This world's files cannot currently be downloaded."
+  },
+  "servers.download.unavailable.title": {
+    "defaultMessage": "Download unavailable"
+  },
+  "servers.files.zip-created": {
+    "defaultMessage": "ZIP created"
+  },
+  "servers.files.zip-created-description": {
+    "defaultMessage": "Created {destination}"
+  },
   "servers.grant-access-modal.add-as-friend": {
     "defaultMessage": "Also send a friend request"
   },
@@ -5278,9 +5365,6 @@
   },
   "servers.listing.copy-id-label": {
     "defaultMessage": "Copy ID"
-  },
-  "servers.listing.download-latest-backup-tooltip": {
-    "defaultMessage": "Download latest backup"
   },
   "servers.listing.manage-billing-label": {
     "defaultMessage": "Manage billing"
@@ -5519,9 +5603,6 @@
   "servers.purchase.step.plan.billed": {
     "defaultMessage": "billed {interval, select, monthly {monthly} quarterly {quarterly} yearly {yearly} other {{interval}}}"
   },
-  "servers.purchase.step.plan.billing-subtitle": {
-    "defaultMessage": "Available in North America, Europe, and Southeast Asia."
-  },
   "servers.purchase.step.plan.custom.desc": {
     "defaultMessage": "Pick a customized plan with just the specs you need."
   },
@@ -5530,6 +5611,9 @@
   },
   "servers.purchase.step.plan.get-started": {
     "defaultMessage": "Get started"
+  },
+  "servers.purchase.step.plan.hardware-subtitle": {
+    "defaultMessage": "Powered by AMD Ryzen 7950X, 9950X, or equivalent, with DDR5 memory."
   },
   "servers.purchase.step.plan.large": {
     "defaultMessage": "Large"
@@ -5647,6 +5731,27 @@
   },
   "servers.remove-access-modal.what-happens-label": {
     "defaultMessage": "What happens?"
+  },
+  "servers.settings.advanced.sftp.roll-credentials": {
+    "defaultMessage": "Rotate credentials"
+  },
+  "servers.settings.advanced.sftp.roll-credentials-error-text": {
+    "defaultMessage": "Please try again later."
+  },
+  "servers.settings.advanced.sftp.roll-credentials-error-title": {
+    "defaultMessage": "Failed to rotate SFTP credentials"
+  },
+  "servers.settings.advanced.sftp.roll-credentials-modal-description": {
+    "defaultMessage": "The previous username and password will stop working."
+  },
+  "servers.settings.advanced.sftp.roll-credentials-modal-title": {
+    "defaultMessage": "Rotate credentials"
+  },
+  "servers.settings.advanced.sftp.roll-credentials-success-text": {
+    "defaultMessage": "Your SFTP username and password have been regenerated."
+  },
+  "servers.settings.advanced.sftp.roll-credentials-success-title": {
+    "defaultMessage": "SFTP credentials rotated"
   },
   "servers.setup.onboarding.installation-failed.text": {
     "defaultMessage": "An unexpected error occurred while installing. Please try again later."
@@ -6697,6 +6802,78 @@
   },
   "unknown-file-warning-modal.unrecognized-files": {
     "defaultMessage": "Unrecognized files"
+  },
+  "update-all-modal.changelog-for": {
+    "defaultMessage": "Changelog for {project}"
+  },
+  "update-all-modal.changelog-loaded": {
+    "defaultMessage": "Changelog loaded."
+  },
+  "update-all-modal.close-changelog": {
+    "defaultMessage": "Close changelog"
+  },
+  "update-all-modal.current-version": {
+    "defaultMessage": "Current version"
+  },
+  "update-all-modal.empty": {
+    "defaultMessage": "No updates available."
+  },
+  "update-all-modal.header": {
+    "defaultMessage": "Update projects"
+  },
+  "update-all-modal.loading": {
+    "defaultMessage": "Loading updates…"
+  },
+  "update-all-modal.loading-changelog": {
+    "defaultMessage": "Loading changelog…"
+  },
+  "update-all-modal.new-version": {
+    "defaultMessage": "New version"
+  },
+  "update-all-modal.no-changelog": {
+    "defaultMessage": "No changelog provided for this version."
+  },
+  "update-all-modal.no-compatible-updates": {
+    "defaultMessage": "No compatible updates available."
+  },
+  "update-all-modal.no-version": {
+    "defaultMessage": "No compatible updates"
+  },
+  "update-all-modal.project": {
+    "defaultMessage": "Project"
+  },
+  "update-all-modal.project-list": {
+    "defaultMessage": "Project updates"
+  },
+  "update-all-modal.results": {
+    "defaultMessage": "{count, plural, one {# project ready to update} other {# projects ready to update}}"
+  },
+  "update-all-modal.select-all": {
+    "defaultMessage": "Select all projects"
+  },
+  "update-all-modal.select-project": {
+    "defaultMessage": "Select {project} for update"
+  },
+  "update-all-modal.select-version": {
+    "defaultMessage": "New version for {project}"
+  },
+  "update-all-modal.update": {
+    "defaultMessage": "Update {count, plural, one {# project} other {# projects}}"
+  },
+  "update-all-modal.versions": {
+    "defaultMessage": "Current version / New version"
+  },
+  "update-all-modal.view": {
+    "defaultMessage": "View"
+  },
+  "update-all-modal.view-changelog": {
+    "defaultMessage": "View changelog for {project}"
+  },
+  "update-all-modal.warning": {
+    "defaultMessage": "We can’t guarantee updates are safe for your worlds. Review the changelogs and consider a backup."
+  },
+  "update-all-modal.warning-server": {
+    "defaultMessage": "We can’t guarantee updates will be safe for your server. Review the changelogs and consider a backup."
   },
   "user.profile.badge.alpha.about.1": {
     "defaultMessage": "This user has been around since Modrinth Alpha, which ended in November 2020."

@@ -1,4 +1,6 @@
 <template>
+	<TooltipDirective />
+
 	<div
 		ref="main_page"
 		class="layout"
@@ -70,6 +72,7 @@
 			:errors="generatedStateErrors"
 			:api-url="config.public.apiBaseUrl"
 		/>
+
 		<ViewOnModrinthBanner />
 		<header
 			class="desktop-only relative z-[5] mx-auto grid max-w-[1280px] grid-cols-[1fr_auto] items-center gap-2 px-6 py-4 lg:grid-cols-[auto_1fr_auto]"
@@ -410,6 +413,14 @@
 							to: '/moderation/global-traces',
 							tone: 'orange',
 						},
+						{
+							id: 'delphi-rules',
+							label: 'Delphi rules',
+							icon: SettingsIcon,
+							type: 'link',
+							to: '/moderation/technical-review/rules',
+							tone: 'orange',
+						},
 						{ type: 'divider' },
 						{
 							id: 'file-lookup',
@@ -423,7 +434,7 @@
 							label: 'User lookup',
 							icon: UserSearchIcon,
 							type: 'link',
-							to: '/admin/user_email',
+							to: '/admin/user_lookup',
 							shown: isAdmin(auth.user),
 						},
 						{
@@ -867,6 +878,7 @@ import {
 	injectUserPreferences,
 	providePageContext,
 	TeleportOverflowMenu,
+	TooltipDirective,
 	useHostingIntercom,
 	UserRoleIcon,
 	useVIntl,
@@ -896,7 +908,7 @@ import {
 	switchToStoredAccount,
 	useStoredAccounts,
 } from '~/composables/accounts.ts'
-import { getAddAccountRouteObj, getSignInRouteObj } from '~/composables/auth.ts'
+import { getSignInRouteObj } from '~/composables/auth.ts'
 import { logout } from '~/composables/user.js'
 import { errors as generatedStateErrors, taxComplianceThresholds } from '~/generated/state.json'
 import { provideCurrentProjectId } from '~/providers/current-project.ts'
@@ -919,7 +931,6 @@ const config = useRuntimeConfig()
 const route = useNativeRoute()
 const router = useNativeRouter()
 const signInRouteObj = computed(() => getSignInRouteObj(route))
-const addAccountRouteObj = computed(() => getAddAccountRouteObj(route))
 const storedAccounts = useStoredAccounts()
 const link = config.public.siteUrl + route.path.replace(/\/+$/, '')
 const client = injectModrinthClient()
@@ -970,13 +981,10 @@ const showTinMismatchBanner = computed(() => {
 
 const PRIDE_COLLECTION_ID = 'M4c3ITvd'
 const PRIDE_ARTICLE_SLUGS = ['pride-campaign-2025', 'pride-campaign-2026', 'proud-of-you-2026']
-const PRIDE_CACHE_TIME = 1000 * 60 * 60 * 24
 
 const { data: prideCollection } = useQuery({
 	queryKey: computed(() => ['collection', PRIDE_COLLECTION_ID]),
 	queryFn: () => client.labrinth.collections.get(PRIDE_COLLECTION_ID),
-	staleTime: PRIDE_CACHE_TIME,
-	gcTime: PRIDE_CACHE_TIME,
 })
 
 const prideProjectIds = computed(() => new Set(prideCollection.value?.projects ?? []))
@@ -1285,7 +1293,7 @@ const accountSwitcherOptions = computed(() => [
 		label: formatMessage(messages.addAccount),
 		icon: PlusIcon,
 		type: 'link',
-		to: addAccountRouteObj.value,
+		to: signInRouteObj.value,
 	},
 ])
 
@@ -1528,7 +1536,7 @@ watch(
 )
 
 async function logoutUser() {
-	await switchToSignedOut()
+	await switchToSignedOut(client)
 }
 
 function runAnalytics() {

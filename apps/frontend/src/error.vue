@@ -1,6 +1,8 @@
 <template>
 	<NuxtLayout>
-		<LoadingBar />
+		<ClientOnly>
+			<LoadingBar />
+		</ClientOnly>
 		<NotificationPanel />
 		<AccountSwitchOverlay :show="isSwitchingAccount" />
 		<div class="main">
@@ -110,7 +112,6 @@ import {
 	commonMessages,
 	defineMessage,
 	defineMessages,
-	injectNotificationManager,
 	IntlFormatted,
 	LoadingBar,
 	normalizeChildren,
@@ -131,10 +132,10 @@ import { getSignInRouteObj } from '~/composables/auth.js'
 import { setupProviders } from '~/providers/setup.ts'
 
 const auth = await useAuth()
-setupProviders(auth)
+const { client, notificationManager } = setupProviders(auth)
 
 const { formatMessage } = useVIntl()
-const { addNotification } = injectNotificationManager()
+const { addNotification } = notificationManager
 const isSwitchingAccount = useIsSwitchingAccount()
 
 const props = defineProps({
@@ -174,7 +175,7 @@ const otherAccounts = computed(() =>
 )
 
 async function signOut() {
-	await switchToSignedOut()
+	await switchToSignedOut(client)
 }
 
 async function onSelectStoredAccount(account) {

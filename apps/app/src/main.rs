@@ -12,7 +12,6 @@ use tauri_plugin_fs::FsExt;
 use theseus::prelude::*;
 
 mod api;
-mod error;
 
 #[cfg(target_os = "macos")]
 mod macos;
@@ -40,6 +39,8 @@ async fn initialize_state(
         .allow_directory(state.directories.caches_dir(), true)?;
     app.asset_protocol_scope()
         .allow_directory(state.directories.caches_dir().join("icons"), true)?;
+    app.asset_protocol_scope()
+        .allow_directory(state.directories.icon_dir(), true)?;
     app.fs_scope()
         .allow_directory(state.directories.instances_dir(), true)?;
 
@@ -147,7 +148,7 @@ fn main() {
     #[cfg(target_os = "macos")]
     {
         builder = builder
-            .menu(|app| macos::menu::create(app))
+            .menu(macos::menu::create)
             .on_menu_event(macos::menu::handle_event);
     }
 
@@ -348,7 +349,14 @@ fn main() {
                             }
                         }
 
-                        set_changelog_toast(Some(update.version.clone()));
+						let current_version = &app.package_info().version;
+						let mut version_parts = update.version.split('.');
+						let major = version_parts.next().and_then(|part| part.parse::<u64>().ok());
+						let minor = version_parts.next().and_then(|part| part.parse::<u64>().ok());
+						let is_major_update = major.zip(minor).is_some_and(|version| {
+							version > (current_version.major, current_version.minor)
+						});
+						set_changelog_toast(is_major_update.then(|| update.version.clone()));
                         let update = if should_restart {
                             (**update).clone()
                         } else {

@@ -1,8 +1,8 @@
 use crate::auth::AuthenticationError;
 use crate::auth::validate::get_user_record_from_bearer_token;
-use crate::database::PgPool;
 use crate::database::models::friend_item::DBFriend;
 use crate::database::models::notification_item::DBNotification;
+use crate::database::{PgPool, ReadOnlyPgPool};
 use crate::models::notifications::{Notification, NotificationBody};
 use crate::models::pats::Scopes;
 use crate::models::users::User;
@@ -26,6 +26,7 @@ use ariadne::networking::message::{
 use ariadne::users::UserStatus;
 use chrono::Utc;
 use either::Either;
+use eyre::Result;
 use futures_util::future::select;
 use futures_util::{StreamExt, TryStreamExt};
 use serde::Deserialize;
@@ -45,7 +46,7 @@ struct LauncherHeartbeatInit {
 }
 
 // TODO: Move launcher-specific tunnel traffic to a proper launcher websocket endpoint.
-/// Start launcher socket.  
+/// Start launcher socket.
 #[utoipa::path(
 	tag = "statuses",
 	responses((status = 101))
@@ -54,6 +55,7 @@ struct LauncherHeartbeatInit {
 pub async fn ws_init(
     req: HttpRequest,
     pool: Data<PgPool>,
+    ro_pool: Data<ReadOnlyPgPool>,
     web::Query(auth): web::Query<LauncherHeartbeatInit>,
     body: Payload,
     db: Data<ActiveSockets>,
@@ -93,7 +95,7 @@ pub async fn ws_init(
     };
 
     let friends =
-        DBFriend::get_user_friends(user.id.into(), Some(true), &**pool)
+        DBFriend::get_user_friends(user.id.into(), Some(true), &***ro_pool)
             .await
             .wrap_internal_err("fetching friends from database")?;
 
@@ -140,7 +142,7 @@ pub async fn ws_init(
     let unread_launcher_invites =
         DBNotification::get_many_user_exposed_on_site(
             user_id.into(),
-            &**pool,
+            &***ro_pool,
             &redis,
         )
         .await
@@ -336,7 +338,7 @@ pub async fn ws_init(
                             let _ = broadcast_to_local_friends(
                                 user.id,
                                 ServerToClientMessage::FriendSocketStoppedListening { user: user.id },
-                                &pool,
+                                &ro_pool,
                                 &db,
                             )
                             .await;
@@ -394,7 +396,7 @@ pub async fn ws_init(
         }
 
         let _ = shutdown_sender.send(());
-        let _ = close_socket(socket_id, &pool, &db, &redis).await;
+        let _ = close_socket(socket_id, &ro_pool, &db, &redis).await;
     });
 
     Ok(res)
@@ -403,26 +405,29 @@ pub async fn ws_init(
 pub async fn broadcast_friends_message(
     redis: &RedisPool,
     message: RedisFriendsMessage,
-) -> Result<(), crate::database::models::DatabaseError> {
+) -> Result<()> {
     redis
         .publish(FRIENDS_CHANNEL_NAME, message)
         .await
-        .map_err(Into::into)
+        .wrap_err("publishing friends message to redis")?;
+
+    Ok(())
 }
 
 pub async fn broadcast_to_local_friends(
     user_id: UserId,
     message: ServerToClientMessage,
-    pool: &PgPool,
+    ro_pool: &ReadOnlyPgPool,
     sockets: &ActiveSockets,
-) -> Result<(), crate::database::models::DatabaseError> {
-    broadcast_to_known_local_friends(
-        user_id,
-        message,
-        sockets,
-        DBFriend::get_user_friends(user_id.into(), Some(true), pool).await?,
-    )
-    .await
+) -> Result<()> {
+    let friends =
+        DBFriend::get_user_friends(user_id.into(), Some(true), &**ro_pool)
+            .await
+            .wrap_err("fetching user friends from database")?;
+
+    broadcast_to_known_local_friends(user_id, message, sockets, friends)
+        .await
+        .wrap_err("broadcasting message to local friends")
 }
 
 async fn broadcast_to_known_local_friends(
@@ -430,9 +435,7 @@ async fn broadcast_to_known_local_friends(
     message: ServerToClientMessage,
     sockets: &ActiveSockets,
     friends: Vec<DBFriend>,
-) -> Result<(), crate::database::models::DatabaseError> {
-    // FIXME Probably shouldn't be using database errors for this. Maybe ApiError?
-
+) -> Result<()> {
     for friend in friends {
         let friend_id = if friend.user_id == user_id.into() {
             friend.friend_id
@@ -458,7 +461,7 @@ async fn broadcast_to_known_local_friends(
 pub async fn send_message(
     socket: &ActiveSocket,
     message: &ServerToClientMessage,
-) -> Result<(), crate::database::models::DatabaseError> {
+) -> Result<()> {
     let mut socket = socket.socket.clone();
 
     // FIXME Probably shouldn't swallow sending errors
@@ -475,11 +478,13 @@ pub async fn send_message_to_user(
     db: &ActiveSockets,
     user: UserId,
     message: &ServerToClientMessage,
-) -> Result<(), crate::database::models::DatabaseError> {
+) -> Result<()> {
     if let Some(socket_ids) = db.sockets_by_user_id.get(&user) {
         for socket_id in socket_ids.iter() {
             if let Some(socket) = db.sockets.get(&socket_id) {
-                send_message(&socket, message).await?;
+                send_message(&socket, message)
+                    .await
+                    .wrap_err("sending websocket message to user")?;
             }
         }
     }
@@ -491,8 +496,9 @@ pub async fn send_notification_to_user(
     db: &ActiveSockets,
     user: UserId,
     notification: &Notification,
-) -> Result<(), crate::database::models::DatabaseError> {
-    let message = serde_json::to_string(notification)?;
+) -> Result<()> {
+    let message = serde_json::to_string(notification)
+        .wrap_err("serializing websocket notification")?;
 
     if let Some(socket_ids) = db.sockets_by_user_id.get(&user) {
         for socket_id in socket_ids.iter() {
@@ -508,10 +514,10 @@ pub async fn send_notification_to_user(
 
 pub async fn close_socket(
     id: SocketId,
-    pool: &PgPool,
+    ro_pool: &ReadOnlyPgPool,
     db: &ActiveSockets,
     redis: &RedisPool,
-) -> Result<(), crate::database::models::DatabaseError> {
+) -> Result<()> {
     if let Some((_, socket)) = db.sockets.remove(&id) {
         let user_id = socket.status.user_id;
         db.sockets_by_user_id.remove_if(&user_id, |_, sockets| {
@@ -521,12 +527,15 @@ pub async fn close_socket(
 
         let _ = socket.socket.close(None).await;
 
-        replace_user_status(Some(&socket.status), None, redis).await?;
+        replace_user_status(Some(&socket.status), None, redis)
+            .await
+            .wrap_err("removing user status from redis")?;
         broadcast_friends_message(
             redis,
             RedisFriendsMessage::UserOffline { user: user_id },
         )
-        .await?;
+        .await
+        .wrap_err("broadcasting user offline status")?;
 
         for owned_socket in socket.owned_tunnel_sockets {
             let Some((_, tunnel_socket)) =
@@ -541,7 +550,7 @@ pub async fn close_socket(
                         ServerToClientMessage::SocketClosed {
                             socket: owned_socket,
                         },
-                        pool,
+                        ro_pool,
                         db,
                     )
                     .await;

@@ -98,13 +98,33 @@ watch([preferred, preview], ([selectedPreferred, selectedPreview]) => {
 watch(
 	preferred,
 	(theme) => {
+		const persistedPluginTheme = getPersistedPluginTheme()
+		if (
+			persistedPluginTheme &&
+			isPluginTheme(persistedPluginTheme) &&
+			theme !== persistedPluginTheme
+		) {
+			preferred.value = persistedPluginTheme
+			return
+		}
+
 		try {
 			window.localStorage.setItem(PREFERRED_THEME_KEY, theme)
 		} catch {
 			// storage blocked or full
 		}
 	},
-	{ immediate: true },
+	{ immediate: true, flush: 'sync' },
+)
+
+watch(
+	[preferred, syncAcrossDevices],
+	([selectedTheme, enabled]) => {
+		if (enabled && !isAccountTheme(selectedTheme)) {
+			syncAcrossDevices.value = false
+		}
+	},
+	{ flush: 'sync' },
 )
 
 watch(preferredDark, (theme) => {

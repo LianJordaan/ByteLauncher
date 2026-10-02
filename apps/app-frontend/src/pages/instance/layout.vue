@@ -93,7 +93,7 @@ import {
 	EditIcon,
 	FolderOpenIcon,
 	GlobeIcon,
-	ImagesIcon,
+	ImageIcon,
 	PlayIcon,
 	PlusIcon,
 	StopCircleIcon,
@@ -141,12 +141,12 @@ import {
 } from '@/helpers/install'
 import {
 	get_full_path,
-	get_global_synced_options,
 	getInstanceIconUrl,
 	kill,
 	refresh_content_updates,
 	remove,
 	run,
+	sync_content_files,
 } from '@/helpers/instance'
 import { useSharedInstanceErrors } from '@/helpers/shared-instance-errors'
 import type { GameInstance } from '@/helpers/types'
@@ -217,7 +217,7 @@ watch(
 	{ immediate: true },
 )
 const appSettings = useAppSettings()
-const showInstancePlayTime = computed(() => appSettings.getFeatureFlag('show_instance_play_time'))
+const showInstancePlayTime = computed(() => appSettings.showPlayTime)
 
 const online = useOnline()
 const offline = computed(() => !online.value)
@@ -235,22 +235,54 @@ useQuery(
 	})),
 )
 const instance = computed(() => instanceQuery.data.value)
-const globalSyncedOptionsQuery = useQuery({
-	queryKey: ['global-synced-options'],
-	queryFn: get_global_synced_options,
-})
+async function invalidateContent(targetInstanceId: string) {
+	await Promise.all([
+		queryClient.invalidateQueries({ queryKey: instanceKeys.content(targetInstanceId) }),
+		queryClient.invalidateQueries({ queryKey: instanceKeys.linkedContent(targetInstanceId) }),
+	])
+}
+
+const contentSyncQuery = useQuery(
+	computed(() => {
+		const targetInstanceId = instanceId.value
+		return {
+			queryKey: instanceKeys.contentSync(targetInstanceId),
+			queryFn: async () => {
+				try {
+					await sync_content_files(targetInstanceId)
+					await invalidateContent(targetInstanceId)
+					return targetInstanceId
+				} catch (error) {
+					handleError(toError(error))
+					throw error
+				}
+			},
+			enabled: !!targetInstanceId && instance.value?.install_stage === 'installed',
+			networkMode: 'always' as const,
+			staleTime: 0,
+			gcTime: 0,
+			refetchOnWindowFocus: false,
+			refetchOnReconnect: false,
+			retry: false,
+		}
+	}),
+)
 useQuery(
 	computed(() => ({
 		queryKey: instanceKeys.contentUpdateCheck(instanceId.value),
 		queryFn: async () => {
 			const targetInstanceId = instanceId.value
 			await refresh_content_updates(targetInstanceId)
-			await queryClient.invalidateQueries({
-				queryKey: instanceKeys.content(targetInstanceId),
-			})
+			await invalidateContent(targetInstanceId)
 			return targetInstanceId
 		},
-		enabled: !!instanceId.value && !offline.value && instance.value?.install_stage === 'installed',
+		enabled:
+			!!instanceId.value &&
+			!offline.value &&
+			instance.value?.install_stage === 'installed' &&
+			contentSyncQuery.isSuccess.value &&
+			!contentSyncQuery.isFetching.value &&
+			contentSyncQuery.data.value === instanceId.value,
 		staleTime: 10 * 60_000,
 		gcTime: 30 * 60_000,
 		retry: false,
@@ -487,33 +519,37 @@ const tabs = computed(() => {
 			href: `${basePath.value}`,
 			icon: BoxesIcon,
 		},
-		{
+	]
+
+	if (appSettings.showFilesTabInInstances) {
+		instanceTabs.push({
 			label: formatMessage(messages.filesTab),
 			href: `${basePath.value}/files`,
 			icon: FolderOpenIcon,
-		},
-		{
+		})
+	}
+
+	if (appSettings.showScreenshotsTabInInstances) {
+		instanceTabs.push({
+			label: formatMessage(messages.screenshotsTab),
+			href: `${basePath.value}/screenshots`,
+			icon: ImageIcon,
+		})
+	}
+
+	if (appSettings.showWorldsTabInInstances) {
+		instanceTabs.push({
 			label: formatMessage(messages.worldsTab),
 			href: `${basePath.value}/worlds`,
 			icon: GlobeIcon,
-		},
-		{
-			label: formatMessage(messages.logsTab),
-			href: `${basePath.value}/logs`,
-			icon: TerminalSquareIcon,
-		},
-	]
-
-	const screenshotsSynced =
-		globalSyncedOptionsQuery.data.value?.screenshots === true &&
-		instance.value?.synced_options.screenshots === true
-	if (!screenshotsSynced) {
-		instanceTabs.splice(2, 0, {
-			label: formatMessage(messages.screenshotsTab),
-			href: `${basePath.value}/screenshots`,
-			icon: ImagesIcon,
 		})
 	}
+
+	instanceTabs.push({
+		label: formatMessage(messages.logsTab),
+		href: `${basePath.value}/logs`,
+		icon: TerminalSquareIcon,
+	})
 
 	if (showShareTab.value) {
 		instanceTabs.push({
@@ -869,15 +905,8 @@ watch(instanceId, (currentInstanceId, previousInstanceId) => {
 })
 
 useAppEvent('instance', async (event) => {
-	if (event.instance_id !== instanceId.value) return
-	if (event.event === 'removed' || route.path === '/') {
-		if (route.path !== '/') await router.push({ path: '/' })
-		return
-	}
-	await queryClient.invalidateQueries({
-		queryKey: instanceKeys.detail(event.instance_id),
-		exact: true,
-	})
+	if (event.instance_id !== instanceId.value || event.event !== 'removed') return
+	if (route.path !== '/') await router.push({ path: '/' })
 })
 
 useAppEvent('process', (event) => {

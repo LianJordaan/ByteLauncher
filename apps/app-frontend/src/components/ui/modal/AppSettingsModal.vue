@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import {
 	CoffeeIcon,
-	GaugeIcon,
 	HeartHandshakeIcon,
 	LanguagesIcon,
+	LightBulbIcon,
+	MicrochipIcon,
 	PaintbrushIcon,
 	PlugIcon,
 	RefreshCwIcon,
@@ -17,14 +18,16 @@ import {
 	commonSettingsMessages,
 	defineMessage,
 	defineMessages,
+	injectNotificationManager,
 	ProgressBar,
 	TabbedModal,
 	UnsavedChangesPopup,
 	useVIntl,
 } from '@modrinth/ui'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
 import { getVersion } from '@tauri-apps/api/app'
 import { platform as getOsPlatform, version as getOsVersion } from '@tauri-apps/plugin-os'
-import { computed, provide, ref, watch } from 'vue'
+import { computed, provide, ref } from 'vue'
 
 import ByteLauncherMark from '@/assets/bytelauncher_mark.svg?component'
 import PrivacySettings from '@/components/ui/settings/account/PrivacySettings.vue'
@@ -33,13 +36,14 @@ import SocialSettings from '@/components/ui/settings/account/SocialSettings.vue'
 import AppearanceSettings from '@/components/ui/settings/display/AppearanceSettings.vue'
 import BehaviorSettings from '@/components/ui/settings/display/BehaviorSettings.vue'
 import FeatureFlagSettings from '@/components/ui/settings/display/FeatureFlagSettings.vue'
+import FeaturesSettings from '@/components/ui/settings/display/FeaturesSettings.vue'
 import LanguageSettings from '@/components/ui/settings/display/LanguageSettings.vue'
-import InstancesSyncedSettings from '@/components/ui/settings/instances/InstancesSyncedSettings.vue'
+import InstancesSyncedSettings from '@/components/ui/settings/instances/instances-synced-settings/index.vue'
 import JavaSettings from '@/components/ui/settings/instances/JavaSettings.vue'
 import ResourceManagementSettings from '@/components/ui/settings/instances/ResourceManagementSettings.vue'
 import PluginsSettings from '@/components/ui/settings/PluginsSettings.vue'
 import { useAppSettings } from '@/composables/use-app-settings.ts'
-import { get, set } from '@/helpers/settings.ts'
+import { appSettingsKeys, appSettingsQueryOptions, set } from '@/helpers/settings.ts'
 import {
 	appSettingsModalContextKey,
 	type UnsavedChangesController,
@@ -50,6 +54,8 @@ import { injectAppUpdateDownloadProgress } from '@/providers/download-progress.t
 const appSettings = useAppSettings()
 
 const { formatMessage } = useVIntl()
+const { handleError } = injectNotificationManager()
+const queryClient = useQueryClient()
 
 const devModeCounter = ref(0)
 
@@ -82,6 +88,24 @@ const tabs = [
 		category: tabCategories.display,
 		icon: PaintbrushIcon,
 		content: AppearanceSettings,
+	},
+	{
+		name: defineMessage({
+			id: 'app.settings.tabs.features',
+			defaultMessage: 'Features',
+		}),
+		category: tabCategories.display,
+		icon: LightBulbIcon,
+		content: FeaturesSettings,
+	},
+	{
+		name: {
+			id: 'app.settings.tabs.plugins',
+			defaultMessage: 'Plugins',
+		},
+		category: tabCategories.display,
+		icon: PlugIcon,
+		content: PluginsSettings,
 	},
 	{
 		name: defineMessage({
@@ -154,17 +178,8 @@ const tabs = [
 			defaultMessage: 'Resource management',
 		}),
 		category: tabCategories.instances,
-		icon: GaugeIcon,
+		icon: MicrochipIcon,
 		content: ResourceManagementSettings,
-	},
-	{
-		name: {
-			id: 'app.settings.tabs.plugins',
-			defaultMessage: 'Plugins',
-		},
-		category: tabCategories.display,
-		icon: PlugIcon,
-		content: PluginsSettings,
 	},
 ]
 
@@ -257,32 +272,47 @@ defineExpose({ show, showProfile, showFeatureFlags, showSyncedOptions })
 
 const { progress, version: downloadingVersion } = injectAppUpdateDownloadProgress()
 
-const version = await getVersion()
-const osPlatform = getOsPlatform()
-const osVersion = getOsVersion()
-const settings = ref(await get())
+const { data: appInfo } = useQuery({
+	queryKey: ['app-info'],
+	queryFn: async () => ({
+		version: await getVersion(),
+		osPlatform: getOsPlatform(),
+		osVersion: getOsVersion(),
+	}),
+	staleTime: Infinity,
+})
 
-watch(
-	settings,
-	async () => {
-		await set(settings.value)
+const developerModeMutation = useMutation({
+	mutationKey: appSettingsKeys.update,
+	scope: { id: 'app-settings' },
+	mutationFn: async (enabled: boolean) => {
+		const settings = await queryClient.fetchQuery(appSettingsQueryOptions())
+		const nextSettings = { ...settings, developer_mode: enabled }
+		await set(nextSettings)
+		return nextSettings
 	},
-	{ deep: true },
-)
-
-function devModeCount() {
-	devModeCounter.value++
-	if (devModeCounter.value > 5) {
+	onMutate: () => queryClient.cancelQueries({ queryKey: appSettingsKeys.all }),
+	onSuccess: (settings) => {
 		const selectedTab = modal.value ? availableTabs.value[modal.value.selectedTab] : undefined
 
-		appSettings.devMode = !appSettings.devMode
-		settings.value.developer_mode = !!appSettings.devMode
-		devModeCounter.value = 0
+		queryClient.setQueryData(appSettingsKeys.all, settings)
+		appSettings.devMode = settings.developer_mode
 
 		if (modal.value) {
 			const selectedTabIndex = selectedTab ? availableTabs.value.indexOf(selectedTab) : -1
 			modal.value.setTab(selectedTabIndex >= 0 ? selectedTabIndex : 0)
 		}
+	},
+	onError: handleError,
+	onSettled: () => queryClient.invalidateQueries({ queryKey: appSettingsKeys.all }),
+})
+
+function devModeCount() {
+	if (developerModeMutation.isPending.value) return
+	devModeCounter.value++
+	if (devModeCounter.value > 5) {
+		devModeCounter.value = 0
+		developerModeMutation.mutate(!appSettings.devMode)
 	}
 }
 
@@ -290,10 +320,6 @@ const messages = defineMessages({
 	downloading: {
 		id: 'app.settings.downloading',
 		defaultMessage: 'Downloading v{version}',
-	},
-	appVersion: {
-		id: 'app.settings.app-version',
-		defaultMessage: 'Modrinth App {version}',
 	},
 	macos: {
 		id: 'app.settings.operating-system.macos',
@@ -346,6 +372,7 @@ const messages = defineMessages({
 				<div class="flex items-center gap-3">
 					<button
 						:aria-label="formatMessage(messages.developerModeButtonLabel)"
+						:disabled="developerModeMutation.isPending.value"
 						class="p-0 m-0 bg-transparent border-none cursor-pointer button-animation"
 						:class="{
 							'text-brand': appSettings.devMode,
@@ -355,13 +382,13 @@ const messages = defineMessages({
 					>
 						<ByteLauncherMark class="w-6 h-6" />
 					</button>
-					<div class="max-w-[200px]">
-						<p class="m-0">ByteLauncher {{ version }}</p>
+					<div v-if="appInfo" class="max-w-[200px]">
+						<p class="m-0">ByteLauncher {{ appInfo.version }}</p>
 						<p class="m-0 text-secondary">Built on Modrinth</p>
 						<p class="m-0">
-							<span v-if="osPlatform === 'macos'">{{ formatMessage(messages.macos) }}</span>
-							<span v-else class="capitalize">{{ osPlatform }}</span>
-							{{ osVersion }}
+							<span v-if="appInfo.osPlatform === 'macos'">{{ formatMessage(messages.macos) }}</span>
+							<span v-else class="capitalize">{{ appInfo.osPlatform }}</span>
+							{{ appInfo.osVersion }}
 						</p>
 					</div>
 				</div>
