@@ -573,7 +573,7 @@ async fn ensure_seeded() {
         .get_or_try_init(|| async { seed_builtin_plugins().await })
         .await;
     if let Err(e) = result {
-        tracing::warn!("Failed to seed built-in plugins: {e}");
+        tracing::warn!(error = ?e, "Failed to seed built-in plugins");
     }
 }
 
