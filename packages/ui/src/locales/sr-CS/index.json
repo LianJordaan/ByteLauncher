@@ -722,6 +722,9 @@
   "content.page-layout.failed-to-load": {
     "defaultMessage": "Greška sa pokazivanjem sadržaja"
   },
+  "content.page-layout.failed-to-load-changelog": {
+    "defaultMessage": "Učitavanje evidencije promena nije uspelo."
+  },
   "content.page-layout.filter.add": {
     "defaultMessage": "Filter"
   },
@@ -1237,9 +1240,6 @@
   },
   "external-files.permissions-card.editor.save": {
     "defaultMessage": "Sačuvaj pripisivanje"
-  },
-  "external-files.permissions-card.editor.select-license-label": {
-    "defaultMessage": "Izaberi licencu..."
   },
   "external-files.permissions-card.editor.type-label": {
     "defaultMessage": "Razlog dozvole"
@@ -2054,9 +2054,6 @@
   "hosting.loader.reset-to-onboarding-success-title": {
     "defaultMessage": "Server vraćen na početno podešavanje"
   },
-  "hosting.loader.support-options-title": {
-    "defaultMessage": "Opcije podrške"
-  },
   "hosting.specs.burst": {
     "defaultMessage": "Preopterećuje do {cpus} procesora"
   },
@@ -2446,6 +2443,9 @@
   },
   "instances.managed-content-modal.open-in-slicer": {
     "defaultMessage": "Otvori u Slicer-u"
+  },
+  "instances.managed-content-modal.search-placeholder": {
+    "defaultMessage": "Pretraga {count, number} {count, plural, one {projekta} few {projekta} other {projekata}}"
   },
   "instances.managed-content-modal.warnings": {
     "defaultMessage": "Upozorenja"
@@ -3260,6 +3260,9 @@
   "profile.button.analytics": {
     "defaultMessage": "Pregled analitike korisnika"
   },
+  "profile.button.billing": {
+    "defaultMessage": "Upravljaj naplatom korisnika"
+  },
   "profile.button.block": {
     "defaultMessage": "Blokiraj"
   },
@@ -3271,6 +3274,15 @@
   },
   "profile.button.info": {
     "defaultMessage": "Pregled detalja korisnika"
+  },
+  "profile.button.manage-projects": {
+    "defaultMessage": "Upravljaj projektima"
+  },
+  "profile.button.unblock": {
+    "defaultMessage": "Deblokiraj"
+  },
+  "profile.collection.projects-count": {
+    "defaultMessage": "{count, plural, one {# projekat} few {# projekta} other {# projekata}}"
   },
   "profile.details.error.github-profile-message": {
     "defaultMessage": "Profil sa GitHub-a nije mogao biti preuzet. Molimo pokušajte ponovo."
@@ -3995,6 +4007,24 @@
   "project.settings.description.title": {
     "defaultMessage": "Opis"
   },
+  "project.settings.disclosures.ai.types-assets": {
+    "defaultMessage": "Sredstva"
+  },
+  "project.settings.disclosures.ai.types-code": {
+    "defaultMessage": "Kod"
+  },
+  "project.settings.disclosures.ai.types-text": {
+    "defaultMessage": "Tekst"
+  },
+  "project.settings.disclosures.telemetry.consent-always-active": {
+    "defaultMessage": "Uvek aktivno"
+  },
+  "project.settings.disclosures.telemetry.consent-opt-in": {
+    "defaultMessage": "Omogući"
+  },
+  "project.settings.disclosures.telemetry.consent-opt-out": {
+    "defaultMessage": "Odustati"
+  },
   "project.settings.environment.client_and_server.description": {
     "defaultMessage": "Ima neke funkcionalnosti i na klijentu i na serveru, čak i ako su samo delimično dostupne."
   },
@@ -4127,6 +4157,9 @@
   "project.versions.channel.release.symbol": {
     "defaultMessage": "I"
   },
+  "project.versions.filter.channel": {
+    "defaultMessage": "Kanal"
+  },
   "project.versions.filter.toggle-tooltip": {
     "defaultMessage": "Uključi/isključi filter za {filter}"
   },
@@ -4184,8 +4217,38 @@
   "report.item-type.version": {
     "defaultMessage": "verzija"
   },
+  "report.type.inappropriate": {
+    "defaultMessage": "Neprikladno"
+  },
+  "report.type.malicious": {
+    "defaultMessage": "Zlonamerno"
+  },
+  "report.type.spam": {
+    "defaultMessage": "Neželjena pošta"
+  },
   "s.bg": {
     "defaultMessage": "Pozadinski zadatak u toku"
+  },
+  "search.filter.dependency_type.embedded": {
+    "defaultMessage": "Ugrađen"
+  },
+  "search.filter.dependency_type.optional": {
+    "defaultMessage": "Opciono"
+  },
+  "search.filter.dependency_type.required": {
+    "defaultMessage": "Obavezno"
+  },
+  "search.filter.dependent_project": {
+    "defaultMessage": "Zavisni od {project}"
+  },
+  "search.filter.included_content.exclude": {
+    "defaultMessage": "Isključi"
+  },
+  "search.filter.included_content.excluded": {
+    "defaultMessage": "Isključi"
+  },
+  "search.filter.included_content.remove_project": {
+    "defaultMessage": "Ukloni projekat"
   },
   "search.filter.locked.default": {
     "defaultMessage": "Filter zaključan"
@@ -4925,12 +4988,6 @@
   "servers.backups.admonition.restoring-backup.title": {
     "defaultMessage": "Vraćanje iz backupa"
   },
-  "servers.backups.bulk-bar.aria-label": {
-    "defaultMessage": "{count, plural, one {Grupne radnje za jedan izabran backup} other {Grupna radnja za # izabranih backupa}}"
-  },
-  "servers.backups.bulk-bar.deleting": {
-    "defaultMessage": "Brisanje {total, plural, one {# backupa} other {# backupa}}..."
-  },
   "servers.backups.bulk-bar.selected-count": {
     "defaultMessage": "{count, plural, one {# backup izabran} few {# backupa izabrana} other {# backupa izabranih}}"
   },
@@ -4955,50 +5012,11 @@
   "servers.backups.empty.heading": {
     "defaultMessage": "Nema još backupa"
   },
-  "servers.backups.filtered-empty.clear-filters": {
-    "defaultMessage": "Očisti filtere"
-  },
-  "servers.backups.filtered-empty.description": {
-    "defaultMessage": "Isprobaj drugi filter ili ukloni filtere da bi vidio sve backupe."
-  },
-  "servers.backups.filtered-empty.heading": {
-    "defaultMessage": "Nema podudaranja backupa"
-  },
   "servers.backups.item.auto": {
     "defaultMessage": "Automatski"
   },
-  "servers.backups.item.backup-schedule": {
-    "defaultMessage": "Zakazan backup"
-  },
-  "servers.backups.item.creator-avatar-alt": {
-    "defaultMessage": "Avatar od {username}"
-  },
-  "servers.backups.item.creator.support": {
-    "defaultMessage": "Podrška"
-  },
-  "servers.backups.item.manual-backup": {
-    "defaultMessage": "Manualni backup"
-  },
-  "servers.backups.item.rename": {
-    "defaultMessage": "Preimenuj"
-  },
-  "servers.backups.item.restore": {
-    "defaultMessage": "Vrati"
-  },
-  "servers.backups.select-backup-aria": {
-    "defaultMessage": "Izaberi backup {name}"
-  },
   "servers.backups.toolbar.create-backup": {
     "defaultMessage": "Napravi backup"
-  },
-  "servers.backups.toolbar.filter-auto": {
-    "defaultMessage": "Automatski"
-  },
-  "servers.backups.toolbar.filter-manual": {
-    "defaultMessage": "Manualno"
-  },
-  "servers.backups.toolbar.select-all": {
-    "defaultMessage": "Izaberi sve"
   },
   "servers.busy.backup-creating": {
     "defaultMessage": "Kreacija backupa u toku"
@@ -6366,4 +6384,3 @@
     "defaultMessage": "Tip"
   }
 }
-

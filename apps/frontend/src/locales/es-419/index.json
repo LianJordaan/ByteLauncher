@@ -881,6 +881,9 @@
   "auth.sign-in.choose-account": {
     "message": "Elige una cuenta para usar en la aplicación de Modrinth"
   },
+  "auth.sign-in.choose-existing-account": {
+    "message": "Usar una cuenta existente"
+  },
   "auth.sign-in.continue-with-email": {
     "message": "Continuar con el correo electrónico"
   },
@@ -899,17 +902,14 @@
   "auth.sign-in.launcher.callback.title": {
     "message": "Devolver inicio de sesión en Modrinth"
   },
-  "auth.sign-in.launcher.complete.description": {
-    "message": "Te estamos devolviendo a la aplicación Modrinth. Si nada sucede, usa el botón de abajo."
-  },
   "auth.sign-in.launcher.complete.go-to-website": {
     "message": "Ir a Modrinth.com"
   },
   "auth.sign-in.launcher.complete.return-button": {
     "message": "Abrir la aplicación de Modrinth"
   },
-  "auth.sign-in.launcher.complete.title": {
-    "message": "Has iniciado sesión"
+  "auth.sign-in.launcher.handoff-failed": {
+    "message": "No se pudo finalizar el inicio de sesión en la Modrinth App. Intenta nuevamente."
   },
   "auth.sign-in.launcher.opening.description": {
     "message": "Si la aplicación no se abre, utilice el botón de abajo para terminar de iniciar sesión."
@@ -917,8 +917,14 @@
   "auth.sign-in.launcher.opening.title": {
     "message": "Abriendo en la aplicación de Modrinth..."
   },
+  "auth.sign-in.launcher.reauthenticate.title": {
+    "message": "Iniciar sesión en la Modrinth App"
+  },
   "auth.sign-in.no-account": {
     "message": "¿No tienes una cuenta?"
+  },
+  "auth.sign-in.reauthenticate.use-different-account": {
+    "message": "Usar una cuenta diferente"
   },
   "auth.sign-in.sign-in-with": {
     "message": "Inicia sesión en Modrinth"
@@ -1067,9 +1073,6 @@
   "conversation-thread.action.approve": {
     "message": "Aprovar"
   },
-  "conversation-thread.action.approve-with-reply": {
-    "message": "Aprovar con respuesta"
-  },
   "conversation-thread.action.close-report": {
     "message": "Cerrar informe"
   },
@@ -1078,9 +1081,6 @@
   },
   "conversation-thread.action.reject": {
     "message": "Rechazar"
-  },
-  "conversation-thread.action.reject-with-reply": {
-    "message": "Rechazar con respuesta"
   },
   "conversation-thread.action.reopen-thread": {
     "message": "Reabrir hilo"
@@ -1115,9 +1115,6 @@
   "conversation-thread.action.withhold": {
     "message": "Retener"
   },
-  "conversation-thread.action.withhold-with-reply": {
-    "message": "Retener con respuesta"
-  },
   "conversation-thread.closed-thread.description": {
     "message": "Este hilo está cerrado y no se pueden enviar nuevos mensajes."
   },
@@ -1126,9 +1123,6 @@
   },
   "conversation-thread.error.reopening-report": {
     "message": "Error al reabrir el reporte"
-  },
-  "conversation-thread.error.sending-message": {
-    "message": "Error al enviar el mensaje"
   },
   "conversation-thread.reply-editor.placeholder.reply": {
     "message": "Responder al hilo..."
@@ -1156,9 +1150,6 @@
   },
   "conversation-thread.resubmit-modal.confirmation.label": {
     "message": "Confirmo que he atendido correctamente las observaciones de los moderadores."
-  },
-  "conversation-thread.resubmit-modal.description": {
-    "message": "Estás enviando <project-title>{projectTitle}</project-title> para ser revisado de nuevo por los moderadores."
   },
   "conversation-thread.resubmit-modal.header.resubmitting": {
     "message": "Enviando de nuevo para revisión"
@@ -2261,9 +2252,6 @@
   "error.generic.default.list_item.1": {
     "message": "Revisa si Modrinth está caído en nuestra <status-link>Página de estado</status-link>."
   },
-  "error.generic.default.list_item.2": {
-    "message": "Si esto sigue ocurriendo, quizás quieras informar al equipo de Modrinth uniéndote a nuestro <discord-link>servidor de Discord</discord-link>."
-  },
   "error.generic.default.list_title": {
     "message": "Vuelve a intentarlo en unos minutos."
   },
@@ -2987,6 +2975,9 @@
   "layout.publish.email-verification-required.title": {
     "message": "Verificación de correo electrónico requerida"
   },
+  "messages.noResults": {
+    "message": "¡No se encontraron resultados para tu búsqueda!"
+  },
   "modal.shared-instance.open-in-app.benefit.install": {
     "message": "Instala automáticamente todo lo que estén jugando"
   },
@@ -3422,9 +3413,6 @@
   "project-member-header.success-join": {
     "message": "Te has unido al equipo del proyecto"
   },
-  "project-moderation-nags.project-submitted-for-review": {
-    "message": "¡Tu proyecto ha sido enviado para revisión!"
-  },
   "project-moderation-nags.publishing-checklist": {
     "message": "Lista de verificación para la publicación"
   },
@@ -3541,9 +3529,6 @@
   },
   "project.actions.rescan-modpack": {
     "message": "Re-escanear modpack"
-  },
-  "project.actions.review-project": {
-    "message": "Revisar proyecto"
   },
   "project.actions.servers-promo.description": {
     "message": "¡Modrinth Hosting es la forma más fácil de jugar con tus amigos sin complicaciones!"
@@ -4136,11 +4121,11 @@
   "project.settings.license.custom": {
     "message": "Personalizada"
   },
-  "project.settings.license.custom-url-description": {
-    "message": "La ubicación web del texto completo de la licencia. Debes proporcionar un link ya que se trata de una licencia personalizada."
+  "project.settings.license.custom-name-required": {
+    "message": "Ingresa un nombre para tu licencia personalizada."
   },
-  "project.settings.license.has-spdx": {
-    "message": "Usar identificador SPDX"
+  "project.settings.license.custom-url-description": {
+    "message": "La ubicación web del texto completo de la licencia."
   },
   "project.settings.license.intro": {
     "message": "Es importante elegir una licencia adecuada para tu {type}. Puedes elegir una de nuestra lista o proporcionar una licencia personalizada. También puede proporcionar una URL personalizada a su licencia elegida; de lo contrario, se mostrará el texto de la licencia. Consulte nuestra <guide>guía de licencias</guide> para obtener más información."
@@ -4151,9 +4136,6 @@
   "project.settings.license.later-description": {
     "message": "La licencia que seleccionó tiene una cláusula \"o posterior\". Si marca esta casilla, los usuarios pueden utilizar su proyecto bajo ediciones posteriores de la licencia."
   },
-  "project.settings.license.missing-name": {
-    "message": "Introduzca un nombre o identificador SPDX para su licencia personalizada."
-  },
   "project.settings.license.missing-url": {
     "message": "Introduzca una URL al texto completo de su licencia personalizada."
   },
@@ -4161,31 +4143,19 @@
     "message": "Nombre de la licencia"
   },
   "project.settings.license.name-description": {
-    "message": "El nombre completo de la licencia. Si la licencia tiene un identificador SPDX, por favor marque la casilla de verificación y utilice el identificador en su lugar."
+    "message": "El nombre completo de la licencia personalizada."
   },
   "project.settings.license.name-placeholder": {
     "message": "Nombre de la licencia"
   },
-  "project.settings.license.optional-url": {
-    "message": "URL de la licencia (opcional)"
+  "project.settings.license.optional-label": {
+    "message": "opcional"
   },
   "project.settings.license.select": {
-    "message": "Selecciona una licencia"
-  },
-  "project.settings.license.select-description": {
-    "message": "Cómo los usuarios son y no están autorizados a utilizar su proyecto."
+    "message": "Licencia"
   },
   "project.settings.license.select-placeholder": {
-    "message": "Seleccionar licencia..."
-  },
-  "project.settings.license.spdx": {
-    "message": "Identificador SPDX"
-  },
-  "project.settings.license.spdx-description": {
-    "message": "Si su licencia no tiene un <spdx>identificador oficial de licencia SPDX</spdx>, desmarque la casilla e introduzca el nombre de la licencia en su lugar."
-  },
-  "project.settings.license.spdx-placeholder": {
-    "message": "Identificador SPDX"
+    "message": "Buscar licencias..."
   },
   "project.settings.license.title": {
     "message": "Licencia"
@@ -4201,6 +4171,9 @@
   },
   "project.settings.license.url-description": {
     "message": "La ubicación web del texto completo de la licencia. Si no proporcionas un link, el texto de la licencia se mostrará en su lugar."
+  },
+  "project.settings.license.url-placeholder": {
+    "message": "URL de la licencia"
   },
   "project.settings.links.add-link": {
     "message": "Añadir link"
@@ -4595,29 +4568,17 @@
   "report.not-for.dmca.description": {
     "message": "Consulta nuestra <policy-link>Política de derechos de autor</policy-link>."
   },
-  "report.note.ai-images.1": {
-    "message": "Acabamos de actualizar nuestras reglas para prohibir imágenes generadas por AIs en iconos, galerías y descripciones. Estamos dando a los creadores un período de gracia para eliminar imágenes hechas con IA de sus proyectos antes de empezar a aceptar reportes sobre ello."
-  },
-  "report.note.check-back-later": {
-    "message": "Vuelve a comprobar más tarde una vez finalizado el período de gracia. Los reportes de este tipo no están siendo aceptados en este momento."
-  },
   "report.note.copyright.1": {
     "message": "Ten en cuenta que *no* estás enviando una solicitud de retirada DMCA, sino reportando contenido re-subido."
   },
   "report.note.copyright.2": {
     "message": "Si lo que querías era presentar una solicitud de retirada DMCA (que es una acción legal), consulta nuestra <copyright-policy-link>Política de derechos de autor</copyright-policy-link>."
   },
-  "report.note.fully-ai-generated.1": {
-    "message": "Acabamos de actualizar nuestras reglas para prohibir proyectos totalmente generados por AI. Estamos dando a los creadores un período de gracia para actualizar o eliminar completamente los proyectos generados por AIs antes de empezar a aceptar reportes sobre ello."
-  },
   "report.note.malicious.1": {
     "message": "Los reportes de contenido malicioso o engañoso deben incluir evidencia sustancial de este comportamiento, como muestras de código."
   },
   "report.note.malicious.2": {
     "message": "Los resúmenes de Microsoft Defender, VirusTotal o la detección de malware por IA no son pruebas suficientes y no serán aceptados."
-  },
-  "report.note.missing-disclosure.1": {
-    "message": "Las divulgaciones de contenido son una nueva característica que acabamos de añadir. Estamos dando a los creadores un período de gracia para que se actualicen sus divulgaciones antes de empezar a aceptar los informes de divulgaciones faltantes o incorrectas."
   },
   "report.please-report": {
     "message": "Por favor, informa:"
@@ -5585,15 +5546,6 @@
   "settings.pats.modal.create.title": {
     "message": "Crear token de acceso personal"
   },
-  "settings.pats.modal.delete.action": {
-    "message": "Eliminar este token"
-  },
-  "settings.pats.modal.delete.description": {
-    "message": "Esto eliminará este token para siempre (sí, de verdad, para siempre)."
-  },
-  "settings.pats.modal.delete.title": {
-    "message": "¿Estás seguro de que quieres eliminar este token?"
-  },
   "settings.pats.modal.edit.title": {
     "message": "Editar token de acceso personal"
   },
@@ -5623,9 +5575,6 @@
   },
   "settings.sessions.current-session": {
     "message": "Sesión actual"
-  },
-  "settings.sessions.description": {
-    "message": "Aquí están todos los dispositivos que actualmente están conectados a tu cuenta de Modrinth. Puedes cerrar la sesión en cada uno de ellos por separado.\n\nSi ves alguno que no reconoces, cierra la sesión en ese dispositivo y cambia la contraseña de tu cuenta de Modrinth de inmediato."
   },
   "settings.sessions.last-accessed-ago": {
     "message": "Último acceso {ago}"

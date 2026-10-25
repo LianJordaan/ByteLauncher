@@ -1,6 +1,7 @@
 use crate::State;
 use crate::api::instance::CONFIG_FILE_EXTENSIONS;
 use crate::api::instance::GameOptionsPackSource;
+use crate::api::instance::synced_servers::MODPACK_SERVER_PATHS;
 use crate::event::emit::loading_try_for_each_concurrent;
 use crate::install::{
     InstallErrorContext, InstallJobEventKind, InstallPhaseDetails,
@@ -21,6 +22,7 @@ use crate::util::fetch::{
     DownloadMeta, DownloadReason, FetchProgressFn, fetch_content_file,
 };
 use crate::util::io;
+use anyhow::{Context, bail};
 use async_zip::base::read::seek::ZipFileReader as SeekZipFileReader;
 use async_zip::base::read::{WithEntry, ZipEntryReader};
 use async_zip::tokio::read::fs::ZipFileReader as FsZipFileReader;
@@ -138,22 +140,20 @@ impl MrpackZipReader {
             CreatePackFile::Bytes(file) => Ok(Self::Memory(
                 SeekZipFileReader::with_tokio(Cursor::new(file.clone()))
                     .await
-                    .map_err(|_| {
-                        crate::Error::from(crate::ErrorKind::InputError(
-                            "Failed to read input modpack zip".to_string(),
-                        ))
-                    })?,
+                    .context(crate::ErrorKind::InputError(
+                        "failed to read input modpack zip".to_string(),
+                    ))?,
             )),
             CreatePackFile::Downloaded(file) => {
                 Ok(Self::File(FsZipFileReader::new(file.path()).await?))
             }
-            CreatePackFile::Path(path) => Ok(Self::File(
-                FsZipFileReader::new(path).await.map_err(|_| {
-                    crate::Error::from(crate::ErrorKind::InputError(
-                        "Failed to read input modpack zip".to_string(),
-                    ))
-                })?,
-            )),
+            CreatePackFile::Path(path) => {
+                Ok(Self::File(FsZipFileReader::new(path).await.context(
+                    crate::ErrorKind::InputError(
+                        "failed to read input modpack zip".to_string(),
+                    ),
+                )?))
+            }
         }
     }
 
@@ -274,9 +274,9 @@ pub(crate) async fn get_external_files_from_mrpack(
             matches!(entry.filename().as_str(), Ok("modrinth.index.json"))
         })
     else {
-        return Err(crate::Error::from(crate::ErrorKind::InputError(
-            "No pack manifest found in mrpack".to_string(),
-        )));
+        bail!(crate::ErrorKind::InputError(
+            "no pack manifest found in mrpack".to_string(),
+        ));
     };
 
     let manifest = zip_reader.read_entry_to_string(manifest_idx).await?;
@@ -294,8 +294,8 @@ pub(crate) async fn get_external_files_from_mrpack(
             if let Some(previous) =
                 destinations.insert(canonical, path.to_string())
             {
-                return Err(crate::state::content_store::input(format!(
-                    "Modpack content paths {previous} and {path} refer to the same file"
+                bail!(crate::ErrorKind::InputError(format!(
+                    "modpack content paths {previous} and {path} refer to the same file"
                 )));
             }
         }
@@ -315,8 +315,8 @@ pub(crate) async fn get_external_files_from_mrpack(
             {
                 // Overrides may replace the same physical path, but must not change its enabled form.
                 if previous != path {
-                    return Err(crate::state::content_store::input(format!(
-                        "Modpack content paths {previous} and {path} refer to the same file"
+                    bail!(crate::ErrorKind::InputError(format!(
+                        "modpack content paths {previous} and {path} refer to the same file"
                     )));
                 }
             }
@@ -508,7 +508,21 @@ where
     Ok((size, hasher.digest().to_string()))
 }
 
-pub(crate) async fn install_zipped_mrpack_files_with_reporter(
+pub(crate) fn install_zipped_mrpack_files_with_reporter(
+    create_pack: CreatePack,
+    ignore_lock: bool,
+    reason: DownloadReason,
+    reporter: InstallProgressReporter,
+) -> impl Future<Output = crate::Result<String>> + Send + 'static {
+    Box::pin(install_zipped_mrpack_files_with_reporter_inner(
+        create_pack,
+        ignore_lock,
+        reason,
+        reporter,
+    ))
+}
+
+async fn install_zipped_mrpack_files_with_reporter_inner(
     create_pack: CreatePack,
     ignore_lock: bool,
     reason: DownloadReason,
@@ -564,9 +578,9 @@ pub(crate) async fn install_zipped_mrpack_files_with_reporter(
     let Some(manifest_idx) = zip_reader.file().entries().iter().position(|f| {
         matches!(f.filename().as_str(), Ok("modrinth.index.json"))
     }) else {
-        return Err(crate::Error::from(crate::ErrorKind::InputError(
-            "No pack manifest found in mrpack".to_string(),
-        )));
+        bail!(crate::ErrorKind::InputError(
+            "no pack manifest found in mrpack".to_string(),
+        ));
     };
 
     let mut manifest = String::new();
@@ -574,10 +588,9 @@ pub(crate) async fn install_zipped_mrpack_files_with_reporter(
 
     let pack: PackFormat = serde_json::from_str(&manifest)?;
     if &*pack.game != "minecraft" {
-        return Err(crate::ErrorKind::InputError(
-            "Pack does not support Minecraft".to_string(),
-        )
-        .into());
+        bail!(crate::ErrorKind::InputError(
+            "pack does not support Minecraft".to_string(),
+        ));
     }
 
     reporter
@@ -684,17 +697,13 @@ pub(crate) async fn install_zipped_mrpack_files_with_reporter(
         Some(&pack.version_id),
         &pack.dependencies,
         ignore_lock,
+        &state.directories,
     )
     .await?;
 
-    let metadata =
-        crate::api::instance::get(&instance_id)
-            .await?
-            .ok_or_else(|| {
-                crate::ErrorKind::InputError(format!(
-                    "Unknown instance {instance_id}"
-                ))
-            })?;
+    let metadata = crate::api::instance::get(&instance_id).await?.ok_or(
+        crate::ErrorKind::InputError(format!("unknown instance {instance_id}")),
+    )?;
     let instance_path = metadata.instance.path.clone();
     let download_meta = DownloadMeta {
         reason,
@@ -919,16 +928,15 @@ pub(crate) async fn install_zipped_mrpack_files_with_reporter(
                 ) {
                     let project_type =
                         ProjectType::get_from_parent_folder(&project_path)
-                            .ok_or_else(|| {
-                                crate::state::content_store::input(
-                                    "Unsupported content path",
-                                )
-                            })?;
+                            .ok_or(crate::ErrorKind::InputError(
+                                "unsupported content path".to_string(),
+                            ))?;
                     let file_info =
                         project.hashes.get(&PackFileHash::Sha1).and_then(
                             |hash| content_context.file_infos_by_hash.get(hash),
                         );
-                    let stored_file = file.store_file(state).await?;
+                    let stored_file =
+                        file.store_file(&state.content_store).await?;
                     content_context
                         .reporter
                         .preserve_failure_context(
@@ -1005,6 +1013,14 @@ pub(crate) async fn install_zipped_mrpack_files_with_reporter(
         has_override("client-overrides/config/yosbr/options.txt");
     let has_yosbr_options_override =
         has_override("overrides/config/yosbr/options.txt");
+    let has_client_default_options_override =
+        has_override("client-overrides/config/defaultoptions/options.txt")
+            || has_override(
+                "client-overrides/config/defaultoptions/keybindings.txt",
+            );
+    let has_default_options_override =
+        has_override("overrides/config/defaultoptions/options.txt")
+            || has_override("overrides/config/defaultoptions/keybindings.txt");
     let override_file_entries = zip_reader
         .file()
         .entries()
@@ -1015,11 +1031,19 @@ pub(crate) async fn install_zipped_mrpack_files_with_reporter(
             let is_override = (filename.starts_with("overrides/")
                 || filename.starts_with("client-overrides/"))
                 && !filename.ends_with('/');
-            let shadowed_game_options = has_client_options_override
-                && filename == "overrides/options.txt";
-            let shadowed_yosbr_options = has_client_yosbr_options_override
-                && filename == "overrides/config/yosbr/options.txt";
-            (is_override && !shadowed_game_options && !shadowed_yosbr_options)
+            let shadowed_sync_override =
+                filename.strip_prefix("overrides/").is_some_and(|path| {
+                    (MODPACK_SERVER_PATHS.contains(&path)
+                        || matches!(
+                            path,
+                            "options.txt"
+                                | "config/yosbr/options.txt"
+                                | "config/defaultoptions/options.txt"
+                                | "config/defaultoptions/keybindings.txt"
+                        ))
+                        && has_override(&format!("client-overrides/{path}"))
+                });
+            (is_override && !shadowed_sync_override)
                 .then(|| (index, file.clone()))
         })
         .collect::<Vec<_>>();
@@ -1027,10 +1051,9 @@ pub(crate) async fn install_zipped_mrpack_files_with_reporter(
         .iter()
         .map(|(_, file)| file.uncompressed_size())
         .sum::<u64>();
-    let has_servers_override = override_file_entries.iter().any(|(_, file)| {
-        let filename = file.filename().as_str().unwrap_or_default();
-        filename == "overrides/servers.dat"
-            || filename == "client-overrides/servers.dat"
+    let servers_override_path = MODPACK_SERVER_PATHS.into_iter().find(|path| {
+        has_override(&format!("client-overrides/{path}"))
+            || has_override(&format!("overrides/{path}"))
     });
     let game_options_override_source = if has_client_options_override {
         Some(GameOptionsPackSource::ClientOverrides)
@@ -1040,6 +1063,10 @@ pub(crate) async fn install_zipped_mrpack_files_with_reporter(
         Some(GameOptionsPackSource::ClientOverridesYosbr)
     } else if has_yosbr_options_override {
         Some(GameOptionsPackSource::OverridesYosbr)
+    } else if has_client_default_options_override {
+        Some(GameOptionsPackSource::ClientOverridesDefaultOptions)
+    } else if has_default_options_override {
+        Some(GameOptionsPackSource::OverridesDefaultOptions)
     } else {
         None
     };
@@ -1100,11 +1127,7 @@ pub(crate) async fn install_zipped_mrpack_files_with_reporter(
         let relative_override_file_path = relative_override_file_path
 			.strip_prefix("overrides")
 			.or_else(|_| relative_override_file_path.strip_prefix("client-overrides"))
-            .map_err(|_| {
-                crate::Error::from(crate::ErrorKind::OtherError(
-                    format!("Failed to strip override prefix from override file path: {relative_override_file_path}")
-                ))
-            })?;
+            .context(format!("failed to strip override prefix from override file path {relative_override_file_path}"))?;
 
         let managed = crate::state::content_store::is_managed_content_path(
             relative_override_file_path.as_str(),
@@ -1162,7 +1185,7 @@ pub(crate) async fn install_zipped_mrpack_files_with_reporter(
             crate::state::file_modified_at_ns(&io::metadata(&path).await?)?;
 
         {
-            let _permit = state.install_db_semaphore.acquire().await?;
+            let _permit = state.installs.db_semaphore.acquire().await?;
             let record_context =
                 InstallErrorContext::new("record modpack override")
                     .maybe_project_id(project_id.clone())
@@ -1222,17 +1245,11 @@ pub(crate) async fn install_zipped_mrpack_files_with_reporter(
         }
     }
 
-    if has_servers_override {
-        crate::api::instance::synced_servers::capture_modpack_servers(
-            &instance_id,
-        )
-        .await?;
-    } else {
-        crate::api::instance::synced_servers::clear_modpack_servers(
-            &instance_id,
-        )
-        .await?;
-    }
+    crate::api::instance::synced_servers::capture_modpack_server_override(
+        &instance_id,
+        servers_override_path,
+    )
+    .await?;
     if let Err(error) = crate::api::instance::capture_game_options_pack_base(
         &instance_id,
         game_options_override_source,
@@ -1258,6 +1275,7 @@ pub(crate) async fn install_zipped_mrpack_files_with_reporter(
         &instance_id,
         false,
         Some(reporter.clone()),
+        state,
     )
     .await?;
     reporter.clear_context().await?;
@@ -1281,6 +1299,47 @@ fn modpack_source_kind(version_id: Option<&str>) -> ContentSourceKind {
     }
 }
 
+/// Instance-relative paths installing or removing this pack can write: its
+/// manifest files, its overrides and the instance icon.
+pub(crate) async fn mrpack_instance_paths(
+    mrpack_file: &CreatePackFile,
+) -> crate::Result<Vec<String>> {
+    let mut zip_reader = MrpackZipReader::new(mrpack_file).await?;
+    let Some(manifest_idx) = zip_reader.file().entries().iter().position(|f| {
+        matches!(f.filename().as_str(), Ok("modrinth.index.json"))
+    }) else {
+        return Err(crate::Error::from(crate::ErrorKind::InputError(
+            "No pack manifest found in mrpack".to_string(),
+        )));
+    };
+    let manifest = zip_reader.read_entry_to_string(manifest_idx).await?;
+    let pack: PackFormat = serde_json::from_str(&manifest)?;
+
+    let mut paths = vec!["icon.png".to_string()];
+    paths.extend(pack.files.iter().map(|file| file.path.to_string()));
+    for entry in zip_reader.file().entries() {
+        let Ok(filename) = entry.filename().as_str() else {
+            continue;
+        };
+        if filename.ends_with('/') {
+            continue;
+        }
+        let Some(relative) = filename
+            .strip_prefix("overrides/")
+            .or_else(|| filename.strip_prefix("client-overrides/"))
+        else {
+            continue;
+        };
+        if let Ok(relative) =
+            SafeRelativeUtf8UnixPathBuf::try_from(relative.to_string())
+        {
+            paths.push(relative.to_string());
+        }
+    }
+
+    Ok(paths)
+}
+
 #[tracing::instrument(skip(mrpack_file))]
 
 pub async fn remove_all_related_files(
@@ -1294,9 +1353,9 @@ pub async fn remove_all_related_files(
     let Some(manifest_idx) = zip_reader.file().entries().iter().position(|f| {
         matches!(f.filename().as_str(), Ok("modrinth.index.json"))
     }) else {
-        return Err(crate::Error::from(crate::ErrorKind::InputError(
-            "No pack manifest found in mrpack".to_string(),
-        )));
+        bail!(crate::ErrorKind::InputError(
+            "no pack manifest found in mrpack".to_string(),
+        ));
     };
 
     let manifest = zip_reader.read_entry_to_string(manifest_idx).await?;
@@ -1304,10 +1363,9 @@ pub async fn remove_all_related_files(
     let pack: PackFormat = serde_json::from_str(&manifest)?;
 
     if &*pack.game != "minecraft" {
-        return Err(crate::ErrorKind::InputError(
-            "Pack does not support Minecraft".to_string(),
-        )
-        .into());
+        bail!(crate::ErrorKind::InputError(
+            "pack does not support Minecraft".to_string(),
+        ));
     }
 
     crate::api::instance::edit(
@@ -1323,14 +1381,9 @@ pub async fn remove_all_related_files(
     // Remove all modrinth projects by their version hashes
     // We need to do a fetch to get the project ids from Modrinth
     let state = State::get().await?;
-    let metadata =
-        crate::api::instance::get(&instance_id)
-            .await?
-            .ok_or_else(|| {
-                crate::ErrorKind::InputError(format!(
-                    "Unknown instance {instance_id}"
-                ))
-            })?;
+    let metadata = crate::api::instance::get(&instance_id).await?.ok_or(
+        crate::ErrorKind::InputError(format!("unknown instance {instance_id}")),
+    )?;
     let instance_full_path =
         crate::api::instance::get_full_path(&instance_id).await?;
     let all_hashes = pack
@@ -1410,11 +1463,7 @@ pub async fn remove_all_related_files(
         let relative_override_file_path = relative_override_file_path
             .strip_prefix("overrides")
             .or_else(|_| relative_override_file_path.strip_prefix("client-overrides"))
-            .map_err(|_| {
-                crate::Error::from(crate::ErrorKind::OtherError(
-                    format!("Failed to strip override prefix from override file path: {relative_override_file_path}")
-				))
-			})?;
+            .context(format!("failed to strip override prefix from override file path {relative_override_file_path}"))?;
         if relative_override_file_path.as_str() == "options.txt" {
             continue;
         }

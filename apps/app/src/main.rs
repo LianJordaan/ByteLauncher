@@ -4,9 +4,10 @@
 )]
 #![recursion_limit = "256"]
 
+use anyhow::Context;
 use native_dialog::{DialogBuilder, MessageLevel};
 use std::env;
-use std::sync::atomic::Ordering;
+use std::sync::atomic::{AtomicBool, Ordering};
 use tauri::{Listener, Manager};
 use tauri_plugin_fs::FsExt;
 use theseus::prelude::*;
@@ -88,11 +89,9 @@ pub use updater_impl_noop::*;
 // Toggles decorations
 #[tauri::command]
 async fn toggle_decorations(b: bool, window: tauri::Window) -> api::Result<()> {
-    window.set_decorations(b).map_err(|e| {
-        theseus::Error::from(theseus::ErrorKind::OtherError(format!(
-            "Failed to toggle decorations: {e}"
-        )))
-    })?;
+    window
+        .set_decorations(b)
+        .context("failed to toggle decorations")?;
     Ok(())
 }
 
@@ -101,20 +100,27 @@ fn restart_app(app: tauri::AppHandle) {
     app.restart();
 }
 
+#[derive(Default)]
+struct RestartAfterPendingUpdate(AtomicBool);
+
 #[tauri::command]
 async fn set_restart_after_pending_update(
     should_restart: bool,
+    restart: tauri::State<'_, RestartAfterPendingUpdate>,
 ) -> api::Result<()> {
-    let state = State::get().await?;
-    state
-        .restart_after_pending_update
-        .store(should_restart, Ordering::Relaxed);
+    restart.0.store(should_restart, Ordering::Relaxed);
     Ok(())
 }
 
 // if Tauri app is called with arguments, then those arguments will be treated as commands
 // ie: deep links or filepaths for .mrpacks
 fn main() {
+    let runtime = tokio::runtime::Builder::new_multi_thread()
+        .enable_all()
+        .build()
+        .expect("failed to create app async runtime");
+    tauri::async_runtime::set(runtime.handle().clone());
+
     #[cfg(feature = "export-app-events")]
     theseus::export_app_event_bindings(
         std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR"))
@@ -186,17 +192,67 @@ fn main() {
         .plugin(tauri_plugin_dialog::init())
         .plugin(tauri_plugin_deep_link::init())
         .plugin(tauri_plugin_fs::init())
-        .plugin(tauri_plugin_opener::init())
+        .plugin(tauri_plugin_opener::init());
+
+    #[cfg(target_os = "windows")]
+    {
+        use windows::Win32::UI::WindowsAndMessaging::{
+            SWP_FRAMECHANGED, SWP_NOACTIVATE, SWP_NOMOVE, SWP_NOSIZE,
+            SWP_NOZORDER, SetWindowPos,
+        };
+
+        // Refresh the hidden window's frame before window-state measures its client area.
+        builder = builder.plugin(
+            tauri::plugin::Builder::<_, ()>::new("window-frame")
+                .on_window_ready(|window| {
+                    if window.label() != "main" {
+                        return;
+                    }
+
+                    let hwnd = match window.hwnd() {
+                        Ok(hwnd) => hwnd,
+                        Err(e) => {
+                            tracing::warn!("Failed to get window handle: {e}");
+                            return;
+                        }
+                    };
+
+                    if let Err(e) = unsafe {
+                        SetWindowPos(
+                            hwnd,
+                            None,
+                            0,
+                            0,
+                            0,
+                            0,
+                            SWP_FRAMECHANGED
+                                | SWP_NOACTIVATE
+                                | SWP_NOMOVE
+                                | SWP_NOSIZE
+                                | SWP_NOZORDER,
+                        )
+                    } {
+                        tracing::warn!("Failed to refresh window frame: {e}");
+                    }
+                })
+                .build(),
+        );
+    }
+
+    let window_state_flags = tauri_plugin_window_state::StateFlags::POSITION
+        | tauri_plugin_window_state::StateFlags::SIZE
+        | tauri_plugin_window_state::StateFlags::MAXIMIZED;
+    #[cfg(target_os = "windows")]
+    let window_state_flags =
+        window_state_flags | tauri_plugin_window_state::StateFlags::DECORATIONS;
+
+    builder = builder
         .plugin(
             tauri_plugin_window_state::Builder::default()
                 .with_filename("app-window-state.json")
                 .with_denylist(&["signin"])
-                // Use *only* POSITION and SIZE state flags, because saving VISIBLE causes the `visible: false` to not take effect
-                .with_state_flags(
-                    tauri_plugin_window_state::StateFlags::POSITION
-                        | tauri_plugin_window_state::StateFlags::SIZE
-                        | tauri_plugin_window_state::StateFlags::MAXIMIZED,
-                )
+                // Restoring VISIBLE would override the hidden startup window.
+                .with_state_flags(window_state_flags)
                 .build(),
         )
         .setup(|app| {
@@ -293,6 +349,7 @@ fn main() {
         .plugin(api::worlds::init())
         .plugin(api::addons::init())
         .manage(PendingUpdateData::default())
+        .manage(RestartAfterPendingUpdate::default())
         .invoke_handler(tauri::generate_handler![
             initialize_state,
             is_dev,
@@ -328,11 +385,10 @@ fn main() {
                 #[cfg(feature = "updater")]
                 if matches!(&event, tauri::RunEvent::Exit) {
                     let update_data = app.state::<PendingUpdateData>().inner();
-                    let should_restart = State::get_if_initialized()
-                        .map(|s| {
-                            s.restart_after_pending_update.load(Ordering::Relaxed)
-                        })
-                        .unwrap_or(false);
+                    let should_restart = app
+                        .state::<RestartAfterPendingUpdate>()
+                        .0
+                        .load(Ordering::Relaxed);
                     if let Some((update, data)) = &*update_data.0.lock().unwrap()
                     {
                         fn set_changelog_toast(version: Option<String>) {

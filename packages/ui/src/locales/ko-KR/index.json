@@ -1175,9 +1175,6 @@
   "external-files.permissions-card.editor.save": {
     "defaultMessage": "속성 저장"
   },
-  "external-files.permissions-card.editor.select-license-label": {
-    "defaultMessage": "라이선스 선택..."
-  },
   "external-files.permissions-card.editor.type-label": {
     "defaultMessage": "허가 사유"
   },
@@ -1976,9 +1973,6 @@
   "hosting.loader.reset-to-onboarding-success-title": {
     "defaultMessage": "온보딩 상태로 서버 재설정"
   },
-  "hosting.loader.support-options-title": {
-    "defaultMessage": "지원 옵션"
-  },
   "hosting.specs.burst": {
     "defaultMessage": "최대 {cpus} CPU까지 버스트 가능"
   },
@@ -2103,7 +2097,7 @@
     "defaultMessage": "갤러리 보기"
   },
   "input.view.grid": {
-    "defaultMessage": "바둑판식 보기"
+    "defaultMessage": "격자식 보기"
   },
   "input.view.list": {
     "defaultMessage": "행 보기"
@@ -4871,12 +4865,6 @@
   "servers.backups.admonition.restoring-backup.title": {
     "defaultMessage": "백업으로부터 복원하는 중"
   },
-  "servers.backups.bulk-bar.aria-label": {
-    "defaultMessage": "백업 {count, plural, other {#}}개 선택됨"
-  },
-  "servers.backups.bulk-bar.deleting": {
-    "defaultMessage": "백업 {total, plural, other {#}}개 삭제 중..."
-  },
   "servers.backups.bulk-bar.selected-count": {
     "defaultMessage": "백업 {count, plural, other {#}}개 선택됨"
   },
@@ -4901,50 +4889,11 @@
   "servers.backups.empty.heading": {
     "defaultMessage": "백업이 없습니다"
   },
-  "servers.backups.filtered-empty.clear-filters": {
-    "defaultMessage": "필터 초기화"
-  },
-  "servers.backups.filtered-empty.description": {
-    "defaultMessage": "다른 필터를 적용하거나 필터를 모두 해제하여 모든 백업을 확인해 보세요."
-  },
-  "servers.backups.filtered-empty.heading": {
-    "defaultMessage": "일치하는 백업 없음"
-  },
   "servers.backups.item.auto": {
     "defaultMessage": "자동"
   },
-  "servers.backups.item.backup-schedule": {
-    "defaultMessage": "백업 스케쥴"
-  },
-  "servers.backups.item.creator-avatar-alt": {
-    "defaultMessage": "{username}의 아바타"
-  },
-  "servers.backups.item.creator.support": {
-    "defaultMessage": "지원자"
-  },
-  "servers.backups.item.manual-backup": {
-    "defaultMessage": "백업 메뉴얼"
-  },
-  "servers.backups.item.rename": {
-    "defaultMessage": "이름 변경"
-  },
-  "servers.backups.item.restore": {
-    "defaultMessage": "복원"
-  },
-  "servers.backups.select-backup-aria": {
-    "defaultMessage": "{name} 백업 선택"
-  },
   "servers.backups.toolbar.create-backup": {
     "defaultMessage": "백업 생성"
-  },
-  "servers.backups.toolbar.filter-auto": {
-    "defaultMessage": "자동"
-  },
-  "servers.backups.toolbar.filter-manual": {
-    "defaultMessage": "수동"
-  },
-  "servers.backups.toolbar.select-all": {
-    "defaultMessage": "모두 선택"
   },
   "servers.busy.backup-creating": {
     "defaultMessage": "백업 생성 진행 중"
@@ -5503,6 +5452,9 @@
   },
   "settings.display.project-list-layouts.mod": {
     "defaultMessage": "모드 페이지"
+  },
+  "settings.display.project-list-layouts.mode.grid": {
+    "defaultMessage": "격자"
   },
   "settings.display.project-list-layouts.mode.rows": {
     "defaultMessage": "행"

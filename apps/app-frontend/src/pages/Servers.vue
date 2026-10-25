@@ -4,7 +4,7 @@ import { computed } from 'vue'
 
 import { hostingPanelUrl } from '@/plugins/hosting-panel'
 import { enabledPluginIds } from '@/plugins/plugin-state'
-import { useRootBreadcrumb } from '@/providers/breadcrumbs'
+import { useRootBreadcrumb } from '@/shared/breadcrumbs'
 
 const hostingEnabled = computed(() => enabledPluginIds.value.has('hosting'))
 

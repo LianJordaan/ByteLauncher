@@ -12,7 +12,7 @@ import { get_project_v3_many } from '@/helpers/cache.js'
 import { list } from '@/helpers/instance'
 import type { GameInstance } from '@/helpers/types'
 import { enabledPluginIds, pluginsReady } from '@/plugins/plugin-state'
-import { useRootBreadcrumb } from '@/providers/breadcrumbs'
+import { useRootBreadcrumb } from '@/shared/breadcrumbs'
 
 const router = useRouter()
 const { handleError } = injectNotificationManager()

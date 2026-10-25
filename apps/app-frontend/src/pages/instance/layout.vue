@@ -129,6 +129,7 @@ import { useAppEvent } from '@/composables/use-app-event'
 import { useAppSettings } from '@/composables/use-app-settings.ts'
 import { handleSevereError } from '@/composables/use-error.js'
 import { useInstanceConsole } from '@/composables/useInstanceConsole'
+import InstanceSettingsModal from '@/features/instances/settings-modal/index.vue'
 import { trackEvent } from '@/helpers/analytics'
 import { toError } from '@/helpers/errors'
 import {
@@ -153,13 +154,12 @@ import type { GameInstance } from '@/helpers/types'
 import { createInstanceShortcut, showInstanceInFolder } from '@/helpers/utils.js'
 import type { ServerStatus } from '@/helpers/worlds'
 import { enabledPluginIds } from '@/plugins/plugin-state'
-import { useRootBreadcrumb } from '@/providers/breadcrumbs'
 import { provideInstanceBackup } from '@/providers/instance-backup'
 import { injectServerInstall } from '@/providers/server-install'
+import { useRootBreadcrumb } from '@/shared/breadcrumbs'
 
 import InstanceAdmonitions from './components/admonitions/index.vue'
 import InstancePageHeader from './components/page-header/index.vue'
-import InstanceSettingsModal from './components/settings-modal/index.vue'
 import { provideInstancePage } from './instance-context'
 import {
 	instanceContentQueryOptions,
@@ -638,7 +638,12 @@ function handleSharedInstanceUpdateComplete(successful: boolean) {
 
 const startInstance = async (context: string) => {
 	if (!instance.value || instance.value.quarantined) return
-	if (checkingSharedInstanceLaunch.value || loading.value) return
+	if (
+		checkingSharedInstanceLaunch.value ||
+		loading.value ||
+		(playing.value && !enabledPluginIds.value.has('multi-launch'))
+	)
+		return
 
 	const instanceId = instance.value.id
 	const isSharedInstanceMember = instance.value.shared_instance?.role === 'member'

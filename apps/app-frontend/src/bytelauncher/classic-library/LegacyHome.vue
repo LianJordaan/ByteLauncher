@@ -13,7 +13,7 @@ import { get_search_results } from '@/helpers/cache.js'
 import { list } from '@/helpers/instance'
 import type { GameInstance } from '@/helpers/types'
 import { enabledPluginIds } from '@/plugins/plugin-state'
-import { useRootBreadcrumb } from '@/providers/breadcrumbs'
+import { useRootBreadcrumb } from '@/shared/breadcrumbs'
 
 const { handleError } = injectNotificationManager()
 

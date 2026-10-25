@@ -40,10 +40,12 @@ jobs:
           GH_TOKEN: ${{ secrets.RELEASE_PAT || secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
+          failure_reported=false
 
           report_failure() {
             local details
             local issue
+            failure_reported=true
             details=$(printf '%b' "$1")
             printf '%s\n' "${details}" >> "${GITHUB_STEP_SUMMARY}"
             issue=$(gh issue list --state open --search 'Upstream sync blocked in:title' --json number --jq '.[0].number // empty' || true)
@@ -56,6 +58,14 @@ jobs:
               gh issue create --title 'Upstream sync blocked' --body "${details}" || echo '::warning::Could not create the upstream sync issue; details are in this run summary.'
             fi
           }
+
+          report_unhandled_failure() {
+            local exit_code=$?
+            if [ "${exit_code}" -ne 0 ] && [ "${failure_reported}" = false ]; then
+              report_failure "Preparing upstream \`${UPSTREAM_TAG:-unknown}\` failed before validation. No branch or tag was changed. [Workflow run](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})"
+            fi
+          }
+          trap report_unhandled_failure EXIT
 
           git remote add upstream https://github.com/modrinth/code.git
           git fetch upstream --tags --quiet
@@ -81,9 +91,10 @@ jobs:
                 exit 1
               fi
 
+              conflicts=$(git diff --name-only --diff-filter=U)
               while IFS= read -r conflicted; do
                 [ -z "${conflicted}" ] && continue
-                status=$(git status --short -- "${conflicted}" | cut -c1-2)
+                status=$(git --no-optional-locks status --short -- "${conflicted}" | cut -c1-2)
                 case "${status}:${conflicted}" in
                   DU:.github/workflows/*)
                     case "${conflicted}" in
@@ -91,11 +102,15 @@ jobs:
                       *) git rm -f -- "${conflicted}" ;;
                     esac
                     ;;
+                  UU:README.md)
+                    git checkout --ours -- "${conflicted}"
+                    git add -- "${conflicted}"
+                    ;;
                   UD:CLAUDE.md)
                     git add -- CLAUDE.md
                     ;;
                 esac
-              done < <(git diff --name-only --diff-filter=U)
+              done <<< "${conflicts}"
 
               remaining=$(git diff --name-only --diff-filter=U)
               if [ -n "${remaining}" ]; then
@@ -108,7 +123,9 @@ jobs:
 
             find .github/workflows -maxdepth 1 -type f \! -name 'fork-*.yml' \! -name 'fork-*.yaml' -delete
             git add -A -- .github/workflows
-            git commit -m 'ci: remove inherited upstream workflows' || true
+            if ! git diff --cached --quiet -- .github/workflows; then
+              git commit -m 'ci: remove inherited upstream workflows'
+            fi
 
             printf '%s\n' "${UPSTREAM_TAG}" > "${MARKER}"
             git add "${MARKER}"
