@@ -323,6 +323,7 @@ const { progress, version: downloadingVersion } = injectAppUpdateDownloadProgres
 
 const { data: appInfo } = useQuery({
 	queryKey: ['app-info'],
+	networkMode: 'always',
 	queryFn: async () => ({
 		version: await getVersion(),
 		osPlatform: getOsPlatform(),
@@ -332,6 +333,7 @@ const { data: appInfo } = useQuery({
 })
 
 const developerModeMutation = useMutation({
+	networkMode: 'always',
 	mutationKey: appSettingsKeys.update,
 	scope: { id: 'app-settings' },
 	mutationFn: async (enabled: boolean) => {

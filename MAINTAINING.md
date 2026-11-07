@@ -1,7 +1,12 @@
 # Maintaining ByteLauncher
 
-This fork keeps a **thin patch set** on top of `modrinth/code` so upstream merges
-stay painless. Almost everything is new files plus a handful of one-line hooks.
+ByteLauncher is an independently maintained fork of `modrinth/code`. Its
+**thin patch set** keeps selected upstream merges manageable, while ByteLauncher
+features and releases follow their own pace. Upstream remains available as a
+reference; there is no requirement to pull or merge each Modrinth release.
+
+The current source update adopts upstream **v0.23.1**, following the previously
+shipped **v0.22.0** base. Updating source does not publish a new ByteLauncher release.
 
 ## The patch set at a glance
 
@@ -18,24 +23,27 @@ stay painless. Almost everything is new files plus a handful of one-line hooks.
 | Reactive plugin state | `apps/app-frontend/src/plugins/plugin-state.js` |
 | Native Multi-Launch | Play-next-to-Stop in `apps/app-frontend/src/pages/instance/Index.vue`; dedupe guard removed from `packages/app-lib/src/launcher/mod.rs` |
 
-Keeping changes isolated like this means `git merge <upstream-tag>` rarely conflicts.
+Keeping changes isolated like this helps preserve ByteLauncher features when
+merging a chosen upstream tag.
 
 ## Building
 
 There is **no local build** here — building the Tauri app needs a full Rust +
 Node toolchain. Everything builds in **GitHub Actions**:
 
-- **`fork-build.yml`** — sanity build on every push to `main` (and manual dispatch).
+- **`fork-build.yml`** — sanity build on app changes pushed to `main` or `sync/**`
+	(and manual dispatch), so conflict resolutions can be validated before advancing `main`.
   Builds the standalone `ByteLauncher.exe` (`--no-bundle`, unsigned, no installer)
   and uploads it as an artifact. Use this to confirm a change compiles.
 - **`fork-release.yml`** — builds the standalone `ByteLauncher.exe` (`--no-bundle`,
   no installer) and publishes it as a GitHub Release asset. Triggered by pushing a
   `v*` tag, or manually via **Actions → Fork release → Run workflow** with a version
-  like `v0.15.10-fork.1`. To install: drop `ByteLauncher.exe` anywhere (e.g.
+	like `v0.23.1-fork.1`. To install: drop `ByteLauncher.exe` anywhere (e.g.
   `%LOCALAPPDATA%\ByteLauncher\`); it reads the shared `%AppData%\ModrinthApp\` data.
-- **`fork-sync.yml`** — scheduled daily. Only acts when Modrinth publishes a
-  **new release**; then it merges that release tag into `main` and pushes a
-  `v<upstream>-fork` tag to trigger a release.
+- **`fork-sync.yml`** — manual upstream sync. Merges a selected release into a
+	candidate and validates a Windows build before updating `main`. Publishing a
+	release is an optional checkbox, off by default. Neither sync nor release has
+	a schedule.
 
 ### Inherited upstream workflows (removed)
 
@@ -47,35 +55,52 @@ Modrinth-only secrets, so on a fork they queue forever ("waiting for a runner")
 or fail red on every push. Only `fork-build`, `fork-release`, and `fork-sync`
 remain.
 
-Upstream constantly edits its CI, and the fork deleted all 16 of those workflow
-files, so a "deleted by us" (modify/delete) conflict on them was the #1 cause of
-sync failures. `fork-sync.yml` now **auto-resolves** these: on a merge failure it
-`git rm`s every deleted-by-us (`DU`) path (keeping it deleted) and completes the
-merge. It only aborts + opens an issue when a genuine **content** conflict (`UU`)
-remains — e.g. a fork-patched source file that upstream refactored (resolve those
-locally, keeping the fork's intent, and push `main`).
+`fork-sync.yml` resolves known conflicts on deleted inherited workflows by
+keeping them deleted, and removes newly added upstream workflows from the
+candidate. It preserves the fork's README and maintenance guide in the known
+conflict cases. Unknown conflicts abort the sync and open or update a single
+tracking issue; `main` stays unchanged. Resolve those conflicts locally while
+preserving ByteLauncher customizations before trying again.
 
 ## Cutting a release manually
 
-1. **Actions → Fork release → Run workflow**, enter a version (e.g. `v0.15.10-fork.1`), or
-2. push a tag: `git tag v0.15.10-fork.1 && git push origin v0.15.10-fork.1`.
+1. **Actions → Fork release → Run workflow**, enter a version (e.g. `v0.23.1-fork.1`), or
+2. push a tag: `git tag v0.23.1-fork.1 && git push origin v0.23.1-fork.1`.
 
 The build sets the app version from the tag so the in-app update banner can
 compare against it.
 
-## Auto-sync setup (optional but recommended)
+## Syncing upstream when you choose
 
-`fork-sync.yml` merges upstream and pushes a fork tag. For that tag push to
-trigger `fork-release.yml`, add a repository secret **`RELEASE_PAT`** — a
-fine-grained personal access token scoped to this repo with **Contents: Read
-and write**. Without it the merge still happens, but you must run
-`fork-release.yml` manually (GitHub's default `GITHUB_TOKEN` cannot trigger
-another workflow).
+1. Open **Actions → Sync with upstream Modrinth → Run workflow** and select
+	**main**. The workflow accepts runs from `main` only and explicitly checks out
+	that branch.
+2. Optionally enter an **`upstream_tag`**, such as `v0.23.1`. Leave it blank to
+	select Modrinth's latest stable release. Older bases are rejected to prevent
+	accidental downgrades.
+3. Leave **`publish_release`** unchecked to update source only. Check it to also
+	create the `v<upstream>-fork` tag and start the ByteLauncher release build after
+	validation succeeds.
 
-If a sync merge hits a genuine content conflict (after auto-resolving the
-deleted-workflow churn described above), the workflow aborts and opens an issue
-listing the conflicted files instead of pushing a broken merge — resolve it
-locally and push `main`.
+The workflow merges into a candidate and builds the Windows app before it
+updates `main`. It verifies that `main` has not moved during validation and that
+the validated candidate is the commit being published. Conflicts or a failed
+build leave `main` unchanged. With release publication selected, the branch and
+release tag are pushed atomically.
+
+The upstream marker and Git ancestry identify releases already integrated into
+the source. Running a source-only sync for that same base is a no-op. You can
+request publication for the current base later; existing release tags are never
+moved. For subsequent ByteLauncher feature releases on that base, use a new
+version such as `v0.23.1-fork.1` through **Fork release**.
+
+If a release tag exists but its build or dispatch failed, sync will leave the tag
+in place. Retry **Fork release** manually on that tag with the same version.
+
+**`RELEASE_PAT` is optional.** If present, it authenticates the push so the release
+tag can trigger `fork-release.yml`. Without it, the sync uses `GITHUB_TOKEN` and
+explicitly dispatches the release workflow when `publish_release` is selected.
+There is no scheduled retry or automatic adoption of future upstream releases.
 
 ## Enabling the bundled auto-updater (later)
 

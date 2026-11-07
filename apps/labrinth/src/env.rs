@@ -2,8 +2,8 @@ use std::{any::type_name, convert::Infallible, str::FromStr, sync::LazyLock};
 
 use derive_more::{Deref, DerefMut};
 use eyre::{Context, eyre};
-use rust_decimal::Decimal;
 use serde::de::DeserializeOwned;
+use url::Url;
 
 use xredis::{
     CacheLockingStrategy, ReadReplicaStrategy, RedisConnectionType,
@@ -135,6 +135,7 @@ vars! {
     LABRINTH_SUBSCRIPTIONS_KEY: String = "";
     RATE_LIMIT_IGNORE_KEY: String = "";
     DATABASE_URL: String = "postgresql://labrinth:labrinth@localhost/labrinth";
+    MINECRAFT_META_DATABASE_URL: Url;
 
     // Redis
     REDIS_TOPOLOGY: RedisTopology = RedisTopology::Standalone;
@@ -186,7 +187,6 @@ vars! {
     SELF_ADDR: String = "";
 
     LOCAL_INDEX_INTERVAL: u64 = 3600u64;
-    VERSION_INDEX_INTERVAL: u64 = 1800u64;
 
     WHITELISTED_MODPACK_DOMAINS: Json<Vec<String>> = Json(vec![
         "cdn.modrinth.com".into(),
@@ -198,13 +198,6 @@ vars! {
         ".modrinth.com".into(),
         "127.0.0.1".into(),
         "[::1]".into(),
-    ]);
-    ANALYTICS_ALLOWED_ORIGINS: Json<Vec<String>> = Json(vec![
-        "http://127.0.0.1:3000".into(),
-        "http://localhost:3000".into(),
-        "https://modrinth.com".into(),
-        "https://www.modrinth.com".into(),
-        "*".into(),
     ]);
 
     // search
@@ -262,14 +255,6 @@ vars! {
     PAYPAL_WEBHOOK_ID: String = "none";
     PAYPAL_CLIENT_ID: String = "none";
     PAYPAL_CLIENT_SECRET: String = "none";
-    PAYPAL_NVP_USERNAME: String = "none";
-    PAYPAL_NVP_PASSWORD: String = "none";
-    PAYPAL_NVP_SIGNATURE: String = "none";
-
-    PAYPAL_BALANCE_ALERT_THRESHOLD: u64 = 0u64;
-    BREX_BALANCE_ALERT_THRESHOLD: u64 = 0u64;
-    TREMENDOUS_BALANCE_ALERT_THRESHOLD: u64 = 0u64;
-    MURAL_BALANCE_ALERT_THRESHOLD: u64 = 0u64;
 
     TURNSTILE_SECRET: String = "none";
 
@@ -315,12 +300,7 @@ vars! {
     STRIPE_API_KEY: String = "none";
     STRIPE_WEBHOOK_SECRET: String = "none";
 
-    ADITUDE_API_KEY: String = "none";
-
     PYRO_API_KEY: String = "none";
-
-    BREX_API_URL: String = "https://platform.brexapis.com/v2/";
-    BREX_API_KEY: String = "none";
 
     DELPHI_URL: String = "";
 
@@ -335,7 +315,6 @@ vars! {
     ANROK_API_URL: String = "";
     ANROK_API_KEY: String = "";
 
-    PAYOUT_ALERT_SLACK_WEBHOOK: String = "none";
     CLOUDFLARE_INTEGRATION: bool = false;
 
     ARCHON_URL: String = "";
@@ -344,8 +323,6 @@ vars! {
     MURALPAY_API_KEY: String = "none";
     MURALPAY_TRANSFER_API_KEY: String = "none";
     MURALPAY_SOURCE_ACCOUNT_ID: muralpay::AccountId = muralpay::AccountId(uuid::Uuid::nil());
-
-    DEFAULT_AFFILIATE_REVENUE_SPLIT: Decimal = Decimal::new(1, 1);
 
     DATABASE_ACQUIRE_TIMEOUT_MS: u64 = 30000u64;
     DATABASE_MIN_CONNECTIONS: u32 = 0u32;

@@ -235,8 +235,6 @@
 					:edit-profile-link="editProfileLink"
 					:is-modrinth-user="isModrinthUser"
 					:is-official-account="isOfficialAccount"
-					:show-affiliate-badge="isAdminViewing && isAffiliate"
-					:is-affiliate="isAffiliate"
 					:is-self="isSelf"
 					:is-admin="isAdminViewing"
 					:is-staff="isStaffViewing"
@@ -250,7 +248,6 @@
 					@copy-id="copyId"
 					@copy-permalink="copyPermalink"
 					@open-billing="openPath(`/admin/billing/${user.id}`)"
-					@toggle-affiliate="toggleAffiliate"
 					@open-info="openUserDetails"
 					@open-shared-instances="openPath(`/admin/shared-instances/${user.id}`)"
 					@open-analytics="
@@ -263,6 +260,9 @@
 					@force-password-reset="forcePasswordResetModal?.show()"
 					@reset2fa="reset2faModal?.show()"
 				>
+					<template v-if="$slots['header-details']" #badges>
+						<slot name="header-details" :user="user" />
+					</template>
 					<template v-if="isModrinthUser" #summary>
 						<IntlFormatted :message-id="messages.officialAccountBio">
 							<template #support-link>
@@ -942,7 +942,6 @@ function canSeeProjectStatus(project: Labrinth.Projects.v3.Project) {
 }
 
 const canSeeCollectionStatus = computed(() => isSelf.value || isStaffViewing.value)
-const isAffiliate = computed(() => Boolean((user.value?.badges ?? 0) & UserBadge.AFFILIATE))
 const hasMidas = computed(
 	() => Boolean((user.value?.badges ?? 0) & UserBadge.MIDAS) || hasActivePride26Midas(user.value),
 )
@@ -1190,7 +1189,11 @@ async function toggleLock(): Promise<void> {
 	const lockedUser = user.value
 	try {
 		await client.labrinth.moderation_internal.unlockUser(lockedUser.id)
-		await queryClient.invalidateQueries({ queryKey: ['user', props.userId] })
+		await Promise.all(
+			[...new Set([props.userId, lockedUser.id])].map((id) =>
+				queryClient.invalidateQueries({ queryKey: ['user', id] }),
+			),
+		)
 		notificationManager.addNotification({
 			type: 'success',
 			title: formatMessage(messages.unlockUserSuccessTitle),
@@ -1231,13 +1234,5 @@ async function confirmRevokeSessions(): Promise<void> {
 	} finally {
 		isRevokingSessions.value = false
 	}
-}
-
-async function toggleAffiliate(): Promise<void> {
-	if (!user.value) return
-	await userProfile.patchUser(user.value.id, {
-		badges: user.value.badges ^ UserBadge.AFFILIATE,
-	})
-	await queryClient.invalidateQueries({ queryKey: ['user', props.userId] })
 }
 </script>

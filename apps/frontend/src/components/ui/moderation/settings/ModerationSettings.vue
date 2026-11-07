@@ -10,21 +10,29 @@ import {
 	Toggle,
 	useVIntl,
 } from '@modrinth/ui'
-import { computed, ref } from 'vue'
+import { computed, ref, useId } from 'vue'
 
 import { useModerationSettings } from '~/composables/moderation'
 
-defineProps<{
+const props = defineProps<{
 	embedded?: boolean
+	section?: 'public-pages' | 'general'
 }>()
 
 const localhostHostname = 'localhost:3000'
 
 const { formatMessage } = useVIntl()
 const search = ref('')
+const settingsId = useId()
 const messages = defineMessages({
-	title: { id: 'moderation.settings.title', defaultMessage: 'General settings' },
-	search: { id: 'moderation.settings.search', defaultMessage: 'Search settings…' },
+	title: {
+		id: 'moderation.settings.title',
+		defaultMessage: 'General settings',
+	},
+	search: {
+		id: 'moderation.settings.search',
+		defaultMessage: 'Search settings…',
+	},
 	noResults: {
 		id: 'moderation.settings.no-results',
 		defaultMessage: 'No settings match your search.',
@@ -33,9 +41,13 @@ const messages = defineMessages({
 		id: 'moderation.settings.workflow',
 		defaultMessage: 'Review workflow and queue',
 	},
+	panels: {
+		id: 'moderation.settings.panels',
+		defaultMessage: 'Panels',
+	},
 	appearance: {
 		id: 'moderation.settings.appearance',
-		defaultMessage: 'Panels and appearance',
+		defaultMessage: 'Appearance',
 	},
 	shortcuts: {
 		id: 'moderation.settings.shortcuts',
@@ -43,7 +55,11 @@ const messages = defineMessages({
 	},
 	projectPages: {
 		id: 'moderation.settings.project-pages',
-		defaultMessage: 'Public project pages and hosts',
+		defaultMessage: 'Public pages and hosts',
+	},
+	debug: {
+		id: 'moderation.settings.debug',
+		defaultMessage: 'Debug settings',
 	},
 	defaultValue: {
 		id: 'moderation.settings.default-value-styled',
@@ -69,12 +85,19 @@ const groups = [
 		],
 	},
 	{
+		id: 'panels',
+		title: messages.panels,
+		settings: [general.LinkInfoPlacement],
+	},
+	{
 		id: 'appearance',
 		title: messages.appearance,
 		settings: [
-			general.LinkInfoPlacement,
-			general.ShowFloatingPanelFieldHoverHighlight,
-			general.ShowInlinePanelHoverHighlight,
+			general.GalleryColumns,
+			general.ExpandVersionDetailsByDefault,
+			general.ExpandVersionDependenciesByDefault,
+			general.ExpandVersionChangelogByDefault,
+			general.EnableDelayedHoverMessagePreviews,
 			general.PrivateMessageHighlight,
 		],
 	},
@@ -91,16 +114,27 @@ const groups = [
 		id: 'project-pages',
 		title: messages.projectPages,
 		settings: [
+			general.ShowCreatorStatsOnPublicPages,
 			general.EnableProjectKeybinds,
 			general.SlicerButtonInVersions,
 			general.AlternativeHostname,
 		],
+	},
+	{
+		id: 'debug',
+		title: messages.debug,
+		settings: [general.ShowAllIssueControls],
 	},
 ]
 
 const filteredGroups = computed(() => {
 	const query = search.value.trim().toLocaleLowerCase()
 	return groups
+		.filter((group) => {
+			if (props.section === 'public-pages') return group.id === 'project-pages'
+			if (props.section === 'general') return group.id !== 'project-pages'
+			return true
+		})
 		.map((group) => ({
 			...group,
 			settings: group.settings.filter((setting) =>
@@ -112,7 +146,7 @@ const filteredGroups = computed(() => {
 		.filter((group) => group.settings.length)
 })
 
-function defaultLabel(setting: (typeof general)[keyof typeof general]) {
+function defaultLabel(setting: (typeof groups)[number]['settings'][number]) {
 	if (setting.type === 'toggle') return formatMessage(setting.default ? messages.on : messages.off)
 	if (setting.type === 'enum')
 		return (
@@ -126,8 +160,11 @@ const configuredSettings = useModerationSettings()
 
 <template>
 	<div :class="{ 'universal-card': !embedded }">
-		<h2 class="m-0 mb-2.5 text-2xl">{{ formatMessage(messages.title) }}</h2>
+		<h2 class="m-0 mb-2.5 text-2xl">
+			{{ formatMessage(section === 'public-pages' ? messages.projectPages : messages.title) }}
+		</h2>
 		<Input
+			v-if="section !== 'public-pages'"
 			v-model="search"
 			type="search"
 			:icon="SearchIcon"
@@ -138,15 +175,26 @@ const configuredSettings = useModerationSettings()
 		<p v-if="!filteredGroups.length" class="text-secondary" role="status">
 			{{ formatMessage(messages.noResults) }}
 		</p>
-		<section v-for="group in filteredGroups" :key="group.id" class="mt-8">
-			<h3 class="mb-6 text-xl font-semibold">{{ formatMessage(group.title) }}</h3>
+		<section
+			v-for="group in filteredGroups"
+			:key="group.id"
+			:aria-labelledby="section === 'public-pages' ? undefined : `${settingsId}-${group.id}`"
+			:class="section === 'public-pages' ? 'mt-6' : 'mt-8'"
+		>
+			<h3
+				v-if="section !== 'public-pages'"
+				:id="`${settingsId}-${group.id}`"
+				class="mb-6 text-xl font-semibold"
+			>
+				{{ formatMessage(group.title) }}
+			</h3>
 			<div class="flex flex-col gap-6">
 				<div
 					v-for="setting in group.settings"
 					:key="setting.id"
 					class="flex flex-row flex-wrap items-center justify-between gap-2"
 				>
-					<label class="flex-1">
+					<div class="min-w-0 flex-1">
 						<span class="mb-2.5 block font-semibold text-contrast">{{ setting.title }}</span>
 						<span class="block text-secondary">{{ setting.description }}</span>
 						<span class="mt-2.5 block text-xs text-secondary">
@@ -164,7 +212,7 @@ const configuredSettings = useModerationSettings()
 								</template>
 							</IntlFormatted>
 						</span>
-					</label>
+					</div>
 
 					<Toggle
 						v-if="setting.type === 'toggle'"

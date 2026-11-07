@@ -36,6 +36,7 @@
 				:loading-server-ping="loadingServerPing"
 				:players-online="playersOnline"
 				:status-online="statusOnline"
+				:hosting-status="hostingStatus"
 				:ping="ping"
 				:minecraft-server="minecraftServer"
 				:show-instance-play-time="showInstancePlayTime"
@@ -71,19 +72,24 @@
 		<template #actions>
 			<PageHeaderActions>
 				<Button
-					v-if="playing && allowMultiLaunch && !isInstalling"
+					v-if="
+						playing &&
+						allowMultiLaunch &&
+						instance.install_stage === 'installed' &&
+						!instance.quarantined
+					"
 					type="colored"
 					color="brand"
 					size="xl"
 					native-type="button"
-					:disabled="loading"
+					:disabled="loading || stopping"
 					@click="emit('play')"
 				>
 					<PlayIcon />
 					{{ formatMessage(commonMessages.playButton) }}
 				</Button>
 				<Button
-					v-else-if="playing"
+					v-if="playing"
 					type="colored"
 					color="red"
 					size="xl"
@@ -180,11 +186,13 @@
 </template>
 
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth, SharedInstances } from '@modrinth/api-client'
 import {
 	ClockIcon,
 	DownloadIcon,
 	ExternalIcon,
+	EyeIcon,
+	EyeOffIcon,
 	FolderOpenIcon,
 	LockIcon,
 	MoreVerticalIcon,
@@ -215,6 +223,7 @@ import {
 } from '@modrinth/ui'
 import { computed } from 'vue'
 
+import { libraryInstanceMessages } from '@/features/library/messages'
 import type { GameInstance } from '@/helpers/types'
 
 import InstanceHeaderServerMetadata from './instance-page-header-server-metadata.vue'
@@ -290,10 +299,13 @@ const props = withDefaults(
 		stopping?: boolean
 		loadingServerPing?: boolean
 		playersOnline?: number
+		hostingStatus?: SharedInstances.Instances.v1.OnlineStatus
 		statusOnline?: boolean
 		ping?: number
 		minecraftServer?: Labrinth.Projects.v3.Project['minecraft_server']
 		allowMultiLaunch?: boolean
+		canHideFromLibrary?: boolean
+		hiddenFromLibrary?: boolean
 	}>(),
 	{
 		iconSrc: null,
@@ -306,9 +318,12 @@ const props = withDefaults(
 		loadingServerPing: false,
 		playersOnline: undefined,
 		statusOnline: false,
+		hostingStatus: undefined,
 		ping: undefined,
 		minecraftServer: undefined,
 		allowMultiLaunch: false,
+		canHideFromLibrary: false,
+		hiddenFromLibrary: false,
 	},
 )
 
@@ -321,6 +336,7 @@ const emit = defineEmits<{
 	openFolder: []
 	export: []
 	createShortcut: []
+	toggleHidden: []
 	report: [event?: MouseEvent]
 }>()
 
@@ -391,6 +407,24 @@ const moreActions = computed<ButtonMenuOption[]>(() => {
 				icon: ExternalIcon,
 				action: () => emit('createShortcut'),
 			},
+		)
+	}
+
+	if (props.canHideFromLibrary) {
+		actions.push(
+			props.hiddenFromLibrary
+				? {
+						id: 'show-in-library',
+						label: formatMessage(libraryInstanceMessages.showInLibrary),
+						icon: EyeIcon,
+						action: () => emit('toggleHidden'),
+					}
+				: {
+						id: 'hide-from-library',
+						label: formatMessage(libraryInstanceMessages.hideFromLibrary),
+						icon: EyeOffIcon,
+						action: () => emit('toggleHidden'),
+					},
 		)
 	}
 

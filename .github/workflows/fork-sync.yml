@@ -1,9 +1,17 @@
-name: Sync with upstream Modrinth
+name: Sync with upstream Modrinth (manual)
 
 on:
-  schedule:
-    - cron: '0 6 * * *'
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      upstream_tag:
+        description: 'Modrinth release tag (blank for latest stable release)'
+        required: false
+        type: string
+      publish_release:
+        description: 'Also publish a ByteLauncher release after validation'
+        required: false
+        default: false
+        type: boolean
 
 concurrency:
   group: upstream-release-sync
@@ -17,6 +25,7 @@ permissions:
 jobs:
   prepare:
     name: Prepare candidate
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     outputs:
       changed: ${{ steps.prepare.outputs.changed }}
@@ -27,6 +36,7 @@ jobs:
       - name: Check out fork
         uses: actions/checkout@v5
         with:
+          ref: main
           fetch-depth: 0
           token: ${{ secrets.RELEASE_PAT || secrets.GITHUB_TOKEN }}
 
@@ -35,10 +45,12 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
 
-      - name: Merge latest upstream release
+      - name: Merge selected upstream release
         id: prepare
         env:
           GH_TOKEN: ${{ secrets.RELEASE_PAT || secrets.GITHUB_TOKEN }}
+          REQUESTED_TAG: ${{ inputs.upstream_tag }}
+          PUBLISH_RELEASE: ${{ inputs.publish_release }}
         run: |
           set -euo pipefail
           failure_reported=false
@@ -68,10 +80,25 @@ jobs:
           }
           trap report_unhandled_failure EXIT
 
-          git remote add upstream https://github.com/modrinth/code.git
-          git fetch upstream --tags --quiet
+          if [ -n "${REQUESTED_TAG}" ]; then
+            if ! [[ "${REQUESTED_TAG}" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+              echo 'Use a stable release tag such as v0.23.1.' >&2
+              exit 1
+            fi
+            RELEASE_ENDPOINT="repos/modrinth/code/releases/tags/${REQUESTED_TAG}"
+          else
+            RELEASE_ENDPOINT='repos/modrinth/code/releases/latest'
+          fi
+          UPSTREAM_TAG=$(gh api "${RELEASE_ENDPOINT}" --jq 'if (.draft or .prerelease) then error("Select a published stable release") else .tag_name end')
+          if ! [[ "${UPSTREAM_TAG}" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo 'Upstream did not return a stable release tag.' >&2
+            exit 1
+          fi
 
-          UPSTREAM_TAG=$(gh api repos/modrinth/code/releases/latest --jq '.tag_name')
+          git remote add upstream https://github.com/modrinth/code.git
+          UPSTREAM_REF="refs/remotes/upstream/releases/${UPSTREAM_TAG}"
+          git fetch --no-tags upstream "refs/tags/${UPSTREAM_TAG}:${UPSTREAM_REF}"
+          UPSTREAM_SHA=$(git rev-parse "${UPSTREAM_REF}^{commit}")
           BASE_SHA=$(git rev-parse HEAD)
           FORK_TAG="${UPSTREAM_TAG}-fork"
           echo "upstream_tag=${UPSTREAM_TAG}" >> "${GITHUB_OUTPUT}"
@@ -80,13 +107,27 @@ jobs:
           MARKER=.github/last-upstream-release
           LAST=''
           [ -f "${MARKER}" ] && LAST=$(cat "${MARKER}")
-          if [ "${UPSTREAM_TAG}" = "${LAST}" ] && git ls-remote --exit-code --tags origin "refs/tags/${FORK_TAG}" >/dev/null 2>&1; then
-            echo 'changed=false' >> "${GITHUB_OUTPUT}"
-            exit 0
+          if [ -n "${LAST}" ] && [ "${LAST}" != "${UPSTREAM_TAG}" ]; then
+            LAST_REF="refs/remotes/upstream/releases/${LAST}"
+            git fetch --no-tags upstream "refs/tags/${LAST}:${LAST_REF}"
+            if ! git merge-base --is-ancestor "${LAST_REF}^{commit}" "${UPSTREAM_SHA}"; then
+              echo "Select a release newer than the current base ${LAST}; downgrades are not supported." >&2
+              exit 1
+            fi
+          fi
+          if [ "${UPSTREAM_TAG}" = "${LAST}" ] && git merge-base --is-ancestor "${UPSTREAM_SHA}" HEAD; then
+            if [ "${PUBLISH_RELEASE}" != true ] || git ls-remote --exit-code --tags origin "refs/tags/${FORK_TAG}" >/dev/null 2>&1; then
+              echo "Already synced to ${UPSTREAM_TAG}." >> "${GITHUB_STEP_SUMMARY}"
+              if [ "${PUBLISH_RELEASE}" = true ]; then
+                echo "Release tag ${FORK_TAG} already exists. To retry a missing release build, run Fork release on that tag with version ${FORK_TAG}." >> "${GITHUB_STEP_SUMMARY}"
+              fi
+              echo 'changed=false' >> "${GITHUB_OUTPUT}"
+              exit 0
+            fi
           fi
 
-          if [ "${UPSTREAM_TAG}" != "${LAST}" ]; then
-            if ! git merge --no-edit "${UPSTREAM_TAG}"; then
+          if [ "${UPSTREAM_TAG}" != "${LAST}" ] || ! git merge-base --is-ancestor "${UPSTREAM_SHA}" HEAD; then
+            if ! git merge --no-edit "${UPSTREAM_SHA}"; then
               if ! git rev-parse -q --verify MERGE_HEAD >/dev/null; then
                 report_failure "Git could not start the merge of upstream \`${UPSTREAM_TAG}\`. No branch or tag was changed. [Workflow run](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})"
                 exit 1
@@ -130,7 +171,9 @@ jobs:
 
             printf '%s\n' "${UPSTREAM_TAG}" > "${MARKER}"
             git add "${MARKER}"
-            git commit -m "chore: sync with upstream ${UPSTREAM_TAG}"
+            if ! git diff --cached --quiet; then
+              git commit -m "chore: sync with upstream ${UPSTREAM_TAG}"
+            fi
           fi
 
           CANDIDATE_SHA=$(git rev-parse HEAD)
@@ -231,13 +274,14 @@ jobs:
         with:
           name: upstream-sync-candidate
 
-      - name: Publish main and release tag atomically
+      - name: Publish validated main and optional release tag
         id: publish
         env:
           GH_TOKEN: ${{ secrets.RELEASE_PAT || secrets.GITHUB_TOKEN }}
           BASE_SHA: ${{ needs.prepare.outputs.base_sha }}
           CANDIDATE_SHA: ${{ needs.prepare.outputs.candidate_sha }}
           UPSTREAM_TAG: ${{ needs.prepare.outputs.upstream_tag }}
+          PUBLISH_RELEASE: ${{ inputs.publish_release }}
         run: |
           set -euo pipefail
           git fetch origin main --tags
@@ -245,7 +289,7 @@ jobs:
 
           CURRENT_SHA=$(git rev-parse origin/main)
           if [ "${CURRENT_SHA}" != "${BASE_SHA}" ]; then
-            echo "origin/main moved from ${BASE_SHA} to ${CURRENT_SHA}; a later run will retry." >&2
+            echo "origin/main moved from ${BASE_SHA} to ${CURRENT_SHA}; run the manual sync again." >&2
             exit 1
           fi
 
@@ -255,13 +299,18 @@ jobs:
             exit 1
           fi
 
-          FORK_TAG="${UPSTREAM_TAG}-fork"
-          git tag "${FORK_TAG}" "${CANDIDATE_SHA}"
-          git push --atomic origin "${CANDIDATE_SHA}:refs/heads/main" "refs/tags/${FORK_TAG}"
+          if [ "${PUBLISH_RELEASE}" = true ]; then
+            FORK_TAG="${UPSTREAM_TAG}-fork"
+            git tag "${FORK_TAG}" "${CANDIDATE_SHA}"
+            git push --atomic origin "${CANDIDATE_SHA}:refs/heads/main" "refs/tags/${FORK_TAG}"
+          else
+            git push origin "${CANDIDATE_SHA}:refs/heads/main"
+          fi
           echo 'published=true' >> "${GITHUB_OUTPUT}"
+          echo "Synced ByteLauncher to upstream ${UPSTREAM_TAG}. Publish release: ${PUBLISH_RELEASE}." >> "${GITHUB_STEP_SUMMARY}"
 
       - name: Dispatch release when using the workflow token
-        if: steps.publish.outputs.published == 'true' && env.HAS_RELEASE_PAT != 'true'
+        if: inputs.publish_release && steps.publish.outputs.published == 'true' && env.HAS_RELEASE_PAT != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           UPSTREAM_TAG: ${{ needs.prepare.outputs.upstream_tag }}
@@ -275,9 +324,10 @@ jobs:
           GH_TOKEN: ${{ secrets.RELEASE_PAT || secrets.GITHUB_TOKEN }}
           PUBLISHED: ${{ steps.publish.outputs.published }}
           UPSTREAM_TAG: ${{ needs.prepare.outputs.upstream_tag }}
+          PUBLISH_RELEASE: ${{ inputs.publish_release }}
         run: |
           if [ "${PUBLISHED}" = true ]; then
-            details="Upstream \`${UPSTREAM_TAG}\` was pushed to main and tagged, but release workflow dispatch failed. The branch, marker, and release tag have changed. [Workflow run](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})"
+            details="Upstream \`${UPSTREAM_TAG}\` was pushed to main, but a later publish step failed. Publish release requested: ${PUBLISH_RELEASE}. Check this run before retrying: [workflow run](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})"
           else
             details="Publishing validated upstream \`${UPSTREAM_TAG}\` failed. The branch, marker, and release tag were not changed. [Workflow run](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})"
           fi

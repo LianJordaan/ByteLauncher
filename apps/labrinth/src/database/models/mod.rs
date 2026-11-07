@@ -1,16 +1,16 @@
-pub mod affiliate_code_item;
 pub mod analytics_event_item;
 pub mod blocked_user_item;
 pub mod categories;
 pub mod charge_item;
 pub mod collection_item;
+pub mod copyright_archive_item;
 pub mod delphi_report_item;
 pub mod flow_item;
 pub mod friend_item;
+
 pub mod ids;
 pub mod image_item;
-pub mod legacy_loader_fields;
-pub mod loader_fields;
+pub mod loader_item;
 pub mod moderation_external_item;
 pub mod moderation_lock_item;
 pub mod moderation_note_item;
@@ -44,13 +44,14 @@ pub mod user_subscription_item;
 pub mod users_compliance;
 pub mod users_notifications_preferences_item;
 pub mod users_redeemals;
-pub mod users_subscriptions_affiliations;
 pub mod users_subscriptions_credits;
 pub mod version_item;
 
-pub use affiliate_code_item::DBAffiliateCode;
 pub use analytics_event_item::DBAnalyticsEvent;
 pub use collection_item::DBCollection;
+pub use copyright_archive_item::{
+    CopyrightArchive, CopyrightArchiveFile, CopyrightArchiveMeta,
+};
 pub use ids::*;
 pub use image_item::DBImage;
 pub use oauth_client_item::DBOAuthClient;

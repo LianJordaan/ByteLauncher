@@ -17,6 +17,8 @@ export namespace Labrinth {
 				loaders?: string[]
 			}
 
+			export type VersionType = 'release' | 'beta' | 'alpha'
+
 			export type ResolveContentRequest = {
 				project_id: string
 				version_id?: string | null
@@ -24,6 +26,8 @@ export namespace Labrinth {
 				selected?: ResolutionPreferences
 				target?: ResolutionPreferences
 				existing_project_ids?: string[]
+				/** Least stable version type to prefer. Omitted allows every version type. */
+				update_channel?: VersionType | null
 			}
 
 			export type ResolveContentPlan = {
@@ -164,6 +168,16 @@ export namespace Labrinth {
 				total: number
 			}
 
+			export type ResubscribePreview = {
+				subtotal: number
+				tax: number
+				total: number
+				currency_code: string
+				interval: PriceDuration | null
+				due: string
+				payment_method: unknown
+			}
+
 			export type AddPaymentMethodFlowResponse = {
 				client_secret: string
 			}
@@ -276,27 +290,6 @@ export namespace Labrinth {
 				interval: PayoutInterval
 				currency_code: string | null
 				exchange_rate: number | null
-			}
-		}
-	}
-
-	export namespace Affiliate {
-		export namespace Internal {
-			export type AffiliateCode = {
-				id: string
-				created_at: string | null
-				created_by: string | null
-				affiliate: string
-				source_name: string
-			}
-
-			export type CreateRequest = {
-				affiliate?: string
-				source_name: string
-			}
-
-			export type PatchRequest = {
-				source_name: string
 			}
 		}
 	}
@@ -505,12 +498,6 @@ export namespace Labrinth {
 				project_downloads?: Metrics<ProjectDownloadsField, ProjectDownloadsFilters>
 				project_playtime?: Metrics<ProjectPlaytimeField, ProjectPlaytimeFilters>
 				project_revenue?: Metrics<ProjectRevenueField, ProjectRevenueFilters>
-				affiliate_code_clicks?: Metrics<AffiliateCodeClicksField, AffiliateCodeClicksFilters>
-				affiliate_code_conversions?: Metrics<
-					AffiliateCodeConversionsField,
-					AffiliateCodeConversionsFilters
-				>
-				affiliate_code_revenue?: Metrics<AffiliateCodeRevenueField, AffiliateCodeRevenueFilters>
 			}
 
 			export type Metrics<BucketBy, FilterBy> = {
@@ -548,12 +535,6 @@ export namespace Labrinth {
 
 			export type DownloadReason = 'standalone' | 'dependency' | 'modpack' | 'update'
 
-			export type AffiliateCodeClicksField = 'affiliate_code_id'
-
-			export type AffiliateCodeConversionsField = 'affiliate_code_id'
-
-			export type AffiliateCodeRevenueField = 'affiliate_code_id'
-
 			export type ProjectViewsFilters = {
 				domain?: string[]
 				site_path?: string[]
@@ -582,18 +563,6 @@ export namespace Labrinth {
 
 			export type ProjectRevenueFilters = {
 				user_id?: string[]
-			}
-
-			export type AffiliateCodeClicksFilters = {
-				affiliate_code_id?: string[]
-			}
-
-			export type AffiliateCodeConversionsFilters = {
-				affiliate_code_id?: string[]
-			}
-
-			export type AffiliateCodeRevenueFilters = {
-				affiliate_code_id?: string[]
 			}
 
 			export type FetchResponse = {
@@ -659,7 +628,7 @@ export namespace Labrinth {
 						status_to: Projects.v2.ProjectStatus
 				  }
 
-			export type AnalyticsData = ProjectAnalytics | AffiliateCodeAnalytics
+			export type AnalyticsData = ProjectAnalytics
 
 			export type ProjectAnalytics = {
 				source_project: string
@@ -702,27 +671,6 @@ export namespace Labrinth {
 
 			export type ProjectRevenue = {
 				user_id?: string
-				revenue: string
-			}
-
-			export type AffiliateCodeAnalytics = {
-				source_affiliate_code: string
-			} & AffiliateCodeMetrics
-
-			export type AffiliateCodeMetrics =
-				| ({ metric_kind: 'clicks' } & AffiliateCodeClicks)
-				| ({ metric_kind: 'conversions' } & AffiliateCodeConversions)
-				| ({ metric_kind: 'revenue' } & AffiliateCodeRevenue)
-
-			export type AffiliateCodeClicks = {
-				clicks: number
-			}
-
-			export type AffiliateCodeConversions = {
-				conversions: number
-			}
-
-			export type AffiliateCodeRevenue = {
 				revenue: string
 			}
 		}
@@ -846,6 +794,12 @@ export namespace Labrinth {
 			export type Globals = {
 				tax_compliance_thresholds: Record<string, number>
 				captcha_enabled: boolean
+				max_project_icon_size: number
+				max_user_icon_size: number
+				max_organization_icon_size: number
+				max_collection_icon_size: number
+				max_oauth_client_icon_size: number
+				max_gallery_image_size: number
 			}
 		}
 	}
@@ -1167,6 +1121,7 @@ export namespace Labrinth {
 				| 'add-java-address'
 				| 'all-languages'
 				| 'select-compatibility'
+				| 'modpack-version-not-public'
 				| 'select-country'
 				| 'select-language'
 				| 'too-many-languages'

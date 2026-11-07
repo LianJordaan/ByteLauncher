@@ -1,9 +1,9 @@
 # ByteLauncher
 
-A personal fork of the [Modrinth App](https://modrinth.com/app) (`modrinth/code`) that bakes in a **Vencord-style plugin system** — toggle plugins in-app that hide ads, run the same Minecraft instance multiple times, or apply custom CSS/themes. Plugins load on every launch with **no debug port and no background process**.
+An independently maintained fork of the [Modrinth App](https://modrinth.com/app) (`modrinth/code`) that bakes in a **Vencord-style plugin system** — toggle plugins in-app that hide ads, run the same Minecraft instance multiple times, or apply custom CSS/themes. Plugins load on every launch with **no debug port and no background process**.
 
 - **Keeps your data.** Releases ship a standalone `ByteLauncher.exe` (no installer) — put it wherever you like (e.g. `%LOCALAPPDATA%\ByteLauncher\`). It reads the **same data directory** as the Modrinth App (`%AppData%\ModrinthApp\`), so your instances, accounts, settings and worlds are all there automatically and are **never touched**. ByteLauncher and the Modrinth App can even sit side by side.
-- **Stays current.** A scheduled workflow merges each new upstream Modrinth _release_ and publishes a fork build automatically.
+- **Updates on your terms.** Upstream Modrinth updates are optional. Run the manual sync workflow whenever you want, choose a release or use the latest stable version, and publish a ByteLauncher release separately when ready. There is no sync or release schedule.
 - **Built-in plugins.** Hide Ads, Multi-Launch, and Custom CSS — manage them in **Settings → Plugins**.
 
 Add your own plugin by dropping a folder into your plugins directory (open it from **Settings → Plugins → Open plugins folder**) containing a `manifest.json` plus its referenced `.js`/`.css`:
@@ -21,7 +21,7 @@ Add your own plugin by dropping a folder into your plugins directory (open it fr
 }
 ```
 
-See **[MAINTAINING.md](MAINTAINING.md)** for how the fork is built, released, kept in sync with upstream, and how the plugin system works.
+See **[MAINTAINING.md](MAINTAINING.md)** for how the fork is built, released, optionally updated from upstream, and how the plugin system works.
 
 > **Unofficial.** This is a personal build and is **not affiliated with or endorsed by Modrinth (Rinth, Inc.)**. All credit for the underlying app goes to the Modrinth team. Source is kept public per the upstream [COPYING.md](COPYING.md).
 
@@ -51,7 +51,6 @@ This repository contains several projects. For detailed development information,
 | Website       | `apps/frontend`        | [Guide](https://docs.modrinth.com/contributing/knossos/)  |
 | App           | `apps/app`             | [Guide](https://docs.modrinth.com/contributing/theseus/)  |
 | API           | `apps/labrinth`        | [Guide](https://docs.modrinth.com/contributing/labrinth/) |
-| Meta          | `apps/daedalus_client` | [Guide](https://docs.modrinth.com/contributing/daedalus/) |
 | Documentation | `apps/docs`            | [Guide](https://docs.modrinth.com/contributing/docs/)     |
 
 Shared libraries live in `packages/`.
