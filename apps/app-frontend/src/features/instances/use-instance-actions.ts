@@ -10,6 +10,8 @@ import { get_by_instance_id } from '@/helpers/process'
 import type { GameInstance } from '@/helpers/types'
 import { showInstanceInFolder } from '@/helpers/utils.js'
 
+import { injectInstanceLaunchState } from './launch-state'
+
 type ProcessEvent = 'installing' | 'launched' | 'finished'
 
 export type InstanceCard = {
@@ -28,6 +30,7 @@ export function useInstanceActions(
 ) {
 	const { handleError } = injectNotificationManager()
 	const router = useRouter()
+	const instanceLaunch = injectInstanceLaunchState()
 	const instance = computed(() => toValue(instanceSource))
 
 	const playing = ref(false)
@@ -36,6 +39,7 @@ export function useInstanceActions(
 	const modLoading = computed(
 		() =>
 			loading.value ||
+			instanceLaunch.isStarting(instance.value.id) ||
 			currentEvent.value === 'installing' ||
 			(currentEvent.value === 'launched' && !playing.value),
 	)
@@ -53,14 +57,16 @@ export function useInstanceActions(
 
 	const play = async (event: MouseEvent | null, context: string) => {
 		event?.stopPropagation()
-		if (instance.value.quarantined || installing.value || modLoading.value) return
+		if (instance.value.quarantined || installing.value || modLoading.value || playing.value) return
+		const currentInstance = instance.value
 		loading.value = true
-		await run(instance.value.id)
-			.catch((err) => handleSevereError(err, { instanceId: instance.value.id }))
+		await instanceLaunch
+			.run(currentInstance.id, () => run(currentInstance.id))
+			.catch((err) => handleSevereError(err, { instanceId: currentInstance.id }))
 			.finally(() => {
 				trackEvent('InstanceStart', {
-					loader: instance.value.loader,
-					game_version: instance.value.game_version,
+					loader: currentInstance.loader,
+					game_version: currentInstance.game_version,
 					source: context,
 				})
 			})
