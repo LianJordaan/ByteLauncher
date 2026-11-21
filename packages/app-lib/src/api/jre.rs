@@ -670,6 +670,12 @@ pub async fn get_max_memory() -> crate::Result<u64> {
 }
 
 #[cfg(test)]
+fn canonical_temporary_directory() -> tempfile::TempDir {
+	let parent = dunce::canonicalize(std::env::temp_dir()).unwrap();
+	tempfile::tempdir_in(parent).unwrap()
+}
+
+#[cfg(test)]
 mod tests {
 	use super::JavaPackageQuery;
 	#[cfg(unix)]
@@ -749,7 +755,7 @@ mod tests {
 			("tar.gz", tar_gz(&java_entry(), WORKING_JAVA)),
 			("zip", zip_archive(&java_entry(), WORKING_JAVA)),
 		] {
-			let dir = tempfile::tempdir().unwrap();
+			let dir = super::canonical_temporary_directory();
 			let java =
 				install_java_archive(file, archive_type, PACKAGE, dir.path())
 					.await
@@ -765,7 +771,7 @@ mod tests {
 	#[cfg(unix)]
 	#[tokio::test]
 	async fn rejected_archive_leaves_existing_install_untouched() {
-		let dir = tempfile::tempdir().unwrap();
+		let dir = super::canonical_temporary_directory();
 		let java = write_java(dir.path(), BROKEN_JAVA);
 		let file = tar_gz(&format!("{PACKAGE}/readme.txt"), b"no java here");
 		install_java_archive(file, "tar.gz", PACKAGE, dir.path())
@@ -778,7 +784,7 @@ mod tests {
 	#[cfg(unix)]
 	#[tokio::test]
 	async fn broken_install_is_replaced() {
-		let dir = tempfile::tempdir().unwrap();
+		let dir = super::canonical_temporary_directory();
 		let java = write_java(dir.path(), BROKEN_JAVA);
 		let stale = dir.path().join(PACKAGE).join("stale.txt");
 		std::fs::write(&stale, "stale").unwrap();
@@ -793,7 +799,7 @@ mod tests {
 	#[cfg(unix)]
 	#[tokio::test]
 	async fn working_install_is_kept() {
-		let dir = tempfile::tempdir().unwrap();
+		let dir = super::canonical_temporary_directory();
 		write_java(dir.path(), WORKING_JAVA);
 		let marker = dir.path().join(PACKAGE).join("in-use.txt");
 		std::fs::write(&marker, "in use").unwrap();
@@ -808,7 +814,7 @@ mod tests {
 	#[cfg(unix)]
 	#[tokio::test]
 	async fn parallel_installs_of_one_package_all_succeed() {
-		let dir = tempfile::tempdir().unwrap();
+		let dir = super::canonical_temporary_directory();
 		let file = tar_gz(&java_entry(), WORKING_JAVA);
 		let (first, second, third) = tokio::join!(
 			install_java_archive(file.clone(), "tar.gz", PACKAGE, dir.path()),
@@ -828,7 +834,7 @@ mod tests {
 			"zulu-16.jre/Contents/Home/bin/java",
 			"zulu-18.jre/Contents/Home/bin/java",
 		] {
-			let dir = tempfile::tempdir().unwrap();
+			let dir = super::canonical_temporary_directory();
 			let java = dir.path().join(relative);
 			std::fs::create_dir_all(java.parent().unwrap()).unwrap();
 			std::fs::write(&java, b"java").unwrap();
@@ -838,7 +844,7 @@ mod tests {
 
 	#[test]
 	fn rejects_missing_or_ambiguous_macos_java() {
-		let dir = tempfile::tempdir().unwrap();
+		let dir = super::canonical_temporary_directory();
 		assert!(super::macos_java_executable(dir.path()).is_err());
 		for bundle in ["first.jre", "second.jre"] {
 			let java = dir.path().join(bundle).join("Contents/Home/bin/java");
@@ -952,7 +958,7 @@ mod archive_safety_tests {
 			"zulu-test/../outside",
 			"zulu-test/.bytelauncher-java.json",
 		] {
-			let storage = tempfile::tempdir().unwrap();
+			let storage = super::canonical_temporary_directory();
 			let old = existing_java(storage.path(), "zulu-test");
 			let file = archive(path, b"untrusted");
 			assert!(
@@ -976,7 +982,7 @@ mod archive_safety_tests {
 
 	#[tokio::test]
 	async fn failed_staged_runtime_validation_retains_previous_installation() {
-		let storage = tempfile::tempdir().unwrap();
+		let storage = super::canonical_temporary_directory();
 		let old = existing_java(storage.path(), "zulu-test");
 		let relative = java_executable(Path::new("zulu-test"))
 			.to_string_lossy()
@@ -1003,7 +1009,7 @@ mod archive_safety_tests {
 
 	#[tokio::test]
 	async fn installer_checks_vendor_digest_before_extracting_or_publishing() {
-		let storage = tempfile::tempdir().unwrap();
+		let storage = super::canonical_temporary_directory();
 		let directory = "zulu21.54.201-ca-jre21.0.13.1-win_x64";
 		let old = existing_java(storage.path(), directory);
 		let package: managed::Package =

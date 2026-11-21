@@ -1019,11 +1019,12 @@ mod tests {
 
 	#[test]
 	fn rejects_external_runtime_selection() {
-		let root = tempfile::tempdir().unwrap();
+		let temporary = tempfile::tempdir().unwrap();
+		let root = dunce::canonicalize(temporary.path()).unwrap();
 		let external = tempfile::tempdir().unwrap();
 		let java = external.path().join("java");
 		std::fs::write(&java, b"external").unwrap();
-		assert!(owned_selection(root.path(), &java).unwrap().is_none());
+		assert!(owned_selection(&root, &java).unwrap().is_none());
 	}
 
 	#[test]
