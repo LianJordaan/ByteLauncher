@@ -313,7 +313,7 @@ async fn install_java_archive_checked(
 				))?;
 			for index in 0..archive.len() {
 				let mut entry = archive.by_index(index)?;
-				let name = entry.name()?.to_owned();
+				let name = entry.name()?.to_string();
 				managed::validate_archive_entry(
 					Path::new(&name),
 					&archive_directory,
