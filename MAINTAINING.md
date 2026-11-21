@@ -5,8 +5,9 @@ ByteLauncher is an independently maintained fork of `modrinth/code`. Its
 features and releases follow their own pace. Upstream remains available as a
 reference; there is no requirement to pull or merge each Modrinth release.
 
-The current source update adopts upstream **v0.23.1**, following the previously
-shipped **v0.22.0** base. Updating source does not publish a new ByteLauncher release.
+The current source update adopts upstream **v0.23.4**. The latest published
+ByteLauncher release remains [**v0.22.0-fork**](https://github.com/LianJordaan/ByteLauncher/releases/tag/v0.22.0-fork).
+Updating source does not publish a new ByteLauncher release.
 
 ## The patch set at a glance
 
@@ -38,7 +39,7 @@ Node toolchain. Everything builds in **GitHub Actions**:
 - **`fork-release.yml`** — builds the standalone `ByteLauncher.exe` (`--no-bundle`,
   no installer) and publishes it as a GitHub Release asset. Triggered by pushing a
   `v*` tag, or manually via **Actions → Fork release → Run workflow** with a version
-	like `v0.23.1-fork.1`. To install: drop `ByteLauncher.exe` anywhere (e.g.
+	like `v0.23.4-fork.1`. To install: drop `ByteLauncher.exe` anywhere (e.g.
   `%LOCALAPPDATA%\ByteLauncher\`); it reads the shared `%AppData%\ModrinthApp\` data.
 - **`fork-sync.yml`** — manual upstream sync. Merges a selected release into a
 	candidate and validates a Windows build before updating `main`. Publishing a
@@ -64,8 +65,8 @@ preserving ByteLauncher customizations before trying again.
 
 ## Cutting a release manually
 
-1. **Actions → Fork release → Run workflow**, enter a version (e.g. `v0.23.1-fork.1`), or
-2. push a tag: `git tag v0.23.1-fork.1 && git push origin v0.23.1-fork.1`.
+1. **Actions → Fork release → Run workflow**, enter a version (e.g. `v0.23.4-fork.1`), or
+2. push a tag: `git tag v0.23.4-fork.1 && git push origin v0.23.4-fork.1`.
 
 The build sets the app version from the tag so the in-app update banner can
 compare against it.
@@ -75,7 +76,7 @@ compare against it.
 1. Open **Actions → Sync with upstream Modrinth → Run workflow** and select
 	**main**. The workflow accepts runs from `main` only and explicitly checks out
 	that branch.
-2. Optionally enter an **`upstream_tag`**, such as `v0.23.1`. Leave it blank to
+2. Optionally enter an **`upstream_tag`**, such as `v0.23.4`. Leave it blank to
 	select Modrinth's latest stable release. Older bases are rejected to prevent
 	accidental downgrades.
 3. Leave **`publish_release`** unchecked to update source only. Check it to also
@@ -92,7 +93,7 @@ The upstream marker and Git ancestry identify releases already integrated into
 the source. Running a source-only sync for that same base is a no-op. You can
 request publication for the current base later; existing release tags are never
 moved. For subsequent ByteLauncher feature releases on that base, use a new
-version such as `v0.23.1-fork.1` through **Fork release**.
+version such as `v0.23.4-fork.1` through **Fork release**.
 
 If a release tag exists but its build or dispatch failed, sync will leave the tag
 in place. Retry **Fork release** manually on that tag with the same version.
@@ -101,6 +102,34 @@ in place. Retry **Fork release** manually on that tag with the same version.
 tag can trigger `fork-release.yml`. Without it, the sync uses `GITHUB_TOKEN` and
 explicitly dispatches the release workflow when `publish_release` is selected.
 There is no scheduled retry or automatic adoption of future upstream releases.
+
+## Managed Java maintenance
+
+Java maintenance preserves each Minecraft instance's required Java **major**
+version. It selects the latest generally available (GA), community-available
+(CA) Azul package dynamically from vendor metadata and verifies the downloaded
+archive against the vendor checksum. It stages and validates a replacement
+beside the existing distribution before switching global Java selections and
+affected instance override paths. External, user-provided Java installations
+are neither replaced nor removed.
+
+The app checks managed Java at startup and retries deferred maintenance in its
+existing **600-second** maintenance loop. Successful freshness checks are cached
+for about **one hour**, avoiding a vendor request on every launch. Offline or
+failed checks can retry later. These are app-runtime maintenance checks; upstream
+source syncing and ByteLauncher publication remain manual.
+
+Cleanup removes only obsolete distributions inside the app-managed Java area.
+It defers removal while games, installation work, or runtime-cache leases make
+those files unsafe to remove. It must never expand into general cleanup of the
+shared user-data directory.
+
+Keep upstream v0.23.4's Java4Shell workaround (`-XX:-UseBASE64Intrinsics` for
+supported Java versions) effective **after custom JVM arguments**. Updating Java
+and retaining this workaround are security mitigations, not proof of exploit
+immunity. Run compiled tests and validate update, launch, and deferred-cleanup
+behavior in the app before publishing a release; source inspection alone does
+not establish that runtime validation has passed.
 
 ## Enabling the bundled auto-updater (later)
 
@@ -136,7 +165,9 @@ Preserve user data across the upgrade from a real Modrinth install:
 - **Bundle `identifier` = `"ModrinthApp"`** — the ONLY load-bearing constant. The
   data dir is `dirs::data_dir()/<identifier>` = `%AppData%\ModrinthApp\`, set via
   `State::init(app.config().identifier.clone())`. Never rename it.
-- No cleanup of the data directory anywhere.
+- Never perform broad cleanup of the shared data directory. Managed Java cleanup
+	is limited to the guarded runtime maintenance described above; preserve user
+	instances, accounts, settings, worlds, and plugins.
 - `productName`/`mainBinaryName` = `"ByteLauncher"` (rebranded from `Modrinth App`
   for Modrinth-terms compliance → `ByteLauncher.exe`). These do NOT affect the data
   dir, so the rename kept zero data loss — do not restore the Modrinth trademark.

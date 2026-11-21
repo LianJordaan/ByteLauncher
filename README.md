@@ -2,9 +2,12 @@
 
 An independently maintained fork of the [Modrinth App](https://modrinth.com/app) (`modrinth/code`) that bakes in a **Vencord-style plugin system** — toggle plugins in-app that hide ads, run the same Minecraft instance multiple times, or apply custom CSS/themes. Plugins load on every launch with **no debug port and no background process**.
 
-- **Keeps your data.** Releases ship a standalone `ByteLauncher.exe` (no installer) — put it wherever you like (e.g. `%LOCALAPPDATA%\ByteLauncher\`). It reads the **same data directory** as the Modrinth App (`%AppData%\ModrinthApp\`), so your instances, accounts, settings and worlds are all there automatically and are **never touched**. ByteLauncher and the Modrinth App can even sit side by side.
+- **Keeps your data.** Releases ship a standalone `ByteLauncher.exe` (no installer) — put it wherever you like (e.g. `%LOCALAPPDATA%\ByteLauncher\`). It reads the **same data directory** as the Modrinth App (`%AppData%\ModrinthApp\`), so your instances, accounts, settings and worlds carry over automatically. ByteLauncher and the Modrinth App can even sit side by side.
 - **Updates on your terms.** Upstream Modrinth updates are optional. Run the manual sync workflow whenever you want, choose a release or use the latest stable version, and publish a ByteLauncher release separately when ready. There is no sync or release schedule.
 - **Built-in plugins.** Hide Ads, Multi-Launch, and Custom CSS — manage them in **Settings → Plugins**.
+- **Managed Java maintenance.** The launcher checks its own Java installations for updates within the required major version, validates replacements before switching paths, and defers old-runtime cleanup while games or installs are active. User-provided Java installations are preserved.
+
+Current source incorporates Modrinth **v0.23.4**. The latest published ByteLauncher release remains **[v0.22.0-fork](https://github.com/LianJordaan/ByteLauncher/releases/tag/v0.22.0-fork)**; these source changes do not publish a new build. The Java security changes still require compiled-test and app-runtime validation before release; they are not a guarantee against every exploit.
 
 Add your own plugin by dropping a folder into your plugins directory (open it from **Settings → Plugins → Open plugins folder**) containing a `manifest.json` plus its referenced `.js`/`.css`:
 
@@ -60,6 +63,12 @@ Shared libraries live in `packages/`.
 We welcome contributions! Before submitting any contributions, please read our [contributing guidelines](https://docs.modrinth.com/contributing/getting-started/).
 
 If you plan to fork this repository for your own purposes, please review our [copying guidelines](COPYING.md).
+
+## Sponsors
+
+[![CI powered by Namespace](https://namespace.so/oss/badge.svg)](https://namespace.so/github-actions/?utm_source=oss&utm_campaign=modrinth)
+
+Thanks to [Namespace](https://namespace.so/github-actions/?utm_source=oss&utm_campaign=modrinth) for sponsoring Modrinth's CI.
 
 ## Security
 

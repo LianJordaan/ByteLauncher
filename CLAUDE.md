@@ -20,16 +20,36 @@ A "Vencord for the Modrinth App": a forked Modrinth desktop app (Tauri v2 + WebV
 - **Don't install or run things on the user's PC without asking.** Git ops and writing files are fine; building/running the app or installing toolchains needs explicit OK.
 - **`gh` CLI is NOT installed.** Use plain `git` (SSH auth works as LianJordaan) or the GitHub REST API via `curl`/Python (unauthenticated = 60 req/hr).
 - **Keep the patch set thin** (new files + a few one-line hooks) so `git merge <upstream-tag>` rarely conflicts.
-- **Ship carefully:** the proven loop is *write code → run a Workflow of review agents (compile / vue-tsc / logic / safety) → fix findings → commit → tag `v0.23.1-fork.N` → poll the CI run until it concludes*. Risky native code (exe swap, launcher changes) gets adversarially reviewed before tagging.
+- **Ship carefully:** the proven loop is *write code → run a Workflow of review agents (compile / vue-tsc / logic / safety) → fix findings → commit → tag `v0.23.4-fork.N` → poll the CI run until it concludes*. Risky native code (exe swap, launcher changes) gets adversarially reviewed before tagging.
 - **Indentation:** Rust files use **4 spaces** (rustfmt); frontend (JS/Vue) uses **tabs**. (The upstream "use TAB everywhere" note below is about the frontend.)
 
 ## Current status
 
-The source update adopts upstream **v0.23.1**, following the previously shipped **v0.22.0** base. This records the source being adopted, not a newly published ByteLauncher release. ByteLauncher is fully rebranded, defaults to a purple theme, and retains its plugins, Multi-Launch, hosting integration, and custom updater. Published releases provide a standalone `ByteLauncher.exe` plus online and offline NSIS installers; the shared `ModrinthApp` data identifier stays unchanged.
+The source update adopts upstream **v0.23.4**. The latest published ByteLauncher release remains [**v0.22.0-fork**](https://github.com/LianJordaan/ByteLauncher/releases/tag/v0.22.0-fork); this source update does not publish a new release. ByteLauncher is fully rebranded, defaults to a purple theme, and retains its plugins, Multi-Launch, hosting integration, and custom updater. Published releases provide a standalone `ByteLauncher.exe` plus online and offline NSIS installers; the shared `ModrinthApp` data identifier stays unchanged.
 
 Upstream sync is **manual only**. Keep developing and releasing ByteLauncher independently, and merge a chosen upstream release when useful. Do not restore a schedule or assume every Modrinth release must be pulled. Run **Actions → Sync with upstream Modrinth** from `main`, optionally select `upstream_tag` (blank selects latest stable), and leave `publish_release` off unless the owner wants a release as part of that sync. The candidate Windows build must pass before the workflow updates `main`.
 
 The **bundled Tauri auto-updater** remains optional and disabled pending a signing key; the custom in-app updater already handles published ByteLauncher releases. **`RELEASE_PAT` is optional**: a selected sync release can be explicitly dispatched with `GITHUB_TOKEN` when no PAT is configured.
+
+## Managed Java security maintenance
+
+Preserve each instance's required Java major version. Resolve the latest GA/CA
+Azul package dynamically from vendor metadata, verify its vendor checksum, and
+validate a side-by-side replacement before changing global Java selections or
+instance override paths. Never replace or remove external user-provided Java.
+
+Startup maintenance retries in the existing **600-second** loop; successful
+freshness checks are cached for about **one hour**. Cleanup is restricted to
+obsolete app-managed Java distributions and defers while games, installations,
+or runtime-cache leases may still use them. This app maintenance does not enable
+scheduled upstream sync or automatic release publication.
+
+Keep the upstream Java4Shell Base64-intrinsics workaround effective after custom
+JVM arguments. These changes mitigate risk without establishing exploit immunity.
+Compiled tests and actual app validation of updates, launches, and deferred
+cleanup are required before release; do not describe source review as completed
+runtime verification. See [MAINTAINING.md](MAINTAINING.md) for the maintenance
+contract.
 
 ## What's built — feature map
 
@@ -54,7 +74,7 @@ The **bundled Tauri auto-updater** remains optional and disabled pending a signi
 
 ## Migration safety — do NOT change
 
-- **Bundle `identifier` = `"ModrinthApp"`** (in `apps/app/tauri.conf.json`) is the load-bearing constant: the data dir is `dirs::data_dir()/<identifier>` = `%AppData%\ModrinthApp\` (instances/accounts/settings), wired via `State::init(app.config().identifier.clone())`. **Never change `identifier`** and never add data-dir cleanup — that is what preserves user data.
+- **Bundle `identifier` = `"ModrinthApp"`** (in `apps/app/tauri.conf.json`) is the load-bearing constant: the data dir is `dirs::data_dir()/<identifier>` = `%AppData%\ModrinthApp\` (instances/accounts/settings), wired via `State::init(app.config().identifier.clone())`. **Never change `identifier`** or add broad user-data cleanup. Only the guarded app-managed Java maintenance described above may remove obsolete Java distributions; preserve instances, accounts, settings, worlds, and plugins.
 - `productName`/`mainBinaryName` are `"ByteLauncher"` (compliance rebrand — exe `ByteLauncher.exe` in `%LOCALAPPDATA%\ByteLauncher\`). These are **independent of the data dir**, so the rename kept zero data loss. Do **not** "restore" them to `Modrinth App` — that re-introduces the Modrinth trademark the fork must not use.
 - The updater endpoint in `apps/app/tauri-release.conf.json` points at the fork's releases — **never** repoint it to `launcher-files.modrinth.com` (that would auto-update the fork back into real Modrinth).
 - **Never add fork-only DB migrations.** `app.db` is **shared** with the real Modrinth App (same identifier), so a fork-only migration writes a `_sqlx_migrations` row upstream doesn't recognize → Modrinth (or a fork build that later drops it) refuses to start: *"migration X was previously applied but is missing in the resolved migrations."* Do fork-specific data changes in **app logic**, not migrations — e.g. default-purple is set in `App.vue` `setupApp()` on fresh (not-yet-onboarded) installs, and writes only a settings *value* (`theme='purple'`, which Modrinth safely reads as its Dark fallback). `packages/app-lib/src/state/db.rs` `remove_fork_only_migrations()` self-heals by deleting the one legacy bad row (`20260712120000`) before `migrate()`. (This bit a user in fork.9–11; fixed in fork.12.)

@@ -163,7 +163,7 @@
 								tone: 'red',
 								hoverFilled: true,
 								action: () =>
-									auth.user ? reportVersion(version.id) : navigateTo(getSignInRouteObj(route)),
+									auth.user ? reportVersion(version.id) : promptAuth(getSignInRouteObj(route)),
 								shown: !currentMember,
 							},
 							{ type: 'divider', shown: isStaff(auth.user) },
@@ -331,6 +331,7 @@ import { onMounted, useTemplateRef, watch } from 'vue'
 import CreateProjectVersionModal from '~/components/ui/create-project-version/CreateProjectVersionModal.vue'
 import ProjectC2paScanModal from '~/components/ui/moderation/ProjectC2paScanModal.vue'
 import { getSignInRouteObj } from '~/composables/auth.ts'
+import { promptAuth } from '~/composables/auth-modal.ts'
 import { useVersionDownload } from '~/composables/version-download.ts'
 import { reportVersion } from '~/utils/report-helpers.ts'
 
@@ -366,6 +367,20 @@ const showVersionsLoadingState = computed(
 // Load versions on mount (client-side)
 onMounted(() => {
 	loadVersions()
+})
+
+const title = computed(() => (project.value ? `${project.value.title} - Versions` : 'Versions'))
+const description = computed(() =>
+	project.value
+		? `View and download ${project.value.versions?.length ?? 0} versions of ${project.value.title} on Modrinth.`
+		: '',
+)
+
+useSeoMeta({
+	title,
+	description,
+	ogTitle: title,
+	ogDescription: description,
 })
 
 const deleteVersionModal = ref()

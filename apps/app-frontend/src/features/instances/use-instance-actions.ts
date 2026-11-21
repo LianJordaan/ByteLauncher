@@ -57,7 +57,13 @@ export function useInstanceActions(
 
 	const play = async (event: MouseEvent | null, context: string) => {
 		event?.stopPropagation()
-		if (instance.value.quarantined || installing.value || modLoading.value || playing.value) return
+		if (
+			instance.value.launch_blocked ||
+			installing.value ||
+			modLoading.value ||
+			playing.value
+		)
+			return
 		const currentInstance = instance.value
 		loading.value = true
 		await instanceLaunch
@@ -96,7 +102,7 @@ export function useInstanceActions(
 	}
 
 	const addContent = async () => {
-		if (instance.value.quarantined || installing.value || modLoading.value) return
+		if (instance.value.content_locked || installing.value || modLoading.value) return
 		await navigate({
 			path: `/browse/${instance.value.loader === 'vanilla' ? 'datapack' : 'mod'}`,
 			query: { i: instance.value.id },

@@ -62,6 +62,14 @@ jobs:
       - name: Build standalone Windows exe (no installer)
         run: pnpm --filter=@modrinth/app run tauri build --no-bundle
 
+      - name: Test managed Java updates and security flags
+        env:
+          SQLX_OFFLINE: 'true'
+        run: |
+          cargo test --release --locked -p theseus --lib jre
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          cargo test --release --locked -p theseus --lib java_security_tests
+
       - name: Collect standalone exe
         shell: bash
         run: |

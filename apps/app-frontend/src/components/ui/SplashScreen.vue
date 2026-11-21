@@ -51,8 +51,8 @@
 						<tspan fill="var(--color-brand)">Launcher</tspan>
 					</text>
 				</svg>
-				<ProgressBar class="loading-bar" :progress="Math.min(loadingProgress, 100)" />
-				<span v-if="message">{{ message }}</span>
+				<ProgressBar class="loading-bar" :progress="progress" />
+				<span v-if="message" class="text-secondary">{{ message }}</span>
 			</div>
 			<div class="gradient-bg" data-tauri-drag-region></div>
 			<div class="cube-bg"></div>
@@ -62,8 +62,8 @@
 </template>
 
 <script setup>
-import { injectLoadingState } from '@modrinth/ui'
-import { onMounted, ref, watch } from 'vue'
+import { defineMessages, injectLoadingState, useVIntl } from '@modrinth/ui'
+import { computed, onMounted, ref, watch } from 'vue'
 
 import ProgressBar from '@/components/ui/ProgressBar.vue'
 import { useAppEvent } from '@/composables/use-app-event'
@@ -71,10 +71,27 @@ import { useTheme } from '@/composables/use-theme.ts'
 import { debugStartup } from '@/helpers/startup-debug'
 
 const theme = useTheme()
+const { formatMessage } = useVIntl()
+
+const messages = defineMessages({
+	movingAppDirectory: {
+		id: 'app.splash.moving-app-directory',
+		defaultMessage: 'Moving your app directory...',
+	},
+})
 
 const doneLoading = ref(false)
 const loadingProgress = ref(0)
-const message = ref()
+const directoryMoveFraction = ref(null)
+
+const progress = computed(() =>
+	directoryMoveFraction.value === null
+		? Math.min(loadingProgress.value, 100)
+		: directoryMoveFraction.value * 100,
+)
+const message = computed(() =>
+	directoryMoveFraction.value === null ? null : formatMessage(messages.movingAppDirectory),
+)
 
 const MIN_DISPLAY_MS = 500
 const mountedAt = Date.now()
@@ -128,8 +145,7 @@ function fakeLoadingIncrease() {
 
 useAppEvent('loading', (e) => {
 	if (e.event.type === 'directory_move') {
-		loadingProgress.value = 100 * (e.fraction ?? 1)
-		message.value = 'Updating app directory...'
+		directoryMoveFraction.value = e.fraction ?? null
 	}
 })
 </script>
