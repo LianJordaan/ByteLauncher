@@ -232,11 +232,20 @@ pub(super) fn validate_archive_entry(
 	name: &Path,
 	directory: &str,
 ) -> crate::Result<()> {
+	if name.to_string_lossy().contains(['\\', ':']) {
+		bail!("Java archive contains an unsafe path separator");
+	}
+	validate_archive_components(name, directory)
+}
+
+fn validate_archive_components(
+	name: &Path,
+	directory: &str,
+) -> crate::Result<()> {
 	let mut components = name.components();
 	if components.next() != Some(Component::Normal(directory.as_ref()))
 		|| components
 			.any(|component| !matches!(component, Component::Normal(_)))
-		|| name.to_string_lossy().contains(['\\', ':'])
 		|| name == Path::new(directory).join(RECEIPT)
 	{
 		bail!("Java archive contains a path outside its package directory");
@@ -250,6 +259,7 @@ pub(super) fn validate_archive_link(
 	directory: &str,
 	hard: bool,
 ) -> crate::Result<()> {
+	validate_archive_entry(path, directory)?;
 	if target.is_absolute() || target.to_string_lossy().contains(['\\', ':']) {
 		bail!("Java archive contains an unsafe link");
 	}
@@ -268,7 +278,7 @@ pub(super) fn validate_archive_link(
 			_ => bail!("Java archive link escapes its package directory"),
 		}
 	}
-	validate_archive_entry(&resolved, directory)
+	validate_archive_components(&resolved, directory)
 }
 
 pub(super) fn validate_java_path(
@@ -994,6 +1004,61 @@ mod tests {
 		);
 		for name in ["", ".", "..", "C:", "a/b", "a\\b"] {
 			assert!(!safe_component(name));
+		}
+	}
+
+	#[test]
+	fn validates_resolved_links_without_accepting_raw_windows_paths() {
+		let path = Path::new("zulu/legal/license");
+		assert!(
+			validate_archive_link(path, Path::new("../LICENSE"), "zulu", false)
+				.is_ok()
+		);
+		assert!(
+			validate_archive_link(
+				path,
+				Path::new("zulu/LICENSE"),
+				"zulu",
+				true
+			)
+			.is_ok()
+		);
+		for target in [
+			"../../outside",
+			"../LICENSE\\other",
+			"../C:/LICENSE",
+			"../.bytelauncher-java.json",
+		] {
+			assert!(
+				validate_archive_link(path, Path::new(target), "zulu", false)
+					.is_err(),
+				"{target}"
+			);
+		}
+		assert!(
+			validate_archive_link(
+				path,
+				Path::new("zulu/.bytelauncher-java.json"),
+				"zulu",
+				true
+			)
+			.is_err()
+		);
+		for source in [
+			"zulu\\legal\\license",
+			"zulu/legal/C:license",
+			"zulu/.bytelauncher-java.json",
+		] {
+			assert!(
+				validate_archive_link(
+					Path::new(source),
+					Path::new("../LICENSE"),
+					"zulu",
+					false
+				)
+				.is_err(),
+				"{source}"
+			);
 		}
 	}
 
