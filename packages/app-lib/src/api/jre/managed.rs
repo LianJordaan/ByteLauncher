@@ -200,6 +200,34 @@ fn legacy_name_version(name: &str) -> Option<JavaRelease> {
 	JavaRelease::parse(NAME.captures(name)?.get(1)?.as_str())
 }
 
+fn distro_version_from_name(name: &str) -> Option<Vec<u32>> {
+	let (distribution, _) = name.strip_prefix("zulu")?.split_once("-ca-")?;
+	let mut version = distribution
+		.split('.')
+		.map(str::parse::<u32>)
+		.collect::<Result<Vec<_>, _>>()
+		.ok()?;
+	while version.len() > 1 && version.last() == Some(&0) {
+		version.pop();
+	}
+	Some(version)
+}
+
+fn package_is_newer(
+	package: &Package,
+	current: &JavaRelease,
+	distro_version: &[u32],
+) -> bool {
+	let Some(desired) = package.release() else {
+		return false;
+	};
+	let mut distro = package.distro_version.as_slice();
+	while distro.len() > 1 && distro.last() == Some(&0) {
+		distro = &distro[..distro.len() - 1];
+	}
+	desired > *current || (desired == *current && distro > distro_version)
+}
+
 pub(super) fn validate_archive_entry(
 	name: &Path,
 	directory: &str,
@@ -419,6 +447,13 @@ struct OwnedJava {
 	directory: PathBuf,
 	executable: PathBuf,
 	release: JavaRelease,
+	distro_version: Vec<u32>,
+}
+
+impl OwnedJava {
+	fn rank(&self) -> (&JavaRelease, &[u32]) {
+		(&self.release, &self.distro_version)
+	}
 }
 
 fn release_properties(path: &Path) -> crate::Result<HashMap<String, String>> {
@@ -449,6 +484,8 @@ fn owned_distribution(
 	let Some(named_version) = legacy_name_version(name) else {
 		return Ok(None);
 	};
+	let distro_version = distro_version_from_name(name)
+		.context("invalid Azul distribution version")?;
 	#[cfg(target_os = "macos")]
 	let executable = super::macos_java_executable(directory)?;
 	#[cfg(not(target_os = "macos"))]
@@ -521,6 +558,7 @@ fn owned_distribution(
 		directory: directory.to_path_buf(),
 		executable,
 		release,
+		distro_version,
 	}))
 }
 
@@ -577,7 +615,7 @@ fn replacement_for_selection(
 	let replacement_path = owned_selection(root, selected)?
 		.filter(|owned| {
 			owned.release.version[0] == replacement.release.version[0]
-				&& owned.release <= replacement.release
+				&& owned.rank() <= replacement.rank()
 		})
 		.map(|_| replacement_path(selected, &replacement.executable));
 	if let Some(path) = &replacement_path {
@@ -660,7 +698,7 @@ async fn refresh_inner(
 		|| owned.release.clone(),
 		|release| release.max(owned.release.clone()),
 	);
-	if desired <= current {
+	if !package_is_newer(&package, &current, &owned.distro_version) {
 		record_success(state, major, &package);
 		return Ok(selected.clone());
 	}
@@ -755,7 +793,7 @@ pub(crate) async fn refresh_managed_java_at_startup(
 			.push(java);
 	}
 	for (major, mut candidates) in majors {
-		candidates.sort_by(|left, right| right.release.cmp(&left.release));
+		candidates.sort_by(|left, right| right.rank().cmp(&left.rank()));
 		for owned in candidates {
 			match crate::util::jre::check_java_at_filepath(&owned.executable)
 				.await
@@ -843,10 +881,15 @@ pub(crate) async fn cleanup_old_managed_java(
 		{
 			newest
 				.entry(java.release.version[0])
-				.and_modify(|version: &mut JavaRelease| {
-					*version = (*version).clone().max(java.release.clone())
+				.and_modify(|version: &mut (JavaRelease, Vec<u32>)| {
+					*version = (*version).clone().max((
+						java.release.clone(),
+						java.distro_version.clone(),
+					))
 				})
-				.or_insert_with(|| java.release.clone());
+				.or_insert_with(|| {
+					(java.release.clone(), java.distro_version.clone())
+				});
 		}
 	}
 	let mut protected = HashSet::new();
@@ -875,10 +918,9 @@ pub(crate) async fn cleanup_old_managed_java(
 	let root = dunce::canonicalize(state.directories.metadata_dir())?;
 	for java in distributions {
 		if protected.contains(&java.directory)
-			|| newest
-				.get(&java.release.version[0])
-				.is_none_or(|version| *version <= java.release)
-		{
+			|| newest.get(&java.release.version[0]).is_none_or(|version| {
+				(&version.0, version.1.as_slice()) <= java.rank()
+			}) {
 			continue;
 		}
 		let file = runtime_cache::RuntimeFile {
@@ -993,6 +1035,37 @@ mod tests {
 		assert!(second.release() > first.release());
 		first.java_version = vec![21, 0, 14];
 		assert!(first.release() > second.release());
+	}
+
+	#[test]
+	fn refreshes_newer_vendor_build_without_downgrading_java() {
+		let mut package: Package = serde_json::from_value(serde_json::json!({
+			"download_url": "https://cdn.azul.com/zulu/bin/runtime.zip",
+			"name": "runtime.zip",
+			"package_uuid": "id",
+			"java_version": [21, 0, 13, 1],
+			"openjdk_build_number": 2,
+			"distro_version": [21, 54, 201, 0]
+		}))
+		.unwrap();
+		let current = JavaRelease::parse("21.0.13.1+2").unwrap();
+		assert!(package_is_newer(&package, &current, &[21, 54, 200]));
+		assert!(!package_is_newer(&package, &current, &[21, 54, 201]));
+		assert!(!package_is_newer(&package, &current, &[21, 54, 202]));
+		assert_eq!(
+			distro_version_from_name("zulu21.54.201.0-ca-jre21.0.13.1-win_x64"),
+			Some(vec![21, 54, 201])
+		);
+		package.distro_version = vec![999, 999, 999];
+		assert!(!package_is_newer(
+			&package,
+			&JavaRelease::parse("21.0.14+1").unwrap(),
+			&[1]
+		));
+		package.openjdk_build_number = 1;
+		assert!(!package_is_newer(&package, &current, &[1]));
+		package.openjdk_build_number = 3;
+		assert!(package_is_newer(&package, &current, &[9999]));
 	}
 }
 
