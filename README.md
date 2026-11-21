@@ -7,7 +7,7 @@ An independently maintained fork of the [Modrinth App](https://modrinth.com/app)
 - **Built-in plugins.** Hide Ads, Multi-Launch, and Custom CSS — manage them in **Settings → Plugins**.
 - **Managed Java maintenance.** The launcher checks its own Java installations for updates within the required major version, validates replacements before switching paths, and defers old-runtime cleanup while games or installs are active. User-provided Java installations are preserved.
 
-Current source incorporates Modrinth **v0.23.4**. The latest published ByteLauncher release remains **[v0.22.0-fork](https://github.com/LianJordaan/ByteLauncher/releases/tag/v0.22.0-fork)**; these source changes do not publish a new build. The Java security changes still require compiled-test and app-runtime validation before release; they are not a guarantee against every exploit.
+Current ByteLauncher release: **[v0.23.4-fork.1](https://github.com/LianJordaan/ByteLauncher/releases/tag/v0.23.4-fork.1)**, based on Modrinth **v0.23.4**. CI passed **35 compiled Rust tests** and built the Windows app plus both installers. Interactive managed-Java migration and cleanup smoke testing remains outstanding.
 
 Add your own plugin by dropping a folder into your plugins directory (open it from **Settings → Plugins → Open plugins folder**) containing a `manifest.json` plus its referenced `.js`/`.css`:
 

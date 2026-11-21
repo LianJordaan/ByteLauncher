@@ -25,7 +25,7 @@ A "Vencord for the Modrinth App": a forked Modrinth desktop app (Tauri v2 + WebV
 
 ## Current status
 
-The source update adopts upstream **v0.23.4**. The latest published ByteLauncher release remains [**v0.22.0-fork**](https://github.com/LianJordaan/ByteLauncher/releases/tag/v0.22.0-fork); this source update does not publish a new release. ByteLauncher is fully rebranded, defaults to a purple theme, and retains its plugins, Multi-Launch, hosting integration, and custom updater. Published releases provide a standalone `ByteLauncher.exe` plus online and offline NSIS installers; the shared `ModrinthApp` data identifier stays unchanged.
+The source adopts upstream **v0.23.4**. The latest published ByteLauncher release is [**v0.23.4-fork.1**](https://github.com/LianJordaan/ByteLauncher/releases/tag/v0.23.4-fork.1); source syncing and release publication remain separate, manual actions. ByteLauncher is fully rebranded, defaults to a purple theme, and retains its plugins, Multi-Launch, hosting integration, and custom updater. Published releases provide a standalone `ByteLauncher.exe` plus online and offline NSIS installers; the shared `ModrinthApp` data identifier stays unchanged.
 
 Upstream sync is **manual only**. Keep developing and releasing ByteLauncher independently, and merge a chosen upstream release when useful. Do not restore a schedule or assume every Modrinth release must be pulled. Run **Actions → Sync with upstream Modrinth** from `main`, optionally select `upstream_tag` (blank selects latest stable), and leave `publish_release` off unless the owner wants a release as part of that sync. The candidate Windows build must pass before the workflow updates `main`.
 
@@ -46,10 +46,11 @@ scheduled upstream sync or automatic release publication.
 
 Keep the upstream Java4Shell Base64-intrinsics workaround effective after custom
 JVM arguments. These changes mitigate risk without establishing exploit immunity.
-Compiled tests and actual app validation of updates, launches, and deferred
-cleanup are required before release; do not describe source review as completed
-runtime verification. See [MAINTAINING.md](MAINTAINING.md) for the maintenance
-contract.
+CI passed **35 compiled Rust tests** and built the Windows app plus both
+installers. Interactive managed-Java migration, launch, and deferred-cleanup
+smoke testing remains outstanding; do not describe CI or source review as
+completed runtime verification. See [MAINTAINING.md](MAINTAINING.md) for the
+maintenance contract.
 
 ## What's built — feature map
 

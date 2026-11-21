@@ -5,9 +5,9 @@ ByteLauncher is an independently maintained fork of `modrinth/code`. Its
 features and releases follow their own pace. Upstream remains available as a
 reference; there is no requirement to pull or merge each Modrinth release.
 
-The current source update adopts upstream **v0.23.4**. The latest published
-ByteLauncher release remains [**v0.22.0-fork**](https://github.com/LianJordaan/ByteLauncher/releases/tag/v0.22.0-fork).
-Updating source does not publish a new ByteLauncher release.
+The current source adopts upstream **v0.23.4**. The latest published ByteLauncher
+release is [**v0.23.4-fork.1**](https://github.com/LianJordaan/ByteLauncher/releases/tag/v0.23.4-fork.1).
+Upstream source syncing and release publication remain separate, manual actions.
 
 ## The patch set at a glance
 
@@ -127,9 +127,10 @@ shared user-data directory.
 Keep upstream v0.23.4's Java4Shell workaround (`-XX:-UseBASE64Intrinsics` for
 supported Java versions) effective **after custom JVM arguments**. Updating Java
 and retaining this workaround are security mitigations, not proof of exploit
-immunity. Run compiled tests and validate update, launch, and deferred-cleanup
-behavior in the app before publishing a release; source inspection alone does
-not establish that runtime validation has passed.
+immunity. CI passed **35 compiled Rust tests** and built the Windows standalone
+app and online/offline installers. Interactive managed-Java migration, launch,
+and deferred-cleanup smoke tests remain outstanding; source inspection and CI
+do not establish that runtime verification has passed.
 
 ## Enabling the bundled auto-updater (later)
 
